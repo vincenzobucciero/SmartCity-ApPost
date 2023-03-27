@@ -48,32 +48,45 @@
 <!-- Masthead-->
 <header class="masthead">
 
-    <div class="row"> <!-- Inizio Card-->
-        <c:forEach items="${list}" var="record"> <!--Ciclo FOR -->
-            <div class="my-5 card bg-light mx-auto" style="width: 20rem;">
-                <div class="card-body">
-                    <p class="text-muted mb-0 fs-4">
-                    <td>
-                            ${record.getNomeParcheggio()}
-                    </td>
-                    <hr>
-                    </p><!-- Fine Nome-->
-                    <h5 class="card-text">
-                        <td>
-                                ${record.getIndirizzo()}<br>
-                            Numero Posti: ${record.getNumPosti()}
-                        </td>
-                    </h5> <!-- Fine Indirizzo-->
-                    <div>
-                        <form action="InfoParkingServlet" method="post">
-                            <input type="hidden" name="idparking" value="${record.getIdParcheggio()}">
-                            <button type="submit" class="btn btn-primary"> Modifica</button>
-                        </form>
+        <div class="my-5 card text-light mx-auto" style="width: 70rem;
+                    background-image: url('img/imgCard/CardAdmin.jpg'); background-size: cover;">
+            <div class="card-title">
+                <h3 style="font-weight:bold; text-align:left;">
+                    Qui puoi visualizzare i tuoi parcheggi:
+                </h3>
+            </div>
+            <div class="row"> <!-- Inizio Card-->
+            <c:forEach items="${list}" var="record"> <!--Ciclo FOR -->
+                <div class="my-4 card bg-light mx-auto" style="width: 20rem;">
+                    <div class="card-body">
+                        <p class="text-muted mb-0 fs-3">
+                            <td>
+                                    ${record.getNomeParcheggio()}
+                            </td>
+                        <hr class="text-black">
+                        </p><!-- Fine Nome Parcheggio-->
+                        <h5 class="card-text-">
+                            <p class="text-black">
+                            <td>
+                                    ${record.getIndirizzo()}<br>
+                                Numero Posti: ${record.getNumPosti()}
+                            </td>
+                            </p>
+                        </h5> <!-- Fine Indirizzo&NumPosti-->
+                        <div>
+                            <form action="InfoParkingServlet" method="post">
+                                <input type="hidden" name="idparking" value="${record.getIdParcheggio()}">
 
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-outline-primary">Modifica</button>
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
-                </div>
-            </div><!-- Fine Card-->
-        </c:forEach>
+                </div><!-- Fine Card-->
+            </c:forEach>
+        </div>
     </div><!-- FINE SEZIONE CARD-->
 </header>
 

@@ -4550,6 +4550,7 @@ textarea.form-control-lg {
 
 .card-title {
     margin-bottom: 0.5rem;
+    padding: 1rem 1rem;
 }
 
 .card-subtitle {
@@ -11292,6 +11293,7 @@ html {
     height: 100%;
     scroll-padding-top: calc(4.5rem - 1px);
 }
+
 
 body {
     width: 100%;

@@ -78,8 +78,14 @@
                                         <input type="number" class="form-control" id="numPosti" name="numPosti"value="${parkingBean.getNumPosti()}">
                                     </div>
                                     <input type="hidden" name="id" value="${parkingBean.getIdParcheggio()}" >
-                                    <button  type="submit" class="btn btn-primary btn-lg"> Modifica </button>
+                                    <button  type="submit" class="btn btn-primary btn-lg "> Modifica </button>
                                 </form>
+                                <!--Per un messaggio di successo
+                                    <c:if test="${modifySuccess}">
+                                        <div class="alert alert-success" role="alert">
+                                            Hai appena modificato i dati del parcheggio
+                                        </div>
+                                    </c:if>-->
                             </div>
                         </div>
                     </c:when>

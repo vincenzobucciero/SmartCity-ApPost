@@ -1,4 +1,3 @@
-
 <%--
   Created by IntelliJ IDEA.
   User: carmine
@@ -7,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 
@@ -68,7 +68,9 @@
 
     <!--Qui importiamo lo script di google maps dove però
         andiamo a modificare la chiave API che abbiamo generato -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap">
+    </script>
 
     <!--INIZIO SEZIONE CARD-->
     <div class="row">
