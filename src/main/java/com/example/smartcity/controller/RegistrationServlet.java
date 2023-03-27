@@ -1,5 +1,6 @@
 package com.example.smartcity.controller;
 
+import com.example.smartcity.model.LoginDao;
 import com.example.smartcity.model.UsersBean;
 import com.example.smartcity.service.LogService;
 import jakarta.servlet.*;
@@ -30,7 +31,6 @@ public class RegistrationServlet extends HttpServlet {
         usersBean.setEmail(email);
         usersBean.setPassword(password);
 
-
         if (LogService.registration(usersBean)){
             HttpSession vecchiaSession = request.getSession();
 
@@ -45,7 +45,9 @@ public class RegistrationServlet extends HttpServlet {
             request.setAttribute("loggato",1);
             request.setAttribute("usersBean", usersBean);
             request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
-        } else {
+
+        }
+        else {
             request.getRequestDispatcher("registrazione.jsp").forward(request, response);
         }
     }

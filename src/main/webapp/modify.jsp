@@ -60,30 +60,25 @@
                                 <h3 class="title">
                                     Modifica i dati <br> del parcheggio
                                 </h3>
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" action="ModifyServlet" method="post">
                                     <div class="form-group">
-                                        <label name="nomeParcheggio">Nome parcheggio:</label>
-                                        <input type="text" class="form-control" name="nomeParcheggio"
-                                               value="${parkingBean.getNomeParcheggio()}" /><br />
+                                        <label name="nome">Nome parcheggio:</label>
+                                        <input type="text" class="form-control" name="nome" value="${parkingBean.getNomeParcheggio()}"><br />
                                     </div>
                                     <div class="form-group">
                                         <label name="indirizzo">Indirizzo:</label>
-                                        <input type="text" class="form-control" name="indirizzo"
-                                               value="${parkingBean.getIndirizzo()}" /><br />
+                                        <input type="text" class="form-control" name="indirizzo" value="${parkingBean.getIndirizzo()}"><br />
                                     </div>
                                     <div class="form-group">
                                         <label name="tariffa">Tariffa:</label>
-                                        <input type="number" class="form-control" id="tariffa" name="tariffa"
-                                               value="${parkingBean.getTariffa()}">
+                                        <input type="number" class="form-control" id="tariffa" name="tariffa" value="${parkingBean.getTariffa()}">
                                     </div>
                                     <div class="form-group">
                                         <label name="numPosti">Numero di posti:</label>
-                                        <input type="number" class="form-control" id="numPosti" name="numPosti"
-                                               value="${parkingBean.getNumPosti()}">
+                                        <input type="number" class="form-control" id="numPosti" name="numPosti"value="${parkingBean.getNumPosti()}">
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-lg">
-                                        Modifica
-                                    </button>
+                                    <input type="hidden" name="id" value="${parkingBean.getIdParcheggio()}" >
+                                    <button  type="submit" class="btn btn-primary btn-lg"> Modifica </button>
                                 </form>
                             </div>
                         </div>

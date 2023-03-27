@@ -6,13 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>ApPost-Admin Home</title>
+    <title>ApPost-Smart Parking</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="img/iconMoney.png" />
     <link rel="icon" type="image/x-icon" href="img/wallpaperCar.jpg" />
@@ -46,46 +47,39 @@
 
 <!-- Masthead-->
 <header class="masthead">
-    <div class="my-5 card bg-light mx-auto" style="width: 70rem;">    <!--Inizio Sezione Parcheggi-->
-        <h3 class="text-muted mb-0 fs-3 text-center">Questi sono i tuoi parcheggi:</h3>
-        <div class="row"> <!-- Inizio Card-->
-            <c:forEach items="${list}" var="record"> <!--Ciclo FOR -->
-                <div class="my-5 card bg-light mx-auto" style="width: 20rem;">
-                    <div class="card-body">
-                        <p class="text-muted mb-0 fs-4">
+
+    <div class="row"> <!-- Inizio Card-->
+        <c:forEach items="${list}" var="record"> <!--Ciclo FOR -->
+            <div class="my-5 card bg-light mx-auto" style="width: 20rem;">
+                <div class="card-body">
+                    <p class="text-muted mb-0 fs-4">
+                    <td>
+                            ${record.getNomeParcheggio()}
+                    </td>
+                    <hr>
+                    </p><!-- Fine Nome-->
+                    <h5 class="card-text">
                         <td>
-                                ${record.getNomeParcheggio()}
+                                ${record.getIndirizzo()}<br>
+                            Numero Posti: ${record.getNumPosti()}
                         </td>
-                        <hr>
-                        </p><!-- Fine Nome-->
-                        <h5 class="card-text">
-                            <td>
-                                    ${record.getIndirizzo()}<br>
-                                Id: ${record.getIdParcheggio()}<br>
-                                Numero posti: ${record.getNumPosti()}
-                            </td>
-                        </h5> <!-- Fine Indirizzo-->
-                        <!--Bottone Modifica -->
-                        <div>
-                            <form action="ModifyServlet" method="post">
-                                <input type="hidden" name="idparking" value="${record.getIdParcheggio()}">
-                                <button  class="btn btn-primary"> Modifica</button>
-                            </form>
-                        </div>
+                    </h5> <!-- Fine Indirizzo-->
+                    <div>
+                        <form action="InfoParkingServlet" method="post">
+                            <input type="hidden" name="idparking" value="${record.getIdParcheggio()}">
+                            <button type="submit" class="btn btn-primary"> Modifica</button>
+                        </form>
+
                     </div>
-                </div><!-- Fine Card-->
-            </c:forEach>
-        </div><!-- FINE SEZIONE CARD-->
-    </div> <!--Fine Sezione Parcheggi -->
+                </div>
+            </div><!-- Fine Card-->
+        </c:forEach>
+    </div><!-- FINE SEZIONE CARD-->
 </header>
 
 <!-- Footer-->
 <footer class="bg-light py-5">
-    <div class="container px-4 px-lg-5">
-        <div class="small text-center text-muted">
-            Copyright &copy; 2022 - Company Name
-        </div>
-    </div>
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
 </footer>
 
 <!-- Bootstrap core JS-->
