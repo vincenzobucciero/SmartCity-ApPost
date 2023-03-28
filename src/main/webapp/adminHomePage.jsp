@@ -48,13 +48,14 @@
 <!-- Masthead-->
 <header class="masthead">
 
-        <div class="my-5 card text-light mx-auto" style="width: 70rem;
-                    background-image: url('img/imgCard/CardAdmin.jpg'); background-size: cover;">
+        <!--Card di sfondo per i parcheggi-->
+        <!--<div class="my-5 card text-light mx-auto" style="width: 70rem;
+                    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 80%), url('img/imgCard/CardAdmin.jpg'); background-size: cover;">
             <div class="card-title">
                 <h3 style="font-weight:bold; text-align:left;">
                     Qui puoi visualizzare i tuoi parcheggi:
                 </h3>
-            </div>
+            </div>-->
             <div class="row"> <!-- Inizio Card-->
             <c:forEach items="${list}" var="record"> <!--Ciclo FOR -->
                 <div class="my-4 card bg-light mx-auto" style="width: 20rem;">
@@ -88,6 +89,14 @@
             </c:forEach>
         </div>
     </div><!-- FINE SEZIONE CARD-->
+
+
+    <div class="my-5 card text-black mx-auto" style="width: 60rem">
+        <div class="card-title">
+            <h4 style="font-weight:bold; text-align:left;">
+                Qui puoi visualizzare le statistiche:
+            </h4>
+    </div>
 </header>
 
 <!-- Footer-->
