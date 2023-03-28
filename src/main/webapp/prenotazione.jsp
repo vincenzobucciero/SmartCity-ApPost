@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -55,51 +56,57 @@
 <div class="form-bg">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="form-container">
+            <c:choose>
+                <c:when test="${prenotationBean != null}">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="form-container">
+                            <div class="form-icon"><i class="fa fa-user"></i></div> <!--2-->
+                                <h3 class="title">
+                                    Effettua la tua<br>prenotazione
+                                </h3>
+                            <form class="form-horizontal" action="PrenotationServlet" method="post">
+                                <!--Scelta dei parcheggi-->
+                                <!--<div class="form-group">
+                                    <label name="idParcheggio">Seleziona il parcheggio:</label>
+                                    <select class="form-control" id="idParcheggio" name="idParcheggio">
+                                        <option value="${prenotationBean.getNomeParcheggio()}>Seleziona un parcheggio</option>-->
+                                        <!--Ovviamente non funziona poiche non possiamo accedere al nome del parcheggio
+                                    </select>
+                                </div>-->
+                                <!--Email-->
+                                <div class="form-group">
+                                    <label for="email">Utente:</label>
+                                    <input type="text" class="form-control" id="email" name="email" value="${prenotationBean.getEmailUtente()}">
+                                </div>
+                                <!-- Data-->
+                                <div class="form-group">
+                                    <label name="dataPrenotazione">Inserire il giorno</label>
+                                    <input type="date" class="form-control" id="dataPrenotazione" name="dataPrenotazione" value="${prenotationBean.getDataPrenotazione()}" required>
+                                </div>
+                                <!--Orario-->
+                                <div class="form-group">
+                                    <label name="oraArrivo">Orario di arrivo:</label>
+                                    <input type="time" class="form-control" id="oraArrivo" name="oraArrivo" value="${prenotationBean.getOrarioInizio()}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label name="oraFine">Orario di arrivo:</label>
+                                    <input type="time" class="form-control" id="oraFine" name="oraFine" value="${prenotationBean.getOrarioFine()}" required>
+                                </div>
 
-                    <div class="form-icon"><i class="fa fa-user"></i></div> <!--2-->
-                    <h3 class="title">
-                        Effettua la tua<br>prenotazione
-                    </h3>
-                    <form class="form-horizontal" action="${pageContext.request.contextPath}/PrenotaServlet" method="post">
-                        <!--Scelta dei parcheggi-->
-                        <div class="form-group">
-                            <label for="idParcheggio">Seleziona il parcheggio:</label>
-                            <select class="form-control" id="idParcheggio" name="idParcheggio">
-                                <option value="">Seleziona un parcheggio</option>
-                                <c:forEach items="${list}" var="record">
-                                    <option value="${record.getIdParcheggio()}">${parcheggio.getNomeParcheggio()}
-                                    </option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <!-- Data-->
-                        <div class="form-group">
-                            <label for="dataInizio">Inserire il giorno</label>
-                            <input type="date" class="form-control" id="dataInizio" name="dataInizio" required>
-                        </div>
-                        <!--Orario-->
-                        <div class="form-group">
-                            <label for="dataFine">Orario di arrivo:</label>
-                            <input type="time" class="form-control" id="dataFine" name="dataFine" required>
-                        </div>
-                        <!--Targa-->
-                        <div class="form-group">
-                            <label for="targa">Targa:</label>
-                            <input type="text" class="form-control" id="targa" name="targa" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            Prenota
-                        </button>
-
-                    </form>
-
-
-                </div> <!--2-->
-            </div>
-        </div>
+                                <!--Targa-->
+                                <div class="form-group">
+                                    <label for="targa">Targa:</label>
+                                    <input type="text" class="form-control" id="targa" name="targa" value="${prenotationBean.getTarga()}"required>
+                                </div>
+                                <input type="hidden" name="id" value="${prenotationBean.getIdParcheggio()}" >
+                                <button  type="submit" class="btn btn-primary btn-lg "> Prenota </button>
+                            </form>
+                        </div> <!--2-->
+                    </div>
+            </c:when>
+        </c:choose>
     </div>
+</div>
 </div>
 </div>
 

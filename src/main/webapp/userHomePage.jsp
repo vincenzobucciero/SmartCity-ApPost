@@ -50,7 +50,7 @@
 <!-- Inizio MasterHead-->
 <header class="masthead">
     <div class="container">
-        <div class="my-5 card bg-dark mx-auto" style="width:70rem;">
+        <div class="my-5 card bg-dark mx-auto" style="width:60rem;">
             <div class="card">
                 <div class="card-body">
                     <p class="text-muted mb-0">Scegli il parcheggio:</p>
@@ -68,8 +68,7 @@
 
     <!--Qui importiamo lo script di google maps dove però
         andiamo a modificare la chiave API che abbiamo generato -->
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap">
     </script>
 
     <!--INIZIO SEZIONE CARD-->

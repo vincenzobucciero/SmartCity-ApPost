@@ -21,6 +21,7 @@ public class LoginDao {
 
     public static boolean controllaDB(String email,String password) {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT email, password FROM Utenti WHERE email = (?) AND password = (?)");
             stmt.setString(1, email);
@@ -29,6 +30,8 @@ public class LoginDao {
             return result.next();
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)
@@ -42,6 +45,7 @@ public class LoginDao {
 
     public static boolean controllaLogin(String email) {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT email FROM Utenti WHERE email = (?)");
             stmt.setString(1, email);
@@ -49,6 +53,8 @@ public class LoginDao {
             return result.next();
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)
@@ -64,6 +70,7 @@ public class LoginDao {
     public UsersBean getUserBean(String email){
         UsersBean usersBean = new UsersBean();
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM Utenti WHERE email = (?) ");
             stmt.setString(1, email);
@@ -76,6 +83,8 @@ public class LoginDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)

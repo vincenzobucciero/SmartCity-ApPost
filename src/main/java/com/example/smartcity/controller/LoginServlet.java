@@ -1,12 +1,10 @@
 package com.example.smartcity.controller;
 
-import com.example.smartcity.model.LoginDao;
-import com.example.smartcity.model.AccessoLogin;
+import com.example.smartcity.model.*;
 
-import com.example.smartcity.model.ParkingBean;
-import com.example.smartcity.model.UsersBean;
 import com.example.smartcity.service.LogService;
 import com.example.smartcity.service.ParkingService;
+import com.example.smartcity.service.PrenotationService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -57,6 +55,7 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("usersBean", usersBean);
                 request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
 
+
                 break;
             case SUCCESSO_ADMIN:
                 HttpSession vecchiaSessionAd = request.getSession();
@@ -67,7 +66,6 @@ public class LoginServlet extends HttpServlet {
                 HttpSession newSessionAd = request.getSession();
                 newSessionAd.setMaxInactiveInterval(10*60);
 
-                newSessionAd.setAttribute("usersBean",usersBean);
                 newSessionAd.setAttribute("isLog",2);
                 request.setAttribute("loggato",2);
 
