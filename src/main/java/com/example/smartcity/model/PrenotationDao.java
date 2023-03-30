@@ -26,6 +26,7 @@ public class PrenotationDao {
     public List<PrenotationBean> getPrenotazioni() {
         List<PrenotationBean> list = new ArrayList<PrenotationBean>();
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT ID_prenotazione,data_prenotazione,orario_inizio," +
                     "orario_fine,email_utente,ID_parcheggio,targaVeicolo  FROM Prenotazione");
@@ -45,6 +46,8 @@ public class PrenotationDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)
@@ -61,6 +64,7 @@ public class PrenotationDao {
     public PrenotationBean getPrenotationBean(int idPrenot) {
         PrenotationBean prenotationBean = new PrenotationBean();
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM Prenotazione WHERE ID_prenotazione = (?) "); //Forse pero si deve fare con l'emai dell'utente
             stmt.setInt(1, idPrenot);
@@ -77,6 +81,8 @@ public class PrenotationDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)
@@ -91,6 +97,7 @@ public class PrenotationDao {
     //Prenotazione
     public boolean addPrenotazione(PrenotationBean prenotationBean) {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT email_utente FROM Prenotazione WHERE email_utente = (?) ");
             stmt.setString(1, prenotationBean.getEmailUtente());
@@ -112,6 +119,8 @@ public class PrenotationDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)

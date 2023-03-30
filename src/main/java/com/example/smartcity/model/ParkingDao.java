@@ -21,6 +21,7 @@ public class ParkingDao {
     public List<ParkingBean> getParkings() {
         List<ParkingBean> list = new ArrayList<ParkingBean>();
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT ID_parcheggio, nomeParcheggio, indirizzo, numPosti FROM Parcheggio");
             ResultSet resultSet = stmt.executeQuery();
@@ -36,8 +37,9 @@ public class ParkingDao {
         }
         catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
             try {
                 if (con != null)
                     con.close();
@@ -52,6 +54,7 @@ public class ParkingDao {
     public ParkingBean getParkingBean(int id){
         ParkingBean parkingBean = new ParkingBean();
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM Parcheggio WHERE ID_parcheggio = (?) ");
             stmt.setInt(1, id);
@@ -64,6 +67,8 @@ public class ParkingDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)

@@ -19,6 +19,7 @@ public class ModifyDao {
     public void modifyTariffa(int id, double tariffa){
 
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET tariffa =(?) WHERE ID_parcheggio =(?)");
             stmt.setDouble(1,tariffa);
@@ -27,8 +28,9 @@ public class ModifyDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
             try {
                 if (con != null)
                     con.close();
@@ -41,6 +43,7 @@ public class ModifyDao {
 
     public void modifyNome(int id, String nome) {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET nomeParcheggio=(?) WHERE ID_parcheggio = (?)");
             stmt.setString(1, nome);
@@ -49,8 +52,9 @@ public class ModifyDao {
         }
         catch (SQLException e){
             e.printStackTrace();
-        }
-        finally {
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
             try{
                 if (con!=null)
                     con.close();
@@ -85,6 +89,8 @@ public class ModifyDao {
 
     public void modifyNumPosti(int id, int numPosti) {
         try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET numPosti=(?) WHERE ID_parcheggio = (?)");
             stmt.setDouble(1, numPosti);
@@ -93,8 +99,9 @@ public class ModifyDao {
         }
         catch (SQLException e){
             e.printStackTrace();
-        }
-        finally {
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
             try{
                 if (con!=null)
                     con.close();
