@@ -14,7 +14,7 @@ public class SearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        request.getRequestDispatcher("provaPath.jsp").forward(request,response);
+        request.getRequestDispatcher("findPath.jsp").forward(request,response);
 
 
     }

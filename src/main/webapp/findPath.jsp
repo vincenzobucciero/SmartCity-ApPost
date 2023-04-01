@@ -61,7 +61,7 @@
                 <div class="col-md-5 col-md-offset-5" style="width:50rem;">
                         <div class="card-body">
                             <div class="form-container">
-                                <form class="form-horizontal" action="PathServlet" method="post">
+                                <form class="form-horizontal" action="${pageContext.request.contextPath}/PathServlet" method="post">
                                     <div class="form-group">
                                         <label  name = "start">Partenza </label>
                                         <select required class= "form-control" name="start">
