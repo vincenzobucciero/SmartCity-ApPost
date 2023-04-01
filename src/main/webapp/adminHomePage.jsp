@@ -96,6 +96,7 @@
             <h4 style="font-weight:bold; text-align:left;">
                 Qui puoi visualizzare le statistiche:
             </h4>
+        </div>
     </div>
 </header>
 

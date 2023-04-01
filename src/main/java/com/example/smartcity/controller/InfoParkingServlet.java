@@ -14,7 +14,7 @@ public class InfoParkingServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
-        request.getRequestDispatcher("adminHomePage.jsp").forward(request,response);
+        request.getRequestDispatcher("adminHomePage.jsp").forward(request,response); //credo lo posso togliere
 
     }
 

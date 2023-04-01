@@ -1,4 +1,4 @@
-package com.example.smartcity.service.algoritmo;
+package com.example.smartcity.service.Algoritmo;
 
 import java.util.*;
 

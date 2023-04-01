@@ -1,5 +1,8 @@
-package com.example.smartcity.service.algoritmo;
+package com.example.smartcity.service.Algoritmo;
 
+import com.example.smartcity.model.ParkingBean;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestAlgoritmo {
@@ -27,12 +30,23 @@ public class TestAlgoritmo {
         }
 
         List<Nodo> path = aStar.ricercaPercorso();
+
+        List<ParkingBean> parcheggioDisp;
         for (Nodo node : path) {
-            System.out.println(node);
-            if(node.isPark()){
-                start.getNodoParkIndirizzo(node);
+            System.out.println(node);                               //per ogni nodo appartentente al percorso trovato da a*
+            if(node.isPark()){                                      //controllo se è un nodo parcheggio
+                parcheggioDisp = start.getNodoParkIndirizzo(node);  //se è vero allora cerco i parcheggi disponibili lungo il percorso
+                for (ParkingBean parking: parcheggioDisp) {         //e li stampo (n.b questo passo va nella jsp)
+                    System.out.println(parking.getNomeParcheggio());
+                    System.out.println(parking.getIndirizzo());
+                    System.out.println(parking.getNumPosti());
+
+                }
             }
         }
+
+
+
 
         //Search Area
         //      0   1   2   3   4   5   6

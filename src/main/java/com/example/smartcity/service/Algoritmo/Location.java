@@ -1,5 +1,6 @@
-package com.example.smartcity.service.algoritmo;
+package com.example.smartcity.service.Algoritmo;
 
+import com.example.smartcity.model.ParkingBean;
 import com.example.smartcity.model.ParkingDao;
 
 import java.util.*;
@@ -108,12 +109,36 @@ public class Location {
         return nodopark;
     }
 
-    public void getNodoParkIndirizzo(Nodo nodo){
+
+    public List<ParkingBean> getNodoParkIndirizzo(Nodo nodo){
+        List<ParkingBean> listaParcheggi = new ArrayList<>();
+
+        //per ogni nodo appartenente alla lista dei nodi parcheggi che ho istanziato controllo se è un nodo del percorso trovato
         for (Nodo nodop:nodopark) {
-            if(nodo.equals(nodop))
-                System.out.println("Parcheggio trovato alle coordinte " + nodop.getRow() + " " + nodop.getCol() + " indirizzo " + nodop.getIndirizzo());
+            if(nodo.equals(nodop)) {
+                //se la condizione è vera allora cerco i parcheggi associati a quel nodo
+                listaParcheggi = getParcheggiDisp(nodop);
+                // System.out.println("Parcheggio trovato alle coordinte " + nodop.getRow() + " " + nodop.getCol() + " indirizzo " + nodop.getIndirizzo());
+            }
+        }
+        return listaParcheggi;
+    }
+
+    public List<ParkingBean> getParcheggiDisp(Nodo nodoP){
+
+        List<ParkingBean> parkingBeanList = ParkingDao.getIstanza().getParkings();
+        List<ParkingBean> parkDisp = new ArrayList<>();
+
+        //per ogni parcheggio controllo che ci sia un nodo il cui indirizzo è uguale, in quel caso significa che ho trovato
+        //un nodo parcheggio e lo metto in una lista
+        for (ParkingBean parkingBean: parkingBeanList) {
+            if(parkingBean.getIndirizzo().equals(nodoP.getIndirizzo())) {
+                parkDisp.add(parkingBean);
+                System.out.println("Parcheggio disponibile: "+ parkingBean.getIndirizzo());
+            }
 
         }
+        return parkDisp;
     }
 
 

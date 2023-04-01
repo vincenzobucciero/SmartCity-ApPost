@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: carmine
@@ -78,7 +79,9 @@
                                                 <li class="d-flex justify-content-between">
                                                     <div class="d-flex flex-row align-items-center">
                                                         <div class="ml-2">
-                                                            <h6 class="mb-0">Kickoff meeting</h6>
+                                                            <h6 class="mb-0">
+                                                                Parcheggio 1
+                                                            </h6>
                                                             <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                                 <div>
                                                                     <i class="bi bi-calendar-week"></i>
@@ -118,8 +121,6 @@
                 </div>
             </div>
         </div>
-
-
     </header>
 
 

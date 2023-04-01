@@ -1,5 +1,5 @@
-<%@ page import="com.example.smartcity.service.algoritmo.Location" %>
-<%@ page import="com.example.smartcity.service.algoritmo.Nodo" %>
+<%@ page import="com.example.smartcity.service.Algoritmo.Location" %>
+<%@ page import="com.example.smartcity.service.Algoritmo.Nodo" %>
 <%--
   Created by IntelliJ IDEA.
   User: carmine
