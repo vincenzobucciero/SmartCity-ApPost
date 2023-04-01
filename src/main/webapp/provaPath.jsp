@@ -48,54 +48,54 @@
     </div>
 </nav>
 
-    <header class="masthead">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="my-5 card bg-light mx-auto" style="width:30rem;">
-                        <div class="card-body">
-                            <div id="map"></div> <!-- Qua esce la mappa-->
-                        </div>
+<header class="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="my-5 card bg-light mx-auto" style="width:30rem;">
+                    <div class="card-body">
+                        <div id="map"></div> <!-- Qua esce la mappa-->
                     </div>
                 </div>
-                <div class="col-md-5 col-md-offset-5" style="width:50rem;">
-                        <div class="card-body">
-                            <div class="form-container">
-                                <form class="form-horizontal" action="PathServlet" method="post">
-                                    <div class="form-group">
-                                        <label  name = "start">Partenza </label>
-                                        <select required class= "form-control" name="start">
-                                            <option value="">--select--</option>
-                                                <% Location start = new Location();
-                                                    for(Nodo nodo:start.getStart()){
-                                                %>
-                                                <option type="hidden" name="start" value="<%=nodo.getIndirizzo() %>>"> <%=nodo.getIndirizzo()%></option>
-                                                <%
-                                                    }%>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label name = "dest">Destinazione</label>
-                                        <select required class= "form-control" name="dest">
-                                            <option value="">--select--</option>
-                                                <%
-                                                    for(Nodo nodo:start.getEnd()){
-                                                %>
-                                                <option type="hidden" name="dest" value="<%=nodo.getIndirizzo() %>>"> <%=nodo.getIndirizzo()%></option>
-                                                <%
-                                                    }%>
-                                        </select>
-                                    </div>
-                                    <input type="hidden" name="id">
-                                    <button type="submit" class="btn btn-primary btn-lg ">Cerca Percorso</button>
-                                </form>
-                        </div>
-                        </div>
+            </div>
+            <div class="col-md-5 col-md-offset-5" style="width:50rem;">
+                <div class="card-body">
+                    <div class="form-container">
+                        <form class="form-horizontal" action="${pageContext.request.contextPath}/PathServlet" method="post">
+                            <div class="form-group">
+                                <label  name = "start">Partenza </label>
+                                <select required class= "form-control" name="start">
+                                    <option value="">--select--</option>
+                                    <% Location start = new Location();
+                                        for(Nodo nodo:start.getStart()){
+                                    %>
+                                    <option type="hidden" name="start" value="<%=nodo.getIndirizzo() %>>"> <%=nodo.getIndirizzo()%></option>
+                                    <%
+                                        }%>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label name = "dest">Destinazione</label>
+                                <select required class= "form-control" name="dest">
+                                    <option value="">--select--</option>
+                                    <%
+                                        for(Nodo nodo:start.getEnd()){
+                                    %>
+                                    <option type="hidden" name="dest" value="<%=nodo.getIndirizzo() %>>"> <%=nodo.getIndirizzo()%></option>
+                                    <%
+                                        }%>
+                                </select>
+                            </div>
+                            <input type="hidden" name="id">
+                            <button type="submit" class="btn btn-primary btn-lg ">Cerca Percorso</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap"></script>
-    </header>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap"></script>
+</header>
 
 
 <!--Footer-->

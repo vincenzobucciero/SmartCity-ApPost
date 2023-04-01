@@ -20,8 +20,6 @@ public class ModifyServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        //boolean modifySuccess = false;
-
         int id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
         String indirizzo = request.getParameter("indirizzo");
@@ -33,9 +31,7 @@ public class ModifyServlet extends HttpServlet {
         ModifyService.modifyIndirizzo(id, indirizzo);
         ModifyService.modifyTariffa(id, Double.parseDouble(tariffa));
         ModifyService.modifyNumPosti(id, Integer.parseInt(numPosti));
-        //modifySuccess = true;
 
-        //request.setAttribute("modifySuccess", modifySuccess);
         request.getRequestDispatcher("modify.jsp").forward(request, response);
 
 
