@@ -69,7 +69,7 @@
                                                 <% Location start = new Location();
                                                     for(Nodo nodo:start.getStart()){
                                                 %>
-                                                <option type="hidden" name="start" value="<%=nodo.getIndirizzo() %>>"> <%=nodo.getIndirizzo()%></option>
+                                                <option type="hidden" name="start" value="<%=nodo.getIndirizzo() %>"> <%=nodo.getIndirizzo()%></option>
                                                 <%
                                                     }%>
                                         </select>
@@ -81,7 +81,7 @@
                                                 <%
                                                     for(Nodo nodo:start.getEnd()){
                                                 %>
-                                                <option type="hidden" name="dest" value="<%=nodo.getIndirizzo() %>>"> <%=nodo.getIndirizzo()%></option>
+                                                <option type="hidden" name="dest" value="<%=nodo.getIndirizzo() %>"> <%=nodo.getIndirizzo()%></option>
                                                 <%
                                                     }%>
                                         </select>
