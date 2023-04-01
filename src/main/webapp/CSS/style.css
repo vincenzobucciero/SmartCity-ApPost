@@ -67,7 +67,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1172,7 +1172,7 @@ progress {
 
     .col-md-5 {
         flex: 0 0 auto;
-        width: 41.66666667%;
+        width: 31.66666667%;
     }
 
     .col-md-6 {

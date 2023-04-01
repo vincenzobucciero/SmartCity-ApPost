@@ -1,6 +1,7 @@
 package com.example.smartcity.service.algoritmo;
 
 import java.util.*;
+
 public class AStar {
 
     private static int DEFAULT_HV_COST = 10; // Costo Orizzontale e Verticale
@@ -15,7 +16,7 @@ public class AStar {
     private Nodo nodoIniziale;
     private Nodo nodoFinale;
 
-    private Nodo nodoParkeggio;
+    private Nodo nodoParcheggio;
 
     /*
         Il codice fornisce due costruttori per la classe AStar:
@@ -104,8 +105,10 @@ public class AStar {
             Nodo nodoCorrente = openList.poll();
             closedSet.add(nodoCorrente);
             if (isFinalNode(nodoCorrente)) {
+                //Location loc = new Location();
+                //loc.setParkIndirizzo();
                 return getPercorso(nodoCorrente);
-            } else {
+            }  else {
                 addNodiAdiacente(nodoCorrente);
             }
         }
@@ -243,6 +246,7 @@ public class AStar {
     }
 
 
+
     //Metodi di Set& Get
     private void setBlock(int row, int col) {
         this.searchArea[row][col].setBlock(true);
@@ -317,11 +321,12 @@ public class AStar {
         this.nodoFinale = nodoFinale;
     }
 
-    public Nodo getNodoParkeggio() {
-        return nodoParkeggio;
+
+    public Nodo getNodoParcheggio() {
+        return nodoParcheggio;
     }
 
-    public void setNodoParkeggio(Nodo nodoParkeggio) {
-        this.nodoParkeggio = nodoParkeggio;
+    public void setNodoParcheggio(Nodo nodoParcheggio) {
+        this.nodoParcheggio = nodoParcheggio;
     }
 }

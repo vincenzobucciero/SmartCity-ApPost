@@ -1,6 +1,4 @@
 package com.example.smartcity.service.algoritmo;
-
-
 public class Nodo {
     private int g, f, h , row, col;
     private boolean isBlock;
@@ -8,8 +6,6 @@ public class Nodo {
     private Nodo parent;
 
     private String indirizzo;
-
-    private String indirizzoParcheggio;
 
 
     //Costruttore
@@ -159,11 +155,4 @@ public class Nodo {
     }
 
 
-    public String getIndirizzoParcheggio() {
-        return indirizzoParcheggio;
-    }
-
-    public void setIndirizzoParcheggio(String indirizzoParcheggio) {
-        this.indirizzoParcheggio = indirizzoParcheggio;
-    }
 }

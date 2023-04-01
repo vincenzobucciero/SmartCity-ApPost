@@ -1,12 +1,8 @@
 package com.example.smartcity.service.algoritmo;
 
-import com.example.smartcity.model.LoginDao;
-import com.example.smartcity.model.ParkingBean;
 import com.example.smartcity.model.ParkingDao;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.*;
 public class Location {
 
     private List<Nodo> start = new ArrayList<>();
@@ -55,16 +51,11 @@ public class Location {
 
     public int[][] setParking(){
         //int[][] blocksParking = new int[][]{{0,2}, {0,3}, {1,4}};
-
         //List<ParkingBean> parking = ParkingDao.getIstanza().;
 
         Nodo park1 = new Nodo(0,2);
         Nodo park2 = new Nodo(0,3);
         Nodo park3 = new Nodo(1,4);
-
-        //park1.setIndirizzoParcheggio(ParkingDao.getIstanza().getParkingBean(1).getIndirizzo());
-        //park2.setIndirizzoParcheggio(ParkingDao.getIstanza().getParkingBean(2).getIndirizzo());
-        //park3.setIndirizzoParcheggio(ParkingDao.getIstanza().getParkingBean(3).getIndirizzo());
 
         nodopark.add(park1);
         nodopark.add(park2);
@@ -75,20 +66,18 @@ public class Location {
                 {park2.getRow(), park2.getCol()},
                 {park3.getRow(),park3.getCol()}};
 
-        setParkIndirizzo();
-
+        this.setParkIndirizzo();
         return blocksParking;
     }
 
-   public void setParkIndirizzo(){
+    public void setParkIndirizzo(){
         int i = 1;
-       ParkingDao parkingDao = ParkingDao.getIstanza();
+        ParkingDao parkingDao = ParkingDao.getIstanza();
 
-       for (Nodo nodo: nodopark) {
-           nodo.setIndirizzoParcheggio(parkingDao.getParkingBean(i).getIndirizzo());
-           System.out.println("riga: " + nodo.getRow() + " colonna: "+ nodo.getCol()+ " indirizzo:" + nodo.getIndirizzoParcheggio());
-           i++;
-       }
+        for (Nodo nodo: nodopark) {
+            nodo.setIndirizzo(parkingDao.getParkingBean(i).getIndirizzo());
+            i++;
+        }
     }
 
 
@@ -112,12 +101,20 @@ public class Location {
         return null;
     }
 
+    public List<Nodo> getStart(){ return start;}
 
+    public List<Nodo> getEnd(){return end;}
     public List<Nodo> getNodopark(){
         return nodopark;
     }
 
-    //public String getNodoParkIndirizzo()...
+    public void getNodoParkIndirizzo(Nodo nodo){
+        for (Nodo nodop:nodopark) {
+            if(nodo.equals(nodop))
+                System.out.println("Parcheggio trovato alle coordinte " + nodop.getRow() + " " + nodop.getCol() + " indirizzo " + nodop.getIndirizzo());
+
+        }
+    }
 
 
 }

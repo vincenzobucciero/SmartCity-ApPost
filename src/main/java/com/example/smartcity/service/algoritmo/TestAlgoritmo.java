@@ -1,14 +1,11 @@
 package com.example.smartcity.service.algoritmo;
 
-import com.example.smartcity.model.LoginDao;
-import com.example.smartcity.model.ParkingBean;
-import com.example.smartcity.model.ParkingDao;
-
 import java.util.List;
 
 public class TestAlgoritmo {
     public static void main(String[] args) {
         Location start = new Location();
+
 
         //qua è quello che deve comparire all'utente
         Nodo initialNode = start.chooseStart("San Giorgio");
@@ -26,15 +23,14 @@ public class TestAlgoritmo {
 
         List<Nodo> nodo = start.getNodopark();
         for (Nodo nodoPark: nodo) {
-            aStar.setNodoParkeggio(nodoPark);
+            aStar.setNodoParcheggio(nodoPark);
         }
 
         List<Nodo> path = aStar.ricercaPercorso();
-            for (Nodo node : path) {
+        for (Nodo node : path) {
             System.out.println(node);
             if(node.isPark()){
-                System.out.println("Parcheggio trovato alle coordinte " + node.getRow() + " " + node.getCol() + " indirizzo " + node.getIndirizzoParcheggio());
-                //start.setParkIndirizzo();
+                start.getNodoParkIndirizzo(node);
             }
         }
 
