@@ -79,7 +79,7 @@
                                 </select>
                             </div>
                             <input type="hidden" name="id">
-                            <a class="btn btn-primary btn-lg" href="ViewPathServlet">Cerca Percorso</a>
+                            <a class="btn btn-primary btn-lg text-white" href="ProvaServlet">Cerca Percorso</a>
                         </form>
                     </div>
                 </div>

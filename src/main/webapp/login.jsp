@@ -70,7 +70,7 @@
                             <label>password</label>
                             <input name="password" class="form-control" type="password" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-default">Entra</button>
+                        <button type="submit" class="btn btn-primary btn-lg text-white">Entra</button>
                         <div class="text-center">
                             <a href="registrazione.jsp" class="text-secondary">Registrati ora</a>
                         </div>

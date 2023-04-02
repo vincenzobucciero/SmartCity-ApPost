@@ -59,10 +59,12 @@ public class PathServlet extends HttpServlet {
         }
 
         List<Nodo> path = aStar.ricercaPercorso();
+        List<ParkingBean> parcheggioDisp = ParkingDao.getIstanza().getParkings();
         for (Nodo node : path) {
             System.out.println(node);
             if(node.isPark()){
                 start.getNodoParkIndirizzo(node);
+                parcheggioDisp = start.getNodoParkIndirizzo(node);
             }
         }
 
@@ -74,7 +76,7 @@ public class PathServlet extends HttpServlet {
             }
         }*/
 
-        List<ParkingBean> parcheggioDisp = ParkingDao.getIstanza().getParkings();
+        /*List<ParkingBean> parcheggioDisp = ParkingDao.getIstanza().getParkings();
         for (Nodo node: path){
             System.out.println(node);
             if (node.isPark()){
@@ -84,14 +86,15 @@ public class PathServlet extends HttpServlet {
                     System.out.println(parking.getNomeParcheggio());
                     System.out.println(parking.getIndirizzo());
                     System.out.println(parking.getNumPosti());
-                }*/
+                }
             }
         }
+        */
 
+        request.setAttribute("parcheggioDisp",parcheggioDisp);
+        request.getRequestDispatcher("risultati.jsp").forward(request,response);
 
-        //request.getRequestDispatcher("parking",parcheggioDisp); ???????
-
-        response.sendRedirect("findPath.jsp");
+        //response.sendRedirect("risultati.jsp");
 
         /*request.setAttribute("parcheggi",start.getNodopark()); //Gli ho passato il nodo iniziale
         request.getRequestDispatcher("risultati.jsp").forward(request,response);

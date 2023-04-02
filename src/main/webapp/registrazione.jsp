@@ -78,7 +78,7 @@
                             <label>password</label>
                             <input name="password" class="form-control" id="password" type="password" placeholder="es. password123" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg">Registrati</button>
+                        <button type="submit" class="btn btn-primary btn-lg text-white">Registrati</button>
                     </form>
                 </div>
             </div>

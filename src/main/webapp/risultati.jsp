@@ -18,17 +18,14 @@
 
 <header>
     <div class="row"> <!-- Inizio Card-->
-        <c:forEach items="${parcheggioDisp}" var="parcheggioDisp"> <!--Ciclo FOR -->
-            <div class="my-4 card bg-light mx-auto" style="width: 20rem;">
+        <c:forEach items="${parcheggioDisp}" var="parcheggioDisp">
+            <div class="card">
                 <div class="card-body">
-                    <p class="text-muted mb-0 fs-3">
-                    <td>
-                            ${parcheggioDisp.getNomeParcheggio()}
-                    </td>
-                    <hr class="text-black">
-                    </p><!-- Fine Nome Parcheggio-->
+                    <h5 class="card-title">${parcheggioDisp.getNomeParcheggio()}</h5>
+                    <p class="card-text">${parcheggioDisp.getIndirizzo()}</p>
+                    <p class="card-text">${parcheggioDisp.getNumPosti()}</p>
                 </div>
-            </div><!-- Fine Card-->
+            </div>
         </c:forEach>
     </div>
     </div><!-- FINE SEZIONE CARD-->
