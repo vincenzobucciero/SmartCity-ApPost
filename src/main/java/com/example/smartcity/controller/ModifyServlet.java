@@ -26,14 +26,11 @@ public class ModifyServlet extends HttpServlet {
         String tariffa = request.getParameter("tariffa");
         String numPosti = request.getParameter("numPosti");
 
-
         ModifyService.modifyNome(id, nome);
         ModifyService.modifyIndirizzo(id, indirizzo);
         ModifyService.modifyTariffa(id, Double.parseDouble(tariffa));
         ModifyService.modifyNumPosti(id, Integer.parseInt(numPosti));
-
         request.getRequestDispatcher("modify.jsp").forward(request, response);
-
 
     }
 }

@@ -11,20 +11,19 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession(false);
         int isLog = 0;
-
         if (session == null){
             session = request.getSession();
             session.setAttribute("isLog",0);
-
+        } else {
+            isLog = (int) session.getAttribute("isLog");
         }
-        else {
-            isLog = (int)session.getAttribute("isLog");
-        }
+        request.setAttribute("loggato",isLog);
         response.setContentType("text/html");
         request.setAttribute("users", "LogIn");
-        request.setAttribute("loggato",isLog);
-        request.getRequestDispatcher("homepage.jsp").forward(request,response);
+        request.getRequestDispatcher("userHomePage.jsp").forward(request,response);
     }
+
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
     }

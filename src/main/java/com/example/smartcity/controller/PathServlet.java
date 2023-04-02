@@ -61,8 +61,10 @@ public class PathServlet extends HttpServlet {
             }
         }
 
-        request.setAttribute("path", path);
         response.sendRedirect("findPath.jsp");
 
+
+
     }
+
 }

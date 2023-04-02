@@ -1,8 +1,8 @@
 .demo{ background: #F2F2F2; }
 .form-container{
     background: #ecf0f3;
-    font-family: 'Nunito', sans-serif;
-    padding: 40px;
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
     border-radius: 20px;
     position: static;
 }

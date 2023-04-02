@@ -4,7 +4,6 @@ import com.example.smartcity.model.*;
 
 import com.example.smartcity.service.LogService;
 import com.example.smartcity.service.ParkingService;
-import com.example.smartcity.service.PrenotationService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -26,10 +25,18 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        UsersBean usersBean = LoginDao.getIstanza().getUserBean(email);
+        //String idparking = request.getParameter("idparking");
 
-        AccessoLogin accessoLogin = LogService.logHandler(email,password);
-        switch (accessoLogin) {
+        //LoginDao loginDao = new LoginDao();
+        //AccessoLogin accessoLogIn = loginDao.logIn(username, password);
+
+        UsersBean usersBean = LoginDao.getIstanza().getUserBean(email);
+        //ParkingBean parkingBean = ParkingDao.getIstanza().getParkingBean(1);
+
+
+        AccessoLogin accessoLogIn = LogService.logHandler(email,password);
+
+        switch (accessoLogIn) {
             case UTENTE_INESISTENTE:
                 request.setAttribute("stato", "UTENTE_INESISTENTE");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -45,17 +52,14 @@ public class LoginServlet extends HttpServlet {
                     vecchiaSession.invalidate();
                 }
                 HttpSession newSession = request.getSession();
-                newSession.setMaxInactiveInterval(10*60);
+                newSession.setMaxInactiveInterval(20*60);
 
                 newSession.setAttribute("usersBean",usersBean);
-                newSession.setAttribute("isLog",1);
+                newSession.setAttribute("isLog",1);     //1 = sono un utente normale
                 request.setAttribute("loggato",1);
-
                 request.setAttribute("stato", "SUCCESSO");
                 request.setAttribute("usersBean", usersBean);
                 request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
-
-
                 break;
             case SUCCESSO_ADMIN:
                 HttpSession vecchiaSessionAd = request.getSession();
@@ -64,16 +68,16 @@ public class LoginServlet extends HttpServlet {
                     vecchiaSessionAd.invalidate();
                 }
                 HttpSession newSessionAd = request.getSession();
-                newSessionAd.setMaxInactiveInterval(10*60);
+                newSessionAd.setMaxInactiveInterval(20*60);
 
-                newSessionAd.setAttribute("isLog",2);
+                //newSessionAd.setAttribute("parkingBean",parkingBean);
+                newSessionAd.setAttribute("isLog",2);       //2 = sono un admin
                 request.setAttribute("loggato",2);
-
                 request.setAttribute("stato", "SUCCESSO");
+
                 List<ParkingBean> list = ParkingService.getAllParkings();
                 request.setAttribute("list", list);
                 request.getRequestDispatcher("adminHomePage.jsp").forward(request, response);
-
                 break;
             default:
                 request.setAttribute("stato", "ERRORE");

@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="form-container">
-                    <div class="form-icon"><i class="fa fa-user"></i></div>
+                    <div class="form-icon"><i class="bi bi-person-circle"></i></div>
                     <h3 class="title">Crea un account</h3>
                     <form class="form-horizontal" action="${pageContext.request.contextPath}/registration" method="post">
                         <div class="form-group">
