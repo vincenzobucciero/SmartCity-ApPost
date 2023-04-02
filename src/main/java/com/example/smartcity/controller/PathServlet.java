@@ -89,7 +89,7 @@ public class PathServlet extends HttpServlet {
         }
 
 
-        request.getRequestDispatcher("parking",parcheggioDisp);
+        //request.getRequestDispatcher("parking",parcheggioDisp); ???????
 
         response.sendRedirect("findPath.jsp");
 
