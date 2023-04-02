@@ -1,7 +1,7 @@
 package com.example.smartcity.controller;
-import com.example.smartcity.service.Algoritmo.AStar;
-import com.example.smartcity.service.Algoritmo.Location;
-import com.example.smartcity.service.Algoritmo.Nodo;
+import com.example.smartcity.Algoritmo.AStar;
+import com.example.smartcity.Algoritmo.Location;
+import com.example.smartcity.Algoritmo.Nodo;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -13,11 +13,16 @@ public class PathServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+
+        System.out.println("Sono in Path Servlet");
+
+
         Location start = new Location();
 
         String startIndirizzo = request.getParameter("start");
@@ -61,9 +66,9 @@ public class PathServlet extends HttpServlet {
             }
         }
 
+        System.out.println("Sono sempre in path");
+
         response.sendRedirect("findPath.jsp");
-
-
 
     }
 

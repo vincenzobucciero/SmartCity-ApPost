@@ -1,8 +1,7 @@
-package com.example.smartcity.service.Algoritmo;
+package com.example.smartcity.Algoritmo;
 
 import com.example.smartcity.model.ParkingBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TestAlgoritmo {

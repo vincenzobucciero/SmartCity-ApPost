@@ -1,8 +1,5 @@
 package com.example.smartcity.controller;
 
-import com.example.smartcity.model.UsersBean;
-import com.example.smartcity.service.Algoritmo.Location;
-import com.example.smartcity.service.Algoritmo.Nodo;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -14,7 +11,11 @@ public class SearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
+        System.out.println("Sono nella servlet");
+
         request.getRequestDispatcher("findPath.jsp").forward(request,response);
+
+        System.out.println("Sono dopo findPath");
 
     }
 
