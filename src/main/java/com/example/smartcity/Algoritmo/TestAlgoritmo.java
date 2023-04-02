@@ -36,6 +36,7 @@ public class TestAlgoritmo {
             if(node.isPark()){                                      //controllo se è un nodo parcheggio
                 parcheggioDisp = start.getNodoParkIndirizzo(node);  //se è vero allora cerco i parcheggi disponibili lungo il percorso
                 for (ParkingBean parking: parcheggioDisp) {         //e li stampo (n.b questo passo va nella jsp)
+                    System.out.println("Stong caaa");
                     System.out.println(parking.getNomeParcheggio());
                     System.out.println(parking.getIndirizzo());
                     System.out.println(parking.getNumPosti());

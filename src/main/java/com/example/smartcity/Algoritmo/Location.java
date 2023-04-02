@@ -134,7 +134,7 @@ public class Location {
         for (ParkingBean parkingBean: parkingBeanList) {
             if(parkingBean.getIndirizzo().equals(nodoP.getIndirizzo())) {
                 parkDisp.add(parkingBean);
-                System.out.println("Parcheggio disponibile: "+ parkingBean.getIndirizzo());
+                System.out.println("\nParcheggio disponibile: \n"+ parkingBean.getIndirizzo());
             }
 
         }

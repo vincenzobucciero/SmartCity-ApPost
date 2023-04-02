@@ -79,7 +79,7 @@
                                 </select>
                             </div>
                             <input type="hidden" name="id">
-                            <button type="submit" class="btn btn-primary btn-lg ">Cerca Percorso</button>
+                            <a class="btn btn-primary btn-lg" href="ViewPathServlet">Cerca Percorso</a>
                         </form>
                     </div>
                 </div>
@@ -89,8 +89,6 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap"></script>
 </header>
 
-
-<!--Footer-->
 <!-- Footer-->
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">

@@ -2,6 +2,9 @@ package com.example.smartcity.controller;
 import com.example.smartcity.Algoritmo.AStar;
 import com.example.smartcity.Algoritmo.Location;
 import com.example.smartcity.Algoritmo.Nodo;
+import com.example.smartcity.model.ParkingBean;
+import com.example.smartcity.model.ParkingDao;
+import com.example.smartcity.model.UsersBean;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -19,9 +22,6 @@ public class PathServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-
-        System.out.println("Sono in Path Servlet");
-
 
         Location start = new Location();
 
@@ -66,9 +66,38 @@ public class PathServlet extends HttpServlet {
             }
         }
 
-        System.out.println("Sono sempre in path");
+        /*List<ParkingBean> parcheggioDisp = ParkingDao.getIstanza().getParkings();
+        for (Nodo node : path) {
+            System.out.println(node);
+            if (node.isPark()) {
+                parcheggioDisp.add((ParkingBean) start.getNodoParkIndirizzo(node));
+            }
+        }*/
+
+        List<ParkingBean> parcheggioDisp = ParkingDao.getIstanza().getParkings();
+        for (Nodo node: path){
+            System.out.println(node);
+            if (node.isPark()){
+                parcheggioDisp = start.getNodoParkIndirizzo(node);
+                /*for (ParkingBean parking: parcheggioDisp){
+                    System.out.println("SEEEEEE");
+                    System.out.println(parking.getNomeParcheggio());
+                    System.out.println(parking.getIndirizzo());
+                    System.out.println(parking.getNumPosti());
+                }*/
+            }
+        }
+
+
+        request.getRequestDispatcher("parking",parcheggioDisp);
 
         response.sendRedirect("findPath.jsp");
+
+        /*request.setAttribute("parcheggi",start.getNodopark()); //Gli ho passato il nodo iniziale
+        request.getRequestDispatcher("risultati.jsp").forward(request,response);
+        */
+
+        System.out.println("Sono nella pathServlet");
 
     }
 
