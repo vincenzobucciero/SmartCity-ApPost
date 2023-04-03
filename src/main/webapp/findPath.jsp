@@ -1,4 +1,6 @@
-<%@page import="com.example.smartcity.Algoritmo.*" %>
+<%@ page import="com.example.smartcity.Algoritmo.Location" %>
+<%@ page import="com.example.smartcity.Algoritmo.Nodo" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -53,7 +55,7 @@
             <div class="col-md-5 col-md-offset-5" style="width:50rem;">
                 <div class="card-body">
                     <div class="form-container">
-                        <form class="form-horizontal" action="${pageContext.request.contextPath}/PathServlet" method="post">
+                        <form class="form-horizontal" action="PathServlet" method="post">
                             <div class="form-group">
                                 <label  name = "start">Partenza </label>
                                 <select required class= "form-control" name="start">
@@ -78,8 +80,9 @@
                                         }%>
                                 </select>
                             </div>
-                            <input type="hidden" name="id">
-                            <a class="btn btn-primary btn-lg text-white" href="ProvaServlet">Cerca Percorso</a>
+                            <div>
+                                <button type="submit" class="btn btn-outline-primary text-white">Cerca Percorso</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -89,6 +92,8 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap"></script>
 </header>
 
+
+<!--Footer-->
 <!-- Footer-->
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">

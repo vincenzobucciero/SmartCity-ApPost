@@ -4,11 +4,12 @@ import com.example.smartcity.Algoritmo.Location;
 import com.example.smartcity.Algoritmo.Nodo;
 import com.example.smartcity.model.ParkingBean;
 import com.example.smartcity.model.ParkingDao;
-import com.example.smartcity.model.UsersBean;
+import com.example.smartcity.service.ParkingService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "PathServlet", value = "/PathServlet")
@@ -16,14 +17,11 @@ public class PathServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-
-        Location start = new Location();
 
         String startIndirizzo = request.getParameter("start");
         String endIndirizzo = request.getParameter("dest");
@@ -40,10 +38,10 @@ public class PathServlet extends HttpServlet {
         currentSession.setAttribute("dest",endIndirizzo);
         currentSession.setMaxInactiveInterval(5*60);
 
+        Location start = new Location();
 
         Nodo initialNode = start.chooseStart(startIndirizzo);
         Nodo finalNode = start.chooseEnd(endIndirizzo);
-
         int rows = 6;
         int cols = 7;
 
@@ -55,52 +53,28 @@ public class PathServlet extends HttpServlet {
 
         List<Nodo> nodo = start.getNodopark();
         for (Nodo nodoPark: nodo) {
+            System.out.println("Parcheggi situati in: " + nodoPark.getIndirizzo());
             aStar.setNodoParcheggio(nodoPark);
         }
 
+
+        List<ParkingBean> parcheggioDisp = new ArrayList<>();
         List<Nodo> path = aStar.ricercaPercorso();
-        List<ParkingBean> parcheggioDisp = ParkingDao.getIstanza().getParkings();
         for (Nodo node : path) {
             System.out.println(node);
-            if(node.isPark()){
-                start.getNodoParkIndirizzo(node);
-                parcheggioDisp = start.getNodoParkIndirizzo(node);
+            if(node.isPark() && start.getNodoParkIndirizzo(node) != null){
+                System.out.println("dentro");
+                parcheggioDisp.add(start.getNodoParkIndirizzo(node));
+                System.out.println("parcheggio size " + parcheggioDisp.size());
             }
         }
 
-        /*List<ParkingBean> parcheggioDisp = ParkingDao.getIstanza().getParkings();
-        for (Nodo node : path) {
-            System.out.println(node);
-            if (node.isPark()) {
-                parcheggioDisp.add((ParkingBean) start.getNodoParkIndirizzo(node));
-            }
-        }*/
-
-        /*List<ParkingBean> parcheggioDisp = ParkingDao.getIstanza().getParkings();
-        for (Nodo node: path){
-            System.out.println(node);
-            if (node.isPark()){
-                parcheggioDisp = start.getNodoParkIndirizzo(node);
-                /*for (ParkingBean parking: parcheggioDisp){
-                    System.out.println("SEEEEEE");
-                    System.out.println(parking.getNomeParcheggio());
-                    System.out.println(parking.getIndirizzo());
-                    System.out.println(parking.getNumPosti());
-                }
-            }
-        }
-        */
-
-        request.setAttribute("parcheggioDisp",parcheggioDisp);
-        request.getRequestDispatcher("risultati.jsp").forward(request,response);
-
-        //response.sendRedirect("risultati.jsp");
-
-        /*request.setAttribute("parcheggi",start.getNodopark()); //Gli ho passato il nodo iniziale
-        request.getRequestDispatcher("risultati.jsp").forward(request,response);
-        */
-
-        System.out.println("Sono nella pathServlet");
+        request.setAttribute("start",startIndirizzo);
+        request.setAttribute("dest",endIndirizzo);
+        int size = parcheggioDisp.size();
+        request.setAttribute("size",size);
+        request.setAttribute("parcheggioDisp", parcheggioDisp);
+        request.getRequestDispatcher("prenotaParcheggio.jsp").forward(request,response);
 
     }
 

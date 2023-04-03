@@ -52,11 +52,12 @@
 <header class="masthead">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="my-5 card bg-light mx-auto" style="width:60rem;">
+            <div class="col-sm-5">
+                <div class="my-5 card bg-light mx-auto" style="width:50rem;">
                     <div class="card-body">
                         <h5 class="text-muted">
-                            Questi sono i parcheggi disponibili per il tuo percorso:
+                            Questi sono i parcheggi disponibili per il percorso scelto <br>
+                            (Da ${start} a ${dest}):
                         </h5>
 
                         <!-- Qui inizia il div per la lista dei parcheggi-->
@@ -65,9 +66,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="d-flex justify-content-between align-items-center activity">
-                                        <!--<div><i class="fa fa-clock-o"></i><span class="ml-2">11h 25m</span></div>-->
+                                        <div><i class="fa fa-clock-o"></i><span class="ml-2">11h 25m</span></div>
                                         <div>
-                                            <span class="activity-done">Parcheggi(1)</span>
+                                            <span class="activity-done">Parcheggi(${size})</span>
                                         </div>
                                         <div class="icons">
                                             <i class="bi bi-search"></i>
@@ -75,12 +76,15 @@
                                         </div>
                                     </div>
                                     <div class="mt-3">
+                                        <c:forEach items="${parcheggioDisp}" var="record"> <!--Ciclo FOR -->
                                         <ul class="list list-inline">
                                             <li class="d-flex justify-content-between">
                                                 <div class="d-flex flex-row align-items-center">
                                                     <div class="ml-2">
                                                         <h6 class="mb-0">
-                                                            Parcheggio 1
+                                                            <td>
+                                                                    ${record.getNomeParcheggio()}
+                                                            </td>
                                                         </h6>
                                                         <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                             <div>
@@ -105,19 +109,15 @@
                                                             <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-geo-alt"></i></button>
                                                             <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-info-circle"></i></button>
                                                         </div>
-                                                        <input class="small" type="date" id="start" name="trip-start"
-                                                               value="01-04-2023"
-                                                               min="01-04-2023" max="01-01-2025">
-
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
+                                </c:forEach>
                             </div>
                         </div>
-
                         <!--Qui finisce il div per la lista dei parcheggi -->
                     </div>
                 </div>

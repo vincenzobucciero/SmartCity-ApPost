@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: carmine
@@ -7,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -15,20 +15,29 @@
 <body>
 
 <h4>Ciaooooo</h4>
+<div class="row"> <!-- Inizio Card-->
+    <c:forEach items="${parcheggioDisp}" var="record"> <!--Ciclo FOR -->
+        <div class="my-4 card bg-light mx-auto" style="width: 20rem;">
+            <div class="card-body">
+                <p class="text-muted mb-0 fs-3">
+                <td>
+                        ${record.getNomeParcheggio()}
+                </td>
+                <hr class="text-black">
+                </p><!-- Fine Nome Parcheggio-->
+                <h5 class="card-text-">
+                    <p class="text-black">
+                    <td>
+                            ${record.getIndirizzo()}<br>
+                        Numero Posti: ${record.getNumPosti()}
+                    </td>
+                    </p>
+                </h5> <!-- Fine Indirizzo&NumPosti-->
 
-<header>
-    <div class="row"> <!-- Inizio Card-->
-        <c:forEach items="${parcheggioDisp}" var="parcheggioDisp">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">${parcheggioDisp.getNomeParcheggio()}</h5>
-                    <p class="card-text">${parcheggioDisp.getIndirizzo()}</p>
-                    <p class="card-text">${parcheggioDisp.getNumPosti()}</p>
-                </div>
             </div>
-        </c:forEach>
-    </div>
-    </div><!-- FINE SEZIONE CARD-->
-</header>
+        </div><!-- Fine Card-->
+    </c:forEach>
+</div>
+
 </body>
 </html>

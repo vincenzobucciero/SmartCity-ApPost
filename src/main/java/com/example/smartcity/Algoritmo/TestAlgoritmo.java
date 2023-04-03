@@ -2,6 +2,7 @@ package com.example.smartcity.Algoritmo;
 
 import com.example.smartcity.model.ParkingBean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestAlgoritmo {
@@ -30,22 +31,23 @@ public class TestAlgoritmo {
 
         List<Nodo> path = aStar.ricercaPercorso();
 
-        List<ParkingBean> parcheggioDisp;
+        List<ParkingBean> parcheggioDisp = new ArrayList<>();
         for (Nodo node : path) {
-            System.out.println(node);                               //per ogni nodo appartentente al percorso trovato da a*
-            if(node.isPark()){                                      //controllo se è un nodo parcheggio
-                parcheggioDisp = start.getNodoParkIndirizzo(node);  //se è vero allora cerco i parcheggi disponibili lungo il percorso
-                for (ParkingBean parking: parcheggioDisp) {         //e li stampo (n.b questo passo va nella jsp)
-                    System.out.println("Stong caaa");
-                    System.out.println(parking.getNomeParcheggio());
-                    System.out.println(parking.getIndirizzo());
-                    System.out.println(parking.getNumPosti());
+            System.out.println(node);                                     //per ogni nodo appartentente al percorso trovato da a*
+            if(node.isPark()){                                            //controllo se è un nodo parcheggio
+                parcheggioDisp.add(start.getNodoParkIndirizzo(node));  //se è vero allora cerco i parcheggi disponibili lungo il percorso
+                System.out.println("parcheggio size " + parcheggioDisp.size());
 
-                }
             }
         }
 
 
+        for (ParkingBean parking: parcheggioDisp) {         //e li stampo (n.b questo passo va nella jsp)
+            System.out.println("\nTEST "+ parking.getNomeParcheggio());
+            System.out.println(parking.getIndirizzo());
+            System.out.println(parking.getNumPosti());
+
+        }
 
 
         //Search Area

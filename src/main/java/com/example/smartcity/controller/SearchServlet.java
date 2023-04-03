@@ -1,5 +1,8 @@
 package com.example.smartcity.controller;
 
+import com.example.smartcity.model.UsersBean;
+import com.example.smartcity.Algoritmo.Location;
+import com.example.smartcity.Algoritmo.Nodo;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -12,18 +15,11 @@ public class SearchServlet extends HttpServlet {
         response.setContentType("text/html");
 
         request.getRequestDispatcher("findPath.jsp").forward(request,response);
-
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        //Location start = new Location();
-        //String startIndirizzo = request.getParameter("indirizzoS");
-        //System.out.println("Indirizzo preso: " + startIndirizzo);
-        //Nodo finalNode = start.chooseEnd("Napoli");
 
     }
 }
