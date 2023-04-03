@@ -15,7 +15,7 @@
     <meta name="author" content="" />
     <title>ApPost-Home Page</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="img/AppostLogo.png" />
+    <link rel="icon" type="image/x-icon" href="img/iconMoney.png" />
     <link rel="icon" type="image/x-icon" href="img/wallpaperCar.jpg" />
     <!-- Bootstrap Icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link" href="adminHomePage.jsp">Torna alla home</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.jsp">Esci</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
             </ul>
         </div>
     </div>

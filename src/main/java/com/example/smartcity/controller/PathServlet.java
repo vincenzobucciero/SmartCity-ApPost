@@ -71,8 +71,10 @@ public class PathServlet extends HttpServlet {
 
         request.setAttribute("start",startIndirizzo);
         request.setAttribute("dest",endIndirizzo);
+
         int size = parcheggioDisp.size();
         request.setAttribute("size",size);
+
         request.setAttribute("parcheggioDisp", parcheggioDisp);
         request.getRequestDispatcher("prenotaParcheggio.jsp").forward(request,response);
 

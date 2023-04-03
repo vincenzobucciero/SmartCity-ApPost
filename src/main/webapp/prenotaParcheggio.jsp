@@ -56,8 +56,7 @@
                 <div class="my-5 card bg-light mx-auto" style="width:50rem;">
                     <div class="card-body">
                         <h5 class="text-muted">
-                            Questi sono i parcheggi disponibili per il percorso scelto <br>
-                            (Da ${start} a ${dest}):
+                            Questi sono i parcheggi disponibili per il percorso scelto:
                         </h5>
 
                         <!-- Qui inizia il div per la lista dei parcheggi-->
@@ -66,9 +65,15 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="d-flex justify-content-between align-items-center activity">
-                                        <div><i class="fa fa-clock-o"></i><span class="ml-2">11h 25m</span></div>
                                         <div>
-                                            <span class="activity-done">Parcheggi(${size})</span>
+                                            <span class="activity-done">
+                                                Parcheggi(${size})
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="m-lg-4">
+                                                (Da ${start} a ${dest}):
+                                            </span>
                                         </div>
                                         <div class="icons">
                                             <i class="bi bi-search"></i>
@@ -80,7 +85,7 @@
                                         <ul class="list list-inline">
                                             <li class="d-flex justify-content-between">
                                                 <div class="d-flex flex-row align-items-center">
-                                                    <div class="ml-2">
+                                                    <div class="ml-3">
                                                         <h6 class="mb-0">
                                                             <td>
                                                                     ${record.getNomeParcheggio()}
@@ -88,15 +93,15 @@
                                                         </h6>
                                                         <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                             <div>
-                                                                <i class="bi bi-calendar-week"></i>
-                                                                <span class="ml-2">22 May 2023
-                                                                        <i class="bi bi-clock-history"></i>
-                                                                        11:30 PM
+                                                                <!--<i class="bi bi-calendar-week"></i>-->
+                                                                <span class="ml-2"> <!--22 May 2023-->
+                                                                        <i class="bi bi-geo-fill"></i>
+                                                                        <td>
+                                                                                ${record.getIndirizzo()}<br>
+                                                                                <i class="bi bi-cash-stack"></i>
+                                                                                ${record.getTariffa()}/h
+                                                                        </td>
                                                                     </span>
-                                                            </div>
-                                                            <div class="ml-3">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span class="ml-2">6h</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -104,10 +109,10 @@
                                                 <div class="d-flex flex-row align-items-center">
                                                     <div class="d-flex flex-column mr-2">
                                                         <div class="profile-image">
-                                                            <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-check-circle-fill"></i></button>
                                                             <!--<button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-calendar3"></i></button>-->
                                                             <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-geo-alt"></i></button>
                                                             <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-info-circle"></i></button>
+                                                            <button type="submit" class="btn btn-primary btn-sm ">Prenota</button>
                                                         </div>
                                                     </div>
                                                 </div>

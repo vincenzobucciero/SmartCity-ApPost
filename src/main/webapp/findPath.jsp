@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <label  name = "start">Partenza </label>
                                 <select required class= "form-control" name="start">
-                                    <option value="">--select--</option>
+                                    <option value="">--scegli--</option>
                                     <% Location start = new Location();
                                         for(Nodo nodo:start.getStart()){
                                     %>
@@ -71,7 +71,7 @@
                             <div class="form-group">
                                 <label name = "dest">Destinazione</label>
                                 <select required class= "form-control" name="dest">
-                                    <option value="">--select--</option>
+                                    <option value="">--scegli--</option>
                                     <%
                                         for(Nodo nodo:start.getEnd()){
                                     %>

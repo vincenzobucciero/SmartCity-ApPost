@@ -23,7 +23,7 @@ public class ParkingDao {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("SELECT ID_parcheggio, nomeParcheggio, indirizzo, numPosti FROM Parcheggio");
+            PreparedStatement stmt = con.prepareStatement("SELECT ID_parcheggio, nomeParcheggio, indirizzo, numPosti, tariffa FROM Parcheggio");
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()){
                 ParkingBean parkingBean = new ParkingBean();
@@ -31,6 +31,7 @@ public class ParkingDao {
                 parkingBean.setNomeParcheggio(resultSet.getString(2));
                 parkingBean.setIndirizzo(resultSet.getString(3));
                 parkingBean.setNumPosti(resultSet.getInt(4));
+                parkingBean.setTariffa(resultSet.getDouble(5));
                 list.add(parkingBean);
             }
             return list;

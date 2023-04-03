@@ -46,6 +46,7 @@ public class TestAlgoritmo {
             System.out.println("\nTEST "+ parking.getNomeParcheggio());
             System.out.println(parking.getIndirizzo());
             System.out.println(parking.getNumPosti());
+            System.out.println(parking.getTariffa());
 
         }
 

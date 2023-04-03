@@ -43,7 +43,7 @@
         <li class="nav-item"><a class="nav-link" href="userHomePage.jsp">Torna alla home</a></li>
         <li class="nav-item"><a class="nav-link" href="about.jsp">Chi siamo</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Servizi</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.jsp">Esci</a></li>
+        <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
       </ul>
     </div>
   </div>
