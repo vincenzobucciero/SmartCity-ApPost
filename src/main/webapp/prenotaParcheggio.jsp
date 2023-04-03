@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="CSS/styleMap.css" />
     <link rel="stylesheet" href="CSS/styleListPark.css">
 
-    <script type="module" src="js/jsMap.js"></script>
+    <script type="module" src="js/scripts.js"></script>
     <script type="module" src="TySc/tyS.ts"></script>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -53,7 +53,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
-                <div class="my-5 card bg-light mx-auto" style="width:50rem;">
+                <div class="my-5 card bg-light mx-auto" style="width:60rem;">
                     <div class="card-body">
                         <h5 class="text-muted">
                             Questi sono i parcheggi disponibili per il percorso scelto:
@@ -92,35 +92,30 @@
                                                             </td>
                                                         </h6>
                                                         <div class="d-flex flex-row mt-1 text-black-50 date-time">
-                                                            <div>
-                                                                <!--<i class="bi bi-calendar-week"></i>-->
-                                                                <span class="ml-2"> <!--22 May 2023-->
-                                                                        <i class="bi bi-geo-fill"></i>
-                                                                        <td>
-                                                                                ${record.getIndirizzo()}<br>
-                                                                                <i class="bi bi-cash-stack"></i>
-                                                                                ${record.getTariffa()}/h
-                                                                        </td>
-                                                                    </span>
-                                                            </div>
+                                                            <span class="ml-2"> <!--22 May 2023-->
+                                                                <i class="bi bi-geo-fill"></i>
+                                                                <td>
+                                                                    ${record.getIndirizzo()}<br>
+                                                                    <i class="bi bi-cash-stack"></i>
+                                                                    ${record.getTariffa()}/h
+                                                                </td>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center">
                                                     <div class="d-flex flex-column mr-2">
                                                         <div class="profile-image">
-                                                            <!--<button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-calendar3"></i></button>-->
                                                             <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-geo-alt"></i></button>
-                                                            <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-info-circle"></i></button>
-                                                            <button type="submit" class="btn btn-primary btn-sm ">Prenota</button>
+                                                            <a type="submit" href="PrenotationServlet" class="btn btn-primary btn-sm ">Prenota</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ul>
+                                        </c:forEach>
                                     </div>
                                 </div>
-                                </c:forEach>
                             </div>
                         </div>
                         <!--Qui finisce il div per la lista dei parcheggi -->
