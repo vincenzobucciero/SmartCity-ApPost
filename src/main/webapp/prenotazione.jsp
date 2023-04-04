@@ -74,7 +74,8 @@
                             <label name="tipoV">Tipo Veicolo</label>
                             <select class= "form-control" name="start" required>
                                 <option value="">--scegli--</option>
-                                <option type="hidden" name="tipoV">Auto/Furgone</option>
+                                <option type="hidden" name="tipoV">Auto</option>
+                                <option type="hidden" name="tipoV">Furgone</option>
                                 <option type="hidden" name="tipoV">Moto/Scooter</option>
                             </select>
                         </div>
