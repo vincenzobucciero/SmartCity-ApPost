@@ -67,14 +67,21 @@
                 <c:choose>
                 <c:when test="${parkingBean != null}">
                 <form class="form-horizontal" action="BookingServlet" method="post">
-                    <div class="form-group">
-                        <label name="nomePark">Nome parcheggio</label>
-                        <input name="nomePark" class="form-control" type="text" value="${parkingBean.getNomeParcheggio()}">
+                    <div class = "form-group row">
+                        <div class="col-md-5">
+                            <label name="nomePark">Nome parcheggio</label>
+                            <input name="nomePark" class="form-control" type="text" placeholder="${parkingBean.getNomeParcheggio()}" readonly>
+                        </div>
+
+                        <div class="col-md-5">
+                            <label name="email">Email</label>
+                            <input name="email" class="form-control" type="text" placeholder="${email}" readonly>
+                        </div>
                     </div>
                     <div class = "form-group row">
                         <div class="col-md-5">
                             <label name="targa">Targa Veicolo</label>
-                            <input name="targa" class="form-control" type="text" placeholder="DC104RT" required>
+                            <input name="targa" class="form-control" type="text" placeholder="es. DC104RT" required>
                         </div>
 
                         <div class="col-md-5">
