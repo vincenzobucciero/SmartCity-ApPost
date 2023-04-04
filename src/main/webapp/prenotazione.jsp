@@ -19,7 +19,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/styleFormLogin.css">
+    <link rel="stylesheet" href="CSS/styleBooking.css">
 
     <script type="module" src="js/scripts.js"></script>
     <script type="module" src="TySc/tyS.ts"></script>
@@ -61,34 +61,50 @@
                 <h3 class="title">
                     Effettua la<br>prenotazione
                 </h3>
-
-                <form class="form-horizontal" action="PrenotationServlet" method="post">
+                <c:choose>
+                <c:when test="${parkingBean != null}">
+                <form class="form-horizontal" action="BookingServlet" method="post">
                     <div class="form-group">
                         <label name="nomePark">Parcheggio</label>
-                        <input name="nomePark" class="form-control" type="text"> <!--Non ho inserito required perche non so se ci vuole la prenotazione-->
-                    </div>
-                    <div class="form-group">
-                        <label name="emailUser">Email</label>
-                        <input name="emailUser" class="form-control" type="email"> <!--Non ho inserito required perche non so se ci vuole la prenotazione-->
+                        <input name="nomePark" class="form-control" type="text" value="${parkingBean.getNomeParcheggio()}">
                     </div>
 
-                    <div class="form-group">
-                        <label name="targa">Targa Veicolo</label>
-                        <input name="targa" class="form-control" type="text" required>
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <label name="tipoV">Tipo Veicolo</label>
+                            <select class= "form-control" name="start" required>
+                                <option value="">--scegli--</option>
+                                <option type="hidden" name="tipoV">Auto/Furgone</option>
+                                <option type="hidden" name="tipoV">Moto/Scooter</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-5">
+                            <label name="targa" style="text-align: center">Targa</label>
+                            <input name="targa" class="form-control" type="text" required>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                            <label name="dataP">Data Prenotazione</label>
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label name="dataP">Data</label>
                             <input name="dataP" class="form-control" type="date" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label name="oraI">Orario Arrivo</label>
+                            <input name="oraI" class="form-control" type="time" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label name="oraF">Orario Fine</label>
+                            <input name="oraF" class="form-control" type="time" required>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label name="oraP">Orario</label>
-                        <input name="oraP" class="form-control" type="time" required>
-                    </div>
                     <button type="submit" class="btn btn-primary btn-lg text-white">Prenota</button>
                 </form>
             </div><!--Fine form container-->
+            </c:when>
+            </c:choose>
         </div>
     </div>
 </div>

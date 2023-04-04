@@ -106,8 +106,13 @@
                                                 <div class="d-flex flex-row align-items-center">
                                                     <div class="d-flex flex-column mr-2">
                                                         <div class="profile-image">
-                                                            <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-geo-alt"></i></button>
-                                                            <a type="submit" href="PrenotationServlet" class="btn btn-primary btn-sm ">Prenota</a>
+                                                            <form action="BookingServlet" method="post">
+                                                                <input type="hidden" name="id" value="${record.getIdParcheggio()}">
+                                                                <div class="text-center">
+                                                                    <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-geo-alt"></i></button>
+                                                                    <button type="submit" class="btn btn-primary btn-sm ">Prenota</button>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
