@@ -1,9 +1,9 @@
 package com.example.smartcity.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 public class BookingBean implements Serializable {
     private int ID_prenotazione;

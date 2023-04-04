@@ -106,7 +106,7 @@
                                                 <div class="d-flex flex-row align-items-center">
                                                     <div class="d-flex flex-column mr-2">
                                                         <div class="profile-image">
-                                                            <form action="BookingServlet" method="post">
+                                                            <form action="BookingServlet" method="get">
                                                                 <input type="hidden" name="id" value="${record.getIdParcheggio()}">
                                                                 <input type="hidden" name="email" value="${usersBean.getEmail()}">
                                                                 <div class="text-center">

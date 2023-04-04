@@ -1,10 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: carmine
-  Date: 03/04/23
-  Time: 22:03
+  Date: 4/4/23
+  Time: 9:42 AM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -19,7 +20,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/styleFormLogin.css">
     <link rel="stylesheet" href="CSS/styleBooking.css">
+
 
     <script type="module" src="js/scripts.js"></script>
     <script type="module" src="TySc/tyS.ts"></script>
@@ -59,48 +62,49 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="form-container">
                 <h3 class="title">
-                    Effettua la<br>prenotazione
+                    Effettua la prenotazione
                 </h3>
                 <c:choose>
                 <c:when test="${parkingBean != null}">
                 <form class="form-horizontal" action="BookingServlet" method="post">
                     <div class="form-group">
-                        <label name="nomePark">Parcheggio</label>
+                        <label name="nomePark">Nome parcheggio</label>
                         <input name="nomePark" class="form-control" type="text" value="${parkingBean.getNomeParcheggio()}">
                     </div>
+                    <div class = "form-group row">
+                        <div class="col-md-5">
+                            <label name="targa">Targa Veicolo</label>
+                            <input name="targa" class="form-control" type="text" placeholder="DC104RT" required>
+                        </div>
 
-                    <div class="form-group row">
                         <div class="col-md-5">
                             <label name="tipoV">Tipo Veicolo</label>
-                            <select class= "form-control" name="start" required>
+                            <select class= "form-control" name="tipoV" required>
                                 <option value="">--scegli--</option>
                                 <option type="hidden" name="tipoV">Auto</option>
                                 <option type="hidden" name="tipoV">Furgone</option>
-                                <option type="hidden" name="tipoV">Moto/Scooter</option>
+                                <option type="hidden" name="tipoV">Moto</option>
                             </select>
-                        </div>
-
-                        <div class="col-md-5">
-                            <label name="targa" style="text-align: center">Targa</label>
-                            <input name="targa" class="form-control" type="text" required>
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class = "form-group row">
                         <div class="col-md-4">
-                            <label name="dataP">Data</label>
+                            <label name="dataP">Data Prenotazione</label>
                             <input name="dataP" class="form-control" type="date" required>
                         </div>
+
                         <div class="col-md-4">
-                            <label name="oraI">Orario Arrivo</label>
+                            <label name="oraI">Orario ingresso</label>
                             <input name="oraI" class="form-control" type="time" required>
                         </div>
+
                         <div class="col-md-4">
-                            <label name="oraF">Orario Fine</label>
+                            <label name="oraF">Orario uscita</label>
                             <input name="oraF" class="form-control" type="time" required>
                         </div>
                     </div>
-
+                    <input type="hidden" name="email" value="${email}">
                     <button type="submit" class="btn btn-primary btn-lg text-white">Prenota</button>
                 </form>
             </div><!--Fine form container-->
