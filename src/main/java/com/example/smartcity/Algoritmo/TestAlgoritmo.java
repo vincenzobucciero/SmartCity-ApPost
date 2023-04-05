@@ -33,9 +33,9 @@ public class TestAlgoritmo {
 
         List<ParkingBean> parcheggioDisp = new ArrayList<>();
         for (Nodo node : path) {
-            System.out.println(node);                                     //per ogni nodo appartentente al percorso trovato da a*
-            if(node.isPark()){                                            //controllo se è un nodo parcheggio
-                parcheggioDisp.add(start.getNodoParkIndirizzo(node));  //se è vero allora cerco i parcheggi disponibili lungo il percorso
+            System.out.println(node);                                                        //per ogni nodo appartentente al percorso trovato da a*
+            if(node.isPark() && start.getNodoParkIndirizzo(node)!=null){                    //controllo se è un nodo parcheggio
+                parcheggioDisp.add(start.getNodoParkIndirizzo(node));                      //se è vero allora cerco i parcheggi disponibili lungo il percorso
                 System.out.println("parcheggio size " + parcheggioDisp.size());
 
             }
@@ -45,8 +45,12 @@ public class TestAlgoritmo {
         for (ParkingBean parking: parcheggioDisp) {         //e li stampo (n.b questo passo va nella jsp)
             System.out.println("\nTEST "+ parking.getNomeParcheggio());
             System.out.println(parking.getIndirizzo());
-            System.out.println(parking.getNumPosti());
-            System.out.println(parking.getTariffa());
+            System.out.println(parking.getPostiAuto());
+            System.out.println(parking.getPostiFurgone());
+            System.out.println(parking.getPostiMoto());
+            System.out.println(parking.getTariffaAF());
+            System.out.println(parking.getIdParcheggio());
+
 
         }
 

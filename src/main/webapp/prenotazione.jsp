@@ -61,61 +61,75 @@
     <div class="container">
         <div class="col-md-4 col-md-offset-4">
             <div class="form-container">
-                <h3 class="title">
-                    Effettua la prenotazione
-                </h3>
                 <c:choose>
-                <c:when test="${parkingBean != null}">
-                <form id="bookingForm" class="form-horizontal" action="BookingServlet" method="post">
-                    <div class = "form-group row">
-                        <div class="col-md-5">
-                            <label name="nomePark">Nome parcheggio</label>
-                            <input name="nomePark" class="form-control" type="text" placeholder="${parkingBean.getNomeParcheggio()}" readonly>
+                    <c:when test="${parkingBean != null}">
+                    <h3 class="title">
+                        Effettua la prenotazione
+                    </h3>
+                    <form id="bookingForm" class="form-horizontal" action="BookingServlet" method="post">
+                        <div class = "form-group row">
+                            <div class="col-md-5">
+                                <label name="nomePark">Nome parcheggio</label>
+                                <input name="nomePark" class="form-control" type="text" placeholder="${parkingBean.getNomeParcheggio()}" readonly>
+                            </div>
+
+                            <div class="col-md-5">
+                                <label name="emailS">Email</label>
+                                <input name="emailS" class="form-control" type="text" placeholder="${email}" readonly>
+                            </div>
+                        </div>
+                        <div class = "form-group row">
+                            <div class="col-md-5">
+                                <label name="targa">Targa Veicolo</label>
+                                <input name="targa" class="form-control" type="text" placeholder="es. DC104RT" required>
+                            </div>
+
+                            <div class="col-md-5">
+                                <label name="tipoV">Tipo Veicolo</label>
+                                <select class= "form-control" name="tipoV" required>
+                                    <option value="">--scegli--</option>
+                                    <option type="hidden" name="tipoV">Auto</option>
+                                    <option type="hidden" name="tipoV">Furgone</option>
+                                    <option type="hidden" name="tipoV">Moto</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="col-md-5">
-                            <label name="emailS">Email</label>
-                            <input name="emailS" class="form-control" type="text" placeholder="${email}" readonly>
+                        <div class = "form-group row">
+                            <div class="col-md-4">
+                                <label name="dataP">Data</label>
+                                <input name="dataP" class="form-control" type="date" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label name="oraI">Orario ingresso</label>
+                                <input name="oraI" class="form-control" type="time" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label name="oraF">Orario uscita</label>
+                                <input name="oraF" class="form-control" type="time" required>
+                            </div>
                         </div>
+                        <input type="hidden" name="email" value="${email}">
+                        <input type="hidden" name="id" value="${id}">
+                        <button type="submit" class="btn btn-primary btn-lg text-white">
+                            Aggiungi al <br> carrello<br>
+                            <i class="bi bi-bag-check-fill"></i>
+                        </button>
+                    </form>
+                </div><!--Fine form container-->
+                </c:when>
+                <c:otherwise>
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Aggiunto al carrello</h4>
+                        <p>La tua prenotazione è stata effettuata con successo puoi
+                            visualizzarla nel tuo carrello.
+                        </p>
+                            <hr>
+                        <a class="mb-0" href="findPath.jsp">Effettua una nuova prenotazione</a>
                     </div>
-                    <div class = "form-group row">
-                        <div class="col-md-5">
-                            <label name="targa">Targa Veicolo</label>
-                            <input name="targa" class="form-control" type="text" placeholder="es. DC104RT" required>
-                        </div>
-
-                        <div class="col-md-5">
-                            <label name="tipoV">Tipo Veicolo</label>
-                            <select class= "form-control" name="tipoV" required>
-                                <option value="">--scegli--</option>
-                                <option type="hidden" name="tipoV">Auto</option>
-                                <option type="hidden" name="tipoV">Furgone</option>
-                                <option type="hidden" name="tipoV">Moto</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class = "form-group row">
-                        <div class="col-md-4">
-                            <label name="dataP">Data Prenotazione</label>
-                            <input name="dataP" class="form-control" type="date" required>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label name="oraI">Orario ingresso</label>
-                            <input name="oraI" class="form-control" type="time" required>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label name="oraF">Orario uscita</label>
-                            <input name="oraF" class="form-control" type="time" required>
-                        </div>
-                    </div>
-                    <input type="hidden" name="email" value="${email}">
-                    <button type="submit" class="btn btn-primary btn-lg text-white">Prenota</button>
-                </form>
-            </div><!--Fine form container-->
-            </c:when>
+                </c:otherwise>
             </c:choose>
         </div>
     </div>

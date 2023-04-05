@@ -684,7 +684,7 @@ progress {
 }
 
 .col {
-    flex: 1 0 0%;
+    flex: 1 1 1%;
 }
 
 .row-cols-auto > * {
@@ -1165,8 +1165,8 @@ progress {
     }
 
     .col-md-4 {
-        flex: 0 0 auto;
-        width: 33.33333333%;
+        flex: 1 1 auto;
+        width: 20%;
     }
 
     .col-md-5 {

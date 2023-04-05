@@ -4,28 +4,23 @@ import java.io.Serializable;
 
 public class ParkingBean implements Serializable {
 
-    private int ID_parcheggio;
+    private int idParcheggio;
     private String nomeParcheggio;
     private String indirizzo;
-    private int numPosti;
-    private double tariffa;
+    private int postiAuto;
+    private int postiFurgone;
+    private int postiMoto;
+    private double tariffaAF;
+    private double tariffaM;
 
     public ParkingBean(){}
 
-    public int getIdParcheggio() {
-        return ID_parcheggio;
+    public int getPostiAuto() {
+        return postiAuto;
     }
 
-    public void setIdParcheggio(int ID_parcheggio) {
-        this.ID_parcheggio = ID_parcheggio;
-    }
-
-    public String getNomeParcheggio() {
-        return nomeParcheggio;
-    }
-
-    public void setNomeParcheggio(String nomeParcheggio) {
-        this.nomeParcheggio = nomeParcheggio;
+    public void setPostiAuto(int postiAuto) {
+        this.postiAuto = postiAuto;
     }
 
     public String getIndirizzo() {
@@ -36,15 +31,51 @@ public class ParkingBean implements Serializable {
         this.indirizzo = indirizzo;
     }
 
-    public int getNumPosti() {
-        return numPosti;
+    public String getNomeParcheggio() {
+        return nomeParcheggio;
     }
 
-    public void setNumPosti(int numPosti) {
-        this.numPosti = numPosti;
+    public void setNomeParcheggio(String nomeParcheggio) {
+        this.nomeParcheggio = nomeParcheggio;
     }
 
-    public double getTariffa() {return tariffa;}
+    public int getIdParcheggio() {
+        return idParcheggio;
+    }
 
-    public void setTariffa(double tariffa) {this.tariffa = tariffa;}
+    public void setIdParcheggio(int idParcheggio) {
+        this.idParcheggio = idParcheggio;
+    }
+
+    public void setTariffaAF(double tariffaAF) {
+        this.tariffaAF = tariffaAF;
+    }
+    public double getTariffaM() {
+        return tariffaM;
+    }
+
+    public void setTariffaM(double tariffaM) {
+        this.tariffaM = tariffaM;
+    }
+    public double getTariffaAF() {
+        return tariffaAF;
+    }
+
+    public int getPostiFurgone() {
+        return postiFurgone;
+    }
+
+    public void setPostiFurgone(int postiFurgone) {
+        this.postiFurgone = postiFurgone;
+    }
+
+    public int getPostiMoto() {
+        return postiMoto;
+    }
+
+    public void setPostiMoto(int postiMoto) {
+        this.postiMoto = postiMoto;
+    }
+
+
 }

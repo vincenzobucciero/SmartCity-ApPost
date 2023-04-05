@@ -97,7 +97,9 @@
                                                                 <td>
                                                                     ${record.getIndirizzo()}<br>
                                                                     <i class="bi bi-cash-stack"></i>
-                                                                    ${record.getTariffa()}/h
+                                                                    ${record.getTariffaAF()}€/h <br>
+                                                                    <i class="bi bi-cash-stack"></i>
+                                                                    ${record.getTariffaM()}€/h
                                                                 </td>
                                                             </span>
                                                         </div>

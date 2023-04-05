@@ -1,26 +1,33 @@
 package com.example.smartcity.model;
 
-import com.example.smartcity.handler.Handler;
-import com.example.smartcity.handler.MailHandler;
-import com.example.smartcity.handler.PasswordHandler;
-import com.example.smartcity.handler.RoleHandler;
-import com.example.smartcity.service.AuthService;
+import com.example.smartcity.service.BookingService;
 import com.example.smartcity.service.LogService;
-import com.example.smartcity.service.ModifyService;
 import com.example.smartcity.service.ParkingService;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 
 public class MainTest {
     public static void main(String[] args) throws IOException{
 
+        //LoginDao loginDao = new LoginDao();
+        //AccessoLogin accessoLogIn = loginDao.logIn("cam", "dem");
 
-        /*AccessoLogin accessoLogin = LogService.logHandler("admin@admin.com","admin");
-        switch (accessoLogin) {
+        /*if(DB.getIstanza().addRegistrazione("camilla","dema", "patata", "ciaociao")){
+            System.out.println("Benvenuto");
+        }
+        else
+            System.out.println("Sei già registrato");
+
+*/
+
+        /*UsersBean usersBean = new UsersBean();
+        usersBean.setEmail("email@esempio.it");
+        usersBean.setPassword("jghvhgv");
+        AccessoLogin accessoLogIn = LoginDao.getIstanza().logIn(usersBean);*/
+
+        /*AccessoLogin accessoLogIn = LogService.logHandler("email@esempio.it", "ciao");
+        switch (accessoLogIn) {
             case UTENTE_INESISTENTE:
                 System.out.println("Non sei registrato");
                 break;
@@ -35,7 +42,6 @@ public class MainTest {
                 break;
         }*/
 
-
         /*
         List<ParkingBean> list = ParkingService.getAllParkings();
         for (ParkingBean bean:list) {
@@ -46,9 +52,19 @@ public class MainTest {
         }*/
         //ModifyService.modifyTariffa(1, 1.7);
 
+        ParkingBean bean = ParkingDao.getIstanza().getParkingBean(2);
+        System.out.println(bean.getNomeParcheggio());
+        System.out.println(bean.getIndirizzo());
+        System.out.println(bean.getPostiAuto());
 
+        /*BookingBean bookingBean = new BookingBean();
+        bookingBean.setData_prenotazione("31-05-2023");
+        bookingBean.setOrario_inizio("11:30");
+        bookingBean.setOrario_fine("12:30");
+        bookingBean.setTargaVeicolo("ginni");
+        bookingBean.setTipoVeicolo("moto");
+        bookingBean.setEmail("email@esempio.it");
 
-        /*ParkingBean parkingBean = ParkingDao.getIstanza().getParkingBean(1);
-        System.out.println(parkingBean.getNomeParcheggio());*/
+        BookingService.Booking(bookingBean);*/
     }
 }

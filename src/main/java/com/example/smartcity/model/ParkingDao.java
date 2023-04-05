@@ -23,15 +23,19 @@ public class ParkingDao {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("SELECT ID_parcheggio, nomeParcheggio, indirizzo, numPosti, tariffa FROM Parcheggio");
+            PreparedStatement stmt = con.prepareStatement("SELECT ID_parcheggio, nomeParcheggio, indirizzo, tariffaAF, tariffaM, postiAuto, postiFurgone, postiMoto  FROM Parcheggio ");
             ResultSet resultSet = stmt.executeQuery();
-            while (resultSet.next()){
+            while(resultSet.next()){
                 ParkingBean parkingBean = new ParkingBean();
                 parkingBean.setIdParcheggio(resultSet.getInt(1));
                 parkingBean.setNomeParcheggio(resultSet.getString(2));
                 parkingBean.setIndirizzo(resultSet.getString(3));
-                parkingBean.setNumPosti(resultSet.getInt(4));
-                parkingBean.setTariffa(resultSet.getDouble(5));
+                parkingBean.setTariffaAF(resultSet.getDouble(4));
+                parkingBean.setTariffaM(resultSet.getDouble(5));
+                parkingBean.setPostiAuto(resultSet.getInt(6));
+                parkingBean.setPostiFurgone(resultSet.getInt(7));
+                parkingBean.setPostiMoto(resultSet.getInt(8));
+
                 list.add(parkingBean);
             }
             return list;
@@ -63,8 +67,11 @@ public class ParkingDao {
             if (result.next()) {
                 parkingBean.setNomeParcheggio(result.getString("nomeParcheggio"));
                 parkingBean.setIndirizzo(result.getString("indirizzo"));
-                parkingBean.setTariffa(result.getDouble("tariffa"));
-                parkingBean.setNumPosti(result.getInt("numPosti"));
+                parkingBean.setTariffaAF(result.getDouble("tariffaAF"));
+                parkingBean.setTariffaM(result.getDouble("tariffaM"));
+                parkingBean.setPostiAuto(result.getInt("postiAuto"));
+                parkingBean.setPostiFurgone(result.getInt("postiFurgone"));
+                parkingBean.setPostiMoto(result.getInt("postiMoto"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

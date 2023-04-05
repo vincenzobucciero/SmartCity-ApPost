@@ -70,7 +70,10 @@
                             <p class="text-black">
                             <td>
                                     ${record.getIndirizzo()}<br>
-                                Numero Posti: ${record.getNumPosti()}
+                                Numero Posti Auto: ${record.getPostiAuto()}<br>
+                                Numero Posti Furgone: ${record.getPostiFurgone()}<br>
+                                Numero Posti Moto: ${record.getPostiMoto()}<br>
+
                             </td>
                             </p>
                         </h5> <!-- Fine Indirizzo&NumPosti-->
