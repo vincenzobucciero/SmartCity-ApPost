@@ -23,7 +23,6 @@ public class BookingServlet extends HttpServlet {
         request.setAttribute("parkingBean",parkingBean);
 
         String email = request.getParameter("email");
-        System.out.println(email);
 
         HttpSession session = request.getSession(false);
         if ( session == null ) {
@@ -49,7 +48,8 @@ public class BookingServlet extends HttpServlet {
         String tipoVeicolo = request.getParameter("tipoV");
 
         System.out.println("Data: "+ dataPrenotazione);
-        System.out.println(orarioInizio + orarioFine);
+        System.out.println("Utente: " + email);
+        System.out.println(orarioInizio + " " + orarioFine);
 
         BookingBean bookingBean = new BookingBean();
         bookingBean.setData_prenotazione( dataPrenotazione );
@@ -61,9 +61,6 @@ public class BookingServlet extends HttpServlet {
 
         BookingService.Booking(bookingBean);
 
-        UsersBean usersBean = (UsersBean) request.getSession().getAttribute("usersBean");
-        request.setAttribute("usersBean", usersBean);
-        request.setAttribute( "email", usersBean.getEmail() );
         request.getRequestDispatcher("prenotazione.jsp").forward(request, response);
 
     }

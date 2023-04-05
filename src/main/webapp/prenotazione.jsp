@@ -74,8 +74,8 @@
                         </div>
 
                         <div class="col-md-5">
-                            <label name="email">Email</label>
-                            <input name="email" class="form-control" type="text" placeholder="${email}" readonly>
+                            <label name="emailS">Email</label>
+                            <input name="emailS" class="form-control" type="text" placeholder="${email}" readonly>
                         </div>
                     </div>
                     <div class = "form-group row">
