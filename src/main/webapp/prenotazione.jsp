@@ -50,7 +50,7 @@
         </div>
     </div>
 </nav>
-<!-- Navigation-->
+<!-- Masthead-->
 <header class="masthead">
     <div class="container px-4 px-lg-5 h-50">
         <div class="row gx-4 gx-lg-5 h-50 align-items-center justify-content-center text-center"></div>
@@ -113,23 +113,13 @@
                         </div>
                         <input type="hidden" name="email" value="${email}">
                         <input type="hidden" name="id" value="${id}">
-                        <button type="submit" class="btn btn-primary btn-lg text-white">
-                            Aggiungi al <br> carrello<br>
-                            <i class="bi bi-bag-check-fill"></i>
-                        </button>
+                        <a type="submit" class="btn btn-primary btn-lg text-white" href="PayServlet">
+                            Pagamento<br>
+                            <i class="bi bi-credit-card-2-back-fill"></i>
+                        </a>
                     </form>
                 </div><!--Fine form container-->
                 </c:when>
-                <c:otherwise>
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Aggiunto al carrello</h4>
-                        <p>La tua prenotazione è stata effettuata con successo puoi
-                            visualizzarla nel tuo carrello.
-                        </p>
-                            <hr>
-                        <a class="mb-0" href="findPath.jsp">Effettua una nuova prenotazione</a>
-                    </div>
-                </c:otherwise>
             </c:choose>
         </div>
     </div>
