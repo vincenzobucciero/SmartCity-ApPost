@@ -66,7 +66,7 @@
                 </h3>
                 <c:choose>
                 <c:when test="${parkingBean != null}">
-                <form class="form-horizontal" action="BookingServlet" method="post">
+                <form id="bookingForm" class="form-horizontal" action="BookingServlet" method="post">
                     <div class = "form-group row">
                         <div class="col-md-5">
                             <label name="nomePark">Nome parcheggio</label>
