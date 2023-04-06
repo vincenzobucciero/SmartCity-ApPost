@@ -29,8 +29,9 @@ public class PayServlet extends HttpServlet {
             System.out.println("PayServlet: " + bookingBean.getID_prenotazione());
             System.out.println("PayServlet: " + bookingBean.getData_prenotazione());
             System.out.println("PayServlet: " + bookingBean.getEmail());
+            System.out.println("PayServlet: " + bookingBean.getPagamento());
 
-            request.getRequestDispatcher("pagamento.jsp").forward(request,response);
+            request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
         }
     }
 }

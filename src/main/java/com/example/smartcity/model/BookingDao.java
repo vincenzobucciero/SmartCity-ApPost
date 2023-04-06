@@ -28,8 +28,8 @@ public class BookingDao {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement query = con.prepareStatement("INSERT INTO Prenotazione (Id_prenotazione,data_prenotazione, orario_inizio, orario_fine, targaVeicolo, tipoVeicolo, email, prezzo) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement query = con.prepareStatement("INSERT INTO Prenotazione (Id_prenotazione,data_prenotazione, orario_inizio, orario_fine, targaVeicolo, tipoVeicolo, email, prezzo, pagamento) " +
+                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
             query.setString(1,bookingBean.getID_prenotazione());
             query.setString( 2, bookingBean.getData_prenotazione() );
             query.setString(3, bookingBean.getOrario_inizio());
@@ -38,6 +38,7 @@ public class BookingDao {
             query.setString(6, bookingBean.getTipoVeicolo());
             query.setString(7, bookingBean.getEmail());
             query.setDouble(8,bookingBean.getPrezzo());
+            query.setString(9, bookingBean.getPagamento());
             query.execute();
 
 
@@ -77,8 +78,7 @@ public class BookingDao {
                 bookingBean.setTipoVeicolo(result.getString("tipoVeicolo"));
                 bookingBean.setEmail(result.getString("email"));
                 bookingBean.setPrezzo(result.getDouble("prezzo"));
-
-                //System.out.println(bookingBean.getID_prenotazione() + " "+ bookingBean.getData_prenotazione());
+                bookingBean.setPagamento(result.getString("pagamento"));
 
                 list.add(bookingBean);
 
@@ -116,6 +116,7 @@ public class BookingDao {
                 bookingBean.setTipoVeicolo(result.getString("tipoVeicolo"));
                 bookingBean.setEmail(result.getString("email"));
                 bookingBean.setPrezzo(result.getDouble("prezzo"));
+                bookingBean.setPagamento(result.getString("pagamento"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

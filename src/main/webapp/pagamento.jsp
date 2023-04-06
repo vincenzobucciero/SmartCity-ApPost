@@ -61,13 +61,13 @@
                     <div class="d-flex align-items-center justify-content-between text">
                         <span class="">Commissione</span>
                         <span class="fas fa-dollar-sign">
-                        <span class="ps-1">1.99</span>
+                        <span class="ps-1">1.99€</span>
                     </span>
                     </div>
                     <div class="d-flex align-items-center justify-content-between text mb-4">
                         <span>Totale</span>
                         <span class="fas fa-dollar-sign">
-                        <span class="ps-1">7.99</span>
+                        <span class="ps-1">7.99€</span>
                     </span>
                     </div>
                     <div class="border-bottom mb-4"></div>
@@ -115,7 +115,7 @@
                                 <div class="d-flex flex-column px-md-5 px-4 mb-4">
                                     <span>Nome</span>
                                     <div class="inputWithIcon">
-                                        <input class="form-control text-uppercase" type="text" placeholder="Mario Rossi">
+                                        <input name="intestatario" class="form-control text-uppercase" type="text" placeholder="Mario Rossi">
                                         <span class="far fa-user"></span>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                             <div class="d-flex flex-column px-md-5 px-4 mb-4">
                                 <span>Numero Carta</span>
                                 <div class="inputWithIcon">
-                                    <input class="form-control" type="text" placeholder="5136 1845 5468 3894">
+                                    <input name="numCarta" class="form-control" type="text" placeholder="5136 1845 5468 3894">
                                     <i class="bi bi-credit-card"></i>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@
                             <div class="d-flex flex-column ps-md-5 px-md-0 px-4 mb-4">
                                 <span>Scadenza</span>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" placeholder="05/20">
+                                    <input name="scadenza" type="text" class="form-control" placeholder="05/20">
                                     <span class="fas fa-calendar-alt">
                                 </span>
                                 </div>
@@ -142,14 +142,14 @@
                             <div class="d-flex flex-column pe-md-5 px-md-0 px-4 mb-4">
                                 <span>CVV</span>
                                 <div class="inputWithIcon">
-                                    <input type="password" class="form-control" placeholder="123">
+                                    <input name="cvv"type="password" class="form-control" placeholder="123">
                                     <span class="fas fa-lock"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 px-md-5 px-4 mt-3">
                             <input type="hidden" name="bookingBean" value="${bookingBean}">
-                            <button type="submit" class="btn btn-primary w-100">Paga $7.99</button>
+                            <button type="submit" class="btn btn-primary w-100">Paga €7.99</button>
                         </div>
                     </div>
                 </form>

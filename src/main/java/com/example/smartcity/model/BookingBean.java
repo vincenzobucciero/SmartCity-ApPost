@@ -14,6 +14,7 @@ public class BookingBean implements Serializable {
     private String targaVeicolo;
     private String tipoVeicolo;
     private double prezzo;
+    private String pagamento;
 
     public String getID_prenotazione() {
         return ID_prenotazione;
@@ -79,4 +80,8 @@ public class BookingBean implements Serializable {
     public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
+
+    public String getPagamento() {return pagamento;}
+
+    public void setPagamento(String pagamento) {this.pagamento = pagamento;}
 }
