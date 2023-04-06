@@ -55,6 +55,7 @@ public class BookingServlet extends HttpServlet {
 
         String idBooking = RandomStringUtils.randomAlphabetic(7);
 
+
         HttpSession session = request.getSession(false);
 
         if ( session == null ) {
@@ -74,13 +75,13 @@ public class BookingServlet extends HttpServlet {
 
             switch (tipoVeicolo){
                 case "Auto":
-                    bookingBean.setPrezzo(parkingBean.getTariffaAF() + 1.99);
+                    bookingBean.setPrezzo(parkingBean.getTariffaAF());
                     break;
                 case "Furgone":
-                    bookingBean.setPrezzo(parkingBean.getTariffaAF() + 1.99);
+                    bookingBean.setPrezzo(parkingBean.getTariffaAF());
                     break;
                 case "Moto":
-                    bookingBean.setPrezzo(parkingBean.getTariffaM() + 1.99);
+                    bookingBean.setPrezzo(parkingBean.getTariffaM());
                     break;
                 default:
                     break;
@@ -89,17 +90,11 @@ public class BookingServlet extends HttpServlet {
 
             System.out.println("pagamento: " + metodoP);
             switch (metodoP){
-                case "Carta di Credito":
+                case "Carta di Credito/PayPal":
                     session.setAttribute("bookingBean", bookingBean);
                     session.setAttribute("email", email);
                     request.setAttribute("id", id);
-                    request.getRequestDispatcher("provaPagamento.jsp").forward(request, response);
-                    break;
-                case "Carta di Debito":
-
-                    session.setAttribute("bookingBean", bookingBean);
-                    request.setAttribute("id", id);
-                    request.getRequestDispatcher("provaPagamento.jsp").forward(request, response);
+                    request.getRequestDispatcher("pagamento.jsp").forward(request, response);
                     break;
                 case "Al parcheggio":
                     session.setAttribute("bookingBean", bookingBean);

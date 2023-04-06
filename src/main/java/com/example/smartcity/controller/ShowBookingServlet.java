@@ -26,7 +26,7 @@ public class ShowBookingServlet extends HttpServlet {
         String email = request.getParameter("email");
         System.out.println("email " + email);
 
-        List<BookingBean> bookingBeans = BookingDao.getIstanza().getBooking(email);
+        List<BookingBean> bookingBeans = BookingDao.getIstanza().getBooking(email); //ritorna l'email della prenotazione
         request.setAttribute("list", bookingBeans);
         request.getRequestDispatcher("showBooking.jsp").forward(request, response);
     }

@@ -116,8 +116,7 @@
                             <label name="sceltaP">Metodo di pagamento</label>
                             <select class= "form-control" name="sceltaP" required>
                                 <option value="">--scegli--</option>
-                                <option type="hidden" name="cartaC">Carta di Credito</option>
-                                <option type="hidden" name="cartaD">Carta di Debito</option>
+                                <option type="hidden" name="cartaC">Carta di Credito/PayPal</option>
                                 <option type="hidden" name="contanti">Al parcheggio</option>
                             </select>
                         </div>
