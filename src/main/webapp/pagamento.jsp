@@ -106,12 +106,6 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#creditsCard">Carta di Credito</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#debitCard">Carta di Debito</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contanti">Contanti</a>
-                    </li>
                     <li class="nav-indicator"></li>
                 </ul>
                 <form action="PayServlet" method="post">

@@ -9,6 +9,7 @@ import com.example.smartcity.service.BookingService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -31,9 +32,8 @@ public class BookingServlet extends HttpServlet {
             UsersBean usersBean = (UsersBean) session.getAttribute("usersBean");
             request.setAttribute("usersBean", usersBean);
             request.setAttribute( "email", usersBean.getEmail() );
-            request.setAttribute("parkingBean", parkingBean);
+            request.setAttribute("parkingBean", parkingBean); //serve??
             request.setAttribute("id", id);
-            request.setAttribute("feedback",false);
             request.getRequestDispatcher("prenotazione.jsp").forward(request, response);
 
         }
@@ -52,46 +52,55 @@ public class BookingServlet extends HttpServlet {
         String targaVeicolo = request.getParameter("targa");
         String tipoVeicolo = request.getParameter("tipoV");
 
-
-        System.out.println(email);
-        System.out.println("idParcheggio: " + id);
-        System.out.println("parking: " + parkingBean.getNomeParcheggio());
-        System.out.println("Data: "+ dataPrenotazione);
-        System.out.println("Orari: " + orarioInizio +" "+ orarioFine);
-
-        BookingBean bookingBean = new BookingBean();
-        bookingBean.setID_prenotazione( id );
-        bookingBean.setData_prenotazione( dataPrenotazione );
-        bookingBean.setOrario_inizio( orarioInizio );
-        bookingBean.setOrario_fine( orarioFine );
-        bookingBean.setTargaVeicolo( targaVeicolo );
-        bookingBean.setTipoVeicolo( tipoVeicolo );
-        bookingBean.setEmail( email );
+        String idBooking = RandomStringUtils.randomAlphabetic(7);
+        System.out.println(idBooking);
 
 
-        //BookingService.Booking(bookingBean);
 
-        System.out.println("veicolo " + tipoVeicolo);
-        switch (tipoVeicolo){
-            case "auto":
-                FactoryPosto factoryAuto = new FactoryPostoAuto();
-                Posto auto = factoryAuto.getPosto(id, parkingBean);
-                break;
-            case "furgone":
-                FactoryPosto factoryFurgone = new FactoryPostoFurgone();
-                Posto furgone = factoryFurgone.getPosto(id, parkingBean);
-                break;
-            case "moto":
-                FactoryPosto factoryMoto = new FactoryPostoMoto();
-                Posto moto = factoryMoto.getPosto(id, parkingBean);
-                break;
-            default:
-                break;
+        //System.out.println("Booking Data " + bookingBean.getData_prenotazione());
+
+        HttpSession session = request.getSession(false);
+
+        if ( session == null ) {
+            session.setAttribute("isLog",0);
+            request.getRequestDispatcher("login.jsp").forward(request,response);
+        } else {
+            BookingBean bookingBean = new BookingBean();
+            bookingBean.setID_prenotazione(idBooking);
+            bookingBean.setData_prenotazione( dataPrenotazione );
+            bookingBean.setOrario_inizio( orarioInizio );
+            bookingBean.setOrario_fine( orarioFine );
+            bookingBean.setTargaVeicolo( targaVeicolo );
+            bookingBean.setTipoVeicolo( tipoVeicolo );
+            bookingBean.setEmail( email );
+
+            System.out.println("Veicolo " + tipoVeicolo);
+
+            switch (tipoVeicolo){
+                case "Auto":
+                    bookingBean.setPrezzo(parkingBean.getTariffaAF());
+                    FactoryPosto factoryAuto = new FactoryPostoAuto();
+                    Posto auto = factoryAuto.getPosto(id, parkingBean);
+                    break;
+                case "Furgone":
+                    bookingBean.setPrezzo(parkingBean.getTariffaAF());
+                    FactoryPosto factoryFurgone = new FactoryPostoFurgone();
+                    Posto furgone = factoryFurgone.getPosto(id, parkingBean);
+                    break;
+                case "Moto":
+                    bookingBean.setPrezzo(parkingBean.getTariffaM());
+                    FactoryPosto factoryMoto = new FactoryPostoMoto();
+                    Posto moto = factoryMoto.getPosto(id, parkingBean);
+                    break;
+                default:
+                    break;
+            }
+
+            session.setAttribute("idBooking", idBooking);
+            session.setAttribute("bookingBean", bookingBean);
+            request.getRequestDispatcher("pagamento.jsp").forward(request, response);
+
         }
-
-        request.setAttribute("bookingBean",bookingBean);
-
-        request.getRequestDispatcher("pagamento.jsp").forward(request, response);
 
     }
 }

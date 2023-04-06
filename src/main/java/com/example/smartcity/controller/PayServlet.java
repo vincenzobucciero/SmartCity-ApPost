@@ -18,16 +18,19 @@ public class PayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        System.out.println("Sono nella servlet");
+        System.out.println("Ciao sono nella payServlet");
 
+        HttpSession session = request.getSession(false);
+        if ( session == null ) {
+            session.setAttribute("isLog",0);
+            request.getRequestDispatcher("login.jsp").forward(request,response);
+        } else {
+            BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
+            System.out.println("PayServlet: " + bookingBean.getID_prenotazione());
+            System.out.println("PayServlet: " + bookingBean.getData_prenotazione());
+            System.out.println("PayServlet: " + bookingBean.getEmail());
 
-        int id = Integer.parseInt(request.getParameter("idP"));
-        ParkingBean parkingBean = ParkingDao.getIstanza().getParkingBean(id);
-
-
-        BookingBean bookingBean = (BookingBean) request.getAttribute("bookingBean");
-        System.out.println("Prenotazione: " + bookingBean.getID_prenotazione());
-
-        request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
+            request.getRequestDispatcher("pagamento.jsp").forward(request,response);
+        }
     }
 }

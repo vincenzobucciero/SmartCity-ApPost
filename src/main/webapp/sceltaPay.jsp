@@ -57,9 +57,9 @@
             <h5 class="text-muted small"> Qui puoi selezionare il metodo di pagamento che preferisci,
                 <br> cosi per completare il pagamento.</h5>
             <div class="payment-options">
-                <button class="credit-card" href="">Carta di Credito</button>
-                <button class="debit-card" href="">Carta di Debito</button>
-                <button class="cash" href="">Contanti</button>
+                <button type="submit" class="credit-card" href="">Carta di Credito</button>
+                <button type="submit" class="debit-card" href="">Carta di Debito</button>
+                <button type="submit" class="cash" href="">Contanti</button>
             </div>
         </div>
     </div>
