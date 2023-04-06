@@ -1,13 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: carmine
-  Date: 05/04/23
-  Time: 23:55
+  Date: 06/04/23
+  Time: 13:06
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
-
 <head>
     <link rel="icon" type="image/x-icon" href="img/wallpaperCar.jpg" />
     <!-- Bootstrap Icons-->
@@ -19,9 +17,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/stylePrenotazione.css">
-    <link rel="stylesheet" type="text/css" href="CSS/styleMap.css" />
-    <link rel="stylesheet" href="CSS/styleListPark.css">
+    <link rel="stylesheet" href="CSS/styleSceltaPay.css">
 
     <script type="module" src="js/scripts.js"></script>
     <script type="module" src="TySc/tyS.ts"></script>
@@ -30,11 +26,12 @@
 
     <link rel="stylesheet" href="img">
 
-    <title>ApPost - Thanks</title>
+    <title>ApPost - Scelta Pagamento</title>
 </head>
 
 <body>
 
+<!--Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="index.jsp">ApPost</a>
@@ -50,32 +47,26 @@
     </div>
 </nav>
 
+
+
+<!--Masthead-->
 <header class="masthead">
-    <div class="vh-100 d-flex justify-content-center align-items-center">
-        <div class="col-md-4">
-            <div class="border border-3 border-success"></div>
-            <div class="card  bg-white shadow p-5">
-                <div class="mb-4 text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75" height="75"
-                         fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                    </svg>
-                </div>
-                <div class="text-center">
-                    <h1>Prenotazione Effettuata</h1>
-                    <p>Grazie per averci scelto, puoi visualizzare le tue prenotazioni nella sezione dedicata,
-                       , inoltre puoi effettuare una nuova prenotazione.</p>
-                    <button class="btn btn-outline-success">Nuova prenotazione</button>
-                    <button class="btn btn-outline-success">Visualizza prenotazioni</button>
-                </div>
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="my-5 card bg-light mx-auto" style="width:70rem;">
+            <h3 class="card-title text-black">Scegli la tua modalità di pagamento</h3>
+            <h5 class="text-muted small"> Qui puoi selezionare il metodo di pagamento che preferisci,
+                <br> cosi per completare il pagamento.</h5>
+            <div class="payment-options">
+                <button class="credit-card" href="">Carta di Credito</button>
+                <button class="debit-card" href="">Carta di Debito</button>
+                <button class="cash" href="">Contanti</button>
             </div>
         </div>
     </div>
 </header>
 
 
-<!-- Footer-->
+<!--Footer-->
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
@@ -83,8 +74,6 @@
         </div>
     </div>
 </footer>
-
-
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- SimpleLightbox plugin JS-->
@@ -95,5 +84,4 @@
 
 
 </body>
-
 </html>

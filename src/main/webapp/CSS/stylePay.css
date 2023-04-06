@@ -203,3 +203,17 @@ form .btn.btn-primary:hover {
         font-size: 12px
     }
 }
+
+.nav-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background-color: orange;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link.active + .nav-indicator {
+    transform: translateX(100%);
+}

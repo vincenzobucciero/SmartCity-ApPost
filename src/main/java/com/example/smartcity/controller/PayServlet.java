@@ -1,5 +1,6 @@
 package com.example.smartcity.controller;
 
+import com.example.smartcity.model.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -17,6 +18,16 @@ public class PayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        request.getRequestDispatcher("pagamento.jsp").forward(request,response);
+        System.out.println("Sono nella servlet");
+
+
+        int id = Integer.parseInt(request.getParameter("idP"));
+        ParkingBean parkingBean = ParkingDao.getIstanza().getParkingBean(id);
+
+
+        BookingBean bookingBean = (BookingBean) request.getAttribute("bookingBean");
+        System.out.println("Prenotazione: " + bookingBean.getID_prenotazione());
+
+        request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
     }
 }

@@ -52,7 +52,7 @@
 </nav>
 <!-- Masthead-->
 <header class="masthead">
-    <div class="container px-4 px-lg-5 h-50">
+    <div class="container px-4 px-lg-5 h-100">
         <div class="row gx-4 gx-lg-5 h-50 align-items-center justify-content-center text-center"></div>
     </div>
 </header>
@@ -113,10 +113,11 @@
                         </div>
                         <input type="hidden" name="email" value="${email}">
                         <input type="hidden" name="id" value="${id}">
-                        <a type="submit" class="btn btn-primary btn-lg text-white" href="PayServlet">
-                            Pagamento<br>
-                            <i class="bi bi-credit-card-2-back-fill"></i>
-                        </a>
+
+                        <input type="hidden" name="bookingBean" value="${bookingBean}">
+                        <button type="submit" class="btn btn-primary btn-lg text-white">Pagamento
+                            <br><i class="bi bi-credit-card-2-back-fill"></i>
+                        </button>
                     </form>
                 </div><!--Fine form container-->
                 </c:when>
@@ -129,7 +130,7 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
-            Copyright &copy; 2022 - Company Name
+            Copyright &copy; 2023 - Company Name
         </div>
     </div>
 </footer>

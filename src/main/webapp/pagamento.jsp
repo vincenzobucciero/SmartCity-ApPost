@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="CSS/styleBooking.css">
     <link rel="stylesheet" href="CSS/stylePay.css">
     <script type="module" src="js/jsPay.js"></script>
+    <script type="module" src="js/jsCambioPay.js"></script>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
@@ -31,10 +32,8 @@
     <title>ApPost - Pagamento</title>
 </head>
 
-<body id="page-top">
-
-<!--Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-2" id="mainNav">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="index.jsp">ApPost</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
@@ -49,16 +48,15 @@
     </div>
 </nav>
 
-<!--Masthead-->
+
+
+<!-- Inizio MasterHead-->
 <header class="masthead">
-    <div class="container px-4 px-lg-5 h-50">
+    <div class="container px-4 px-lg-5 h-100">
         <div class="container bg-light d-md-flex align-items-center">
             <!--Riquadro SX-->
             <div class="card box1 shadow-sm p-md-5 p-md-5 p-4">
-                <div class="fw-bolder mb-4">
-                    <span class="fas fa-dollar-sign"></span>
-                    <span class="ps-1">599,00</span>
-                </div>
+
                 <div class="d-flex flex-column">
                     <div class="d-flex align-items-center justify-content-between text">
                         <span class="">Commissione</span>
@@ -104,10 +102,17 @@
                         <span class="fas fa-bars"></span>
                     </div>
                 </div>
-                <ul class="nav nav-tabs mb-3 px-md-4 px-2">
+                <ul class="nav nav-tabs mb-3 px-md-3 px-2">
                     <li class="nav-item">
-                        <a class="nav-link px-2 active" aria-current="page" href="#creditsCard">Carta di Credito</a>
+                        <a class="nav-link active" href="#creditsCard">Carta di Credito</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#debitCard">Carta di Debito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contanti">Contanti</a>
+                    </li>
+                    <li class="nav-indicator"></li>
                 </ul>
                 <form action="PayServlet" method="post">
                     <div class="row">
@@ -149,72 +154,15 @@
                             </div>
                         </div>
                         <div class="col-12 px-md-5 px-4 mt-3">
-                            <div class="btn btn-primary w-100">Paga $7.99</div>
+                            <input type="hidden" name="bookingBean" value="${bookingBean}">
+                            <button type="submit" class="btn btn-primary w-100">Paga $7.99</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
     </div>
 </header>
-
-
-<!--debitCard-->
-<section class="page-section" id="debitCard">
-    <form action="PayServlet" method="post">
-        <div class="row">
-            <div class="col-12">
-                <div class="col-12">
-                    <div class="d-flex flex-column px-md-5 px-4 mb-4">
-                        <span>Nome</span>
-                        <div class="inputWithIcon">
-                            <input class="form-control text-uppercase" type="text" placeholder="Mario Rossi">
-                            <span class="far fa-user"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-column px-md-5 px-4 mb-4">
-                    <span>Numero Carta</span>
-                    <div class="inputWithIcon">
-                        <input class="form-control" type="text" placeholder="5136 1845 5468 3894">
-                        <i class="bi bi-credit-card"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex flex-column ps-md-5 px-md-0 px-4 mb-4">
-                    <span>Scadenza</span>
-                    <div class="inputWithIcon">
-                        <input type="text" class="form-control" placeholder="05/20">
-                        <span class="fas fa-calendar-alt">
-                                </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex flex-column pe-md-5 px-md-0 px-4 mb-4">
-                    <span>CVV</span>
-                    <div class="inputWithIcon">
-                        <input type="password" class="form-control" placeholder="123">
-                        <span class="fas fa-lock"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 px-md-5 px-4 mt-3">
-                <div class="btn btn-primary w-100">Paga $7.99</div>
-            </div>
-        </div>
-    </form>
-</section>
-
-
-<!--Contanti-->
-<section class="page-section" id="contanti">
-    <form action="PayServlet" method="post">
-            <button class="btn-outline-primary">Paga al parcheggio</button>
-    </form>
-</section>
 
 <!-- Footer-->
 <footer class="bg-light py-5">
@@ -224,7 +172,6 @@
         </div>
     </div>
 </footer>
-
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

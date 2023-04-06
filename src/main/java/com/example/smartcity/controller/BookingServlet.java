@@ -52,13 +52,15 @@ public class BookingServlet extends HttpServlet {
         String targaVeicolo = request.getParameter("targa");
         String tipoVeicolo = request.getParameter("tipoV");
 
+
         System.out.println(email);
-        System.out.println("id: " + id);
+        System.out.println("idParcheggio: " + id);
         System.out.println("parking: " + parkingBean.getNomeParcheggio());
         System.out.println("Data: "+ dataPrenotazione);
-        System.out.println(orarioInizio +" "+ orarioFine);
+        System.out.println("Orari: " + orarioInizio +" "+ orarioFine);
 
         BookingBean bookingBean = new BookingBean();
+        bookingBean.setID_prenotazione( id );
         bookingBean.setData_prenotazione( dataPrenotazione );
         bookingBean.setOrario_inizio( orarioInizio );
         bookingBean.setOrario_fine( orarioFine );
@@ -66,14 +68,8 @@ public class BookingServlet extends HttpServlet {
         bookingBean.setTipoVeicolo( tipoVeicolo );
         bookingBean.setEmail( email );
 
-        BookingService.Booking(bookingBean);
 
-        //UsersBean usersBean = (UsersBean) request.getSession().getAttribute("usersBean");
-        //request.setAttribute("usersBean", usersBean);
-        //request.setAttribute( "email", usersBean.getEmail() );
-        //request.setAttribute("parkingBean", parkingBean);
-        //request.setAttribute("id", parkingBean.getIdParcheggio());
-
+        //BookingService.Booking(bookingBean);
 
         System.out.println("veicolo " + tipoVeicolo);
         switch (tipoVeicolo){
@@ -92,8 +88,10 @@ public class BookingServlet extends HttpServlet {
             default:
                 break;
         }
-        request.setAttribute("feedback",true);
-        request.getRequestDispatcher("prenotazione.jsp").forward(request, response);
+
+        request.setAttribute("bookingBean",bookingBean);
+
+        request.getRequestDispatcher("pagamento.jsp").forward(request, response);
 
     }
 }
