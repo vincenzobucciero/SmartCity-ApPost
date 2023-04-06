@@ -124,8 +124,8 @@
 
                         <input type="hidden" name="email" value="${email}">
                         <input type="hidden" name="id" value="${id}">
-
                         <input type="hidden" name="bookingBean" value="${bookingBean}">
+
                         <button type="submit" class="btn btn-primary btn-lg text-white">Pagamento
                             <br><i class="bi bi-credit-card-2-back-fill"></i>
                         </button>

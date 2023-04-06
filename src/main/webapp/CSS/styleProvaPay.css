@@ -3,7 +3,7 @@ body {
     margin: 20px;
 }
 .rounded {
-    border-radius: 1rem;
+    border-radius: 0rem;
 }
 .nav-pills .nav-link {
     color: #555;

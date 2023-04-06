@@ -1,3 +1,13 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: carmine
+  Date: 4/4/23
+  Time: 9:42 AM
+  To change this template use File | Settings | File Templates.
+--%>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 
@@ -66,7 +76,7 @@
                     <div class="tab-content">
                         <!-- credit card info-->
                         <div id="credit-card" class="tab-pane fade show active pt-3">
-                            <form role="form">
+                            <form action="PayServlet" method="post">
                                 <div class="form-group">
                                     <label name="username">
                                         <h6>Intestatario Carta</h6>
@@ -80,7 +90,11 @@
                                     <div class="input-group">
                                         <input type="text" name="numCarta" placeholder="5136 1845 5468 3894" class="form-control" required />
                                         <div class="input-group-append">
-                                            <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span>
+                                            <span class="input-group-text text-muted">
+                                                <i class="fab fa-cc-visa mx-1"></i>
+                                                <i class="fab fa-cc-mastercard mx-1"></i>
+                                                <i class="fab fa-cc-amex mx-1"></i>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +106,10 @@
                                                     <h6>Data Scadenza</h6>
                                                 </span>
                                             </label>
-                                            <div class="input-group"><input type="number" placeholder="MM" name="" class="form-control" required /> <input type="number" placeholder="YY" name="" class="form-control" required /></div>
+                                            <div class="input-group">
+                                                <input type="number" placeholder="MM" name="MM" class="form-control" required />
+                                                <input type="number" placeholder="YY" name="YYYY" class="form-control" required />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -100,29 +117,46 @@
                                             <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
                                                 <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
                                             </label>
-                                            <input type="text" required class="form-control" />
+                                            <input type="password" name="cvv" required class="form-control" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer"><button type="button" class="subscribe btn btn-primary btn-block shadow-sm">Conferma Pagamento</button></div>
+                                <div class="card-footer">
+                                    <input type="hidden" name="bookingBean" value="${bookingBean}">
+                                    <input type="hidden" name="email" value="${email}">
+                                    <input type="hidden" name="id" value="${id}">
+                                    <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm">
+                                        Conferma Pagamento
+                                    </button>
+                                </div>
                             </form>
                         </div>
                         <!-- End -->
 
                         <!-- Paypal info -->
-                        <div id="paypal" class="tab-pane fade pt-3">
-                            <h6 class="pb-2">Seleziona il tuo account paypal</h6>
-                            <div class="form-group">
-                                <label class="radio-inline"> <input type="radio" name="optradio" checked /> Personale </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5" />Aziendale </label>
+                            <div id="paypal" class="tab-pane fade pt-3">
+                                <form action="PayPalServlet" method="post">
+                                    <div class="form-group">
+                                        <label name="emailPP">
+                                            <h6>Email</h6>
+                                        </label>
+                                        <input type="text" name="emailPP" placeholder="mariorossi@gmail.com" required class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label name="passwordPP">
+                                            <h6>Password</h6>
+                                        </label>
+                                        <input type="password" name="intestatario" required class="form-control" />
+                                    </div>
+                                    <p>
+                                        <button type="submit" class="btn btn-primary"><i class="fab fa-paypal mr-2"></i> Accedi in Paypal</button>
+                                    </p>
+                                    <p class="text-muted">
+                                        Nota: dopo aver fatto clic sul pulsante, completerai l'acquisto sul tuo account PayPal. Dopo aver completato il processo di pagamento,
+                                        verrai reindirizzato al nostro sito Web per visualizzare i dettagli del tuo ordine.
+                                    </p>
+                                </form>
                             </div>
-                            <p>
-                                <button type="button" class="btn btn-primary"><i class="fab fa-paypal mr-2"></i> Accedi in Paypal</button>
-                            </p>
-                            <p class="text-muted">
-                                Nota: dopo aver fatto clic sul pulsante, completerai l'acquisto sul tuo account PayPal. Dopo aver completato il processo di pagamento,
-                                verrai reindirizzato al nostro sito Web per visualizzare i dettagli del tuo ordine.
-                            </p>
-                        </div>
                         <!-- End -->
                     </div>
                 </div>

@@ -28,19 +28,20 @@ public class BookingDao {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement query = con.prepareStatement("INSERT INTO Prenotazione (Id_prenotazione,data_prenotazione, orario_inizio, orario_fine, targaVeicolo, tipoVeicolo, email, prezzo, pagamento) " +
+            PreparedStatement query = con.prepareStatement("INSERT INTO Prenotazione (Id_prenotazione, data_prenotazione, orario_inizio, orario_fine, targaVeicolo, tipoVeicolo, email, prezzo, pagamento) " +
                     "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            query.setString(1,bookingBean.getID_prenotazione());
+
+            query.setString(1, bookingBean.getID_prenotazione());
             query.setString( 2, bookingBean.getData_prenotazione() );
             query.setString(3, bookingBean.getOrario_inizio());
             query.setString(4, bookingBean.getOrario_fine());
             query.setString(5, bookingBean.getTargaVeicolo());
             query.setString(6, bookingBean.getTipoVeicolo());
             query.setString(7, bookingBean.getEmail());
-            query.setDouble(8,bookingBean.getPrezzo());
+            query.setDouble(8, bookingBean.getPrezzo());
             query.setString(9, bookingBean.getPagamento());
-            query.execute();
 
+            query.execute();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -63,7 +64,8 @@ public class BookingDao {
         List<BookingBean> list = new ArrayList<BookingBean>();
 
         try {
-            con = DriverManager.getConnection(url, "camilla", "camilla");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM Prenotazione WHERE email = (?) ");
             stmt.setString(1, email);
             ResultSet result = stmt.executeQuery();
@@ -80,11 +82,15 @@ public class BookingDao {
                 bookingBean.setPrezzo(result.getDouble("prezzo"));
                 bookingBean.setPagamento(result.getString("pagamento"));
 
+                //System.out.println(bookingBean.getID_prenotazione() + " "+ bookingBean.getData_prenotazione());
+
                 list.add(bookingBean);
 
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)
@@ -103,7 +109,8 @@ public class BookingDao {
     public BookingBean getBookingBean(String id){
         BookingBean bookingBean = new BookingBean();
         try {
-            con = DriverManager.getConnection(url, "camilla", "camilla");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM Prenotazione WHERE Id_prenotazione = (?) ");
             stmt.setString(1, id);
             ResultSet result = stmt.executeQuery();
@@ -120,6 +127,8 @@ public class BookingDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)

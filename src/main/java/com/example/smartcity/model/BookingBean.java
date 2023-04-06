@@ -81,7 +81,11 @@ public class BookingBean implements Serializable {
         this.prezzo = prezzo;
     }
 
-    public String getPagamento() {return pagamento;}
+    public String getPagamento() {
+        return pagamento;
+    }
 
-    public void setPagamento(String pagamento) {this.pagamento = pagamento;}
+    public void setPagamento(String pagamento) {
+        this.pagamento = pagamento;
+    }
 }

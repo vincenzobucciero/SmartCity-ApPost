@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: carmine
-  Date: 5/4/23
-  Time: 9:42 AM
-  To change this template use File | Settings | File Templates.
---%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -67,15 +59,29 @@
                     <div class="d-flex align-items-center justify-content-between text mb-4">
                         <span>Totale</span>
                         <span class="fas fa-dollar-sign">
-                        <span class="ps-1">7.99€</span>
-                    </span>
+                        <span
+                            <c:choose>
+                                <c:when test="${bookingBean != null}">
+                                <p class="text-muted mb-0">
+                                        ${bookingBean.getPrezzo()}
+                                </p>
+                                </c:when>
+                            </c:choose>
+                        </span>
+                        </span>
                     </div>
                     <div class="border-bottom mb-4"></div>
                     <div class="d-flex flex-column mb-4">
                     <span class="far fa-file-alt text">
                         <span class="ps-2">ID prenotazione:</span>
                     </span>
-                        <span class="ps-3">SN8478042099</span>
+                        <c:choose>
+                            <c:when test="${bookingBean != null}">
+                                <p class="text-muted mb-0">
+                                        ${bookingBean.getID_prenotazione()}
+                                </p>
+                            </c:when>
+                        </c:choose>
                     </div> <div class="d-flex flex-column mb-5">
                 <span class="far fa-calendar-alt text">
                     <span class="ps-2">Data pagamento:</span>
@@ -130,9 +136,19 @@
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex flex-column ps-md-5 px-md-0 px-4 mb-4">
-                                <span>Scadenza</span>
+                                <span>Mese Scadenza</span>
                                 <div class="inputWithIcon">
-                                    <input name="scadenza" type="text" class="form-control" placeholder="05/20">
+                                    <input name="MM" type="text" class="form-control" placeholder="05/20">
+                                    <span class="fas fa-calendar-alt">
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column ps-md-5 px-md-0 px-4 mb-4">
+                                <span>Anno Scadenza</span>
+                                <div class="inputWithIcon">
+                                    <input name="YYYY" type="text" class="form-control" placeholder="05/20">
                                     <span class="fas fa-calendar-alt">
                                 </span>
                                 </div>
@@ -149,7 +165,17 @@
                         </div>
                         <div class="col-12 px-md-5 px-4 mt-3">
                             <input type="hidden" name="bookingBean" value="${bookingBean}">
-                            <button type="submit" class="btn btn-primary w-100">Paga €7.99</button>
+                            <input type="hidden" name="email" value="${email}">
+                            <input type="hidden" name="id" value="${id}">
+                            <button type="submit" class="btn btn-primary w-100">Paga
+                                <c:choose>
+                                    <c:when test="${bookingBean != null}">
+                                        <p class="text-muted mb-0">
+                                                ${bookingBean.getPrezzo()}
+                                        </p>
+                                    </c:when>
+                                </c:choose>
+                            </button>
                         </div>
                     </div>
                 </form>

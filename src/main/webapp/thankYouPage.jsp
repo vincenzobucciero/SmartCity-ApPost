@@ -63,9 +63,17 @@
         <div class="text-center">
             <h1>Prenotazione Effettuata</h1>
             <p>Grazie per averci scelto, puoi visualizzare le tue prenotazioni nella sezione dedicata,
-               inoltre puoi effettuare una nuova prenotazione.</p>
-            <button class="btn btn-outline-success">Nuova prenotazione</button>
-            <button class="btn btn-outline-success">Visualizza prenotazioni</button>
+                inoltre puoi effettuare una nuova prenotazione.</p>
+            <button class="btn btn-outline-success" href="findPath.jsp">Nuova prenotazione</button>
+
+            <div>
+                <form action="ShowBookingServlet" method="post">
+                    <input type="hidden" name="email" value="${email}">
+                    <div class="text-center">
+                        <button class="btn btn-outline-success">Visualizza prenotazioni</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </header>

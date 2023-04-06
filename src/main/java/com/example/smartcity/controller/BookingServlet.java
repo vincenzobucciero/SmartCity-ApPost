@@ -1,10 +1,8 @@
 package com.example.smartcity.controller;
 
-import com.example.smartcity.model.BookingBean;
+
+import com.example.smartcity.model.*;
 import com.example.smartcity.service.Factory.*;
-import com.example.smartcity.model.ParkingBean;
-import com.example.smartcity.model.ParkingDao;
-import com.example.smartcity.model.UsersBean;
 import com.example.smartcity.service.BookingService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -13,6 +11,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "BookingServlet", value = "/BookingServlet")
 public class BookingServlet extends HttpServlet {
@@ -54,11 +54,6 @@ public class BookingServlet extends HttpServlet {
         String metodoP = request.getParameter("sceltaP");
 
         String idBooking = RandomStringUtils.randomAlphabetic(7);
-        System.out.println(idBooking);
-
-
-
-        //System.out.println("Booking Data " + bookingBean.getData_prenotazione());
 
         HttpSession session = request.getSession(false);
 
@@ -66,6 +61,7 @@ public class BookingServlet extends HttpServlet {
             session.setAttribute("isLog",0);
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
+
             BookingBean bookingBean = new BookingBean();
             bookingBean.setID_prenotazione(idBooking);
             bookingBean.setData_prenotazione( dataPrenotazione );
@@ -76,54 +72,44 @@ public class BookingServlet extends HttpServlet {
             bookingBean.setEmail( email );
             bookingBean.setPagamento( metodoP );
 
-            System.out.println("Veicolo " + tipoVeicolo);
-
             switch (tipoVeicolo){
                 case "Auto":
-                    bookingBean.setPrezzo(parkingBean.getTariffaAF());
-                    FactoryPosto factoryAuto = new FactoryPostoAuto();
-                    Posto auto = factoryAuto.getPosto(id, parkingBean);
+                    bookingBean.setPrezzo(parkingBean.getTariffaAF() + 1.99);
                     break;
                 case "Furgone":
-                    bookingBean.setPrezzo(parkingBean.getTariffaAF());
-                    FactoryPosto factoryFurgone = new FactoryPostoFurgone();
-                    Posto furgone = factoryFurgone.getPosto(id, parkingBean);
+                    bookingBean.setPrezzo(parkingBean.getTariffaAF() + 1.99);
                     break;
                 case "Moto":
-                    bookingBean.setPrezzo(parkingBean.getTariffaM());
-                    FactoryPosto factoryMoto = new FactoryPostoMoto();
-                    Posto moto = factoryMoto.getPosto(id, parkingBean);
+                    bookingBean.setPrezzo(parkingBean.getTariffaM() + 1.99);
                     break;
                 default:
                     break;
             }
+
 
             System.out.println("pagamento: " + metodoP);
             switch (metodoP){
                 case "Carta di Credito":
-                    session.setAttribute("idBooking", idBooking);
                     session.setAttribute("bookingBean", bookingBean);
-                    request.getRequestDispatcher("pagamento.jsp").forward(request, response);
+                    session.setAttribute("email", email);
+                    request.setAttribute("id", id);
+                    request.getRequestDispatcher("provaPagamento.jsp").forward(request, response);
                     break;
                 case "Carta di Debito":
-                    session.setAttribute("idBooking", idBooking);
+
                     session.setAttribute("bookingBean", bookingBean);
-                    request.getRequestDispatcher("pagamento.jsp").forward(request, response);
+                    request.setAttribute("id", id);
+                    request.getRequestDispatcher("provaPagamento.jsp").forward(request, response);
                     break;
                 case "Al parcheggio":
-                    session.setAttribute("idBooking", idBooking);
                     session.setAttribute("bookingBean", bookingBean);
+                    //request.setAttribute("id", id);
                     request.getRequestDispatcher("thankYouPage.jsp").forward(request, response);
                     break;
                 default:
                     break;
-
             }
 
-
-            session.setAttribute("idBooking", idBooking);
-            session.setAttribute("bookingBean", bookingBean);
-            request.getRequestDispatcher("pagamento.jsp").forward(request, response);
 
         }
 
