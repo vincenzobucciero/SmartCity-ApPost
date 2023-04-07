@@ -88,28 +88,35 @@
                 </c:when>
                 </c:choose>
                 </p>
-                <a href="PersonalServlet" class="btn btn-primary">Visualizza</a>
+                <a href="PersonalServlet" class="btn btn-primary text-center">Visualizza</a>
             </div>
         </div><!-- Fine Prima Card-->
 
         <!-- Inizio Seconda Card-->
         <div class="my-5 card bg-light mx-auto" style="width: 20rem;">
-            <img src="img/imgCard/prenotazione.jpg">
+            <img src="img/park6.jpg">
             <div class="card-body">
-                <h4 class="card-title">Prenotazioni</h4>
-                <p class="card-text">Qui vengono visualizzate le prenotazioni effettuate,
-                    con informazioni come la data, l'ora, il luogo.</p>
-                <a href="SearchServlet" class="btn btn-primary">Effettua una prenotazione</a>
+                <h4 class="card-title">Prenota</h4>
+                <p class="card-text">Qui puoi effettuare una nuova prenotazione in uno dei nostri parcheggi.</p>
+                <a href="SearchServlet" class="btn btn-primary text-center">Effettua una prenotazione</a>
             </div>
         </div><!-- Fine Seconda Card-->
 
         <!-- Inizio Terza Card-->
         <div class="my-5 card bg-light" style="width: 20rem;">
-            <img src="img/park6.jpg">
+            <img src="img/imgCard/prenotazione.jpg">
             <div class="card-body">
-                <h4 class="card-title">I miei veicoli</h4>
-                <p class="card-text">Qui vengono visualizzati i veicoli posseduti.</p>
-                <a href="#" class="btn btn-primary">Aggiungi nuovo veicolo</a>
+                <h4 class="card-title">Le mie prenotazioni</h4>
+                <p class="card-text">Qui vengono visualizzate le prenotazioni effettuate,
+                    con informazioni come data orario e luogo.</p>
+                <form action="ShowBookingServlet" method="post">
+                    <input type="hidden" name="email" value="${email}">
+                    <input type="hidden" name="email" value="${list}">
+                    <input type="hidden" name="email" value="${size}">
+                    <div class="text-center">
+                        <button class="btn btn-primary">Visualizza prenotazioni</button>
+                    </div>
+                </form>
             </div>
         </div><!-- Fine Terza Card-->
 
