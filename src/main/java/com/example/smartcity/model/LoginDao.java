@@ -101,6 +101,7 @@ public class LoginDao {
     //Registrazione
     public boolean addRegistrazione(UsersBean usersBean) {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("SELECT email FROM Utenti WHERE email = (?) ");
             stmt.setString(1, usersBean.getEmail());
@@ -118,6 +119,8 @@ public class LoginDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (con != null)
@@ -133,6 +136,7 @@ public class LoginDao {
     //Metodo per modificare il nome dell'utente
     public void modifyNomeUtente(String email, String nome){
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("UPDATE Utenti SET nome=(?) WHERE email = (?)");
             stmt.setString(1, nome);
@@ -141,8 +145,9 @@ public class LoginDao {
         }
         catch (SQLException e){
             e.printStackTrace();
-        }
-        finally {
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
             try{
                 if (con!=null)
                     con.close();

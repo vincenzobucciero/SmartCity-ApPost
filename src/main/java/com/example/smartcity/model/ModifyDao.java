@@ -18,7 +18,8 @@ public class ModifyDao {
 
     public void modifyTariffaAF(int id, double tariffa) {
         try {
-            con = DriverManager.getConnection(url, "camilla", "camilla");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, "root", "password");
             PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET tariffaAF=(?) WHERE ID_parcheggio = (?)");
             stmt.setDouble(1, tariffa);
             stmt.setInt(2, id);
@@ -26,8 +27,9 @@ public class ModifyDao {
         }
         catch (SQLException e){
             e.printStackTrace();
-        }
-        finally {
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
             try{
                 if (con!=null)
                     con.close();

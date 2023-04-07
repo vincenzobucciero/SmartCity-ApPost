@@ -79,6 +79,9 @@
                             <input name="password" class="form-control" id="password" type="password" placeholder="es. password123" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg text-white">Registrati</button>
+                        <div class="text-center">
+                            <a href="login.jsp" class="text-secondary">Accedi ora</a>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -56,6 +56,7 @@
                     Qui puoi visualizzare i tuoi parcheggi:
                 </h3>
             </div>-->
+    <div class="my-5 card text-black mx-auto" style="width: 70rem">
             <div class="row"> <!-- Inizio Card-->
             <c:forEach items="${list}" var="record"> <!--Ciclo FOR -->
                 <div class="my-4 card bg-light mx-auto" style="width: 20rem;">
@@ -91,6 +92,7 @@
                 </div><!-- Fine Card-->
             </c:forEach>
         </div>
+    </div>
     </div><!-- FINE SEZIONE CARD-->
 
 

@@ -79,16 +79,17 @@
             <div class="card-body">
                 <h4 class="card-title">Dati personali</h4>
                 <p class="card-text">Qui vengono visualizzati i dati personali di </p>
-                <p><c:choose>
+                <p>
+                    <c:choose>
                     <c:when test="${usersBean != null}">
-                <p class="text-muted mb-0">
-                        ${usersBean.getNome()}
-                        ${usersBean.getCognome()}
+                        <p class="text-muted mb-0">
+                                ${usersBean.getNome()}
+                                ${usersBean.getCognome()}
+                        </p>
+                    </c:when>
+                    </c:choose>
                 </p>
-                </c:when>
-                </c:choose>
-                </p>
-                <a href="PersonalServlet" class="btn btn-primary text-center">Visualizza</a>
+                <a href="PersonalServlet" class="btn btn-primary text-center">Visualizza i tuoi dati</a>
             </div>
         </div><!-- Fine Prima Card-->
 
@@ -97,7 +98,7 @@
             <img src="img/park6.jpg">
             <div class="card-body">
                 <h4 class="card-title">Prenota</h4>
-                <p class="card-text">Qui puoi effettuare una nuova prenotazione in uno dei nostri parcheggi.</p>
+                <p class="card-text">Qui puoi effettuare una nuova prenotazione in uno dei nostri parcheggi.</p><br>
                 <a href="SearchServlet" class="btn btn-primary text-center">Effettua una prenotazione</a>
             </div>
         </div><!-- Fine Seconda Card-->
@@ -113,9 +114,7 @@
                     <input type="hidden" name="email" value="${email}">
                     <input type="hidden" name="email" value="${list}">
                     <input type="hidden" name="email" value="${size}">
-                    <div class="text-center">
-                        <button class="btn btn-primary">Visualizza prenotazioni</button>
-                    </div>
+                    <button class="btn btn-primary">Visualizza prenotazioni</button>
                 </form>
             </div>
         </div><!-- Fine Terza Card-->
