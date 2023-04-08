@@ -80,6 +80,7 @@
                                             </span>
                                         </div>
                                         <div class="icons">
+
                                             <i class="bi bi-search"></i>
                                             <i class="bi bi-three-dots"></i>
                                         </div>
@@ -100,7 +101,7 @@
                                                                 <i class="bi bi-geo-fill"></i>
                                                                 <td>
                                                                     ${record.getIndirizzo()}<br>
-                                                                    <i class="fas fa-car-side"></i>/<i class="fas fa-car-truck"></i>
+                                                                    <i class="fas fa-car-side"></i>/<i class="fas fa-truck"></i>
                                                                     ${record.getTariffaAF()}€/h <br>
                                                                     <i class="fas fa-motorcycle"></i>
                                                                     ${record.getTariffaM()}€/h
