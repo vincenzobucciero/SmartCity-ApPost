@@ -86,36 +86,28 @@
                                                         <div class="ml-3"><!--ID Prenotazione-->
                                                             <h6 class="mb-0">
                                                                 <td>
-                                                                        Id Prenotazione: "${record.getID_prenotazione()}"
+                                                                        ${nomeParcheggio} ("${record.getID_prenotazione()}")
                                                                 </td>
                                                             </h6>
                                                             <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                             <span class="ml-2">
+
+                                                                <i class="bi bi-check-circle-fill"></i> Pagato con successo <br>
+
                                                                 <i class="bi bi-calendar-check-fill"></i><!--Data-->
                                                                     <td>
-                                                                        ${record.getData_prenotazione()}<br>
-                                                                    </td>
-                                                                <i class="bi bi-clock-fill"></i><!--Orario-->
-                                                                    <td>
-                                                                        ${record.getOrario_inizio()} - ${record.getOrario_fine()}<br>
+                                                                        ${record.getData_prenotazione()}
+                                                                            <i class="bi bi-clock-fill"></i><!--Orario-->
+                                                                                ${record.getOrario_inizio()} - ${record.getOrario_fine()}<br>
                                                                     </td>
                                                                 <i class="fas fa-car-side"></i><!--Targa-->
                                                                     <td>
-                                                                        ${record.getTargaVeicolo()}<br>
-                                                                    </td>
-                                                                <i class="bi bi-currency-exchange"></i><!--Prezzo-->
-                                                                    <td>
-                                                                        ${record.getPrezzo()}€<br>
-                                                                    </td>
-                                                               <i class="bi bi-credit-card-2-back-fill"></i>/<i class="fab fa-paypal mr-2"></i><!--TipoPagamento-->
-                                                                    <td>
-                                                                        ${record.getPagamento()}<br>
+                                                                        ${record.getTargaVeicolo()} <i class="fas fa-coins"></i> ${record.getPrezzo()}€<br>
                                                                     </td>
 
-                                                                    <td>
-                                                                        Id Parcheggio:${record.getId_parcheggio()}<br>
-                                                                        NOME: ${nomeParcheggio}
-                                                                    </td>
+                                                                <!--TipoPagamento-->
+                                                                <!-- <i class="bi bi-credit-card-2-back-fill"></i>/<i class="fab fa-paypal mr-2"></i>-->
+                                                                <!-- <td>${record.getPagamento()}<br></td>-->
                                                             </span>
                                                             </div>
                                                         </div>
@@ -127,10 +119,7 @@
                                                                     <div class="text-center">
                                                                         <input type="hidden" name="id" value="${record.getID_prenotazione()}">
                                                                         <input type="hidden" name="parkingBean" value="${parkingBean}">
-                                                                        <button class="btn btn-success btn-sm "><i class="bi bi-currency-dollar"></i></button>
-                                                                        <button type="submit" class="btn btn-danger btn-sm ">
-                                                                            <i class="bi bi-trash"></i>
-                                                                        </button>
+                                                                        <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash"></i></button>
                                                                     </div>
                                                                 </form>
                                                             </div>

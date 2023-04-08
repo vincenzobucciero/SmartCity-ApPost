@@ -17,7 +17,11 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
     <!-- SimpleLightbox plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Core theme CSS (includes Bootstrap)-->
+
+
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/stylePrenotazione.css">
     <link rel="stylesheet" type="text/css" href="CSS/styleMap.css" />
@@ -96,10 +100,10 @@
                                                                 <i class="bi bi-geo-fill"></i>
                                                                 <td>
                                                                     ${record.getIndirizzo()}<br>
-                                                                    <i class="bi bi-cash-stack"></i>
-                                                                    Auto/Furgone:${record.getTariffaAF()}€/h <br>
-                                                                    <i class="bi bi-cash-stack"></i>
-                                                                    Moto:${record.getTariffaM()}€/h
+                                                                    <i class="fas fa-car-side"></i>/<i class="fas fa-car-truck"></i>
+                                                                    ${record.getTariffaAF()}€/h <br>
+                                                                    <i class="fas fa-motorcycle"></i>
+                                                                    ${record.getTariffaM()}€/h
                                                                 </td>
                                                             </span>
                                                         </div>

@@ -32,11 +32,13 @@ public class ShowBookingServlet extends HttpServlet {
         } else {
             BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
             List<BookingBean> bookingBeans = BookingService.getBooking(bookingBean.getEmail());
+            int size = bookingBeans.size();
             String nomePark = String.valueOf(ParkingService.getParkingBean(bookingBean.getId_parcheggio()).getNomeParcheggio());
 
             request.setAttribute("email", bookingBean.getEmail());
             request.setAttribute("idP", bookingBean.getId_parcheggio());
             request.setAttribute("list", bookingBeans);
+            request.setAttribute("size", size);
             request.setAttribute("nomeParcheggio",nomePark);
             request.getRequestDispatcher("showBooking.jsp").forward(request, response);
 

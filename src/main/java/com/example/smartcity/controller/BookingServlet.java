@@ -91,7 +91,7 @@ public class BookingServlet extends HttpServlet {
             }
 
 
-            System.out.println("pagamento: " + metodoP);
+            System.out.println("Pagamento: " + metodoP);
             switch (metodoP){
                 case "Carta di Credito/PayPal":
                     session.setAttribute("bookingBean", bookingBean);

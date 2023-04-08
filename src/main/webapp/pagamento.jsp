@@ -80,7 +80,7 @@
                                     <label name="username"> <!--Intestatario-->
                                         <h6>Intestatario Carta</h6>
                                     </label>
-                                    <input type="text" name="intestatario" placeholder="Mario Rossi" required class="form-control" />
+                                    <input type="text" name="intestatario" placeholder="Mario Rossi" style="text-transform: uppercase" required class="form-control" />
                                 </div>
                                 <div class="form-group">
                                     <label name="cardNumber"><!--Numero Carta-->

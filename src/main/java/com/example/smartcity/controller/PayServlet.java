@@ -21,8 +21,6 @@ public class PayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        /*int id = Integer.parseInt(request.getParameter("id"));
-        ParkingBean parkingBean = ParkingService.getParkingBean(id);*/
 
         //String idBooking = request.getParameter("idBooking"); //controlla se cancellare
         String email = request.getParameter("email");

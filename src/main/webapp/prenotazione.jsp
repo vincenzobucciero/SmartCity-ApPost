@@ -75,7 +75,7 @@
 
                                     <div class="col-md-5">
                                         <label name="emailS">Email</label>
-                                        <input name="emailS" class="form-control" type="text" placeholder="${email}" readonly>
+                                        <input name="emailS" class="form-control" type="text" style="font-family: 'Inter', sans-serif" placeholder="${email}" readonly>
                                     </div>
                                 </div>
                                 <hr>
@@ -111,7 +111,7 @@
 
                                     <div class="col-md-4">
                                         <label name="targa">Targa Veicolo</label>
-                                        <input name="targa" class="form-control" type="text" placeholder="es. DC104RT" required>
+                                        <input name="targa" class="form-control" type="text" style="text-transform: uppercase" style="font-family: 'Inter', sans-serif" placeholder="es. GH104RT" maxlength="7" required>
                                     </div>
 
                                     <div class="col-md-4">

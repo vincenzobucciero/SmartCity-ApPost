@@ -24,8 +24,6 @@ public class PayPalServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        ParkingBean parkingBean = ParkingService.getParkingBean(id);
 
         String email = request.getParameter("email");
         String emailPP = request.getParameter("emailPP");
@@ -37,6 +35,10 @@ public class PayPalServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
             BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
+
+            int id = bookingBean.getId_parcheggio();
+            ParkingBean parkingBean = ParkingService.getParkingBean(id);
+
 
             PaymentStrategy paymentMethod = new PaypalStrategy(emailPP, passwordPP);
 
@@ -52,6 +54,8 @@ public class PayPalServlet extends HttpServlet {
                         //Inserisco la prenotazione
                         BookingService.Booking(bookingBean);
                         session.setAttribute("email", email);
+                        request.setAttribute("parkingBean",parkingBean);
+                        session.setAttribute("bookingBean",bookingBean);
                         request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
                     }
                     else
@@ -67,6 +71,9 @@ public class PayPalServlet extends HttpServlet {
                         //Inserisco la prenotazione
                         BookingService.Booking(bookingBean);
                         session.setAttribute("email", email);
+
+                        request.setAttribute("parkingBean",parkingBean);
+                        session.setAttribute("bookingBean",bookingBean);
                         request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
                     }
                     else
@@ -82,6 +89,9 @@ public class PayPalServlet extends HttpServlet {
                         //Inserisco la prenotazione
                         BookingService.Booking(bookingBean);
                         session.setAttribute("email", email);
+
+                        request.setAttribute("parkingBean",parkingBean);
+                        session.setAttribute("bookingBean",bookingBean);
                         request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
                     }
                     else
