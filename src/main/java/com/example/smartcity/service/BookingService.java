@@ -13,4 +13,10 @@ public class BookingService {
 
     public static List<BookingBean> getBooking(String email){
         return BookingDao.getIstanza().getBooking(email);
-    }}
+    }
+
+    public static void deleteBooking(String idPrenotazione){
+        BookingDao.getIstanza().deleteBooking(idPrenotazione);
+    }
+
+}

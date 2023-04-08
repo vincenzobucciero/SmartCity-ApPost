@@ -118,10 +118,13 @@
                                                     <div class="d-flex flex-row align-items-center">
                                                         <div class="d-flex flex-column mr-2">
                                                             <div class="profile-image">
-                                                                <form action="" method="get">
+                                                                <form action="DeleteBookingServlet" method="post">
                                                                     <div class="text-center">
+                                                                        <input type="hidden" name="id" value="${record.getID_prenotazione()}">
                                                                         <button class="btn btn-success btn-sm "><i class="bi bi-currency-dollar"></i></button>
-                                                                        <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash"></i></button>
+                                                                        <button type="submit" class="btn btn-danger btn-sm ">
+                                                                            <i class="bi bi-trash"></i>
+                                                                        </button>
                                                                     </div>
                                                                 </form>
                                                             </div>
