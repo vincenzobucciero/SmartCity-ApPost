@@ -120,7 +120,7 @@
                                                             <div class="profile-image">
                                                                 <form action="" method="get">
                                                                     <div class="text-center">
-                                                                        <button type="submit" class="btn btn-success btn-sm "><i class="bi bi-currency-dollar"></i></button>
+                                                                        <button class="btn btn-success btn-sm "><i class="bi bi-currency-dollar"></i></button>
                                                                         <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash"></i></button>
                                                                     </div>
                                                                 </form>
