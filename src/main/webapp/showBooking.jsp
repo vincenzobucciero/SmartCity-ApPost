@@ -64,7 +64,7 @@
 
                         <!-- Qui inizia il div per la lista dei parcheggi-->
 
-                        <div class="container mt-5">
+                        <div class="container mt-5" style="font-family: 'Inter', sans-serif">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="d-flex justify-content-between align-items-center activity">
@@ -86,13 +86,14 @@
                                                         <div class="ml-3"><!--ID Prenotazione-->
                                                             <h6 class="mb-0">
                                                                 <td>
-                                                                        ${nomeParcheggio} ("${record.getID_prenotazione()}")
+                                                                        ("${record.getID_prenotazione()}")
                                                                 </td>
+
                                                             </h6>
                                                             <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                             <span class="ml-2">
 
-                                                                <i class="bi bi-check-circle-fill"></i> Pagato con successo <br>
+                                                                <i class="bi bi-check-circle-fill" style="color: #11cc11"></i> Pagato con successo <br>
 
                                                                 <i class="bi bi-calendar-check-fill"></i><!--Data-->
                                                                     <td>
@@ -102,7 +103,7 @@
                                                                     </td>
                                                                 <i class="fas fa-car-side"></i><!--Targa-->
                                                                     <td>
-                                                                        ${record.getTargaVeicolo()} <i class="fas fa-coins"></i> ${record.getPrezzo()}€<br>
+                                                                        ${record.getTargaVeicolo()} <i class="fas fa-coins" style="color: rgba(150,114,18,0.66)"></i> ${record.getPrezzo()}€<br>
                                                                     </td>
 
                                                                 <!--TipoPagamento-->

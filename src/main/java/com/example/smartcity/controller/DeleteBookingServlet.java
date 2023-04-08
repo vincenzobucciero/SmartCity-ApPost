@@ -32,7 +32,7 @@ public class DeleteBookingServlet extends HttpServlet {
 
         BookingService.deleteBooking(idPrenotazione);
 
-        request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
+        request.getRequestDispatcher("cancelPage.jsp").forward(request, response);
 
     }
 }

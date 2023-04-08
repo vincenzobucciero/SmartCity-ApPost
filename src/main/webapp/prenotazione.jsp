@@ -44,6 +44,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="userHomePage.jsp">Torna alla Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#aiuto">Come si prenota ?</a></li>
                         <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
                     </ul>
                 </div>
@@ -60,7 +61,7 @@
         <div class="form-bg">
             <div class="container">
                 <div class="col-md-4 col-md-offset-4">
-                    <div class="form-container">
+                    <div class="form-container" style="font-family: 'Inter', sans-serif">
                         <c:choose>
                             <c:when test="${parkingBean != null}">
                             <h3 class="title">
@@ -68,12 +69,12 @@
                             </h3>
                             <form id="bookingForm" class="form-horizontal" action="BookingServlet" method="post">
                                 <div class = "form-group row">
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                         <label name="nomePark">Nome parcheggio</label>
                                         <input name="nomePark" class="form-control" type="text" placeholder="${parkingBean.getNomeParcheggio()}" readonly>
                                     </div>
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                         <label name="emailS">Email</label>
                                         <input name="emailS" class="form-control" type="text" style="font-family: 'Inter', sans-serif" placeholder="${email}" readonly>
                                     </div>
@@ -111,7 +112,7 @@
 
                                     <div class="col-md-4">
                                         <label name="targa">Targa Veicolo</label>
-                                        <input name="targa" class="form-control" type="text" style="text-transform: uppercase" style="font-family: 'Inter', sans-serif" placeholder="es. GH104RT" maxlength="7" required>
+                                        <input name="targa" class="form-control" type="text" style="text-transform: uppercase" style="font-family: 'Inter', sans-serif" placeholder="GH104RT" maxlength="7" required>
                                     </div>
 
                                     <div class="col-md-4">
@@ -138,6 +139,38 @@
                 </div>
             </div>
         </div>
+
+
+        <!--Aiuto-->
+        <section class="page-section" id="aiuto">
+            <div class="container px-4 px-lg-5">
+                <h2 class="text-center mt-0">Come prenotare</h2>
+                <hr class="divider" />
+                <div class="row gx-4 gx-lg-5">
+                    <!--<div class="col-lg-3 col-md-6 text-center">-->
+                    <div class="mt-5">
+                        <p class="text-muted mb-0">Per prenotare un parcheggio attraverso la nostra app, è necessario
+                            seguire alcuni passaggi chiave. Prima di tutto, dovrai inserire la data in cui desideri
+                            parcheggiare il tuo veicolo. In seguito, dovrai selezionare l'orario d'ingresso nel
+                            parcheggio e l'orario di uscita. Dopo aver specificato gli orari d'ingresso e uscita,
+                            dovrai indicare il tipo di veicolo che intendi parcheggiare: auto, moto o furgone.
+                            Inserisci inoltre la targa del veicolo, in modo da poter identificare il tuo veicolo
+                            all'arrivo al parcheggio.
+                            Infine, dovrai scegliere il metodo di pagamento per la tua prenotazione. Puoi optare
+                            per il pagamento tramite carta di credito o Paypal, oppure scegliere di pagare in
+                            contanti direttamente al parcheggio.
+                            Una volta completati questi passaggi, la prenotazione sarà quasi completata. Se hai
+                            scelto il pagamento tramite carta di credito o Paypal, dovrai inserire i dati necessari
+                            per il pagamento e confermare la prenotazione. Se invece hai scelto di pagare in contanti
+                            al parcheggio, la prenotazione sarà comunque registrata e confermata, ma dovrai semplicemente
+                            pagare il costo del parcheggio all'arrivo.
+                            In ogni caso, riceverai una conferma della prenotazione attraverso l'app e sarai pronto per
+                            parcheggiare il tuo veicolo al tuo arrivo al parcheggio
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <!-- Footer-->
 <footer class="bg-light py-5">

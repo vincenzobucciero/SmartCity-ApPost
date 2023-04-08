@@ -112,8 +112,6 @@
                     con informazioni come data orario e luogo.</p>
                 <form action="ShowBookingServlet" method="post">
                     <input type="hidden" name="email" value="${email}">
-                    <input type="hidden" name="email" value="${list}">
-                    <input type="hidden" name="email" value="${size}">
                     <button class="btn btn-primary">Visualizza prenotazioni</button>
                 </form>
             </div>

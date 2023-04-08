@@ -30,16 +30,36 @@ public class ShowBookingServlet extends HttpServlet {
             session.setAttribute("isLog", 0);
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
-            BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
-            List<BookingBean> bookingBeans = BookingService.getBooking(bookingBean.getEmail());
-            int size = bookingBeans.size();
+            //BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
+            //List<BookingBean> bookingBeans = BookingService.getBooking(bookingBean.getEmail());
+
+            String email = request.getParameter("email");
+            System.out.println("Email:" + email);
+
+            List<BookingBean> list = BookingService.getBooking(email);
+
+            for (BookingBean patate:list) {
+                System.out.println("Prova stampa lista " + patate.getTipoVeicolo());
+            }
+
+            /*int size = bookingBeans.size();
             String nomePark = String.valueOf(ParkingService.getParkingBean(bookingBean.getId_parcheggio()).getNomeParcheggio());
+
+            String email = request.getParameter("email");
+            System.out.println("Email:" + email);
 
             request.setAttribute("email", bookingBean.getEmail());
             request.setAttribute("idP", bookingBean.getId_parcheggio());
-            request.setAttribute("list", bookingBeans);
+            request.setAttribute("list", list1);
             request.setAttribute("size", size);
-            request.setAttribute("nomeParcheggio",nomePark);
+            request.setAttribute("nomeParcheggio",nomePark);*/
+
+
+
+            int size = list.size();
+
+            request.setAttribute("list",list);
+            request.setAttribute("size", size);
             request.getRequestDispatcher("showBooking.jsp").forward(request, response);
 
         }

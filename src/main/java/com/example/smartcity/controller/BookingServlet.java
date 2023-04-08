@@ -100,6 +100,7 @@ public class BookingServlet extends HttpServlet {
                     request.getRequestDispatcher("pagamento.jsp").forward(request, response);
                     break;
                 case "Al parcheggio":
+                    BookingService.Booking(bookingBean);
                     session.setAttribute("bookingBean", bookingBean);
                     session.setAttribute("email", email);
                     //request.setAttribute("id", id);

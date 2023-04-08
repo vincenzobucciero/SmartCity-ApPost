@@ -65,7 +65,7 @@
 
                         <!-- Qui inizia il div per la lista dei parcheggi-->
 
-                        <div class="container mt-5">
+                        <div class="container mt-5" style="font-family: 'Inter', sans-serif">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="d-flex justify-content-between align-items-center activity">
@@ -98,7 +98,7 @@
                                                         </h6>
                                                         <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                             <span class="ml-2"> <!--22 May 2023-->
-                                                                <i class="bi bi-geo-fill"></i>
+                                                                <i class="bi bi-geo-fill" style="color: #b60909"></i>
                                                                 <td>
                                                                     ${record.getIndirizzo()}<br>
                                                                     <i class="fas fa-car-side"></i>/<i class="fas fa-truck"></i>

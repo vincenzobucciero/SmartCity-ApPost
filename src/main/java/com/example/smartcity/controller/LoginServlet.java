@@ -2,6 +2,7 @@ package com.example.smartcity.controller;
 
 import com.example.smartcity.model.*;
 
+import com.example.smartcity.service.BookingService;
 import com.example.smartcity.service.LogService;
 import com.example.smartcity.service.ParkingService;
 import jakarta.servlet.*;
