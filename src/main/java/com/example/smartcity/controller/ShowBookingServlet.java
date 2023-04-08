@@ -25,13 +25,14 @@ public class ShowBookingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
+
         HttpSession session = request.getSession(false);
         if (session == null) {
             session.setAttribute("isLog", 0);
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
-            //BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
-            //List<BookingBean> bookingBeans = BookingService.getBooking(bookingBean.getEmail());
+
+            System.out.println("\nSono nella showServlet\n");
 
             String email = request.getParameter("email");
             System.out.println("Email:" + email);
@@ -42,21 +43,17 @@ public class ShowBookingServlet extends HttpServlet {
                 System.out.println("Prova stampa lista " + patate.getTipoVeicolo());
             }
 
-            /*int size = bookingBeans.size();
-            String nomePark = String.valueOf(ParkingService.getParkingBean(bookingBean.getId_parcheggio()).getNomeParcheggio());
-
-            String email = request.getParameter("email");
-            System.out.println("Email:" + email);
-
-            request.setAttribute("email", bookingBean.getEmail());
-            request.setAttribute("idP", bookingBean.getId_parcheggio());
-            request.setAttribute("list", list1);
-            request.setAttribute("size", size);
-            request.setAttribute("nomeParcheggio",nomePark);*/
-
 
 
             int size = list.size();
+            int idParcheggio = Integer.parseInt(request.getParameter("idParcheggio"));
+
+            System.out.println("StampaId: " + idParcheggio);
+
+            ParkingBean parkingBean = ParkingService.getParkingBean(idParcheggio);
+            System.out.println("Prova parking beaan:" + parkingBean.getNomeParcheggio());
+
+            request.setAttribute("parkingBean",parkingBean);
 
             request.setAttribute("list",list);
             request.setAttribute("size", size);

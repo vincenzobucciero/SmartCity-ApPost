@@ -89,6 +89,11 @@
                                                                         ("${record.getID_prenotazione()}")
                                                                 </td>
 
+                                                                Id Parcheggio:
+                                                                <input type="hidden" name="idParcheggio" value="${record.getId_parcheggio()}">
+
+
+                                                                Nome: ${parkingBean.getNomeParcheggio()}
                                                             </h6>
                                                             <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                             <span class="ml-2">
