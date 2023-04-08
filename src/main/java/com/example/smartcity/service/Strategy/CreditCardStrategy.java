@@ -1,6 +1,5 @@
 package com.example.smartcity.service.Strategy;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -69,11 +68,16 @@ public class CreditCardStrategy implements PaymentStrategy {
         return true;
     }
 
+    //Lo rendiamo booleano
     @Override
-    public void pay(double amount) {
-        if (checkPaymentMethodData())
+    public boolean pay(double amount) {
+        if (checkPaymentMethodData()) {
             System.out.println(amount + " pagamento con successo con carta di credito");
-        else
+            return true;
+        }
+        else {
             System.out.println("credenziali non valide");
+            return false;
+        }
     }
 }

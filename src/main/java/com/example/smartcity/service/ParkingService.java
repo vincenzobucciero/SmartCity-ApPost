@@ -13,4 +13,8 @@ public class ParkingService {
 
         return parkingBean;
     }
+
+    public static ParkingBean getParkingBean(int id){
+        return ParkingDao.getIstanza().getParkingBean(id);
+    }
 }

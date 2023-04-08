@@ -100,11 +100,6 @@
                                 <div class = "form-group row">
 
                                     <div class="col-md-4">
-                                        <label name="targa">Targa Veicolo</label>
-                                        <input name="targa" class="form-control" type="text" placeholder="es. DC104RT" required>
-                                    </div>
-
-                                    <div class="col-md-4">
                                         <label name="tipoV">Tipo Veicolo</label>
                                         <select class= "form-control" name="tipoV" required>
                                             <option value="">--scegli--</option>
@@ -112,6 +107,11 @@
                                             <option type="hidden" name="tipoV">Furgone</option>
                                             <option type="hidden" name="tipoV">Moto</option>
                                         </select>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label name="targa">Targa Veicolo</label>
+                                        <input name="targa" class="form-control" type="text" placeholder="es. DC104RT" required>
                                     </div>
 
                                     <div class="col-md-4">
@@ -128,7 +128,7 @@
                                 <input type="hidden" name="id" value="${id}">
                                 <input type="hidden" name="bookingBean" value="${bookingBean}">
 
-                                <button type="submit" class="btn btn-primary btn-lg text-white">Pagamento
+                                <button type="submit" class="btn btn-primary btn-lg text-white alert">Pagamento
                                     <br><i class="bi bi-credit-card-2-back-fill"></i>
                                 </button>
                             </form>

@@ -5,6 +5,7 @@ import com.example.smartcity.model.ParkingBean;
 import com.example.smartcity.model.ParkingDao;
 import com.example.smartcity.service.BookingService;
 import com.example.smartcity.service.Factory.*;
+import com.example.smartcity.service.ParkingService;
 import com.example.smartcity.service.Strategy.PaypalStrategy;
 import com.example.smartcity.service.Strategy.PaymentStrategy;
 import jakarta.servlet.*;
@@ -24,7 +25,7 @@ public class PayPalServlet extends HttpServlet {
         response.setContentType("text/html");
 
         int id = Integer.parseInt(request.getParameter("id"));
-        ParkingBean parkingBean = ParkingDao.getIstanza().getParkingBean(id);
+        ParkingBean parkingBean = ParkingService.getParkingBean(id);
 
         String email = request.getParameter("email");
         String emailPP = request.getParameter("emailPP");
@@ -41,37 +42,56 @@ public class PayPalServlet extends HttpServlet {
 
             String tipoVeicolo = bookingBean.getTipoVeicolo();
             System.out.println("veicolo " + tipoVeicolo);
+
             switch (tipoVeicolo){
                 case "Auto":
-                    paymentMethod.pay(bookingBean.getPrezzo());
-                    FactoryPosto factoryAuto = new FactoryPostoAuto();
-                    Posto auto = factoryAuto.getPosto(id, parkingBean);
+                    if (paymentMethod.pay(bookingBean.getPrezzo())){
+                        FactoryPosto factoryAuto = new FactoryPostoAuto();
+                        Posto auto = factoryAuto.getPosto(id, parkingBean);
 
-                    //inserisco la prenotazione
-                    BookingService.Booking(bookingBean);
+                        //Inserisco la prenotazione
+                        BookingService.Booking(bookingBean);
+                        session.setAttribute("email", email);
+                        request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
+                    }
+                    else
+                        request.getRequestDispatcher("errorPage.jsp").forward(request,response);
+
                     break;
                 case "Furgone":
-                    paymentMethod.pay(bookingBean.getPrezzo());
-                    FactoryPosto factoryFurgone = new FactoryPostoFurgone();
-                    Posto furgone = factoryFurgone.getPosto(id, parkingBean);
 
-                    //inserisco la prenotazione
-                    BookingService.Booking(bookingBean);
+                    if (paymentMethod.pay(bookingBean.getPrezzo())){
+                        FactoryPosto factoryFurgone = new FactoryPostoFurgone();
+                        Posto furgone = factoryFurgone.getPosto(id, parkingBean);
+
+                        //Inserisco la prenotazione
+                        BookingService.Booking(bookingBean);
+                        session.setAttribute("email", email);
+                        request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
+                    }
+                    else
+                        request.getRequestDispatcher("errorPage.jsp").forward(request,response);
+
                     break;
                 case "Moto":
-                    paymentMethod.pay(bookingBean.getPrezzo());
-                    FactoryPosto factoryMoto = new FactoryPostoMoto();
-                    Posto moto = factoryMoto.getPosto(id, parkingBean);
+                    if (paymentMethod.pay(bookingBean.getPrezzo())){
+                        paymentMethod.pay(bookingBean.getPrezzo());
+                        FactoryPosto factoryMoto = new FactoryPostoMoto();
+                        Posto moto = factoryMoto.getPosto(id, parkingBean);
 
-                    //inserisco la prenotazione
-                    BookingService.Booking(bookingBean);
+                        //Inserisco la prenotazione
+                        BookingService.Booking(bookingBean);
+                        session.setAttribute("email", email);
+                        request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
+                    }
+                    else
+                        request.getRequestDispatcher("errorPage.jsp").forward(request,response);
+
                     break;
                 default:
+                    request.getRequestDispatcher("errorPage.jsp").forward(request,response);
                     break;
             }
-
-            session.setAttribute("email", email);
-            request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
 
         }
 

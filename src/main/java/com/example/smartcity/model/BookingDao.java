@@ -139,4 +139,28 @@ public class BookingDao {
         }
         return bookingBean;
     }
+
+    public void deleteBooking(String idPrenotazione){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, "root", "password");
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM Prenotazione WHERE Id_prenotazione = (?)");
+            stmt.setString(1,idPrenotazione);
+            stmt.execute();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try{
+                if (con!=null)
+                    con.close();
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

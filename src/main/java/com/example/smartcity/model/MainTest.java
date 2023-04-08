@@ -66,5 +66,10 @@ public class MainTest {
         bookingBean.setEmail("email@esempio.it");
 
         BookingService.Booking(bookingBean);*/
+
+        //System.out.println("Prova:");
+        //BookingDao.getIstanza().deleteBooking("qlaKRrd");
+
+
     }
 }

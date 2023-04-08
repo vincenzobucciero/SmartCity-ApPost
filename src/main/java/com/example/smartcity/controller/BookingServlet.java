@@ -4,6 +4,7 @@ package com.example.smartcity.controller;
 import com.example.smartcity.model.*;
 import com.example.smartcity.service.Factory.*;
 import com.example.smartcity.service.BookingService;
+import com.example.smartcity.service.ParkingService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -22,7 +23,7 @@ public class BookingServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String email = request.getParameter("email");
 
-        ParkingBean parkingBean = ParkingDao.getIstanza().getParkingBean(id);
+        ParkingBean parkingBean = ParkingService.getParkingBean(id);
 
         HttpSession session = request.getSession(false);
         if ( session == null ) {
@@ -43,7 +44,7 @@ public class BookingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
-        ParkingBean parkingBean = ParkingDao.getIstanza().getParkingBean(id);
+        ParkingBean parkingBean = ParkingService.getParkingBean(id);
 
         String email = request.getParameter("email");
         String dataPrenotazione = request.getParameter("dataP");
@@ -64,7 +65,7 @@ public class BookingServlet extends HttpServlet {
         } else {
 
             BookingBean bookingBean = new BookingBean();
-            bookingBean.setID_prenotazione(idBooking);
+            bookingBean.setID_prenotazione( idBooking );
             bookingBean.setData_prenotazione( dataPrenotazione );
             bookingBean.setOrario_inizio( orarioInizio );
             bookingBean.setOrario_fine( orarioFine );

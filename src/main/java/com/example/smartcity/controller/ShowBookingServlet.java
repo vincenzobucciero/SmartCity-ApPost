@@ -4,6 +4,7 @@ import com.example.smartcity.model.BookingDao;
 import com.example.smartcity.model.ParkingBean;
 import com.example.smartcity.model.ParkingDao;
 
+import com.example.smartcity.service.BookingService;
 import jakarta.servlet.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -26,7 +27,7 @@ public class ShowBookingServlet extends HttpServlet {
         String email = request.getParameter("email");
         System.out.println("email " + email);
 
-        List<BookingBean> bookingBeans = BookingDao.getIstanza().getBooking(email); //ritorna l'email della prenotazione
+        List<BookingBean> bookingBeans = BookingService.getBooking(email); //ritorna l'email della prenotazione
         int size = bookingBeans.size();
         request.setAttribute("list", bookingBeans);
         request.setAttribute("size",size);

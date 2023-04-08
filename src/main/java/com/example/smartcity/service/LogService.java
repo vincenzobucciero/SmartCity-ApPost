@@ -25,5 +25,8 @@ public class LogService {
 
     }
 
+    public static UsersBean getUserBean(String email){
+        return LoginDao.getIstanza().getUserBean(email);
+    }
 
 }

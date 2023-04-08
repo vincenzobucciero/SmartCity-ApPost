@@ -2,6 +2,7 @@ package com.example.smartcity.controller;
 
 import com.example.smartcity.model.ParkingBean;
 import com.example.smartcity.model.ParkingDao;
+import com.example.smartcity.service.ParkingService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -24,7 +25,7 @@ public class InfoParkingServlet extends HttpServlet {
         response.setContentType("text/html");
 
         String idparking = request.getParameter("idparking");
-        ParkingBean parkingBean = ParkingDao.getIstanza().getParkingBean(Integer.parseInt(idparking));
+        ParkingBean parkingBean = ParkingService.getParkingBean(Integer.parseInt(idparking));
         parkingBean.setIdParcheggio(Integer.parseInt(idparking));
 
         request.setAttribute("parkingBean", parkingBean);

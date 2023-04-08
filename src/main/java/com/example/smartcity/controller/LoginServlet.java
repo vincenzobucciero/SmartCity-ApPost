@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        UsersBean usersBean = LoginDao.getIstanza().getUserBean(email);
+        UsersBean usersBean = LogService.getUserBean(email);
 
         AccessoLogin accessoLogIn = LogService.logHandler(email,password);
 
