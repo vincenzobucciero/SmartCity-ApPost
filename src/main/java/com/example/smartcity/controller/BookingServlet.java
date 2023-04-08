@@ -20,6 +20,7 @@ public class BookingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+
         int id = Integer.parseInt(request.getParameter("id"));
         String email = request.getParameter("email");
 
@@ -73,6 +74,7 @@ public class BookingServlet extends HttpServlet {
             bookingBean.setTipoVeicolo( tipoVeicolo );
             bookingBean.setEmail( email );
             bookingBean.setPagamento( metodoP );
+            bookingBean.setId_parcheggio( id );
 
             switch (tipoVeicolo){
                 case "Auto":
@@ -94,7 +96,7 @@ public class BookingServlet extends HttpServlet {
                 case "Carta di Credito/PayPal":
                     session.setAttribute("bookingBean", bookingBean);
                     session.setAttribute("email", email);
-                    request.setAttribute("id", id);
+                    //request.setAttribute("id", id);
                     request.getRequestDispatcher("pagamento.jsp").forward(request, response);
                     break;
                 case "Al parcheggio":

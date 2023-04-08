@@ -28,8 +28,8 @@ public class BookingDao {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement query = con.prepareStatement("INSERT INTO Prenotazione (Id_prenotazione, data_prenotazione, orario_inizio, orario_fine, targaVeicolo, tipoVeicolo, email, prezzo, pagamento) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement query = con.prepareStatement("INSERT INTO Prenotazione (Id_prenotazione, data_prenotazione, orario_inizio, orario_fine, targaVeicolo, tipoVeicolo, email, prezzo, pagamento, Id_parcheggio) " +
+                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ? ,?)");
 
             query.setString(1, bookingBean.getID_prenotazione());
             query.setString( 2, bookingBean.getData_prenotazione() );
@@ -40,6 +40,7 @@ public class BookingDao {
             query.setString(7, bookingBean.getEmail());
             query.setDouble(8, bookingBean.getPrezzo());
             query.setString(9, bookingBean.getPagamento());
+            query.setInt(10, bookingBean.getId_parcheggio());
 
             query.execute();
 
@@ -81,7 +82,7 @@ public class BookingDao {
                 bookingBean.setEmail(result.getString("email"));
                 bookingBean.setPrezzo(result.getDouble("prezzo"));
                 bookingBean.setPagamento(result.getString("pagamento"));
-
+                bookingBean.setId_parcheggio(result.getInt("Id_parcheggio"));
                 //System.out.println(bookingBean.getID_prenotazione() + " "+ bookingBean.getData_prenotazione());
 
                 list.add(bookingBean);
@@ -124,6 +125,7 @@ public class BookingDao {
                 bookingBean.setEmail(result.getString("email"));
                 bookingBean.setPrezzo(result.getDouble("prezzo"));
                 bookingBean.setPagamento(result.getString("pagamento"));
+                bookingBean.setId_parcheggio(result.getInt("Id_parcheggio"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

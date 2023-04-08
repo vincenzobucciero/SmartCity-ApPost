@@ -111,6 +111,11 @@
                                                                     <td>
                                                                         ${record.getPagamento()}<br>
                                                                     </td>
+
+                                                                    <td>
+                                                                        Id Parcheggio:${record.getId_parcheggio()}<br>
+                                                                        NOME: ${nomeParcheggio}
+                                                                    </td>
                                                             </span>
                                                             </div>
                                                         </div>
@@ -121,6 +126,7 @@
                                                                 <form action="DeleteBookingServlet" method="post">
                                                                     <div class="text-center">
                                                                         <input type="hidden" name="id" value="${record.getID_prenotazione()}">
+                                                                        <input type="hidden" name="parkingBean" value="${parkingBean}">
                                                                         <button class="btn btn-success btn-sm "><i class="bi bi-currency-dollar"></i></button>
                                                                         <button type="submit" class="btn btn-danger btn-sm ">
                                                                             <i class="bi bi-trash"></i>
@@ -133,6 +139,7 @@
                                                 </li>
                                             </ul>
                                         </c:forEach>
+
                                     </div>
                                 </div>
                             </div>

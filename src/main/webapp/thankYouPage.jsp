@@ -67,6 +67,9 @@
             <div>
                 <form action="ShowBookingServlet" method="post">
                     <input type="hidden" name="email" value="${email}">
+                    <input type="hidden" name="parkingBean" value="${parkingBean}">
+                    <input type="hidden" name="bookingBean" value="${bookingBean}">
+
                     <div class="text-center">
                         <button class="btn btn-outline-success">Visualizza prenotazioni</button>
                     </div>

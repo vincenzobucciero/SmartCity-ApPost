@@ -123,7 +123,7 @@
                                 <div class="card-footer"> <!--Conferma Pagamento-->
                                     <input type="hidden" name="bookingBean" value="${bookingBean}">
                                     <input type="hidden" name="email" value="${email}">
-                                    <input type="hidden" name="id" value="${id}">
+                                    <!--<input type="hidden" name="id" value="${id}">-->
                                     <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm">
                                         Conferma Pagamento
                                     </button>

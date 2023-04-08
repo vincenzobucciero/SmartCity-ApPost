@@ -5,6 +5,7 @@ import com.example.smartcity.model.ParkingBean;
 import com.example.smartcity.model.ParkingDao;
 
 import com.example.smartcity.service.BookingService;
+import com.example.smartcity.service.ParkingService;
 import jakarta.servlet.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -24,13 +25,21 @@ public class ShowBookingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        String email = request.getParameter("email");
-        System.out.println("email " + email);
+        HttpSession session = request.getSession(false);
+        if (session == null) {
+            session.setAttribute("isLog", 0);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else {
+            BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
+            List<BookingBean> bookingBeans = BookingService.getBooking(bookingBean.getEmail());
+            String nomePark = String.valueOf(ParkingService.getParkingBean(bookingBean.getId_parcheggio()).getNomeParcheggio());
 
-        List<BookingBean> bookingBeans = BookingService.getBooking(email); //ritorna l'email della prenotazione
-        int size = bookingBeans.size();
-        request.setAttribute("list", bookingBeans);
-        request.setAttribute("size",size);
-        request.getRequestDispatcher("showBooking.jsp").forward(request, response);
+            request.setAttribute("email", bookingBean.getEmail());
+            request.setAttribute("idP", bookingBean.getId_parcheggio());
+            request.setAttribute("list", bookingBeans);
+            request.setAttribute("nomeParcheggio",nomePark);
+            request.getRequestDispatcher("showBooking.jsp").forward(request, response);
+
+        }
     }
 }

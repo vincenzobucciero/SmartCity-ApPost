@@ -52,6 +52,7 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("loggato",1);
                 request.setAttribute("stato", "SUCCESSO");
                 request.setAttribute("usersBean", usersBean);
+                request.setAttribute("email", usersBean.getEmail());
                 request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
                 break;
             case SUCCESSO_ADMIN:

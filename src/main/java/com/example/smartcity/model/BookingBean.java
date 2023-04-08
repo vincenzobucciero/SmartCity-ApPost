@@ -16,6 +16,12 @@ public class BookingBean implements Serializable {
     private double prezzo;
     private String pagamento;
 
+    public int getId_parcheggio() {return id_parcheggio;}
+
+    public void setId_parcheggio(int id_parcheggio) {this.id_parcheggio = id_parcheggio;}
+
+    private int id_parcheggio;
+
     public String getID_prenotazione() {
         return ID_prenotazione;
     }
