@@ -152,7 +152,7 @@
                         <p class="text-muted mb-0">Per prenotare un parcheggio attraverso la nostra app, è necessario
                             seguire alcuni passaggi chiave. Prima di tutto, dovrai inserire la data in cui desideri
                             parcheggiare il tuo veicolo. In seguito, dovrai selezionare l'orario d'ingresso nel
-                            parcheggio e l'orario di uscita. Dopo aver specificato gli orari d'ingresso e uscita,
+                            parcheggio e l'orario di uscita (tutti i parcheggi sono disponibili dalle 07:00 alle 23:00). Dopo aver specificato gli orari d'ingresso e uscita,
                             dovrai indicare il tipo di veicolo che intendi parcheggiare: auto, moto o furgone.
                             Inserisci inoltre la targa del veicolo, in modo da poter identificare il tuo veicolo
                             all'arrivo al parcheggio.

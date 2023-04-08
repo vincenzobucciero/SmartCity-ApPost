@@ -68,7 +68,7 @@
                         <hr class="text-black">
                         </p><!-- Fine Nome Parcheggio-->
                         <h5 class="card-text-">
-                            <p class="text-black">
+                            <p class="text-black" style="font-family: 'Inter', sans-serif">
                             <td>
                                     ${record.getIndirizzo()}<br>
                                 Numero Posti Auto: ${record.getPostiAuto()}<br>
