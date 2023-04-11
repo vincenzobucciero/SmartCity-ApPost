@@ -93,7 +93,7 @@
                                                 <input type="postiMoto" class="form-control" id="postiMoto" name="postiMoto"value="${parkingBean.getPostiMoto()}">
                                             </div>
                                     </div>
-                                    <input type="hidden" name="id" value="${parkingBean.getIdParcheggio()}" >
+                                    <input type="hidden" name="nomeparking" value="${parkingBean.getNomeParcheggio()}" >
                                     <button  type="submit" class="btn btn-primary btn-lg "> Modifica </button>
                                 </form>
 
@@ -110,7 +110,7 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
-            Copyright &copy; 2022 - Company Name
+            Copyright &copy; 2023 - Company Name
         </div>
     </div>
 </footer>

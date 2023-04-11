@@ -52,10 +52,10 @@ public class MainTest {
         }*/
         //ModifyService.modifyTariffa(1, 1.7);
 
-        ParkingBean bean = ParkingDao.getIstanza().getParkingBean(2);
+        /*ParkingBean bean = ParkingDao.getIstanza().getParkingBean(2);
         System.out.println(bean.getNomeParcheggio());
         System.out.println(bean.getIndirizzo());
-        System.out.println(bean.getPostiAuto());
+        System.out.println(bean.getPostiAuto());*/
 
         /*BookingBean bookingBean = new BookingBean();
         bookingBean.setData_prenotazione("31-05-2023");

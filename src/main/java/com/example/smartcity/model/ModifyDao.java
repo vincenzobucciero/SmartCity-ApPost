@@ -16,13 +16,13 @@ public class ModifyDao {
         return istanza;
     }
 
-    public void modifyTariffaAF(int id, double tariffa) {
+    public void modifyTariffaAF(String nomeParcheggio, double tariffa) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET tariffaAF=(?) WHERE ID_parcheggio = (?)");
+            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET tariffaAF=(?) WHERE nomeParcheggio = (?)");
             stmt.setDouble(1, tariffa);
-            stmt.setInt(2, id);
+            stmt.setString(2, nomeParcheggio);
             stmt.executeUpdate();
         }
         catch (SQLException e){
@@ -40,13 +40,13 @@ public class ModifyDao {
         }
     }
 
-    public void modifyTariffaM(int id, double tariffa) {
+    public void modifyTariffaM(String nomeParcheggio, double tariffa) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET tariffaM=(?) WHERE ID_parcheggio = (?)");
+            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET tariffaM=(?) WHERE nomeParcheggio = (?)");
             stmt.setDouble(1, tariffa);
-            stmt.setInt(2, id);
+            stmt.setString(2, nomeParcheggio);
             stmt.executeUpdate();
         }
         catch (SQLException e){
@@ -64,7 +64,7 @@ public class ModifyDao {
         }
     }
 
-    public void modifyNome(int id, String nome) {
+    /*public void modifyNome(int id, String nome) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
@@ -86,15 +86,15 @@ public class ModifyDao {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 
-    public void modifyIndirizzo(int id, String indirizzo) {
+    public void modifyIndirizzo(String nomeParcheggio, String indirizzo) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET indirizzo=(?) WHERE ID_parcheggio = (?)");
+            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET indirizzo=(?) WHERE nomeParcheggio = (?)");
             stmt.setString(1, indirizzo);
-            stmt.setInt(2, id);
+            stmt.setString(2, nomeParcheggio);
             stmt.executeUpdate();
         }
         catch (SQLException e){
@@ -112,13 +112,13 @@ public class ModifyDao {
         }
     }
 
-    public void modifyPostiAuto(int id, int numPostiAuto) {
+    public void modifyPostiAuto(String nomeParcheggio, int numPostiAuto) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET postiAuto=(?) WHERE ID_parcheggio = (?)");
+            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET postiAuto=(?) WHERE nomeParcheggio = (?)");
             stmt.setInt(1, numPostiAuto);
-            stmt.setInt(2, id);
+            stmt.setString(2, nomeParcheggio);
             stmt.executeUpdate();
         }
         catch (SQLException e){
@@ -137,13 +137,14 @@ public class ModifyDao {
     }
 
 
-    public void modifyPostiFurgone(int id, int numPostiFurgone) {
+
+    public void modifyPostiFurgone(String nomeParcheggio, int numPostiFurgone) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET postiFurgone=(?) WHERE ID_parcheggio = (?)");
+            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET postiFurgone=(?) WHERE nomeParcheggio = (?)");
             stmt.setInt(1, numPostiFurgone);
-            stmt.setInt(2, id);
+            stmt.setString(2, nomeParcheggio);
             stmt.executeUpdate();
         }
         catch (SQLException e){
@@ -163,13 +164,13 @@ public class ModifyDao {
 
 
 
-    public void modifyPostiMoto(int id, int numPostiMoto) {
+    public void modifyPostiMoto(String nomeParcheggio, int numPostiMoto) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET postiMoto=(?) WHERE ID_parcheggio = (?)");
+            PreparedStatement stmt = con.prepareStatement("UPDATE Parcheggio SET postiMoto=(?) WHERE nomeParcheggio = (?)");
             stmt.setInt(1, numPostiMoto);
-            stmt.setInt(2, id);
+            stmt.setString(2, nomeParcheggio);
             stmt.executeUpdate();
         }
         catch (SQLException e){

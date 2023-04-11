@@ -18,5 +18,4 @@ public class BookingService {
     public static void deleteBooking(String idPrenotazione){
         BookingDao.getIstanza().deleteBooking(idPrenotazione);
     }
-
 }

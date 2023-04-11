@@ -13,20 +13,18 @@ public class LogService {
         return LoginDao.getIstanza().addRegistrazione(usersBean);
     }
 
-    public static AccessoLogin logHandler(String email, String password){
-
-
+    public static AccessoLogin logHandler(String email, String password) {
         Handler handler = new MailHandler(email);
         handler.setNextHandler(new PasswordHandler(email, password)).setNextHandler(new RoleHandler());
 
 
         AuthService authService = new AuthService(handler);
-        return authService.logIn(email,password);
+        return authService.logIn(email, password);
 
     }
 
     public static UsersBean getUserBean(String email){
+
         return LoginDao.getIstanza().getUserBean(email);
     }
-
 }

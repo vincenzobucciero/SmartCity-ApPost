@@ -68,7 +68,6 @@ public class CreditCardStrategy implements PaymentStrategy {
         return true;
     }
 
-    //Lo rendiamo booleano
     @Override
     public boolean pay(double amount) {
         if (checkPaymentMethodData()) {

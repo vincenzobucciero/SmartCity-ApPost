@@ -49,7 +49,6 @@ public class TestAlgoritmo {
             System.out.println(parking.getPostiFurgone());
             System.out.println(parking.getPostiMoto());
             System.out.println(parking.getTariffaAF());
-            System.out.println(parking.getIdParcheggio());
 
 
         }

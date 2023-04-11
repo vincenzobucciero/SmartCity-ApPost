@@ -28,8 +28,8 @@ public class BookingDao {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement query = con.prepareStatement("INSERT INTO Prenotazione (Id_prenotazione, data_prenotazione, orario_inizio, orario_fine, targaVeicolo, tipoVeicolo, email, prezzo, pagamento, Id_parcheggio) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ? ,?)");
+            PreparedStatement query = con.prepareStatement("INSERT INTO Prenotazione (Id_prenotazione, data_prenotazione, orario_inizio, orario_fine, targaVeicolo, tipoVeicolo, email, prezzo, pagamento, nomeParcheggio) " +
+                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             query.setString(1, bookingBean.getID_prenotazione());
             query.setString( 2, bookingBean.getData_prenotazione() );
@@ -40,7 +40,7 @@ public class BookingDao {
             query.setString(7, bookingBean.getEmail());
             query.setDouble(8, bookingBean.getPrezzo());
             query.setString(9, bookingBean.getPagamento());
-            query.setInt(10, bookingBean.getId_parcheggio());
+            query.setString(10, bookingBean.getNomeParcheggio());
 
             query.execute();
 
@@ -59,7 +59,7 @@ public class BookingDao {
     }
 
 
-    //ritorna tutte le prenotazioni fatte nel tempo da un certo utente
+    //Ritorna tutte le prenotazioni fatte nel tempo da un certo utente
     public List<BookingBean> getBooking(String email){
 
         List<BookingBean> list = new ArrayList<BookingBean>();
@@ -82,7 +82,8 @@ public class BookingDao {
                 bookingBean.setEmail(result.getString("email"));
                 bookingBean.setPrezzo(result.getDouble("prezzo"));
                 bookingBean.setPagamento(result.getString("pagamento"));
-                bookingBean.setId_parcheggio(result.getInt("Id_parcheggio"));
+                bookingBean.setNomeParcheggio(result.getString("nomeParcheggio"));
+
                 //System.out.println(bookingBean.getID_prenotazione() + " "+ bookingBean.getData_prenotazione());
 
                 list.add(bookingBean);
@@ -106,7 +107,8 @@ public class BookingDao {
 
 
 
-    //ritorna una specifica prenotazione
+
+    //Ritorna una specifica prenotazione dato il suo ID
     public BookingBean getBookingBean(String id){
         BookingBean bookingBean = new BookingBean();
         try {
@@ -125,7 +127,8 @@ public class BookingDao {
                 bookingBean.setEmail(result.getString("email"));
                 bookingBean.setPrezzo(result.getDouble("prezzo"));
                 bookingBean.setPagamento(result.getString("pagamento"));
-                bookingBean.setId_parcheggio(result.getInt("Id_parcheggio"));
+                bookingBean.setNomeParcheggio(result.getString("nomeParcheggio"));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -142,6 +145,8 @@ public class BookingDao {
         return bookingBean;
     }
 
+
+    //Cancella la prenotazione effettuata dall'utente
     public void deleteBooking(String idPrenotazione){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

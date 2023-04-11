@@ -80,7 +80,7 @@
                         </h5> <!-- Fine Indirizzo&NumPosti-->
                         <div>
                             <form action="InfoParkingServlet" method="post">
-                                <input type="hidden" name="idparking" value="${record.getIdParcheggio()}">
+                                <input type="hidden" name="nomeparking" value="${record.getNomeParcheggio()}">
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-outline-primary">Modifica</button>
@@ -107,7 +107,7 @@
 
 <!-- Footer-->
 <footer class="bg-light py-5">
-    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 3 - Company Name</div></div>
 </footer>
 
 <!-- Bootstrap core JS-->

@@ -27,7 +27,6 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         UsersBean usersBean = LogService.getUserBean(email);
-
         AccessoLogin accessoLogIn = LogService.logHandler(email,password);
 
         switch (accessoLogIn) {
@@ -52,7 +51,6 @@ public class LoginServlet extends HttpServlet {
                 newSession.setAttribute("isLog",1);     //1 = sono un utente normale
                 request.setAttribute("loggato",1);
                 request.setAttribute("stato", "SUCCESSO");
-                request.setAttribute("usersBean", usersBean);
                 request.setAttribute("email", usersBean.getEmail()); // Passiamo l'email visualizzare le prenotazioni
                 request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
                 break;

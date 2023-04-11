@@ -18,23 +18,23 @@ public class ParkingDao {
         return istanza;
     }
 
-    public List<ParkingBean> getParkings() {
+    public List<ParkingBean> getParkings(){
         List<ParkingBean> list = new ArrayList<ParkingBean>();
+
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("SELECT ID_parcheggio, nomeParcheggio, indirizzo, tariffaAF, tariffaM, postiAuto, postiFurgone, postiMoto  FROM Parcheggio ");
+            PreparedStatement stmt = con.prepareStatement("SELECT nomeParcheggio, indirizzo, tariffaAF, tariffaM, postiAuto, postiFurgone, postiMoto  FROM Parcheggio ");
             ResultSet resultSet = stmt.executeQuery();
             while(resultSet.next()){
                 ParkingBean parkingBean = new ParkingBean();
-                parkingBean.setIdParcheggio(resultSet.getInt(1));
-                parkingBean.setNomeParcheggio(resultSet.getString(2));
-                parkingBean.setIndirizzo(resultSet.getString(3));
-                parkingBean.setTariffaAF(resultSet.getDouble(4));
-                parkingBean.setTariffaM(resultSet.getDouble(5));
-                parkingBean.setPostiAuto(resultSet.getInt(6));
-                parkingBean.setPostiFurgone(resultSet.getInt(7));
-                parkingBean.setPostiMoto(resultSet.getInt(8));
+                parkingBean.setNomeParcheggio(resultSet.getString(1));
+                parkingBean.setIndirizzo(resultSet.getString(2));
+                parkingBean.setTariffaAF(resultSet.getDouble(3));
+                parkingBean.setTariffaM(resultSet.getDouble(4));
+                parkingBean.setPostiAuto(resultSet.getInt(5));
+                parkingBean.setPostiFurgone(resultSet.getInt(6));
+                parkingBean.setPostiMoto(resultSet.getInt(7));
 
                 list.add(parkingBean);
             }
@@ -46,23 +46,22 @@ public class ParkingDao {
             throw new RuntimeException(e);
         } finally {
             try {
-                if (con != null)
+                if(con != null)
                     con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
         return list;
     }
 
-    public ParkingBean getParkingBean(int id){
+    public ParkingBean getParkingBean(String nomeParcheggio){
         ParkingBean parkingBean = new ParkingBean();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Parcheggio WHERE ID_parcheggio = (?) ");
-            stmt.setInt(1, id);
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Parcheggio WHERE nomeParcheggio = (?) ");
+            stmt.setString(1, nomeParcheggio);
             ResultSet result = stmt.executeQuery();
             if (result.next()) {
                 parkingBean.setNomeParcheggio(result.getString("nomeParcheggio"));

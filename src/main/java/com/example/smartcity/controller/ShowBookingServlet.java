@@ -27,38 +27,23 @@ public class ShowBookingServlet extends HttpServlet {
 
 
         HttpSession session = request.getSession(false);
-        if (session == null) {
-            session.setAttribute("isLog", 0);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+        if ( session == null ) {
+            session.setAttribute("isLog",0);
+            request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
 
-            System.out.println("\nSono nella showServlet\n");
-
             String email = request.getParameter("email");
-            System.out.println("Email:" + email);
 
             List<BookingBean> list = BookingService.getBooking(email);
-
-            for (BookingBean patate:list) {
-                System.out.println("Prova stampa lista " + patate.getTipoVeicolo());
-            }
-
-
-
             int size = list.size();
-            int idParcheggio = Integer.parseInt(request.getParameter("idParcheggio"));
 
-            System.out.println("StampaId: " + idParcheggio);
-
-            ParkingBean parkingBean = ParkingService.getParkingBean(idParcheggio);
-            System.out.println("Prova parking beaan:" + parkingBean.getNomeParcheggio());
-
-            request.setAttribute("parkingBean",parkingBean);
-
-            request.setAttribute("list",list);
+            request.setAttribute( "email", email);
+            request.setAttribute("list", list);
             request.setAttribute("size", size);
+
             request.getRequestDispatcher("showBooking.jsp").forward(request, response);
 
         }
+
     }
 }

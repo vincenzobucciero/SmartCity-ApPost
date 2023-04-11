@@ -62,13 +62,12 @@
             <div class="container">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="form-container" style="font-family: 'Inter', sans-serif">
-                        <c:choose>
-                            <c:when test="${parkingBean != null}">
+
                             <h3 class="title">
                                 Effettua la prenotazione
                             </h3>
                             <form id="bookingForm" class="form-horizontal" action="BookingServlet" method="post">
-                                <div class = "form-group row">
+                                <!--<div class = "form-group row">
                                     <div class="col-md-6">
                                         <label name="nomePark">Nome parcheggio</label>
                                         <input name="nomePark" class="form-control" type="text" placeholder="${parkingBean.getNomeParcheggio()}" readonly>
@@ -78,7 +77,7 @@
                                         <label name="emailS">Email</label>
                                         <input name="emailS" class="form-control" type="text" style="font-family: 'Inter', sans-serif" placeholder="${email}" readonly>
                                     </div>
-                                </div>
+                                </div>-->
                                 <hr>
                                 <div class = "form-group row">
 
@@ -126,7 +125,7 @@
 
                                 </div>
                                 <input type="hidden" name="email" value="${email}">
-                                <input type="hidden" name="id" value="${id}">
+                                <input type="hidden" name="nomeP" value="${nomeP}">
                                 <input type="hidden" name="bookingBean" value="${bookingBean}">
 
                                 <button type="submit" class="btn btn-primary btn-lg text-white alert">Pagamento
@@ -134,8 +133,7 @@
                                 </button>
                             </form>
                         </div><!--Fine form container-->
-                        </c:when>
-                    </c:choose>
+
                 </div>
             </div>
         </div>

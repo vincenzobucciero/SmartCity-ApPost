@@ -123,7 +123,7 @@
                                 <div class="card-footer"> <!--Conferma Pagamento-->
                                     <input type="hidden" name="bookingBean" value="${bookingBean}">
                                     <input type="hidden" name="email" value="${email}">
-                                    <!--<input type="hidden" name="id" value="${id}">-->
+                                    <input type="hidden" name="nomeP" value="${nomeP}">
                                     <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm">
                                         Conferma Pagamento
                                     </button>
@@ -131,6 +131,7 @@
                             </form>
                         </div>
                         <!-- End -->
+
 
                         <!-- Paypal info -->
                             <div id="paypal" class="tab-pane fade pt-3">
@@ -149,8 +150,6 @@
                                     </div>
                                     <p>
                                         <input type="hidden" name="bookingBean" value="${bookingBean}">
-                                        <input type="hidden" name="email" value="${email}">
-                                        <input type="hidden" name="id" value="${id}">
                                         <button type="submit" class="btn btn-primary">
                                             <i class="fab fa-paypal mr-2"></i>
                                             Accedi in Paypal

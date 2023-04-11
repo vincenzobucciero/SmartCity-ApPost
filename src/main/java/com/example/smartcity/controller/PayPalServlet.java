@@ -25,7 +25,7 @@ public class PayPalServlet extends HttpServlet {
         response.setContentType("text/html");
 
 
-        String email = request.getParameter("email");
+
         String emailPP = request.getParameter("emailPP");
         String passwordPP = request.getParameter("passwordPP");
 
@@ -34,10 +34,10 @@ public class PayPalServlet extends HttpServlet {
             session.setAttribute("isLog",0);
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
-            BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
 
-            int id = bookingBean.getId_parcheggio();
-            ParkingBean parkingBean = ParkingService.getParkingBean(id);
+            BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
+            String nomeParcheggio = bookingBean.getNomeParcheggio();
+            ParkingBean parkingBean = ParkingService.getParkingBean(nomeParcheggio);
 
 
             PaymentStrategy paymentMethod = new PaypalStrategy(emailPP, passwordPP);
@@ -47,61 +47,53 @@ public class PayPalServlet extends HttpServlet {
 
             switch (tipoVeicolo){
                 case "Auto":
-                    if (paymentMethod.pay(bookingBean.getPrezzo())){
+                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
                         FactoryPosto factoryAuto = new FactoryPostoAuto();
-                        Posto auto = factoryAuto.getPosto(id, parkingBean);
+                        Posto auto = factoryAuto.getPosto(parkingBean);
 
-                        //Inserisco la prenotazione
+                        //inserisco la prenotazione
                         BookingService.Booking(bookingBean);
-                        session.setAttribute("email", email);
-                        request.setAttribute("parkingBean",parkingBean);
-                        session.setAttribute("bookingBean",bookingBean);
+                        session.setAttribute("email", bookingBean.getEmail());
                         request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
                     }
-                    else
+                    else{
                         request.getRequestDispatcher("errorPage.jsp").forward(request,response);
-
+                    }
                     break;
                 case "Furgone":
-
-                    if (paymentMethod.pay(bookingBean.getPrezzo())){
+                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
                         FactoryPosto factoryFurgone = new FactoryPostoFurgone();
-                        Posto furgone = factoryFurgone.getPosto(id, parkingBean);
+                        Posto furgone = factoryFurgone.getPosto(parkingBean);
 
-                        //Inserisco la prenotazione
+                        //inserisco la prenotazione
                         BookingService.Booking(bookingBean);
-                        session.setAttribute("email", email);
-
-                        request.setAttribute("parkingBean",parkingBean);
-                        session.setAttribute("bookingBean",bookingBean);
+                        session.setAttribute("email", bookingBean.getEmail());
                         request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
                     }
-                    else
+                    else {
                         request.getRequestDispatcher("errorPage.jsp").forward(request,response);
-
+                    }
                     break;
                 case "Moto":
-                    if (paymentMethod.pay(bookingBean.getPrezzo())){
-                        paymentMethod.pay(bookingBean.getPrezzo());
+                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
                         FactoryPosto factoryMoto = new FactoryPostoMoto();
-                        Posto moto = factoryMoto.getPosto(id, parkingBean);
+                        Posto moto = factoryMoto.getPosto(parkingBean);
 
-                        //Inserisco la prenotazione
+                        //inserisco la prenotazione
                         BookingService.Booking(bookingBean);
-                        session.setAttribute("email", email);
-
-                        request.setAttribute("parkingBean",parkingBean);
-                        session.setAttribute("bookingBean",bookingBean);
+                        session.setAttribute("email", bookingBean.getEmail());
                         request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
                     }
-                    else
+                    else {
                         request.getRequestDispatcher("errorPage.jsp").forward(request,response);
 
+                    }
                     break;
                 default:
                     request.getRequestDispatcher("errorPage.jsp").forward(request,response);
                     break;
             }
+
 
         }
 

@@ -27,12 +27,19 @@ public class DeleteBookingServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idPrenotazione = request.getParameter("id");
-        System.out.println("Cancella: " + idPrenotazione);
+        HttpSession session = request.getSession(false);
+        if ( session == null ) {
+            session.setAttribute("isLog",0);
+            request.getRequestDispatcher("login.jsp").forward(request,response);
+        } else {
 
-        BookingService.deleteBooking(idPrenotazione);
+            String idPrenotazione = request.getParameter("id");
+            System.out.println("Cancella: " + idPrenotazione);
 
-        request.getRequestDispatcher("cancelPage.jsp").forward(request, response);
+            BookingService.deleteBooking(idPrenotazione);
+            request.getRequestDispatcher("cancelPage.jsp").forward(request, response);
+
+        }
 
     }
 }

@@ -24,9 +24,9 @@ public class InfoParkingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        String idparking = request.getParameter("idparking");
-        ParkingBean parkingBean = ParkingService.getParkingBean(Integer.parseInt(idparking));
-        parkingBean.setIdParcheggio(Integer.parseInt(idparking));
+        String nomeParcheggio = request.getParameter("nomeparking");
+        ParkingBean parkingBean = ParkingService.getParkingBean(nomeParcheggio);
+        parkingBean.setNomeParcheggio(nomeParcheggio);
 
         request.setAttribute("parkingBean", parkingBean);
         request.getRequestDispatcher("modify.jsp").forward(request, response);

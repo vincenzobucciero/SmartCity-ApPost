@@ -19,7 +19,7 @@ public class LoginDao {
     }
 
 
-    public static boolean controllaDB(String email,String password) {
+    public static boolean controllaDB(String email, String password) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, "root", "password");
@@ -43,6 +43,7 @@ public class LoginDao {
         return false;
     }
 
+
     public static boolean controllaLogin(String email) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -65,6 +66,7 @@ public class LoginDao {
         }
         return false;
     }
+
 
 
     public UsersBean getUserBean(String email){
@@ -98,7 +100,6 @@ public class LoginDao {
 
 
 
-    //Registrazione
     public boolean addRegistrazione(UsersBean usersBean) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -133,29 +134,4 @@ public class LoginDao {
     }
 
 
-    //Metodo per modificare il nome dell'utente
-    public void modifyNomeUtente(String email, String nome){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection(url, "root", "password");
-            PreparedStatement stmt = con.prepareStatement("UPDATE Utenti SET nome=(?) WHERE email = (?)");
-            stmt.setString(1, nome);
-            stmt.setString(2, email);
-            stmt.executeUpdate();
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try{
-                if (con!=null)
-                    con.close();
-            }
-            catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
-
-    }
 }

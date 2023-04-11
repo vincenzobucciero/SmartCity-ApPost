@@ -20,9 +20,7 @@ public class ModifyServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        int id = Integer.parseInt(request.getParameter("id"));
-
-        String nome = request.getParameter("nome");
+        String nome = request.getParameter("nomeparking");
         String indirizzo = request.getParameter("indirizzo");
         String tariffaAF = request.getParameter("tariffaAF");
         String tariffaM = request.getParameter("tariffaM");
@@ -30,13 +28,12 @@ public class ModifyServlet extends HttpServlet {
         String postiFurgone = request.getParameter("postiFurgone");
         String postiMoto = request.getParameter("postiMoto");
 
-        ModifyService.modifyNome(id, nome);
-        ModifyService.modifyIndirizzo(id, indirizzo);
-        ModifyService.modifyTariffaAF(id, Double.parseDouble(tariffaAF));
-        ModifyService.modifyTariffaM(id, Double.parseDouble(tariffaM));
-        ModifyService.modifyPostiAuto(id, Integer.parseInt(postiAuto));
-        ModifyService.modifyPostiFurgone(id, Integer.parseInt(postiFurgone));
-        ModifyService.modifyPostiMoto(id, Integer.parseInt(postiMoto));
+        ModifyService.modifyIndirizzo(nome, indirizzo);
+        ModifyService.modifyTariffaAF(nome, Double.parseDouble(tariffaAF));
+        ModifyService.modifyTariffaM(nome, Double.parseDouble(tariffaM));
+        ModifyService.modifyPostiAuto(nome, Integer.parseInt(postiAuto));
+        ModifyService.modifyPostiFurgone(nome, Integer.parseInt(postiFurgone));
+        ModifyService.modifyPostiMoto(nome, Integer.parseInt(postiMoto));
 
         request.getRequestDispatcher("modify.jsp").forward(request, response);
 

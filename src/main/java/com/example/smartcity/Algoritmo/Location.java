@@ -2,10 +2,10 @@ package com.example.smartcity.Algoritmo;
 
 import com.example.smartcity.model.ParkingBean;
 import com.example.smartcity.model.ParkingDao;
+import com.example.smartcity.service.ParkingService;
 
 import java.util.*;
 public class Location {
-
     private List<Nodo> start = new ArrayList<>();
     private List<Nodo> end = new ArrayList<>();
 
@@ -72,12 +72,20 @@ public class Location {
     }
 
     public void setParkIndirizzo(){
-        int i = 1;
-        ParkingDao parkingDao = ParkingDao.getIstanza();
+        int i = 0;
+        int j = 0;
+
+        List<ParkingBean> parkingBeanList = ParkingService.getAllParkings();
+        String IndirizziP[] = new String[parkingBeanList.size() + 1];
+        for (ParkingBean parkingBean: parkingBeanList) {
+            IndirizziP[i] = parkingBean.getIndirizzo();
+            i++;
+        }
 
         for (Nodo nodo: nodopark) {
-            nodo.setIndirizzo(parkingDao.getParkingBean(i).getIndirizzo());
-            i++;
+            //nodo.setIndirizzo(parkingDao.getParkingBean(i).getIndirizzo());
+            nodo.setIndirizzo(IndirizziP[j]);
+            j++;
         }
     }
 
@@ -135,13 +143,12 @@ public class Location {
         for (ParkingBean parkingBean: parkingBeanList) {
             if(parkingBean.getIndirizzo().equals(nodoP.getIndirizzo())) {
                 //parkDisp.add(parkingBean);
-                System.out.println("Parcheggio disponibile: "+ parkingBean.getIndirizzo());
+                //System.out.println("Parcheggio disponibile: "+ parkingBean.getIndirizzo());
                 return parkingBean;
             }
 
         }
         return null;
     }
-
 
 }
