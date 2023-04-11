@@ -40,12 +40,12 @@ public class PayServlet extends HttpServlet {
             String nomeParcheggio = bookingBean.getNomeParcheggio();
             ParkingBean parkingBean = ParkingService.getParkingBean( nomeParcheggio );
 
-            PaymentStrategy paymentMethod = new CreditCardStrategy(nome, numeroCarta, cvv,dataScadenza );
+            PaymentStrategy paymentMethod = new CreditCardStrategy( nome, numeroCarta, cvv,dataScadenza );
 
             String tipoVeicolo = bookingBean.getTipoVeicolo();
-            System.out.println("veicolo " + tipoVeicolo);
+            System.out.println( "veicolo " + tipoVeicolo );
 
-            switch (tipoVeicolo){
+            switch ( tipoVeicolo ){
                 case "Auto":
                     if(paymentMethod.pay(bookingBean.getPrezzo())) {
                         FactoryPosto factoryAuto = new FactoryPostoAuto();
