@@ -1,5 +1,6 @@
 package com.example.smartcity.controller;
 
+import com.example.smartcity.service.LogService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -27,17 +28,24 @@ public class DeleteBookingServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
+
+        HttpSession session = request.getSession( false );
         if ( session == null ) {
-            session.setAttribute("isLog",0);
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+            session.setAttribute( "isLog",0 );
+            request.getRequestDispatcher( "login.jsp" ).forward(request,response);
         } else {
 
-            String idPrenotazione = request.getParameter("id");
-            System.out.println("Cancella: " + idPrenotazione);
+            String idPrenotazione = request.getParameter( "id" );
+            System.out.println( "Cancella: " + idPrenotazione );
 
-            BookingService.deleteBooking(idPrenotazione);
-            request.getRequestDispatcher("cancelPage.jsp").forward(request, response);
+
+            BookingService.deleteBooking( idPrenotazione );
+
+
+            String email = request.getParameter("email");
+            UsersBean usersBean = LogService.getUserBean(email);
+            request.setAttribute("email", usersBean.getEmail()); // Passiamo l'email visualizzare le prenotazioni
+            request.getRequestDispatcher( "cancelPage.jsp" ).forward(request, response);
 
         }
 

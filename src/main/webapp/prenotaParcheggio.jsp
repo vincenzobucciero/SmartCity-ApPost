@@ -118,7 +118,6 @@
                                                                 <input type="hidden" name="email" value="${usersBean.getEmail()}">
 
                                                                 <div class="text-center">
-                                                                    <button type="submit" class="btn btn-primary btn-sm "><i class="bi bi-geo-alt"></i></button>
                                                                     <button type="submit" class="btn btn-primary btn-sm ">Prenota</button>
                                                                 </div>
                                                             </form>

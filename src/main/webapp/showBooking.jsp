@@ -120,6 +120,7 @@
                                                                     <div class="text-center">
                                                                         <input type="hidden" name="id" value="${record.getID_prenotazione()}">
                                                                         <input type="hidden" name="parkingBean" value="${parkingBean}">
+
                                                                         <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash"></i></button>
                                                                     </div>
                                                                 </form>

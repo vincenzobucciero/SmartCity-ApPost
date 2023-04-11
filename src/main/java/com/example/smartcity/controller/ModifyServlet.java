@@ -35,7 +35,7 @@ public class ModifyServlet extends HttpServlet {
         ModifyService.modifyPostiFurgone(nome, Integer.parseInt(postiFurgone));
         ModifyService.modifyPostiMoto(nome, Integer.parseInt(postiMoto));
 
-        request.getRequestDispatcher("modify.jsp").forward(request, response);
+        request.getRequestDispatcher("confermaModificaP.jsp").forward(request, response);
 
     }
 }

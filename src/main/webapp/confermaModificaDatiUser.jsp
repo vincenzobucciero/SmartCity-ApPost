@@ -26,7 +26,7 @@
 
     <link rel="stylesheet" href="img">
 
-    <title>ApPost - Cancellazione Prenotazione</title>
+    <title>ApPost - Modifica Info personali</title>
 </head>
 
 <body>
@@ -58,14 +58,13 @@
             </svg>
         </div>
         <div class="text-center">
-            <h1>Hai annullato la tua prenotazione</h1>
-            <p>La sua prenotazione è stata correttamente annullata, ci auguriamo di
-                rivederti presto presso i nostri parcheggi,</p>
+            <h3>Hai modificato i tuoi dati</h3>
+            <p>Le tue informazioni personali sono state modificate correttamente.</p>
             <div>
-                <form action="findPath.jsp" method="post">
+                <form action="userHomePage.jsp" method="post">
                     <input type="hidden" name="email" value="${email}">
                     <div class="text-center">
-                        <button class="btn btn-outline-warning">Nuova prenotazione</button>
+                        <button class="btn btn-outline-warning" href="userHomePage.jsp">Torna alla Home</button>
                     </div>
                 </form>
             </div>
