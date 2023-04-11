@@ -1,8 +1,6 @@
 package com.example.smartcity.controller;
 
 import com.example.smartcity.model.UsersBean;
-import com.example.smartcity.Algoritmo.Location;
-import com.example.smartcity.Algoritmo.Nodo;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

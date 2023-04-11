@@ -69,8 +69,8 @@
                                 <div class="col-md-12">
                                     <div class="d-flex justify-content-between align-items-center activity">
                                         <div>
-                                            <span class="m-lg-4">
-                                                Prenotazioni(${size}):
+                                            <span class="activity-done">
+                                                Prenotazioni(${list.size()})
                                             </span>
                                         </div>
                                         <div class="icons">

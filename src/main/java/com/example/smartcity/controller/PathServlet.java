@@ -3,9 +3,7 @@ import com.example.smartcity.Algoritmo.AStar;
 import com.example.smartcity.Algoritmo.Location;
 import com.example.smartcity.Algoritmo.Nodo;
 import com.example.smartcity.model.ParkingBean;
-import com.example.smartcity.model.ParkingDao;
 import com.example.smartcity.model.UsersBean;
-import com.example.smartcity.service.ParkingService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -53,7 +51,6 @@ public class PathServlet extends HttpServlet {
         List<Nodo> nodo = start.getNodopark();
         for (Nodo nodoPark: nodo) {
             System.out.println("Parcheggi situati in: " + nodoPark.getIndirizzo());
-            aStar.setNodoParcheggio(nodoPark);
         }
 
 

@@ -37,9 +37,8 @@ public class ShowBookingServlet extends HttpServlet {
             List<BookingBean> list = BookingService.getBooking(email);
             int size = list.size();
 
-            request.setAttribute( "email", email);
-            request.setAttribute("list", list);
-            request.setAttribute("size", size);
+            session.setAttribute( "email", email);
+            session.setAttribute("list", list);
 
             request.getRequestDispatcher("showBooking.jsp").forward(request, response);
 

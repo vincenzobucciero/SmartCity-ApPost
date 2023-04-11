@@ -9,8 +9,7 @@ public class TestAlgoritmo {
     public static void main(String[] args) {
         Location start = new Location();
 
-
-        //qua è quello che deve comparire all'utente
+        //Interfaccia utente (i nodi iniziali e finali sono prestabiliti, all'utente verrà dato una lista di posizioni)
         Nodo initialNode = start.chooseStart("San Giorgio");
         Nodo finalNode = start.chooseEnd("Napoli");
 
@@ -24,18 +23,20 @@ public class TestAlgoritmo {
         aStar.setBlocchi(blocksArray);
         aStar.setParking(start.setParking());
 
-        List<Nodo> nodo = start.getNodopark();
+
+        //??
+        /*List<Nodo> nodo = start.getNodopark();
         for (Nodo nodoPark: nodo) {
             aStar.setNodoParcheggio(nodoPark);
-        }
+        }*/
 
         List<Nodo> path = aStar.ricercaPercorso();
 
         List<ParkingBean> parcheggioDisp = new ArrayList<>();
-        for (Nodo node : path) {
-            System.out.println(node);                                                        //per ogni nodo appartentente al percorso trovato da a*
-            if(node.isPark() && start.getNodoParkIndirizzo(node)!=null){                    //controllo se è un nodo parcheggio
-                parcheggioDisp.add(start.getNodoParkIndirizzo(node));                      //se è vero allora cerco i parcheggi disponibili lungo il percorso
+        for (Nodo node : path) {                                                    //per ogni nodo appartentente al percorso trovato da a*
+            System.out.println(node);
+            if(node.isPark() && start.getNodoParkIndirizzo(node) != null){          //controllo se è un nodo parcheggio
+                parcheggioDisp.add(start.getNodoParkIndirizzo(node));              //se è vero allora cerco i parcheggi disponibili lungo il percorso
                 System.out.println("parcheggio size " + parcheggioDisp.size());
 
             }

@@ -63,13 +63,13 @@ public class LoginServlet extends HttpServlet {
                 HttpSession newSessionAd = request.getSession();
                 newSessionAd.setMaxInactiveInterval(20*60);
 
-                //newSessionAd.setAttribute("parkingBean",parkingBean);
+                newSessionAd.setAttribute("usersBean",usersBean);
                 newSessionAd.setAttribute("isLog",2);       //2 = sono un admin
                 request.setAttribute("loggato",2);
-                request.setAttribute("stato", "SUCCESSO");
+                request.setAttribute("stato", "SUCCESSO_ADMIN");
 
                 List<ParkingBean> list = ParkingService.getAllParkings();
-                request.setAttribute("list", list);
+                newSessionAd.setAttribute("list", list);
                 request.getRequestDispatcher("adminHomePage.jsp").forward(request, response);
                 break;
             default:

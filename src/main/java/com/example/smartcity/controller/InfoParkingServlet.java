@@ -24,12 +24,22 @@ public class InfoParkingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        String nomeParcheggio = request.getParameter("nomeparking");
-        ParkingBean parkingBean = ParkingService.getParkingBean(nomeParcheggio);
-        parkingBean.setNomeParcheggio(nomeParcheggio);
+        HttpSession session = request.getSession(false);
+        if ( session == null ) {
+            session.setAttribute("isLog",0);
+            request.getRequestDispatcher("login.jsp").forward(request,response);
+        }
+        else {
 
-        request.setAttribute("parkingBean", parkingBean);
-        request.getRequestDispatcher("modify.jsp").forward(request, response);
+            String nomeParcheggio = request.getParameter("nomeparking");
+            ParkingBean parkingBean = ParkingService.getParkingBean(nomeParcheggio);
+            parkingBean.setNomeParcheggio(nomeParcheggio);
+
+            request.setAttribute("parkingBean", parkingBean);
+            request.getRequestDispatcher("modify.jsp").forward(request, response);
+
+        }
     }
+
 
 }
