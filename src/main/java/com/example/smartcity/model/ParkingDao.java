@@ -87,4 +87,40 @@ public class ParkingDao {
         return parkingBean;
     }
 
+
+    public int getStatistiche(String nome, String tipoVeicolo, String dataPrec, String dataSucc){
+        int countStat = 0;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, "root", "password");
+            PreparedStatement stmt = con.prepareStatement("SELECT count(*)numeroPrenotati FROM Prenotazione " +
+                    "WHERE tipoVeicolo = (?) and nomeParcheggio = (?) and " +
+                    "YEAR(data_prenotazione) = YEAR(CURDATE()) and MONTH(data_prenotazione) between (?) and (?)" +
+                    "GROUP BY tipoVeicolo");
+            stmt.setString(1, tipoVeicolo);
+            stmt.setString(2, nome);
+            stmt.setString(3, dataPrec);
+            stmt.setString(4, dataSucc);
+            ResultSet result = stmt.executeQuery();
+            if (result.next()) {
+                countStat = result.getInt("numeroPrenotati");
+                System.out.println(" " + countStat);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (con != null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return countStat;
+    }
+
 }

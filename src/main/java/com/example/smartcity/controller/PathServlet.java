@@ -48,18 +48,17 @@ public class PathServlet extends HttpServlet {
         aStar.setBlocchi(blocksArray);
         aStar.setParking(start.setParking());
 
-        List<Nodo> nodo = start.getNodopark();
+        /*List<Nodo> nodo = start.getNodopark();
         for (Nodo nodoPark: nodo) {
             System.out.println("Parcheggi situati in: " + nodoPark.getIndirizzo());
-        }
+        }*/
 
 
         List<ParkingBean> parcheggioDisp = new ArrayList<>();
         List<Nodo> path = aStar.ricercaPercorso();
         for (Nodo node : path) {
             System.out.println(node);
-            if(node.isPark() && start.getNodoParkIndirizzo(node) != null){
-                System.out.println("dentro");
+            if(node.isPark()&& start.getNodoParkIndirizzo(node)!=null){
                 parcheggioDisp.add(start.getNodoParkIndirizzo(node));
                 System.out.println("parcheggio size " + parcheggioDisp.size());
             }

@@ -1,14 +1,14 @@
 package com.example.smartcity.model;
 
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TimeZone;
+import java.util.*;
+import java.util.Date;
+
+import static java.util.Calendar.HOUR_OF_DAY;
+import static java.util.Calendar.MINUTE;
+
 public class BookingDao {
 
     private static BookingDao istanza;
@@ -169,5 +169,45 @@ public class BookingDao {
             }
         }
     }
+
+
+    public double getTotPrice(double price, BookingBean bookingBean){
+        String oraInizio = bookingBean.getOrario_inizio();
+        String oraFine = bookingBean.getOrario_fine();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+
+        Date inizio = new Date();
+        Date fine = new Date();
+        double tot = 0;
+        try {
+            inizio = formatter.parse(oraInizio);
+            fine = formatter.parse(oraFine);
+
+            Calendar inizioDate = Calendar.getInstance(TimeZone.getTimeZone("Europe/Rome"), Locale.ITALY);
+            Calendar fineDate = Calendar.getInstance(TimeZone.getTimeZone("Europe/Rome"), Locale.ITALY);
+            inizioDate.setTime(inizio);
+            fineDate.setTime(fine);
+
+            double ore = fineDate.get(HOUR_OF_DAY) - inizioDate.get(HOUR_OF_DAY);
+            double minuti = (double)(fineDate.get(MINUTE) - inizioDate.get(MINUTE))/60;
+
+
+            if(minuti > 0){
+                tot = price*ore + price;
+            }
+            else {
+                tot = price*ore;
+            }
+
+            System.out.println("totale: " + tot);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return tot;
+    }
+
 
 }

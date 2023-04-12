@@ -68,5 +68,4 @@ public class ParkingBean implements Serializable {
         this.postiMoto = postiMoto;
     }
 
-
 }

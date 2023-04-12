@@ -8,9 +8,6 @@ public class CreditCardStrategy implements PaymentStrategy {
     private String numeroCarta;
     private String cvv;
     private String dataScadenza;
-
-
-
     public CreditCardStrategy(String nome, String numeroCarta, String cvv, String dataScadenza){
         this.nome = nome;
         this.numeroCarta = numeroCarta;

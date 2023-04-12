@@ -40,7 +40,6 @@ public class BookingServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //int id = Integer.parseInt(request.getParameter("id"));
         String nomeParcheggio = request.getParameter("nomeP");
         ParkingBean parkingBean = ParkingService.getParkingBean(nomeParcheggio);
 
@@ -72,16 +71,19 @@ public class BookingServlet extends HttpServlet {
             bookingBean.setPagamento( metodoP );
             bookingBean.setNomeParcheggio( nomeParcheggio );
 
-
+            double prezzo = 0;
             switch (tipoVeicolo){
                 case "Auto":
-                    bookingBean.setPrezzo(parkingBean.getTariffaAF());
+                    prezzo = BookingService.getTotPrice(parkingBean.getTariffaAF(), bookingBean);
+                    bookingBean.setPrezzo(prezzo);
                     break;
                 case "Furgone":
-                    bookingBean.setPrezzo(parkingBean.getTariffaAF());
+                    prezzo = BookingService.getTotPrice(parkingBean.getTariffaAF(), bookingBean);
+                    bookingBean.setPrezzo(prezzo);
                     break;
                 case "Moto":
-                    bookingBean.setPrezzo(parkingBean.getTariffaM());
+                    prezzo = BookingService.getTotPrice(parkingBean.getTariffaM(), bookingBean);
+                    bookingBean.setPrezzo(prezzo);
                     break;
                 default:
                     break;
