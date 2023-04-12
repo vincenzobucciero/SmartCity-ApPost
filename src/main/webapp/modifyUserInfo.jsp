@@ -82,7 +82,7 @@
                   </div>
                   <div class="form-group">
                     <input type="hidden" name="email" value="${usersBean.getEmail()}" >
-                    <button  type="submit" class="btn btn-primary btn-lg" href="confermaModificaDatiUser.jsp"> Modifica </button>
+                    <button  type="submit" class="btn btn-primary btn-lg"> Modifica </button>
                   </div>
                 </form>
               </div>

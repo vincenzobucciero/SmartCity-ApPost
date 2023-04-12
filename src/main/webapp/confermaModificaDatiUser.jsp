@@ -61,7 +61,7 @@
             <h3>Hai modificato i tuoi dati</h3>
             <p>Le tue informazioni personali sono state modificate correttamente.</p>
             <div>
-                <form action="userHomePage.jsp" method="post">
+                <form action="InfoParkingServlet" method="post">
                     <input type="hidden" name="email" value="${email}">
                     <div class="text-center">
                         <button class="btn btn-outline-warning" href="userHomePage.jsp">Torna alla Home</button>
