@@ -63,7 +63,7 @@
                 I dati del parcheggio selezionato sono stati modificati correttamente.
             </p>
             <div>
-                <form action="adminHomePage.jsp" method="post">
+                <form action="AdminServlet" method="post">
                     <input type="hidden" name="email" value="${email}">
                     <div class="text-center">
                         <button class="btn btn-outline-warning" href="adminHomePage.jsp">Torna alla Home</button>
