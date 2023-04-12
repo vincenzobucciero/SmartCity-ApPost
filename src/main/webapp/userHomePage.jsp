@@ -28,7 +28,7 @@
 
     <link rel="stylesheet" type="text/css" href="CSS/styleMap.css" />
     <script type="module" src="js/jsMap.js"></script>
-    <script type="module" src="TySc/tyS.ts"></script>
+
 </head>
 
 <body>
@@ -41,6 +41,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link" href="userHomePage.jsp">Torna alla Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#funzionalita">Funzionalità</a></li>
                 <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
             </ul>
         </div>
@@ -60,16 +61,10 @@
             </div>
         </div>
     </div>
-    <!--L'attributo defer fa sì che la funzione di callback venga eseguita
-        dopo che l'intero documento HTML è stato analizzato. Per utilizzi non
-        bloccanti, evitando condizioni di gara e comportamenti coerenti tra
-        browser, considera il caricamento tramite Promises con
-        https://www.npmjs.com/package/@googlemaps/js-api-loader.-->
 
-    <!--Qui importiamo lo script di google maps dove però
-        andiamo a modificare la chiave API che abbiamo generato -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap">
-    </script>
+</header> <!-- Fine MasterHead-->
+
+<section class="page-section" id="funzionalita">
 
     <!--INIZIO SEZIONE CARD-->
     <div class="row">
@@ -82,12 +77,12 @@
                 <p>
                     <c:choose>
                     <c:when test="${usersBean != null}">
-                        <p class="text-muted mb-0">
-                                ${usersBean.getNome()}
-                                ${usersBean.getCognome()}
-                        </p>
-                    </c:when>
-                    </c:choose>
+                <p class="text-muted mb-0">
+                        ${usersBean.getNome()}
+                        ${usersBean.getCognome()}
+                </p>
+                </c:when>
+                </c:choose>
                 </p>
                 <a href="PersonalServlet" class="btn btn-primary text-center">Visualizza i tuoi dati</a>
             </div>
@@ -119,8 +114,8 @@
 
     </div><!-- FINE SEZIONE CARD-->
 
-</header> <!-- Fine MasterHead-->
 
+</section>
 
 <!-- Footer-->
 <footer class="bg-light py-5">
@@ -137,6 +132,18 @@
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<!--L'attributo defer fa sì che la funzione di callback venga eseguita
+       dopo che l'intero documento HTML è stato analizzato. Per utilizzi non
+       bloccanti, evitando condizioni di gara e comportamenti coerenti tra
+       browser, considera il caricamento tramite Promises con
+       https://www.npmjs.com/package/@googlemaps/js-api-loader.-->
+
+<!--Qui importiamo lo script di google maps dove però
+    andiamo a modificare la chiave API che abbiamo generato -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap">
+</script>
+
 
 </body>
 </html>

@@ -88,7 +88,7 @@ public class ParkingDao {
     }
 
 
-    public int getStatistiche(String nome, String tipoVeicolo, String dataPrec, String dataSucc){
+    /*public int getStatistiche(String nome, String tipoVeicolo, String dataPrec, String dataSucc){
         int countStat = 0;
 
         try {
@@ -121,6 +121,46 @@ public class ParkingDao {
             }
         }
         return countStat;
+    }*/
+
+
+    //Metodo per le statistiche
+    public double getStatistiche(String nome, String tipoVeicolo, String mese, String settimana){
+        double countStat = 0;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, "root", "password");
+            PreparedStatement stmt = con.prepareStatement("SELECT count(*)/7 numeroPrenotati FROM Prenotazione " +
+                    "WHERE tipoVeicolo = (?) and " +
+                    "      nomeParcheggio = (?) and " +
+                    "      YEAR(data_prenotazione) = YEAR(CURDATE()) and " +
+                    "      MONTH(data_prenotazione) = (?) and " +
+                    "      WEEK(data_prenotazione) - WEEK(DATE_FORMAT(data_prenotazione,'%Y-%m-01')) + 1 = (?)" +
+                    "GROUP BY tipoVeicolo");
+            stmt.setString(1, tipoVeicolo);
+            stmt.setString(2, nome);
+            stmt.setString(3, mese);
+            stmt.setString(4, settimana);
+            ResultSet result = stmt.executeQuery();
+            if (result.next()) {
+                countStat = result.getDouble("numeroPrenotati");
+                System.out.println(" " + countStat);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (con != null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return countStat;
     }
+
 
 }

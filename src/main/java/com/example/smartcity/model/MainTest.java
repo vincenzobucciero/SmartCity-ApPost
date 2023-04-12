@@ -101,7 +101,7 @@ public class MainTest {
         int num = StatisticDao.getIstanza().getStatistiche("Skyline Parking", "Furgone", mydate);
         System.out.println("stat: " + num);*/
 
-        BookingBean bookingBean = BookingService.getBookingBean("ZznBOms");
+        /*BookingBean bookingBean = BookingService.getBookingBean("ZznBOms");
         String oraInizio = bookingBean.getOrario_inizio();
         String oraFine = bookingBean.getOrario_fine();
 
@@ -114,7 +114,7 @@ public class MainTest {
         System.out.println(sDate6+"\t"+ date6);
         System.out.println("Date: " + ft.format(date6));*/
 
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        /*SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
 
         Date inizio = formatter.parse(oraInizio);
         Date fine = formatter.parse(oraFine);
@@ -142,7 +142,15 @@ public class MainTest {
             tot = 2*ore;
         }
 
-        System.out.println("totale: " + tot);
+        System.out.println("totale: " + tot);*/
+
+
+
+
+        double stat = ParkingDao.getIstanza().getStatistiche("Garage Panorama", "Auto", "03", "05");
+
+        System.out.println("stat: " + stat);
 
     }
+
 }

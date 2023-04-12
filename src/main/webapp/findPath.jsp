@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="CSS/stylePrenotazione.css">
     <link rel="stylesheet" type="text/css" href="CSS/styleMap.css" />
     <script type="module" src="js/jsMap.js"></script>
-    <script type="module" src="TySc/tyS.ts"></script>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
@@ -89,7 +88,6 @@
             </div>
         </div>
     </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap"></script>
 </header>
 
 
@@ -108,7 +106,7 @@
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA23kxKNlGB1Gw7UQdz4zbemqIZSG93JUQ&callback=initMap"></script>
 
 
 

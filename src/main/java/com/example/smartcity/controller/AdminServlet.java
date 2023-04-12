@@ -30,6 +30,7 @@ public class AdminServlet extends HttpServlet {
 
             List<ParkingBean> list = ParkingService.getAllParkings();
             session.setAttribute("list", list);
+
             request.getRequestDispatcher("adminHomePage.jsp").forward(request, response);
         }
 

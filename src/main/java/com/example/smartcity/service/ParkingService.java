@@ -17,8 +17,8 @@ public class ParkingService {
         return ParkingDao.getIstanza().getParkingBean(nomeParcheggio);
     }
 
-    public static int getStatistiche(String nomeParcheggio, String tipoVeicolo, String dataPrec, String dataSucc){
+    /*public static int getStatistiche(String nomeParcheggio, String tipoVeicolo, String dataPrec, String dataSucc){
         return ParkingDao.getIstanza().getStatistiche(nomeParcheggio, tipoVeicolo, dataPrec, dataSucc);
-    }
+    }*/
 
 }

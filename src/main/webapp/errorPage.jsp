@@ -60,7 +60,7 @@
             <h1>Ops, c'e stato un errore</h1>
             <p>Ci scusiamo per il disagio, ma ci risulta essersi verificato un errore, la preghiamo di riprovare</p>
             <div>
-                <form action="SearchServlet" method="post">
+                <form action="SearchServlet" method="get">
                     <input type="hidden" name="email" value="${email}">
                     <div class="text-center">
                         <button class="btn btn-outline-danger">Nuova prenotazione</button>
