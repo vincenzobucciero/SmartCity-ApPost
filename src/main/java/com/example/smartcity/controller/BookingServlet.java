@@ -16,11 +16,10 @@ public class BookingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.setContentType("text/html");
-        //int id = Integer.parseInt(request.getParameter("id"));
+
         String email = request.getParameter("email");
         String nomeParcheggio = request.getParameter("nomeP");
-        //ParkingBean parkingBean = ParkingService.getParkingBean(nomeParcheggio);
+
 
         HttpSession session = request.getSession(false);
         if ( session == null ) {
@@ -28,10 +27,7 @@ public class BookingServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
 
-            //UsersBean usersBean = (UsersBean) session.getAttribute("usersBean");
-            //request.setAttribute("usersBean", usersBean);
             request.setAttribute( "email", email);
-            //request.setAttribute("parkingBean", parkingBean); //serve??
             request.setAttribute("nomeP", nomeParcheggio);
             request.getRequestDispatcher("prenotazione.jsp").forward(request, response);
 

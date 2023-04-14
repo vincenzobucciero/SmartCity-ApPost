@@ -31,8 +31,6 @@ public class DeleteBookingServlet extends HttpServlet {
             BookingDao.deleteBooking( idPrenotazione );
 
             String email = request.getParameter("email");
-            //UserBean userBean = LogService.getUserBean(email);
-            //request.setAttribute("email", userBean.getEmail()); // Passiamo l'email per visualizzare le prenotazioni
             request.getRequestDispatcher( "cancelPage.jsp" ).forward(request, response);
 
         }

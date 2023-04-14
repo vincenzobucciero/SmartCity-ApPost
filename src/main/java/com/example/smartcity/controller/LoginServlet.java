@@ -48,9 +48,10 @@ public class LoginServlet extends HttpServlet {
                 HttpSession newSession = request.getSession();
                 newSession.setMaxInactiveInterval(20*60);
 
-                newSession.setAttribute("usersBean", userBean);
+                newSession.setAttribute("userBean", userBean);
                 newSession.setAttribute("isLog",1);     //1 = sono un utente normale
                 request.setAttribute("loggato",1);
+                System.out.println("Login Servlet: " + userBean.getNome());
                 request.setAttribute("stato", "SUCCESSO");
                 request.setAttribute("email", userBean.getEmail()); // Passiamo l'email visualizzare le prenotazioni
                 request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
@@ -64,7 +65,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession newSessionAd = request.getSession();
                 newSessionAd.setMaxInactiveInterval(20*60);
 
-                newSessionAd.setAttribute("usersBean", userBean);
+                newSessionAd.setAttribute("userBean", userBean);
                 newSessionAd.setAttribute("isLog",2);       //2 = sono un admin
                 request.setAttribute("loggato",2);
                 request.setAttribute("stato", "SUCCESSO_ADMIN");

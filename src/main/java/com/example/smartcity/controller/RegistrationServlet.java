@@ -39,10 +39,10 @@ public class RegistrationServlet extends HttpServlet {
             HttpSession newSession = request.getSession();
             newSession.setMaxInactiveInterval(20*60);
 
-            newSession.setAttribute("usersBean", userBean);
+            newSession.setAttribute("userBean", userBean);
             newSession.setAttribute("isLog",1);     //1 = sono un utente normale
             request.setAttribute("loggato",1);
-            request.setAttribute("usersBean", userBean);
+            request.setAttribute("userBean", userBean);
             request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
 
         }

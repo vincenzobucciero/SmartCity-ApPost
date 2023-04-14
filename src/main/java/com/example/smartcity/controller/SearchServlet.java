@@ -17,8 +17,8 @@ public class SearchServlet extends HttpServlet {
             session.setAttribute( "isLog",0 );
             request.getRequestDispatcher( "login.jsp" ).forward(request,response);
         } else {
-            UserBean userBean = (UserBean) session.getAttribute( "usersBean" );
-            request.setAttribute( "usersBean", userBean);
+            UserBean userBean = (UserBean) session.getAttribute( "userBean" );
+            request.setAttribute( "userBean", userBean);
             request.getRequestDispatcher( "findPath.jsp" ).forward(request,response);
         }
 

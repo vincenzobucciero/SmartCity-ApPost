@@ -16,8 +16,9 @@ public class PersonalServlet extends HttpServlet {
             session.setAttribute("isLog",0);
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
-            UserBean userBean = (UserBean) session.getAttribute("usersBean");
-            request.setAttribute("usersBean", userBean);
+            UserBean userBean = (UserBean) session.getAttribute("userBean");
+            request.setAttribute("userBean", userBean);
+            System.out.println("Personal Servlet: " + userBean.getNome());
             request.getRequestDispatcher("infoUtente.jsp").forward(request,response);
         }
     }
