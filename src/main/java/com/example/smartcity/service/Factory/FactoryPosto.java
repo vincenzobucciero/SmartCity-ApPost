@@ -1,13 +1,12 @@
 package com.example.smartcity.service.Factory;
 
-import com.example.smartcity.model.ParkingBean;
+import com.example.smartcity.model.Bean.ParkingBean;
 
 public abstract class FactoryPosto
 {
-    public Posto getPosto(ParkingBean parkingBean)
-    {
+    public Posto getPosto(ParkingBean parkingBean){
         Posto posto = creaPosto();
-        posto.parcheggia( parkingBean );
+        posto.parcheggia(parkingBean);
         return posto;
     }
 

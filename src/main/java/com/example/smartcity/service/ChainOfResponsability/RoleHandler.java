@@ -1,16 +1,13 @@
-package com.example.smartcity.handler;
+package com.example.smartcity.service.ChainOfResponsability;
 
-import com.example.smartcity.model.AccessoLogin;
-import com.example.smartcity.model.UsersBean;
 
 public class RoleHandler extends Handler{
-    @Override
-    public AccessoLogin handle(String email,String password) {
+    public AccessoLogin handle(String email, String password) {
         if("admin@admin.com".equals(email)){
             System.out.println("Caricamento Pagina Admin...");
             return AccessoLogin.SUCCESSO_ADMIN;
         }
         System.out.println("Caricamento Pagina di Default ");
-        return handlerNext(email, password);
+        return handleNext(email, password);
     }
 }

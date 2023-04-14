@@ -1,6 +1,6 @@
 package com.example.smartcity.Algoritmo;
 
-import com.example.smartcity.model.ParkingBean;
+import com.example.smartcity.model.Bean.ParkingBean;
 
 import java.util.ArrayList;
 import java.util.List;

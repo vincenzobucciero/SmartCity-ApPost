@@ -1,8 +1,9 @@
 package com.example.smartcity.controller;
 
-import com.example.smartcity.model.*;
-import com.example.smartcity.service.BookingService;
-import com.example.smartcity.service.ParkingService;
+import com.example.smartcity.model.Bean.BookingBean;
+import com.example.smartcity.model.Bean.ParkingBean;
+import com.example.smartcity.model.DAO.BookingDao;
+import com.example.smartcity.model.DAO.ParkingDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -41,8 +42,7 @@ public class BookingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nomeParcheggio = request.getParameter("nomeP");
-        ParkingBean parkingBean = ParkingService.getParkingBean(nomeParcheggio);
-
+        ParkingBean parkingBean = ParkingDao.getParkingBean(nomeParcheggio);
         String email = request.getParameter("email");
         String dataPrenotazione = request.getParameter("dataP");
         String orarioInizio = request.getParameter("oraI");
@@ -72,18 +72,15 @@ public class BookingServlet extends HttpServlet {
             bookingBean.setNomeParcheggio( nomeParcheggio );
 
             double prezzo = 0;
-            switch (tipoVeicolo){
+            switch ( tipoVeicolo ){
                 case "Auto":
-                    prezzo = BookingService.getTotPrice(parkingBean.getTariffaAF(), bookingBean);
-                    bookingBean.setPrezzo(prezzo);
-                    break;
                 case "Furgone":
-                    prezzo = BookingService.getTotPrice(parkingBean.getTariffaAF(), bookingBean);
-                    bookingBean.setPrezzo(prezzo);
+                    prezzo = BookingDao.getTotPrice( parkingBean.getTariffaAF(), bookingBean);
+                    bookingBean.setPrezzo( prezzo );
                     break;
                 case "Moto":
-                    prezzo = BookingService.getTotPrice(parkingBean.getTariffaM(), bookingBean);
-                    bookingBean.setPrezzo(prezzo);
+                    prezzo = BookingDao.getTotPrice( parkingBean.getTariffaM(), bookingBean);
+                    bookingBean.setPrezzo( prezzo );
                     break;
                 default:
                     break;
@@ -97,11 +94,11 @@ public class BookingServlet extends HttpServlet {
                     request.getRequestDispatcher("pagamento.jsp").forward(request, response);
                     break;
                 case "Al parcheggio":
-                    BookingService.Booking(bookingBean);
-                    session.setAttribute("bookingBean", bookingBean);
-                    session.setAttribute("email", bookingBean.getEmail());
+                    BookingDao.addBooking( bookingBean );
+                    session.setAttribute( "bookingBean", bookingBean );
+                    session.setAttribute( "email", bookingBean.getEmail() );
 
-                    request.getRequestDispatcher("thankYouPage.jsp").forward(request, response);
+                    request.getRequestDispatcher( "thankYouPage.jsp" ).forward(request, response);
                     break;
                 default:
                     break;

@@ -1,16 +1,11 @@
 package com.example.smartcity.controller;
 
-import com.example.smartcity.model.BookingBean;
-import com.example.smartcity.model.ParkingBean;
-import com.example.smartcity.model.UsersBean;
-import com.example.smartcity.service.BookingService;
-import com.example.smartcity.service.ModifyService;
+import com.example.smartcity.model.DAO.ModifyDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "ModifyServlet", value = "/ModifyServlet")
 public class ModifyServlet extends HttpServlet {
@@ -38,13 +33,12 @@ public class ModifyServlet extends HttpServlet {
             String postiFurgone = request.getParameter("postiFurgone");
             String postiMoto = request.getParameter("postiMoto");
 
-            ModifyService.modifyIndirizzo(nome, indirizzo);
-            ModifyService.modifyTariffaAF(nome, Double.parseDouble(tariffaAF));
-            ModifyService.modifyTariffaM(nome, Double.parseDouble(tariffaM));
-            ModifyService.modifyPostiAuto(nome, Integer.parseInt(postiAuto));
-            ModifyService.modifyPostiFurgone(nome, Integer.parseInt(postiFurgone));
-            ModifyService.modifyPostiMoto(nome, Integer.parseInt(postiMoto));
-
+            ModifyDao.modifyIndirizzo(nome, indirizzo);
+            ModifyDao.modifyTariffaAF(nome, Double.parseDouble(tariffaAF));
+            ModifyDao.modifyTariffaM(nome, Double.parseDouble(tariffaM));
+            ModifyDao.modifyPostiAuto(nome, Integer.parseInt(postiAuto));
+            ModifyDao.modifyPostiFurgone(nome, Integer.parseInt(postiFurgone));
+            ModifyDao.modifyPostiMoto(nome, Integer.parseInt(postiMoto));
 
             request.getRequestDispatcher("confermaModificaP.jsp").forward(request, response);
         }

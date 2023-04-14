@@ -1,12 +1,7 @@
 package com.example.smartcity.controller;
-import com.example.smartcity.model.BookingBean;
-import com.example.smartcity.model.BookingDao;
-import com.example.smartcity.model.ParkingBean;
-import com.example.smartcity.model.ParkingDao;
+import com.example.smartcity.model.Bean.BookingBean;
 
-import com.example.smartcity.service.BookingService;
-import com.example.smartcity.service.ParkingService;
-import jakarta.servlet.*;
+import com.example.smartcity.model.DAO.BookingDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -34,8 +29,8 @@ public class ShowBookingServlet extends HttpServlet {
 
             String email = request.getParameter("email");
 
-            List<BookingBean> list = BookingService.getBooking(email);
-            int size = list.size();
+            List<BookingBean> list = BookingDao.getBooking( email );
+
 
             session.setAttribute( "email", email);
             session.setAttribute("list", list);

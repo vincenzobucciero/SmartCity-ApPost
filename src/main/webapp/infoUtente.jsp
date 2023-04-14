@@ -59,9 +59,9 @@
                  class="rounded-circle img-fluid" style="width: 100px;">
             <h5 class="my-3">
               <c:choose>
-                <c:when test="${usersBean != null}">
+                <c:when test="${userBean != null}">
                   <p class="text-muted mb-0">
-                      ${usersBean.getNome()} ${usersBean.getCognome()}
+                      ${userBean.getNome()} ${userBean.getCognome()}
                   </p>
                 </c:when>
               </c:choose>
@@ -82,8 +82,8 @@
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
                   <c:choose>
-                    <c:when test="${usersBean != null}">
-                      ${usersBean.getNome()}
+                    <c:when test="${userBean != null}">
+                      ${userBean.getNome()}
                     </c:when>
                   </c:choose>
                 </p>
@@ -98,8 +98,8 @@
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
                   <c:choose>
-                    <c:when test="${usersBean != null}">
-                      ${usersBean.getCognome()}
+                    <c:when test="${userBean != null}">
+                      ${userBean.getCognome()}
                     </c:when>
                   </c:choose>
                 </p>
@@ -114,8 +114,8 @@
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
                   <c:choose>
-                    <c:when test="${usersBean != null}">
-                      ${usersBean.getEmail()}
+                    <c:when test="${userBean != null}">
+                      ${userBean.getEmail()}
                     </c:when>
                   </c:choose>
                 </p>
@@ -123,7 +123,7 @@
             </div>
                 <div>
                   <form action="ModifyUserServlet" method="post">
-                    <input type="hidden" name="email" value="${usersBean.getEmail()}">
+                    <input type="hidden" name="email" value="${userBean.getEmail()}">
                     <div class="text-center">
                       <button type="submit" class="btn btn-outline-primary">Modifica</button>
                     </div>

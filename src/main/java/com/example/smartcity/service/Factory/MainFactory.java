@@ -1,10 +1,5 @@
 package com.example.smartcity.service.Factory;
 
-import com.example.smartcity.model.ParkingBean;
-import com.example.smartcity.service.ParkingService;
-
-import java.util.List;
-
 public class MainFactory
 {
     public static void main( String arg[] )

@@ -1,23 +1,13 @@
 package com.example.smartcity.controller;
 
-import com.example.smartcity.service.LogService;
+import com.example.smartcity.model.DAO.BookingDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-import com.example.smartcity.model.BookingBean;
-import com.example.smartcity.model.ParkingBean;
-import com.example.smartcity.model.UsersBean;
-import com.example.smartcity.service.BookingService;
-import com.example.smartcity.service.ParkingService;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-import org.apache.commons.lang3.RandomStringUtils;
-
-import java.io.IOException;
+import com.example.smartcity.model.Bean.UserBean;
 
 @WebServlet(name = "DeleteBookingServlet", value = "/DeleteBookingServlet")
 public class DeleteBookingServlet extends HttpServlet {
@@ -38,13 +28,11 @@ public class DeleteBookingServlet extends HttpServlet {
             String idPrenotazione = request.getParameter( "id" );
             System.out.println( "Cancella: " + idPrenotazione );
 
-
-            BookingService.deleteBooking( idPrenotazione );
-
+            BookingDao.deleteBooking( idPrenotazione );
 
             String email = request.getParameter("email");
-            UsersBean usersBean = LogService.getUserBean(email);
-            request.setAttribute("email", usersBean.getEmail()); // Passiamo l'email visualizzare le prenotazioni
+            //UserBean userBean = LogService.getUserBean(email);
+            //request.setAttribute("email", userBean.getEmail()); // Passiamo l'email per visualizzare le prenotazioni
             request.getRequestDispatcher( "cancelPage.jsp" ).forward(request, response);
 
         }

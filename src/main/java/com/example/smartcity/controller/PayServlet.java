@@ -1,9 +1,10 @@
 package com.example.smartcity.controller;
 
-import com.example.smartcity.model.*;
-import com.example.smartcity.service.BookingService;
+import com.example.smartcity.model.Bean.BookingBean;
+import com.example.smartcity.model.Bean.ParkingBean;
+import com.example.smartcity.model.DAO.BookingDao;
+import com.example.smartcity.model.DAO.ParkingDao;
 import com.example.smartcity.service.Factory.*;
-import com.example.smartcity.service.ParkingService;
 import com.example.smartcity.service.Strategy.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -38,7 +39,7 @@ public class PayServlet extends HttpServlet {
         else {
             BookingBean bookingBean = ( BookingBean ) session.getAttribute("bookingBean");
             String nomeParcheggio = bookingBean.getNomeParcheggio();
-            ParkingBean parkingBean = ParkingService.getParkingBean( nomeParcheggio );
+            ParkingBean parkingBean = ParkingDao.getParkingBean(nomeParcheggio);
 
             PaymentStrategy paymentMethod = new CreditCardStrategy( nome, numeroCarta, cvv,dataScadenza );
 
@@ -53,7 +54,7 @@ public class PayServlet extends HttpServlet {
                         Posto auto = factoryAuto.getPosto( parkingBean );
 
                         //inserisco la prenotazione
-                        BookingService.Booking(bookingBean);
+                        BookingDao.addBooking(bookingBean);
                         session.setAttribute( "email", email );
                         session.setAttribute( "bookingBean", bookingBean );
                         request.getRequestDispatcher( "thankYouPage.jsp" ).forward(request,response);
@@ -68,7 +69,7 @@ public class PayServlet extends HttpServlet {
                         Posto furgone = factoryFurgone.getPosto( parkingBean );
 
                         //inserisco la prenotazione
-                        BookingService.Booking(bookingBean);
+                        BookingDao.addBooking(bookingBean);
                         session.setAttribute( "email", email );
                         session.setAttribute( "bookingBean", bookingBean );
                         request.getRequestDispatcher( "thankYouPage.jsp" ).forward(request,response);
@@ -83,7 +84,7 @@ public class PayServlet extends HttpServlet {
                         Posto moto = factoryMoto.getPosto( parkingBean );
 
                         //inserisco la prenotazione
-                        BookingService.Booking(bookingBean);
+                        BookingDao.addBooking(bookingBean);
                         session.setAttribute( "email", email );
                         session.setAttribute( "bookingBean", bookingBean );
                         request.getRequestDispatcher( "thankYouPage.jsp" ).forward(request,response);
