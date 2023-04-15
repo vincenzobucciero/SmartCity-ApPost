@@ -49,8 +49,12 @@
 
 <!-- Masthead-->
 <header class="masthead">
-  <section>
     <div class="row">
+      <div class="col-lg-10 mx-auto mb-4">
+        <h2 class="text-center mt-0" style="color: white">I tuoi dati</h2>
+        <hr class="divider" style="max-width: 7rem"/>
+      </div>
+
       <!-- Riquadro dell'avatar -->
       <div class="col-lg-3 mb-3">
         <div class="card">
@@ -133,16 +137,12 @@
         </div>
       </div>
     </div>
-  </section>
-
-
-
 </header>
 
 
           <!-- Footer-->
           <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - Company Name</div></div>
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - ApPost</div></div>
           </footer>
           <!-- Bootstrap core JS-->
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

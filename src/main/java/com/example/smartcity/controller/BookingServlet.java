@@ -4,6 +4,9 @@ import com.example.smartcity.model.Bean.BookingBean;
 import com.example.smartcity.model.Bean.ParkingBean;
 import com.example.smartcity.model.DAO.BookingDao;
 import com.example.smartcity.model.DAO.ParkingDao;
+import com.example.smartcity.service.FactoryPrezzi.FactoryPrezzo;
+import com.example.smartcity.service.FactoryPrezzi.Prezzo;
+import com.example.smartcity.service.FactoryPrezzi.VeicoliEnum;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -22,12 +25,12 @@ public class BookingServlet extends HttpServlet {
 
 
         HttpSession session = request.getSession(false);
-        if ( session == null ) {
-            session.setAttribute("isLog",0);
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+        if (session == null) {
+            session.setAttribute("isLog", 0);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
 
-            request.setAttribute( "email", email);
+            request.setAttribute("email", email);
             request.setAttribute("nomeP", nomeParcheggio);
             request.getRequestDispatcher("prenotazione.jsp").forward(request, response);
 
@@ -51,50 +54,54 @@ public class BookingServlet extends HttpServlet {
 
         HttpSession session = request.getSession(false);
 
-        if ( session == null ) {
-            session.setAttribute("isLog",0);
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+        if (session == null) {
+            session.setAttribute("isLog", 0);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
 
             BookingBean bookingBean = new BookingBean();
             bookingBean.setID_prenotazione(idBooking);
-            bookingBean.setData_prenotazione( dataPrenotazione );
-            bookingBean.setOrario_inizio( orarioInizio );
-            bookingBean.setOrario_fine( orarioFine );
-            bookingBean.setTargaVeicolo( targaVeicolo );
-            bookingBean.setTipoVeicolo( tipoVeicolo );
-            bookingBean.setEmail( email );
-            bookingBean.setPagamento( metodoP );
-            bookingBean.setNomeParcheggio( nomeParcheggio );
-
-            double prezzo = 0;
-            switch ( tipoVeicolo ){
-                case "Auto":
-                case "Furgone":
-                    prezzo = BookingDao.getTotPrice( parkingBean.getTariffaAF(), bookingBean);
-                    bookingBean.setPrezzo( prezzo );
-                    break;
-                case "Moto":
-                    prezzo = BookingDao.getTotPrice( parkingBean.getTariffaM(), bookingBean);
-                    bookingBean.setPrezzo( prezzo );
-                    break;
-                default:
-                    break;
-            }
+            bookingBean.setData_prenotazione(dataPrenotazione);
+            bookingBean.setOrario_inizio(orarioInizio);
+            bookingBean.setOrario_fine(orarioFine);
+            bookingBean.setTargaVeicolo(targaVeicolo);
+            bookingBean.setTipoVeicolo(VeicoliEnum.valueOf(tipoVeicolo));
+            bookingBean.setEmail(email);
+            bookingBean.setPagamento(metodoP);
+            bookingBean.setNomeParcheggio(nomeParcheggio);
 
 
-            System.out.println("pagamento: " + metodoP);
+            FactoryPrezzo factoryPrezzo = new FactoryPrezzo();
+            Prezzo prezzo = factoryPrezzo.getTotale(bookingBean.getTipoVeicolo());
+
             switch (metodoP){
                 case "Carta di Credito/PayPal":
-                    session.setAttribute("bookingBean", bookingBean);
-                    request.getRequestDispatcher("pagamento.jsp").forward(request, response);
+                    if(prezzo.getNumPosti(parkingBean) > 0)
+                    {
+                        double price = prezzo.getPrezzo(parkingBean, bookingBean);
+                        bookingBean.setPrezzo(price);
+
+                        session.setAttribute("bookingBean", bookingBean);
+                        request.getRequestDispatcher("pagamento.jsp").forward(request, response);
+                    }
+                    else
+                        System.out.println("Posti esauriti");
+                        request.getRequestDispatcher("errorPage.jsp").forward(request, response);
                     break;
                 case "Al parcheggio":
-                    BookingDao.addBooking( bookingBean );
-                    session.setAttribute( "bookingBean", bookingBean );
-                    session.setAttribute( "email", bookingBean.getEmail() );
+                    if(prezzo.getNumPosti(parkingBean) > 0)
+                    {
+                        double price = prezzo.getPrezzo(parkingBean, bookingBean);
+                        bookingBean.setPrezzo(price);
+                        BookingDao.addBooking(bookingBean);
 
-                    request.getRequestDispatcher( "thankYouPage.jsp" ).forward(request, response);
+                        session.setAttribute("bookingBean", bookingBean);
+                        session.setAttribute("email", bookingBean.getEmail());
+                        request.getRequestDispatcher("thankYouPage.jsp").forward(request, response);
+                    }
+                    else
+                        System.out.println("Posti esauriti");
+                    request.getRequestDispatcher("errorPage.jsp").forward(request, response);
                     break;
                 default:
                     break;

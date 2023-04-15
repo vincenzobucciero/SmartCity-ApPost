@@ -1,5 +1,7 @@
 package com.example.smartcity.model.Bean;
 
+import com.example.smartcity.service.FactoryPrezzi.VeicoliEnum;
+
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -12,7 +14,7 @@ public class BookingBean implements Serializable {
     private String orario_fine;
     private String email;
     private String targaVeicolo;
-    private String tipoVeicolo;
+    private VeicoliEnum tipoVeicolo;
     private double prezzo;
     private String pagamento;
     private String nomeParcheggio;
@@ -58,11 +60,11 @@ public class BookingBean implements Serializable {
         this.targaVeicolo = targaVeicolo;
     }
 
-    public String getTipoVeicolo() {
+    public VeicoliEnum getTipoVeicolo() {
         return tipoVeicolo;
     }
 
-    public void setTipoVeicolo(String tipoVeicolo) {
+    public void setTipoVeicolo(VeicoliEnum tipoVeicolo) {
         this.tipoVeicolo = tipoVeicolo;
     }
 

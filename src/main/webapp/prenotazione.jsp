@@ -54,90 +54,76 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-50 align-items-center justify-content-center text-center"></div>
+                    <div class="form-bg">
+                        <div class="container">
+                            <div class="col-md-4 col-md-offset-4">
+                                <div class="form-container" style="font-family: 'Inter', sans-serif">
+                                        <h3 class="title">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" style="color: #F4623AE5" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                                                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                            </svg>
+                                        </h3>
+                                        <form id="bookingForm" class="form-horizontal" action="BookingServlet" method="post">
+                                            <hr>
+                                            <div class = "form-group row">
+                                                <div class="col-md-4">
+                                                    <label name="dataP">Data</label>
+                                                    <input name="dataP"  class="form-control" type="date" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label name="oraI">Orario ingresso</label>
+                                                    <input name="oraI" value="07:00" class="form-control" type="time" min="07:00" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label name="oraF">Orario uscita</label>
+                                                    <input name="oraF" value="23:00" class="form-control" type="time" max="23:00" required>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class = "form-group row">
+
+                                                <div class="col-md-4">
+                                                    <label name="tipoV">Tipo Veicolo</label>
+                                                    <select class= "form-control" name="tipoV" required>
+                                                        <option value="">--scegli--</option>
+                                                        <option type="hidden" name="tipoV">Auto</option>
+                                                        <option type="hidden" name="tipoV">Furgone</option>
+                                                        <option type="hidden" name="tipoV">Moto</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label name="targa">Targa Veicolo</label>
+                                                    <input name="targa" class="form-control" type="text" style="text-transform: uppercase" style="font-family: 'Inter', sans-serif" placeholder="GH104RT" maxlength="7" required>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label name="sceltaP">Metodo di pagamento</label>
+                                                    <select class= "form-control" name="sceltaP" required>
+                                                        <option value="">--scegli--</option>
+                                                        <option type="hidden" name="cartaC">Carta di Credito/PayPal</option>
+                                                        <option type="hidden" name="contanti">Al parcheggio</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <input type="hidden" name="email" value="${email}">
+                                            <input type="hidden" name="nomeP" value="${nomeP}">
+                                            <input type="hidden" name="bookingBean" value="${bookingBean}">
+
+                                            <button type="submit" class="btn btn-primary btn-lg text-white alert">Pagamento
+                                                <br><i class="bi bi-credit-card-2-back-fill"></i>
+                                            </button>
+                                            <p class="text-muted"> Nota: qualora la prenotazione superasse le 5 ore la tariffa totale sarà di 20,00€.</p>
+                                        </form>
+                                    </div><!--Fine form container-->
+
+                            </div>
+                        </div>
+                    </div>
             </div>
         </header>
-
-        <div class="form-bg">
-            <div class="container">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="form-container" style="font-family: 'Inter', sans-serif">
-
-                            <h3 class="title">
-                                Effettua la prenotazione
-                            </h3>
-                            <form id="bookingForm" class="form-horizontal" action="BookingServlet" method="post">
-                                <!--<div class = "form-group row">
-                                    <div class="col-md-6">
-                                        <label name="nomePark">Nome parcheggio</label>
-                                        <input name="nomePark" class="form-control" type="text" placeholder="${parkingBean.getNomeParcheggio()}" readonly>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label name="emailS">Email</label>
-                                        <input name="emailS" class="form-control" type="text" style="font-family: 'Inter', sans-serif" placeholder="${email}" readonly>
-                                    </div>
-                                </div>-->
-                                <hr>
-                                <div class = "form-group row">
-
-                                    <div class="col-md-4">
-                                        <label name="dataP">Data</label>
-                                        <input name="dataP"  class="form-control" type="date" required>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label name="oraI">Orario ingresso</label>
-                                        <input name="oraI" value="07:00" class="form-control" type="time" min="07:00" required>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label name="oraF">Orario uscita</label>
-                                        <input name="oraF" value="23:00" class="form-control" type="time" max="23:00" required>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class = "form-group row">
-
-                                    <div class="col-md-4">
-                                        <label name="tipoV">Tipo Veicolo</label>
-                                        <select class= "form-control" name="tipoV" required>
-                                            <option value="">--scegli--</option>
-                                            <option type="hidden" name="tipoV">Auto</option>
-                                            <option type="hidden" name="tipoV">Furgone</option>
-                                            <option type="hidden" name="tipoV">Moto</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label name="targa">Targa Veicolo</label>
-                                        <input name="targa" class="form-control" type="text" style="text-transform: uppercase" style="font-family: 'Inter', sans-serif" placeholder="GH104RT" maxlength="7" required>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label name="sceltaP">Metodo di pagamento</label>
-                                        <select class= "form-control" name="sceltaP" required>
-                                            <option value="">--scegli--</option>
-                                            <option type="hidden" name="cartaC">Carta di Credito/PayPal</option>
-                                            <option type="hidden" name="contanti">Al parcheggio</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                                <input type="hidden" name="email" value="${email}">
-                                <input type="hidden" name="nomeP" value="${nomeP}">
-                                <input type="hidden" name="bookingBean" value="${bookingBean}">
-
-                                <button type="submit" class="btn btn-primary btn-lg text-white alert">Pagamento
-                                    <br><i class="bi bi-credit-card-2-back-fill"></i>
-                                </button>
-                            </form>
-                        </div><!--Fine form container-->
-
-                </div>
-            </div>
-        </div>
-
 
         <!--Aiuto-->
         <section class="page-section" id="aiuto">
@@ -174,7 +160,7 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
-            Copyright &copy; 2023 - Company Name
+            Copyright &copy; 2023 - ApPost
         </div>
     </div>
 </footer>

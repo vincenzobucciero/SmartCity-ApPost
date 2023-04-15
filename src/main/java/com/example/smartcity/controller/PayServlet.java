@@ -43,59 +43,14 @@ public class PayServlet extends HttpServlet {
 
             PaymentStrategy paymentMethod = new CreditCardStrategy( nome, numeroCarta, cvv,dataScadenza );
 
-            String tipoVeicolo = bookingBean.getTipoVeicolo();
-            System.out.println( "veicolo " + tipoVeicolo );
-
-            switch ( tipoVeicolo ){
-                case "Auto":
-                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
-                        FactoryPosto factoryAuto = new FactoryPostoAuto();
-
-                        Posto auto = factoryAuto.getPosto( parkingBean );
-
-                        //inserisco la prenotazione
-                        BookingDao.addBooking(bookingBean);
-                        session.setAttribute( "email", email );
-                        session.setAttribute( "bookingBean", bookingBean );
-                        request.getRequestDispatcher( "thankYouPage.jsp" ).forward(request,response);
-                    }
-                    else {
-                        request.getRequestDispatcher( "errorPage.jsp" ).forward(request,response);
-                    }
-                    break;
-                case "Furgone":
-                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
-                        FactoryPosto factoryFurgone = new FactoryPostoFurgone();
-                        Posto furgone = factoryFurgone.getPosto( parkingBean );
-
-                        //inserisco la prenotazione
-                        BookingDao.addBooking(bookingBean);
-                        session.setAttribute( "email", email );
-                        session.setAttribute( "bookingBean", bookingBean );
-                        request.getRequestDispatcher( "thankYouPage.jsp" ).forward(request,response);
-                    }
-                    else {
-                        request.getRequestDispatcher( "errorPage.jsp" ).forward(request,response);
-                    }
-                    break;
-                case "Moto":
-                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
-                        FactoryPosto factoryMoto = new FactoryPostoMoto();
-                        Posto moto = factoryMoto.getPosto( parkingBean );
-
-                        //inserisco la prenotazione
-                        BookingDao.addBooking(bookingBean);
-                        session.setAttribute( "email", email );
-                        session.setAttribute( "bookingBean", bookingBean );
-                        request.getRequestDispatcher( "thankYouPage.jsp" ).forward(request,response);
-                    }
-                    else {
-                        request.getRequestDispatcher( "errorPage.jsp" ).forward(request,response);
-                    }
-                    break;
-                default:
-                    request.getRequestDispatcher( "errorPage.jsp" ).forward(request,response);
-                    break;
+            if(paymentMethod.pay(bookingBean.getPrezzo())) {
+                session.setAttribute("email", bookingBean.getEmail());
+                session.setAttribute("bookingBean", bookingBean);
+                BookingDao.addBooking(bookingBean);
+                request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
+            }
+            else{
+                request.getRequestDispatcher("errorPage.jsp").forward(request,response);
             }
 
         }

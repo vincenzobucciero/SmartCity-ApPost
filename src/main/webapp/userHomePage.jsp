@@ -51,6 +51,16 @@
 <!-- Inizio MasterHead-->
 <header class="masthead">
     <div class="container">
+        <div class="col-lg-10 mx-auto mb-4">
+            <h2 class="text-center mt-0" style="color: white">Bentornato,
+                <c:choose>
+                <c:when test="${userBean != null}">
+                    ${userBean.getNome()}
+                </c:when>
+                </c:choose>
+            </h2>
+            <hr class="divider" style="max-width: 13rem;" />
+        </div>
         <div class="my-5 card bg-dark mx-auto" style="width:60rem;">
             <div class="card">
                 <div class="card-body">
@@ -64,8 +74,12 @@
 
 </header> <!-- Fine MasterHead-->
 
-<section class="page-section" id="funzionalita">
+<section class="page-section" style="padding: 2rem" id="funzionalita">
 
+    <div class="col-lg-10 mx-auto mb-4">
+        <h2 class="text-center mt-0" style="color: black">Funzionalità</h2>
+        <hr class="divider" />
+    </div>
     <!--INIZIO SEZIONE CARD-->
     <div class="row">
         <!-- Inizio Prima Card-->
@@ -121,7 +135,7 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
-            Copyright &copy; 2023 - Company Name
+            Copyright &copy; 2023 - ApPost
         </div>
     </div>
 </footer>

@@ -24,7 +24,7 @@ public class PathServlet extends HttpServlet {
 
         String startIndirizzo = request.getParameter("start");
         String endIndirizzo = request.getParameter("dest");
-        System.out.println("Indirizzi: " + startIndirizzo + endIndirizzo);
+        System.out.println("Indirizzi: " + startIndirizzo +" "+ endIndirizzo);
 
         HttpSession session = request.getSession(false);
         if (session == null) {
@@ -67,7 +67,7 @@ public class PathServlet extends HttpServlet {
             request.setAttribute("size", size);
 
             request.setAttribute("parcheggioDisp", parcheggioDisp);
-            request.getRequestDispatcher("prenotaParcheggio.jsp").forward(request, response);
+            request.getRequestDispatcher("scegliParcheggio.jsp").forward(request, response);
 
         }
     }

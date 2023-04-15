@@ -55,16 +55,15 @@
 
 <header class="masthead">
     <div class="container">
+        <div class="col-lg-10 mx-auto mb-4">
+            <h2 class="text-center mt-0" style="color: white">Scegli dove parcheggiare</h2>
+            <hr class="divider" style="max-width: 13rem;" />
+        </div>
         <div class="row">
             <div class="col-sm-5">
                 <div class="my-5 card bg-light mx-auto" style="width:60rem;">
                     <div class="card-body">
-                        <h5 class="text-muted">
-                            Questi sono i parcheggi disponibili per il percorso scelto:
-                        </h5>
-
                         <!-- Qui inizia il div per la lista dei parcheggi-->
-
                         <div class="container mt-5" style="font-family: 'Inter', sans-serif">
                             <div class="row">
                                 <div class="col-md-12">
@@ -101,10 +100,9 @@
                                                                 <i class="bi bi-geo-fill" style="color: #b60909"></i>
                                                                 <td>
                                                                     ${record.getIndirizzo()}<br>
-                                                                    <i class="fas fa-car-side"></i>/<i class="fas fa-truck"></i>
-                                                                    ${record.getTariffaAF()}€/h <br>
-                                                                    <i class="fas fa-motorcycle"></i>
-                                                                    ${record.getTariffaM()}€/h
+                                                                    <i class="fas fa-car-side"></i> Disponibilità: ${record.getPostiAuto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}€/h <br>
+                                                                        <i class="fas fa-truck"></i> Disponibilità: ${record.getPostiFurgone()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}€/h <br>
+                                                                    <i class="fas fa-motorcycle"></i> Disponibilità: ${record.getPostiMoto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaM()}€/h
                                                                 </td>
                                                             </span>
                                                         </div>
@@ -143,7 +141,7 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
-            Copyright &copy; 2023 - Company Name
+            Copyright &copy; 2023 - ApPost
         </div>
     </div>
 </footer>

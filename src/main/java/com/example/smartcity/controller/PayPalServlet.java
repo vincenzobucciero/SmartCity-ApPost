@@ -5,6 +5,7 @@ import com.example.smartcity.model.Bean.ParkingBean;
 import com.example.smartcity.model.DAO.BookingDao;
 import com.example.smartcity.model.DAO.ParkingDao;
 import com.example.smartcity.service.Factory.*;
+import com.example.smartcity.service.FactoryPrezzi.VeicoliEnum;
 import com.example.smartcity.service.Strategy.PaypalStrategy;
 import com.example.smartcity.service.Strategy.PaymentStrategy;
 import jakarta.servlet.*;
@@ -38,59 +39,18 @@ public class PayPalServlet extends HttpServlet {
             String nomeParcheggio = bookingBean.getNomeParcheggio();
             ParkingBean parkingBean = ParkingDao.getParkingBean(nomeParcheggio);
 
+            VeicoliEnum tipoVeicolo = bookingBean.getTipoVeicolo();
+            System.out.println("veicolo " + tipoVeicolo);
 
             PaymentStrategy paymentMethod = new PaypalStrategy(emailPP, passwordPP);
 
-            String tipoVeicolo = bookingBean.getTipoVeicolo();
-            System.out.println("veicolo " + tipoVeicolo);
-
-            switch (tipoVeicolo){
-                case "Auto":
-                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
-                        FactoryPosto factoryAuto = new FactoryPostoAuto();
-                        Posto auto = factoryAuto.getPosto(parkingBean);
-
-                        //Inserisco la prenotazione
-                        BookingDao.addBooking(bookingBean);
-                        session.setAttribute("email", bookingBean.getEmail());
-                        request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
-                    }
-                    else{
-                        request.getRequestDispatcher("errorPage.jsp").forward(request,response);
-                    }
-                    break;
-                case "Furgone":
-                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
-                        FactoryPosto factoryFurgone = new FactoryPostoFurgone();
-                        Posto furgone = factoryFurgone.getPosto(parkingBean);
-
-                        //inserisco la prenotazione
-                        BookingDao.addBooking(bookingBean);
-                        session.setAttribute("email", bookingBean.getEmail());
-                        request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
-                    }
-                    else {
-                        request.getRequestDispatcher("errorPage.jsp").forward(request,response);
-                    }
-                    break;
-                case "Moto":
-                    if(paymentMethod.pay(bookingBean.getPrezzo())) {
-                        FactoryPosto factoryMoto = new FactoryPostoMoto();
-                        Posto moto = factoryMoto.getPosto(parkingBean);
-
-                        //inserisco la prenotazione
-                        BookingDao.addBooking(bookingBean);
-                        session.setAttribute("email", bookingBean.getEmail());
-                        request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
-                    }
-                    else {
-                        request.getRequestDispatcher("errorPage.jsp").forward(request,response);
-
-                    }
-                    break;
-                default:
-                    request.getRequestDispatcher("errorPage.jsp").forward(request,response);
-                    break;
+            if(paymentMethod.pay(bookingBean.getPrezzo())) {
+                BookingDao.addBooking(bookingBean);
+                session.setAttribute("email", bookingBean.getEmail());
+                request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
+            }
+            else{
+                request.getRequestDispatcher("errorPage.jsp").forward(request,response);
             }
 
 

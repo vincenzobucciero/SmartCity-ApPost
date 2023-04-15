@@ -56,6 +56,10 @@
 <!-- Masthead-->
 <header class="masthead">
     <div class="row">
+        <div class="col-lg-10 mx-auto mb-4">
+            <h2 class="text-center mt-0" style="color: white">Scegli come pagare</h2>
+            <hr class="divider" style="max-width: 10rem" />
+        </div>
         <div class="col-lg-6 mx-auto">
             <div class="card">
                 <div class="card-header">
@@ -173,7 +177,7 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
         <div class="small text-center text-muted">
-            Copyright &copy; 2023 - Company Name
+            Copyright &copy; 2023 - ApPost
         </div>
     </div>
 </footer>
