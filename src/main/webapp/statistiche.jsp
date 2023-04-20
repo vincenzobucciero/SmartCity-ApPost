@@ -88,7 +88,11 @@
                                         <button type="submit" class="col-md-4" >Ricalcola</button>
                                     </div>
                                 </form>
-
+                                <div id="prima" style="color: transparent" >${statistiche.get(0)}</div>
+                                <div id="seconda" style="color: transparent" >${statistiche.get(1)}</div>
+                                <div id="terza" style="color: transparent" >${statistiche.get(2)}</div>
+                                <div id="quarta" style="color: transparent" >${statistiche.get(3)}</div>
+                                <div id="quinta" style="color: transparent" >${statistiche.get(4)}</div>
                                 <canvas id="myChart"></canvas>
                             </div>
                         </div>

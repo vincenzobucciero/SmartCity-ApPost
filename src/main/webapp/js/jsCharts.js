@@ -1,5 +1,11 @@
 var ctx = document.getElementById('myChart').getContext('2d');
-var settimane = ['Settimana 1', 'Settimana 2', 'Settimana 3', 'Settimana 4'];
+var settimane = ['Settimana 1', 'Settimana 2', 'Settimana 3', 'Settimana 4','Settimana 5'];
+
+var st1 = Number( document.getElementById( "prima" ).innerHTML );
+var st2 = Number( document.getElementById( "seconda" ).innerHTML );
+var st3 = Number( document.getElementById( "terza" ).innerHTML );
+var st4 = Number( document.getElementById( "quarta" ).innerHTML );
+var st5 = Number( document.getElementById( "quinta" ).innerHTML );
 
 var chart = new Chart(ctx, {
     type: 'bar',
@@ -7,7 +13,7 @@ var chart = new Chart(ctx, {
         labels: settimane,
         datasets: [{
             label: 'Frequency',
-            data: [0.3, 0.7, 1, 1],
+            data: [ st1, st2, st3, st4, st5 ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
