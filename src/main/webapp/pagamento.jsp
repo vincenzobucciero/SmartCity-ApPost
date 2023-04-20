@@ -61,6 +61,7 @@
             <hr class="divider" style="max-width: 10rem" />
         </div>
         <div class="col-lg-6 mx-auto">
+            <p style="color:#ffffff;"> Concludi la tua prenotazione per il giorno ... dalle ... alle ...</p>
             <div class="card">
                 <div class="card-header">
                     <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
