@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ChartsServlet", value = "/ChartsServlet")
@@ -39,13 +40,13 @@ public class ChartsServlet extends HttpServlet {
             System.out.println("Veicolo " + veicolo);
             System.out.println("\nParcheggio " + parcheggio);
             System.out.println("\nMese " + mese + " - " +numeroMese);
-            /*;
 
-
-            for(int i = 1; i < 6; i++)
-            {
-                ParkingDao.getStatisticheAccessi(parcheggio, VeicoliEnum.valueOf(veicolo), numeroMese, i);
-            }*/
+            List<Double> statistiche = new ArrayList<>();
+            for( int i = 1; i < 6; i++ ) {
+                double st = ParkingDao.getStatisticheAccessi(parcheggio, VeicoliEnum.valueOf(veicolo), numeroMese, i);
+                statistiche.add( st );
+            }
+            request.setAttribute( "statistiche", statistiche );
             request.getRequestDispatcher("statistiche.jsp").forward(request,response);
         }
     }
