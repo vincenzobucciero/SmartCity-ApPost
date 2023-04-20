@@ -51,12 +51,13 @@
         <hr class="divider" />
     </div>
     <!--INIZIO SEZIONE CARD-->
-    <div class="row">
+    <div class="row" style="padding: 4rem">
         <!-- Inizio Prima Card-->
-        <div class="my-5 card bg-light" style="width: 20rem;">
-            <img src="img/imgCard/personalData.jpg">
+        <div class="my-4 card bg-light" style="width: 20rem;">
+            <img src="img/park2.jpg">
             <div class="card-body">
                 <h4 class="card-title">Parcheggi</h4>
+                <p class="card-text">Viene visualizzata la lista dei parcheggi con le proprie informazioni.</p>
                 <form action="ShowParkingServlet" method="post">
                     <button class="btn btn-primary text-center">Visualizza parcheggi</button>
                 </form>
@@ -64,19 +65,22 @@
         </div><!-- Fine Prima Card-->
 
         <!-- Inizio Seconda Card-->
-        <div class="my-5 card bg-light mx-auto" style="width: 20rem;">
-            <img src="img/park6.jpg">
+        <div class="my-4 card bg-light mx-auto" style="width: 20rem;">
+            <img src="img/statistiche.jpg">
             <div class="card-body">
                 <h4 class="card-title">Statistiche</h4>
+                <p class="card-text">Potrai vedere le statistiche relative a ogni mese e per ogni parcheggio </p>
                     <a href="statistiche.jsp" class="btn btn-primary text-center">Visualizza statistiche</a>
             </div>
         </div><!-- Fine Seconda Card-->
 
         <!-- Inizio Terza Card-->
-        <div class="my-5 card bg-light mx-auto" style="width: 20rem;">
-            <img src="img/park6.jpg">
+        <div class="my-4 card bg-light mx-auto" style="width: 20rem;">
+            <img src="img/booking.jpg">
             <div class="card-body">
                 <h4 class="card-title">Prenotazioni</h4>
+                <p class="card-text">Qui vengono visualizzate le prenotazioni effettuate,
+                    con informazioni come data orario e luogo.</p>
                 <a href="" class="btn btn-primary text-center">Visualizza le prenotazioni</a>
             </div>
         </div><!-- Fine Seconda Card-->
