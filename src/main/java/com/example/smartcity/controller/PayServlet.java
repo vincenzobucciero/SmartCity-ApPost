@@ -4,7 +4,7 @@ import com.example.smartcity.model.Bean.BookingBean;
 import com.example.smartcity.model.Bean.ParkingBean;
 import com.example.smartcity.model.DAO.BookingDao;
 import com.example.smartcity.model.DAO.ParkingDao;
-import com.example.smartcity.service.Factory.*;
+
 import com.example.smartcity.service.Strategy.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;

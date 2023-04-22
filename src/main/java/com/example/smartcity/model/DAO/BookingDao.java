@@ -1,9 +1,8 @@
 package com.example.smartcity.model.DAO;
 
 import com.example.smartcity.model.Bean.BookingBean;
-import com.example.smartcity.service.FactoryPrezzi.VeicoliEnum;
+import com.example.smartcity.service.CommandPrezzo.VeicoliEnum;
 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

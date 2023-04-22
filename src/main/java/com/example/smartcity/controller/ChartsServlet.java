@@ -2,7 +2,7 @@ package com.example.smartcity.controller;
 
 import com.example.smartcity.model.Bean.ParkingBean;
 import com.example.smartcity.model.DAO.ParkingDao;
-import com.example.smartcity.service.FactoryPrezzi.VeicoliEnum;
+import com.example.smartcity.service.CommandPrezzo.VeicoliEnum;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

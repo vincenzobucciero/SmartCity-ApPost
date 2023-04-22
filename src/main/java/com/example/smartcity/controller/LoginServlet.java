@@ -67,10 +67,11 @@ public class LoginServlet extends HttpServlet {
 
                 newSessionAd.setAttribute("userBean", userBean);
                 newSessionAd.setAttribute("isLog",2);       //2 = sono un admin
+
                 request.setAttribute("loggato",2);
                 request.setAttribute("stato", "SUCCESSO_ADMIN");
-
                 newSessionAd.setAttribute("list", list);
+
                 request.getRequestDispatcher("adminHomePage.jsp").forward(request, response);
                 break;
             default:

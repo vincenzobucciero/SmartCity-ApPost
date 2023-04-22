@@ -81,7 +81,10 @@
                 <h4 class="card-title">Prenotazioni</h4>
                 <p class="card-text">Qui vengono visualizzate le prenotazioni effettuate,
                     con informazioni come data orario e luogo.</p>
-                <a href="" class="btn btn-primary text-center">Visualizza le prenotazioni</a>
+                <form action="ShowBookingServlet" method="post">
+                    <input type="hidden" name="email" value="${email}">
+                    <button class="btn btn-primary">Visualizza prenotazioni</button>
+                </form>
             </div>
         </div><!-- Fine Seconda Card-->
     </div><!-- FINE SEZIONE CARD-->

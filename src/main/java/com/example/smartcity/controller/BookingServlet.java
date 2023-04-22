@@ -4,9 +4,8 @@ import com.example.smartcity.model.Bean.BookingBean;
 import com.example.smartcity.model.Bean.ParkingBean;
 import com.example.smartcity.model.DAO.BookingDao;
 import com.example.smartcity.model.DAO.ParkingDao;
-import com.example.smartcity.service.FactoryPrezzi.FactoryPrezzo;
-import com.example.smartcity.service.FactoryPrezzi.Prezzo;
-import com.example.smartcity.service.FactoryPrezzi.VeicoliEnum;
+import com.example.smartcity.service.CommandPrezzo.Invoker;
+import com.example.smartcity.service.CommandPrezzo.VeicoliEnum;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -71,27 +70,25 @@ public class BookingServlet extends HttpServlet {
             bookingBean.setNomeParcheggio(nomeParcheggio);
 
 
-            FactoryPrezzo factoryPrezzo = new FactoryPrezzo();
-            Prezzo prezzo = factoryPrezzo.getTotale(bookingBean.getTipoVeicolo());
+            Invoker invoker = new Invoker();
 
             switch (metodoP){
                 case "Carta di Credito/PayPal":
-                    if(prezzo.getNumPosti(parkingBean) > 0)
+                    if(invoker.getPosti(bookingBean.getTipoVeicolo(), parkingBean, bookingBean) > 0)
                     {
-                        double price = prezzo.getPrezzo(parkingBean, bookingBean);
+                        double price = invoker.getTot(bookingBean.getTipoVeicolo(), parkingBean, bookingBean);
                         bookingBean.setPrezzo(price);
 
                         session.setAttribute("bookingBean", bookingBean);
                         request.getRequestDispatcher("pagamento.jsp").forward(request, response);
                     }
                     else
-                        System.out.println("Posti esauriti");
                         request.getRequestDispatcher("errorPage.jsp").forward(request, response);
                     break;
                 case "Al parcheggio":
-                    if(prezzo.getNumPosti(parkingBean) > 0)
+                    if(invoker.getPosti(bookingBean.getTipoVeicolo(), parkingBean, bookingBean) > 0)
                     {
-                        double price = prezzo.getPrezzo(parkingBean, bookingBean);
+                        double price = invoker.getTot(bookingBean.getTipoVeicolo(), parkingBean, bookingBean);
                         bookingBean.setPrezzo(price);
                         BookingDao.addBooking(bookingBean);
 
@@ -100,8 +97,7 @@ public class BookingServlet extends HttpServlet {
                         request.getRequestDispatcher("thankYouPage.jsp").forward(request, response);
                     }
                     else
-                        System.out.println("Posti esauriti");
-                    request.getRequestDispatcher("errorPage.jsp").forward(request, response);
+                        request.getRequestDispatcher("errorPage.jsp").forward(request, response);
                     break;
                 default:
                     break;

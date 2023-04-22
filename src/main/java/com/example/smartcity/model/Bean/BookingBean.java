@@ -1,11 +1,8 @@
 package com.example.smartcity.model.Bean;
 
-import com.example.smartcity.service.FactoryPrezzi.VeicoliEnum;
+import com.example.smartcity.service.CommandPrezzo.VeicoliEnum;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class BookingBean implements Serializable {
     private String ID_prenotazione;
