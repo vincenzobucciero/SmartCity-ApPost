@@ -30,14 +30,21 @@ public class ShowBookingServlet extends HttpServlet {
         } else {
 
             String email = request.getParameter("email");
-            List<BookingBean> list = BookingDao.getBooking( email );
-            List<BookingBean> list1 = BookingDao.getListBooking();
+            System.out.println(email);
 
-            session.setAttribute( "email", email);
-            session.setAttribute("list", list);
-            session.setAttribute("list", list1);
-            request.getRequestDispatcher("showBooking.jsp").forward(request, response);
+            //session.setAttribute( "email", email);
 
+            if(email.equals("admin@admin.com")) {
+                List<BookingBean> list1 = BookingDao.getListBooking();
+                session.setAttribute("list1", list1); //Questa passa la lista dei parcheggi
+                request.getRequestDispatcher("listaPrenotazioneAdmin.jsp").forward(request, response);
+            }
+            else {
+                List<BookingBean> list = BookingDao.getBooking( email );
+                session.setAttribute("list", list);
+                request.getRequestDispatcher("showBooking.jsp").forward(request, response);
+
+            }
         }
 
     }

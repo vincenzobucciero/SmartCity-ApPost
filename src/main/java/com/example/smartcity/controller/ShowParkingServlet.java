@@ -26,8 +26,6 @@ public class ShowParkingServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
 
-            //String email = request.getParameter("email");
-
             List<ParkingBean> parkingBeanList = ParkingDao.getListParking();
             request.setAttribute("list", parkingBeanList);
             request.getRequestDispatcher("listaParking.jsp").forward(request, response);

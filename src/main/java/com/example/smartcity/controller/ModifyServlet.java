@@ -26,12 +26,19 @@ public class ModifyServlet extends HttpServlet {
         else {
 
             String nome = request.getParameter("nomeparking");
+            System.out.println("Nome:" + nome);
             String indirizzo = request.getParameter("indirizzo");
+            System.out.println("Ind:" + indirizzo);
             String tariffaAF = request.getParameter("tariffaAF");
+            System.out.println("tA:" + tariffaAF);
             String tariffaM = request.getParameter("tariffaM");
+            System.out.println("TM:" + tariffaM);
             String postiAuto = request.getParameter("postiAuto");
+            System.out.println("PA:" + postiAuto);
             String postiFurgone = request.getParameter("postiFurgone");
+            System.out.println("PF:" + postiFurgone);
             String postiMoto = request.getParameter("postiMoto");
+            System.out.println("PM:" + postiMoto);
 
             ModifyDao.modifyIndirizzo(nome, indirizzo);
             ModifyDao.modifyTariffaAF(nome, Double.parseDouble(tariffaAF));

@@ -23,6 +23,10 @@
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" href="CSS/styleAdmin.css">
+    <style>
+        <%@include file="vendor/datatables/dataTables.bootstrap4.css"%>
+    </style>
+
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="img"></head>
 <body>
@@ -37,7 +41,6 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link" href="adminHomePage.jsp">Torna alla home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#statistiche">Statistiche</a></li>
                 <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
             </ul>
         </div>
@@ -47,32 +50,25 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <!-- Page Heading -->
-            <div class="row">
-                <div class="col-lg-10 mx-auto mb-3">
-                    <h2 class="text-center mt-0" style="color: white">Gestisci i tuoi parcheggi</h2>
-                    <hr class="divider" />
-                </div>
-            </div>
             <!-- DataTales -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Parcheggi </h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Gestisci i tuoi parcheggi </h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" style="font-family: 'Inter', sans-serif" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" style="width: 100%">
                             <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Indirizzo</th>
-                                <th>Posti Auto</th>
-                                <th>Posti Furgone</th>
-                                <th>Posti Moto</th>
-                                <th>Tariffa Auto</th>
-                                <th>Tariffa Furgone</th>
-                                <th>Tariffa Moto</th>
-                                <th></th>
+                                <th style="width: 20%">Nome</th>
+                                <th style="width: 20%">Indirizzo</th>
+                                <th style="width: 5%">Posti Auto</th>
+                                <th style="width: 5%">Posti Furgone</th>
+                                <th style="width: 5%">Posti Moto</th>
+                                <th style="width: 5%">Tariffa Auto</th>
+                                <th style="width: 5%">Tariffa Furgone</th>
+                                <th style="width: 5%">Tariffa Moto</th>
+                                <th style="width: 10%"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -86,14 +82,12 @@
                                     <td>${record.getTariffaAF()}€</td>
                                     <td>${record.getTariffaAF()}€</td>
                                     <td>${record.getTariffaM()}€</td>
-                                    <form action="ModifyServlet" method="post">
-                                        <td>
-                                            <form action="InfoParkingServlet" method="post">
-                                                <input type="hidden" name="nomeparking" value="${record.getNomeParcheggio()}">
-                                                    <button type="submit" class="btn btn-primary btn-icon-split">Modifca</button>
-                                            </form>
-                                        </td>
-                                    </form>
+                                    <td>
+                                        <form action="InfoParkingServlet" method="post">
+                                            <input type="hidden" name="nomeparking" value="${record.getNomeParcheggio()}">
+                                                <button type="submit" class="btn btn-primary btn-icon-split">Modifca</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -110,6 +104,23 @@
     <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - ApPost</div></div>
 </footer>
 
+<!-- Bootstrap core JavaScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script><%@include file="js/sb-admin-2.js"%></script>
+
+<!-- Core plugin JavaScript-->
+<script><%@include file="vendor/jquery-easing/jquery.easing.min.js"%></script>
+
+
+<!-- Page level plugins -->
+<script><%@include file="vendor/datatables/jquery.dataTables.min.js"%></script>
+<script><%@include file="vendor/datatables/dataTables.bootstrap4.min.js"%></script>
+
+<!-- Page level custom scripts -->
+<script><%@include file="js/demo/datatables-demo.js"%></script>
 
 </body>
 </html>

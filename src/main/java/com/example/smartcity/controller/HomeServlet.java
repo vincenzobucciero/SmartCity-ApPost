@@ -20,7 +20,13 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("loggato",isLog);
         response.setContentType("text/html");
         request.setAttribute("users", "LogIn");
-        request.getRequestDispatcher("userHomePage.jsp").forward(request,response);
+
+        if (isLog == 1){
+            request.getRequestDispatcher("userHomePage.jsp").forward(request,response);
+        }
+        else {
+            request.getRequestDispatcher("adminHomePage.jsp").forward(request, response);
+        }
     }
 
 
