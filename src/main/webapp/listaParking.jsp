@@ -25,10 +25,30 @@
     <link rel="stylesheet" href="CSS/styleAdmin.css">
     <style>
         <%@include file="vendor/datatables/dataTables.bootstrap4.css"%>
+        .sorting_asc{
+            color: #f4623a !important;
+        }
+
+        table.dataTable > thead .sorting:before, table.dataTable > thead .sorting_asc:before, table.dataTable > thead .sorting_desc:before, table.dataTable > thead .sorting_asc_disabled:before, table.dataTable > thead .sorting_desc_disabled:before {
+            right: 0.5em;
+            content: "↕";
+        }
+
+        table.dataTable > thead .sorting:after, table.dataTable > thead .sorting_asc:after, table.dataTable > thead .sorting_desc:after, table.dataTable > thead .sorting_asc_disabled:after, table.dataTable > thead .sorting_desc_disabled:after {
+            right: 0.5em;
+            content: "↕";
+        }
+
+        div.dataTables_wrapper div.dataTables_length select {
+            width: 3.5rem;
+            display: inline-block;
+        }
     </style>
+
 
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="img"></head>
+
 <body>
 
 <!-- Navigation-->
@@ -50,6 +70,13 @@
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-10 mx-auto mb-3">
+                    <h2 class="text-center mt-0" style="color: white">Gestisci i parcheggi</h2>
+                    <hr class="divider"/>
+                </div>
+            </div>
             <!-- DataTales -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -60,15 +87,15 @@
                         <table class="table table-bordered" id="dataTable" style="width: 100%">
                             <thead>
                             <tr>
-                                <th style="width: 20%">Nome</th>
-                                <th style="width: 20%">Indirizzo</th>
-                                <th style="width: 5%">Posti Auto</th>
-                                <th style="width: 5%">Posti Furgone</th>
-                                <th style="width: 5%">Posti Moto</th>
-                                <th style="width: 5%">Tariffa Auto</th>
-                                <th style="width: 5%">Tariffa Furgone</th>
-                                <th style="width: 5%">Tariffa Moto</th>
-                                <th style="width: 10%"></th>
+                                <th>Nome</th>
+                                <th>Indirizzo</th>
+                                <th>Posti Auto</th>
+                                <th>Posti Furgone</th>
+                                <th>Posti Moto</th>
+                                <th>Tariffa Auto</th>
+                                <th>Tariffa Furgone</th>
+                                <th>Tariffa Moto</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -95,9 +122,14 @@
                     </div>
                 </div>
             </div>
+            <!-- Fine Datatables -->
         </div>
     </header>
 
+
+<header class="masthead">
+
+</header>
 
 <!-- Footer-->
 <footer class="bg-light py-5">

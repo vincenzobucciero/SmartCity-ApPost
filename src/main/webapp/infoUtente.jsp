@@ -40,7 +40,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto my-2 my-lg-0">
-        <li class="nav-item"><a class="nav-link" href="userHomePage.jsp">Torna alla home</a></li>
+        <li class="nav-item"><a class="nav-link" href="homepage">Torna alla home</a></li>
         <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
       </ul>
     </div>

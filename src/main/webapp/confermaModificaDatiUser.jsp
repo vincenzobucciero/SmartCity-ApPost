@@ -40,7 +40,7 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="userHomePage.jsp">Torna alla Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="homepage">Torna alla Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
             </ul>
         </div>
@@ -64,7 +64,7 @@
                 <form action="InfoParkingServlet" method="post">
                     <input type="hidden" name="email" value="${email}">
                     <div class="text-center">
-                        <button class="btn btn-outline-warning" href="userHomePage.jsp">Torna alla Home</button>
+                        <button class="btn btn-outline-warning" href="homepage">Torna alla Home</button>
                     </div>
                 </form>
             </div>

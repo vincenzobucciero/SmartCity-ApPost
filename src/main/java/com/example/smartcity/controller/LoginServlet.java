@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("loggato",1);
                 System.out.println("Login Servlet: " + userBean.getNome());
                 request.setAttribute("stato", "SUCCESSO");
-                request.setAttribute("email", userBean.getEmail()); // Passiamo l'email visualizzare le prenotazioni
+                newSession.setAttribute("email", userBean.getEmail()); // Passiamo l'email visualizzare le prenotazioni
                 request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
                 break;
             case SUCCESSO_ADMIN:

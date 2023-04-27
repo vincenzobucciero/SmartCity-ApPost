@@ -25,7 +25,33 @@
     <link rel="stylesheet" href="CSS/styleAdmin.css">
     <style>
         <%@include file="vendor/datatables/dataTables.bootstrap4.css"%>
+        .sorting_asc{
+            color: #f4623a !important;
+        }
+
+        table.dataTable > thead .sorting:before, table.dataTable > thead .sorting:after, table.dataTable > thead .sorting_asc:before, table.dataTable > thead .sorting_asc:after, table.dataTable > thead .sorting_desc:before, table.dataTable > thead .sorting_desc:after, table.dataTable > thead .sorting_asc_disabled:before, table.dataTable > thead .sorting_asc_disabled:after, table.dataTable > thead .sorting_desc_disabled:before, table.dataTable > thead .sorting_desc_disabled:after {
+            position: absolute;
+            bottom: 0.5em!important;
+            display: block;
+            opacity: 0.3;
+        }
+
+        table.dataTable > thead .sorting:before, table.dataTable > thead .sorting_asc:before, table.dataTable > thead .sorting_desc:before, table.dataTable > thead .sorting_asc_disabled:before, table.dataTable > thead .sorting_desc_disabled:before {
+            right: 0.5em;
+            content: ""!important;
+        }
+
+        table.dataTable > thead .sorting:after, table.dataTable > thead .sorting_asc:after, table.dataTable > thead .sorting_desc:after, table.dataTable > thead .sorting_asc_disabled:after, table.dataTable > thead .sorting_desc_disabled:after {
+            right: 0.5em;
+            content: ""!important;
+        }
+
+        div.dataTables_wrapper div.dataTables_length select {
+            width: 3.5rem;
+            display: inline-block;
+        }
     </style>
+
 
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="img"></head>
@@ -56,28 +82,26 @@
                 <h2 class="text-center mt-0" style="color: white">Prenotazioni Totali</h2>
                 <hr class="divider"/>
             </div>
+            </h4>
         </div>
         <!-- DataTales -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Prenotazioni </h6>
+                <h6 class="m-0 font-weight-bold text-primary">Prenotazioni</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered " style="font-family: 'Inter', sans-serif" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" style="width: 100%">
                         <thead>
                         <tr>
                             <th>Id</th>
                             <th>Email</th>
                             <th>Parcheggio</th>
-                            <th>Tipo Veicolo</th>
-                            <th>Targa veicolo</th>
+                            <th>Veicolo</th>
                             <th>Data</th>
-                            <th>Orario Inizio</th>
-                            <th>Orario Fine</th>
+                            <th>Orario</th>
                             <th>Prezzo</th>
                             <th>Pagamento</th>
-                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -86,14 +110,11 @@
                                 <td>${record.getID_prenotazione()}</td>
                                 <td>${record.getEmail()}</td>
                                 <td>${record.getNomeParcheggio()}</td>
-                                <td>${record.getTipoVeicolo()}</td>
-                                <td>${record.getTargaVeicolo()}</td>
+                                <td>${record.getTipoVeicolo()} (${record.getTargaVeicolo()})</td>
                                 <td>${record.getData_prenotazione()}</td>
-                                <td>${record.getOrario_inizio()}</td>
-                                <td>${record.getOrario_fine()}</td>
+                                <td>${record.getOrario_inizio()}-${record.getOrario_fine()}</td>
                                 <td>${record.getPrezzo()}€</td>
-                                <td>${record.getPagamento()}</td>
-                                <td><i style="color:#11cc11;" class="bi bi-check-circle-fill"></i></td>
+                                <td>${record.getPagamento()} <i style="color:#11cc11;" class="bi bi-check-circle-fill"></i></td>
                             </tr>
                         </c:forEach>
                         </tbody>
