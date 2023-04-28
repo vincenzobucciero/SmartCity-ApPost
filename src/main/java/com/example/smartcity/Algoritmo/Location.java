@@ -27,9 +27,13 @@ public class Location {
         Nodo nodo3 = new Nodo(0,1);
         nodo3.setIndirizzo("Pomigliano");
 
+        Nodo nodo4 = new Nodo(2,1);
+        nodo4.setIndirizzo("Centro Direzionale");
+
         this.start.add(nodo1);
         this.start.add(nodo2);
         this.start.add(nodo3);
+        this.start.add(nodo4);
     }
 
     public void setEnd() {
@@ -42,9 +46,13 @@ public class Location {
         Nodo nodo3 = new Nodo(5,5);
         nodo3.setIndirizzo("Casoria");
 
+        Nodo nodo4 = new Nodo(6,7);
+        nodo4.setIndirizzo("Vomero");
+
         this.end.add(nodo1);
         this.end.add(nodo2);
         this.end.add(nodo3);
+        this.end.add(nodo4);
     }
 
     //scorre la lista dei nodi partenze cerca quello contenente l'indirizzo dato in input e lo ritorna
@@ -77,20 +85,29 @@ public class Location {
         e li inserisco in un array 2D usando lo stesso criterio dei blocchi
      */
     public int[][] setParking(){
-        //int[][] blocksParking = new int[][]{{0,2}, {0,3}, {1,4}};
 
         Nodo park1 = new Nodo(0,2);
         Nodo park2 = new Nodo(0,3);
         Nodo park3 = new Nodo(1,4);
+        Nodo park4 = new Nodo(3, 2);
+        Nodo park5 = new Nodo(4, 4);
+        Nodo park6 = new Nodo(6, 5); //p
 
         nodopark.add(park1);
         nodopark.add(park2);
         nodopark.add(park3);
+        nodopark.add(park4);
+        nodopark.add(park5);
+        nodopark.add(park6);
 
-
-        int[][] blocksParking = new int[][]{{park1.getRow(), park1.getCol()},
+        int[][] blocksParking = new int[][]{
+                {park1.getRow(), park1.getCol()},
                 {park2.getRow(), park2.getCol()},
-                {park3.getRow(),park3.getCol()}};
+                {park3.getRow(), park3.getCol()},
+                {park4.getRow(), park4.getCol()},
+                {park5.getRow(), park5.getCol()},
+                {park6.getRow(), park6.getCol()}
+        };
 
         this.setParkIndirizzo();        //è un metodo che uso per associare ad ogni nodo gli indirizzi
         // dei parcheggi presenti nel database
@@ -103,7 +120,7 @@ public class Location {
         per ogni nodo salvato nella lista dei "nodi parcheggio" associo quindi un indirizzo salvbato precedentemente
         nell'array
     */
-    public void setParkIndirizzo(){
+    public void setParkIndirizzo(){    //dovrebbe essere privato
         int i = 0;
         int j = 0;
 

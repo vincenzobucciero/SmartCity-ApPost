@@ -46,7 +46,9 @@ public class PayServlet extends HttpServlet {
             if(paymentMethod.pay(bookingBean.getPrezzo())) {
                 session.setAttribute("email", bookingBean.getEmail());
                 session.setAttribute("bookingBean", bookingBean);
+                session.setAttribute("parkingBean",parkingBean);
                 BookingDao.addBooking(bookingBean);
+
                 request.getRequestDispatcher("thankYouPage.jsp").forward(request,response);
             }
             else{

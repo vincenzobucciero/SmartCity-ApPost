@@ -318,11 +318,5 @@ public class AStar {
     }
 
 
-   /* public Nodo getNodoParcheggio() {
-        return nodoParcheggio;
-    }
 
-    public void setNodoParcheggio(Nodo nodoParcheggio) {
-        this.nodoParcheggio = nodoParcheggio;
-    }*/
 }

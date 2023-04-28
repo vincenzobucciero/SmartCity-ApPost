@@ -72,10 +72,6 @@
                                                 Prenotazioni(${list.size()})
                                             </span>
                                         </div>
-                                        <div class="icons">
-                                            <i class="bi bi-search"></i>
-                                            <i class="bi bi-three-dots"></i>
-                                        </div>
                                     </div>
                                     <div class="mt-3">
                                         <c:forEach items="${list}" var="record"> <!--Ciclo FOR -->
@@ -85,16 +81,23 @@
                                                         <div class="ml-3"><!--ID Prenotazione-->
                                                             <h6 class="mb-0">
                                                                 <td>
-                                                                       ${record.getNomeParcheggio()} ("${record.getID_prenotazione()}")
+                                                                       ${record.getNomeParcheggio()}
                                                                 </td>
 
                                                             </h6>
                                                             <div class="d-flex flex-row mt-1 text-black-50 date-time">
                                                             <span class="ml-2">
 
-                                                                <i class="bi bi-check-circle-fill" style="color: #11cc11"></i> Pagato con successo <br>
+                                                                <c:choose>
+                                                                    <c:when test="${record.getPagamento() == 'Al parcheggio'}">
+                                                                        <i class="bi bi-exclamation-circle-fill" style="color: #da9b18"></i> Da pagare al parcheggio <br>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <i class='bi bi-check-circle-fill' style='color: #11cc11'></i> Pagato con successo <br>
+                                                                    </c:otherwise>
+                                                                </c:choose>
 
-                                                                <i class="bi bi-calendar-check-fill"></i><!--Data-->
+                                                                <i class="bi bi-calendar-check-fill" style="color: rgba(255,99,55,0.64)"></i><!--Data-->
                                                                     <td>
                                                                         ${record.getData_prenotazione()}
                                                                             <i class="bi bi-clock-fill"></i><!--Orario-->
@@ -102,12 +105,8 @@
                                                                     </td>
                                                                 <i class="fas fa-car-side"></i><!--Targa-->
                                                                     <td>
-                                                                        ${record.getTargaVeicolo()} <i class="fas fa-coins" style="color: rgba(150,114,18,0.66)"></i> ${record.getPrezzo()}€<br>
+                                                                        ${record.getTargaVeicolo()} <i class="fas fa-coins" style="color: rgba(150,114,18,0.66)"></i> ${record.getPrezzo()}0€<br>
                                                                     </td>
-
-                                                                <!--TipoPagamento-->
-                                                                <!-- <i class="bi bi-credit-card-2-back-fill"></i>/<i class="fab fa-paypal mr-2"></i>-->
-                                                                <!-- <td>${record.getPagamento()}<br></td>-->
                                                             </span>
                                                             </div>
                                                         </div>

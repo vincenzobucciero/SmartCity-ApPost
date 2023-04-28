@@ -63,6 +63,10 @@
             <div class="col-sm-5">
                 <div class="my-5 card bg-light mx-auto" style="width:60rem;">
                     <div class="card-body">
+                        <div class="col-md-12 text-muted">
+                            Ecco i parchggi disponibili per il percorso che hai scelto da ${start} a ${dest}:<br>
+                            (N.B: I parcheggi sono ordinati dal più vicino alla tua destinazione al più lontano)
+                        </div>
                         <!-- Qui inizia il div per la lista dei parcheggi-->
                         <div class="container mt-5" style="font-family: 'Inter', sans-serif">
                             <div class="row">
@@ -72,16 +76,6 @@
                                             <span class="activity-done">
                                                 Parcheggi(${size})
                                             </span>
-                                        </div>
-                                        <div>
-                                            <span class="m-lg-4">
-                                                (Da ${start} a ${dest}):
-                                            </span>
-                                        </div>
-                                        <div class="icons">
-
-                                            <i class="bi bi-search"></i>
-                                            <i class="bi bi-three-dots"></i>
                                         </div>
                                     </div>
                                     <div class="mt-3">
@@ -100,9 +94,9 @@
                                                                 <i class="bi bi-geo-fill" style="color: #b60909"></i>
                                                                 <td>
                                                                     ${record.getIndirizzo()}<br>
-                                                                    <i class="fas fa-car-side"></i> Disponibilità: ${record.getPostiAuto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}€/h <br>
-                                                                        <i class="fas fa-truck"></i> Disponibilità: ${record.getPostiFurgone()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}€/h <br>
-                                                                    <i class="fas fa-motorcycle"></i> Disponibilità: ${record.getPostiMoto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaM()}€/h
+                                                                    <i class="fas fa-car-side"></i> Disponibilità totale: ${record.getPostiAuto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}€/h <br>
+                                                                        <i class="fas fa-truck"></i> Disponibilità totale: ${record.getPostiFurgone()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}€/h <br>
+                                                                    <i class="fas fa-motorcycle"></i> Disponibilità totale: ${record.getPostiMoto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaM()}€/h
                                                                 </td>
                                                             </span>
                                                         </div>

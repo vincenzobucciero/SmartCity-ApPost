@@ -18,10 +18,9 @@ public class CreditCardStrategy implements PaymentStrategy {
     //controlla che la carta sia valida
     private boolean checkCreditCardNumber() {
 
-        if (numeroCarta == null || numeroCarta.length() != 16) {
+        if (numeroCarta == null || numeroCarta.length() != 20) {
             return false;
         }
-
         //controlla se il numero della carta di credito contiene solo cifre
         Pattern creditCardPattern = Pattern.compile("[a-z]", Pattern.CASE_INSENSITIVE);
         Matcher creditCardMatcher = creditCardPattern.matcher(numeroCarta);

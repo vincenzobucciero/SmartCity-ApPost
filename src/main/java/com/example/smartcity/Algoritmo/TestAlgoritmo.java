@@ -10,25 +10,18 @@ public class TestAlgoritmo {
         Location start = new Location();
 
         //Interfaccia utente (i nodi iniziali e finali sono prestabiliti, all'utente verrà dato una lista di posizioni)
-        Nodo initialNode = start.chooseStart("San Giorgio");
-        Nodo finalNode = start.chooseEnd("Napoli");
+        Nodo initialNode = start.chooseStart("Pomigliano");
+        Nodo finalNode = start.chooseEnd("Vomero");
 
-        int rows = 6;
-        int cols = 7;
+        int rows = 7;
+        int cols = 8;
 
         AStar aStar = new AStar(rows, cols, initialNode, finalNode);
         int[][] blocksArray = new int[][]{{1, 3}, {2, 3}, {3, 3}};
-        //int[][] blocksParking = new int[][]{{0,2}, {0,3}, {1,4}};
 
         aStar.setBlocchi(blocksArray);
         aStar.setParking(start.setParking());
 
-
-        //??
-        /*List<Nodo> nodo = start.getNodopark();
-        for (Nodo nodoPark: nodo) {
-            aStar.setNodoParcheggio(nodoPark);
-        }*/
 
         List<Nodo> path = aStar.ricercaPercorso();
 
@@ -55,7 +48,7 @@ public class TestAlgoritmo {
         }
 
 
-        //Search Area
+        //Search Area San Giorgio - Napoli
         //      0   1   2   3   4   5   6
         // 0    -   -   P   P   -   -   -
         // 1    -   -   -   B   P   -   -
@@ -64,6 +57,7 @@ public class TestAlgoritmo {
         // 4    -   -   -   -   -   -   -
         // 5    -   -   -   -   -   -   -
 
+
         //Expected output with diagonals
         //Node [row=2, col=1]
         //Node [row=1, col=2]
@@ -71,7 +65,7 @@ public class TestAlgoritmo {
         //Node [row=1, col=4]
         //Node [row=2, col=5]
 
-        //Search Path with diagonals
+        //Search Path with diagonals San Giorgio - Napoli
         //      0   1   2   3   4   5   6
         // 0    -   -   -   *   -   -   -
         // 1    -   -   *   B   *   -   -
@@ -80,24 +74,23 @@ public class TestAlgoritmo {
         // 4    -   -   -   -   -   -   -
         // 5    -   -   -   -   -   -   -
 
-        //Expected output without diagonals
-        //Node [row=2, col=1]
-        //Node [row=2, col=2]
-        //Node [row=1, col=2]
-        //Node [row=0, col=2]
-        //Node [row=0, col=3]
-        //Node [row=0, col=4]
-        //Node [row=1, col=4]
-        //Node [row=2, col=4]
-        //Node [row=2, col=5]
 
-        //Search Path without diagonals
+        //Search Path with diagonals San Giorgio - Casoria
         //      0   1   2   3   4   5   6
-        // 0    -   -   *   *   *   -   -
-        // 1    -   -   *   B   *   -   -
-        // 2    -   I*  *   B   *  *F   -
-        // 3    -   -   -   B   -   -   -
-        // 4    -   -   -   -   -   -   -
+        // 0    -   -   P   P   -   -   -
+        // 1    -   -   -   B   P   -   -
+        // 2    -   I*  -   B   -   -   -
+        // 3    -   -   *P  B   -   -   -
+        // 4    -   -   -   *  *P  -   -
+        // 5    -   -   -   -   -   *F   -
+
+        //Search Path with diagonals San Giorgio - Caserta
+        //      0   1   2   3   4   5   6
+        // 0    -   -   P   P   -   -   -
+        // 1    -   -   -   B   P   -   -
+        // 2    -   I*  -   B   -   -   -
+        // 3    -   -   *P  B   -   -   *F
+        // 4    -   -   -   *  *P   *   -
         // 5    -   -   -   -   -   -   -
     }
 }

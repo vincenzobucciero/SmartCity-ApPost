@@ -39,8 +39,8 @@ public class PathServlet extends HttpServlet {
 
             Nodo initialNode = start.chooseStart(startIndirizzo);
             Nodo finalNode = start.chooseEnd(endIndirizzo);
-            int rows = 6;
-            int cols = 7;
+            int rows = 7;
+            int cols = 8;
 
             AStar aStar = new AStar(rows, cols, initialNode, finalNode);
             int[][] blocksArray = new int[][]{{1, 3}, {2, 3}, {3, 3}};

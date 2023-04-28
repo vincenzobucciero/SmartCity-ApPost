@@ -43,7 +43,7 @@
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-
+                        <li class="nav-item"><a class="nav-link" href="#aiuto">Come prenotare</a></li>
                         <li class="nav-item"><a class="nav-link" href="homepage">Torna alla Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
                     </ul>
@@ -128,6 +128,12 @@
         <!--Aiuto-->
         <section class="page-section" id="aiuto">
             <div class="container px-4 px-lg-5">
+                <div class="text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" style="color: #F4623AE5" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                        <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                    </svg>
+                </div>
                 <h2 class="text-center mt-0">Come prenotare</h2>
                 <hr class="divider" />
                 <div class="row gx-4 gx-lg-5">

@@ -98,7 +98,7 @@
                                         <h6>Numero Carta</h6>
                                     </label>
                                     <div class="input-group">
-                                        <input type="number" name="numCarta" placeholder="5136 1845 5468 3894" maxlength="16" class="form-control" required />
+                                        <input type="text" name="numCarta" placeholder="5136 1845 5468 3894" oninput="inputHandler(this)" class="form-control" required maxlength="19" />
                                         <div class="input-group-append">
                                             <span class="input-group-text text-muted">
                                                 <i class="fab fa-cc-visa mx-1"></i>
@@ -124,10 +124,10 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group mb-4"> <!--CVV-->
-                                            <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                            <label data-toggle="tooltip" title="Trovi il codice CVV a tre cifre sul retro della carta">
                                                 <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
                                             </label>
-                                            <input type="password" name="cvv" required class="form-control" />
+                                            <input type="password" name="cvv" required class="form-control" maxlength="3" />
                                         </div>
                                     </div>
                                 </div>
@@ -180,33 +180,35 @@
 
         <div class="col-lg-4 mx-lg-4" style="padding: 2.5rem">
             <div class="p-3" style="background-color: #ffffff;">
-                <span class="fw-bold">Riepilogo dell'ordine</span>
+                <span class="fw-bold" style="color: #F4623AFF">Riepilogo dell'ordine</span>
                 <hr />
                 <div class="d-flex justify-content-between mt-2">
-                    <span>Tariffa orario</span> <span>$6.90/h</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <span>Ore prenotazione</span> <span> ... - ...</span>
+                    <c:choose>
+                    <c:when test="${bookingBean != null}">
+                    <span class="bold">Parcheggio</span>
+                    <span class="fst-italic">${bookingBean.getNomeParcheggio()}</span>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between mt-2">
-                    <span>Data</span> <span> .../.../2023</span>
+                    <span class="bold">Data</span> <span class="fst-italic">${bookingBean.getData_prenotazione()}</span>
                 </div>
                 <div class="d-flex justify-content-between mt-2">
-                    <span>Ore prenotazione</span> <span> ... - ...</span>
+                    <span class="bold">Ore prenotazione</span> <span class="fst-italic"> ${bookingBean.getOrario_inizio()} - ${bookingBean.getOrario_fine()}</span>
                 </div>
                 <hr />
 
                 <div class="d-flex justify-content-between mt-2">
-                    <span>Commissioni</span> <span>$23.76</span>
+                    <span class="bold">Commissioni</span> <span class="text-muted">1.50€</span>
                 </div>
                 <div class="d-flex justify-content-between mt-2">
-                    <span>Prezzo prenotazione</span> <span>$23.76</span>
+                    <span class="bold">Prezzo prenotazione</span> <span>${bookingBean.getPrezzo()}0€</span>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between mt-2">
-                    <span>Totale </span> <span class="text-success">$85.00</span>
+                    <span class="bold">Totale </span> <span class="text-primary bold">${bookingBean.getPrezzo() + 1.50}0€</span>
                 </div>
+                </c:when>
+                </c:choose>
             </div>
         </div>
 
@@ -221,6 +223,18 @@
         </div>
     </div>
 </footer>
+
+
+<script>
+    function inputHandler(input) {
+        // Rimuove tutti i caratteri non numerici dalla stringa
+        input.value = input.value.replace(/\D/g, '');
+        // Limita la lunghezza della stringa a 16 cifre
+        input.value = input.value.slice(0, 16);
+        // Aggiunge uno spazio ogni 4 cifre
+        input.value = input.value.replace(/(\d{4})/g, '$1 ');
+    }
+</script>
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
