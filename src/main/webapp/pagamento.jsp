@@ -28,6 +28,13 @@
     <link rel="stylesheet" href="CSS/style.css">
     <script type="module" src="js/jsPay.js"></script>
 
+    <style>
+        .btn-group-vertical>.btn:not(:first-child),
+        .btn-group-vertical>.btn-group:not(:first-child) {
+            margin-top: 0;
+        }
+    </style>
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <link rel="stylesheet" href="img">
@@ -55,20 +62,19 @@
 
 <!-- Masthead-->
 <header class="masthead">
+    <div class="col-lg-10 mx-auto mb-4">
+        <h2 class="text-center mt-0" style="color: white">Scegli come pagare</h2>
+        <hr class="divider" style="max-width: 10rem" />
+    </div>
     <div class="row">
-        <div class="col-lg-10 mx-auto mb-4">
-            <h2 class="text-center mt-0" style="color: white">Scegli come pagare</h2>
-            <hr class="divider" style="max-width: 10rem" />
-        </div>
         <div class="col-lg-6 mx-auto">
-            <p style="color:#ffffff;"> Concludi la tua prenotazione per il giorno ... dalle ... alle ...</p>
             <div class="card">
                 <div class="card-header">
                     <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
                         <!-- Credit card form tabs -->
                         <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
                             <li class="nav-item">
-                                <a data-toggle="pill" href="#credit-card" class="nav-link active"> <i class="fas fa-credit-card mr-2"></i> Credit Card </a>
+                                <a data-toggle="pill" href="#credit-card" class="nav-link active"> <i class="fas fa-credit-card mr-2"></i> Carta di Credito </a>
                             </li>
                             <li class="nav-item">
                                 <a data-toggle="pill" href="#paypal" class="nav-link"> <i class="fab fa-paypal mr-2"></i> Paypal </a>
@@ -171,6 +177,39 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-4 mx-lg-4" style="padding: 2.5rem">
+            <div class="p-3" style="background-color: #ffffff;">
+                <span class="fw-bold">Riepilogo dell'ordine</span>
+                <hr />
+                <div class="d-flex justify-content-between mt-2">
+                    <span>Tariffa orario</span> <span>$6.90/h</span>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <span>Ore prenotazione</span> <span> ... - ...</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between mt-2">
+                    <span>Data</span> <span> .../.../2023</span>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <span>Ore prenotazione</span> <span> ... - ...</span>
+                </div>
+                <hr />
+
+                <div class="d-flex justify-content-between mt-2">
+                    <span>Commissioni</span> <span>$23.76</span>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <span>Prezzo prenotazione</span> <span>$23.76</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between mt-2">
+                    <span>Totale </span> <span class="text-success">$85.00</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </header>
 

@@ -142,6 +142,8 @@
     </div>
 </header>
 
+<header class="masthead"></header>
+
 <!-- Footer-->
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">

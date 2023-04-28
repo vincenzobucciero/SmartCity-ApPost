@@ -37,8 +37,8 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#about">Chi siamo</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Servizi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Chi siamo</a></li>
                 <li class="nav-item"><a class="nav-link" href="registrazione.jsp">Registrati</a></li>
                 <li class="nav-item"><a class="nav-link" href="login.jsp">Accedi</a></li>
             </ul>

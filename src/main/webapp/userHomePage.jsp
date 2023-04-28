@@ -35,17 +35,26 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="index.jsp">ApPost</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <li class="nav-item dropdown" style="font-family: 'Inter'">
+                    <a class="nav-link dropdown-toggle" href="#funzionalita" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Funzionalità
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#personal">Dati personali</a>
+                            <a class="dropdown-item" href="#prenota">Prenota</a>
+                            <a class="dropdown-item" href="#booking">Le mie prenotazioni</a>
+                        </div>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="homepage">Torna alla Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <!-- Inizio MasterHead-->
 <header class="masthead">
@@ -82,7 +91,7 @@
     <!--INIZIO SEZIONE CARD-->
     <div class="row">
         <!-- Inizio Prima Card-->
-        <div class="my-5 card bg-light" style="width: 20rem;">
+        <div class="my-5 card bg-light" style="width: 20rem;" id="personal">
             <img src="img/imgCard/personalData.jpg">
             <div class="card-body">
                 <h4 class="card-title">Dati personali</h4>
@@ -102,7 +111,7 @@
         </div><!-- Fine Prima Card-->
 
         <!-- Inizio Seconda Card-->
-        <div class="my-5 card bg-light mx-auto" style="width: 20rem;">
+        <div class="my-5 card bg-light mx-auto" style="width: 20rem;" id="prenota">
             <img src="img/park6.jpg">
             <div class="card-body">
                 <h4 class="card-title">Prenota</h4>
@@ -112,7 +121,7 @@
         </div><!-- Fine Seconda Card-->
 
         <!-- Inizio Terza Card-->
-        <div class="my-5 card bg-light" style="width: 20rem;">
+        <div class="my-5 card bg-light" style="width: 20rem;" id="booking">
             <img src="img/imgCard/prenotazione.jpg">
             <div class="card-body">
                 <h4 class="card-title">Le mie prenotazioni</h4>
