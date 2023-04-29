@@ -10,8 +10,8 @@ public class TestAlgoritmo {
         Location start = new Location();
 
         //Interfaccia utente (i nodi iniziali e finali sono prestabiliti, all'utente verrà dato una lista di posizioni)
-        Nodo initialNode = start.chooseStart("Pomigliano");
-        Nodo finalNode = start.chooseEnd("Vomero");
+        Nodo initialNode = start.chooseStart("San Giorgio");
+        Nodo finalNode = start.chooseEnd("Napoli");
 
         int rows = 7;
         int cols = 8;

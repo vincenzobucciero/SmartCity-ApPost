@@ -27,13 +27,17 @@ public class Location {
         Nodo nodo3 = new Nodo(0,1);
         nodo3.setIndirizzo("Pomigliano");
 
-        Nodo nodo4 = new Nodo(2,1);
+        Nodo nodo4 = new Nodo(3,1);
         nodo4.setIndirizzo("Centro Direzionale");
+
+        Nodo nodo5 = new Nodo(6,3);
+        nodo5.setIndirizzo("Volla");
 
         this.start.add(nodo1);
         this.start.add(nodo2);
         this.start.add(nodo3);
         this.start.add(nodo4);
+        this.start.add(nodo5);
     }
 
     public void setEnd() {
@@ -49,10 +53,14 @@ public class Location {
         Nodo nodo4 = new Nodo(6,7);
         nodo4.setIndirizzo("Vomero");
 
+        Nodo nodo5 = new Nodo(6,7);
+        nodo5.setIndirizzo("Centro Storico");
+
         this.end.add(nodo1);
         this.end.add(nodo2);
         this.end.add(nodo3);
         this.end.add(nodo4);
+        this.end.add(nodo5);
     }
 
     //scorre la lista dei nodi partenze cerca quello contenente l'indirizzo dato in input e lo ritorna

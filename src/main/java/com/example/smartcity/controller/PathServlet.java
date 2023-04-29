@@ -9,6 +9,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @WebServlet(name = "PathServlet", value = "/PathServlet")
@@ -58,6 +59,9 @@ public class PathServlet extends HttpServlet {
                     System.out.println("parcheggio size " + parcheggioDisp.size());
                 }
             }
+
+            // Inverti l'ordine della lista parcheggioDisponibili per restituirli in ordine di vicinazna alla destinazione
+            Collections.reverse(parcheggioDisp);
 
             request.setAttribute("start", startIndirizzo);
             request.setAttribute("dest", endIndirizzo);
