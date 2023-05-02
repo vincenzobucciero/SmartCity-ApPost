@@ -27,14 +27,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="col-lg-10 mx-auto mb-4">
-                    <h2 class="text-center mt-0" style="color: white">Statistiche Accessi</h2>
+                    <h2 class="text-center mt-0" style="color: white">Statistiche Ore</h2>
                     <hr class="divider" />
                 </div>
                 <div class="card">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
-                                <form class="form-horizontal" style="font-family: Inter" action="ChartsServlet" method="post">
+                                <form class="form-horizontal" style="font-family: Inter" action="ChartHoursServlet" method="post">
                                     <div class="form-group row">
                                         <div class="col-md-4">
                                             <br>
@@ -85,7 +85,7 @@
                                 <div class="text-center" style="font-family: Inter">
                                     <div id="prima" style="color: transparent">${statistiche.get(0)}</div>
                                     <a class="text-center text-black">
-                                        Stai visualizzando la media degli accessi del veicolo: <a class="fw-bold text-black">${veicolo}</a> <br>
+                                        Stai visualizzando la media delle ore effettive di parcheggio del veicolo: <a class="fw-bold text-black">${veicolo}</a> <br>
                                     </a>
 
                                     <a class="text-center text-black">

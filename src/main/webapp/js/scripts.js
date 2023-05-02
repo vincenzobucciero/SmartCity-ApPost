@@ -57,3 +57,7 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+    function confermaLogout() {
+    return confirm("Sei sicuro di voler uscire?");
+}

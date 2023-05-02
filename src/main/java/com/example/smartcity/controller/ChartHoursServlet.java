@@ -3,20 +3,25 @@ package com.example.smartcity.controller;
 import com.example.smartcity.model.Bean.ParkingBean;
 import com.example.smartcity.model.DAO.ParkingDao;
 import com.example.smartcity.service.CommandPrezzo.VeicoliEnum;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ChartsServlet", value = "/ChartsServlet")
-public class ChartsServlet extends HttpServlet {
+@WebServlet(name = "ChartHoursServlet", value = "/ChartHoursServlet")
+public class ChartHoursServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        System.out.println("Ciao");
+        request.getRequestDispatcher("statisticheOre.jsp").forward(request,response);
     }
 
     @Override
@@ -36,18 +41,22 @@ public class ChartsServlet extends HttpServlet {
             Month nomeMese = Month.valueOf(mese.toUpperCase());
             int numeroMese = nomeMese.getValue();
 
-
             System.out.println("Veicolo " + veicolo);
             System.out.println("\nParcheggio " + parcheggio);
             System.out.println("\nMese " + mese + " - " +numeroMese);
 
             List<Double> statistiche = new ArrayList<>();
             for( int i = 1; i < 6; i++ ) {
-                double st = ParkingDao.getStatisticheAccessi(parcheggio, VeicoliEnum.valueOf(veicolo), numeroMese, i);
+                double st = ParkingDao.getStatisticheOre(parcheggio, VeicoliEnum.valueOf(veicolo), numeroMese, i);
                 statistiche.add( st );
             }
+
+            request.setAttribute("veicolo",veicolo);
+            request.setAttribute("park",parcheggio);
+            request.setAttribute("meseScelto",mese);
+
             request.setAttribute( "statistiche", statistiche );
-            request.getRequestDispatcher("statistiche.jsp").forward(request,response);
+            request.getRequestDispatcher("statisticheOre.jsp").forward(request,response);
         }
     }
 }

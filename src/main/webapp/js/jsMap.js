@@ -29,8 +29,8 @@ function initMap() {
     const marker1 = new google.maps.Marker({
         position: park1,
         map: map,
-        title: "Parcheggio Duomo"
     });
+
 
     const marker2 = new google.maps.Marker({
         position: park2,
@@ -59,14 +59,13 @@ function initMap() {
     const marker6 = new google.maps.Marker({
         position: park6,
         map: map,
-        title: "Parcheggio Medina"
+        title: "Parcheggio Medina",
     });
-
 
     //Per la descrizione del Marker (ogni parcheggio)
     const infowindow1 = new google.maps.InfoWindow({
-        content: "Via Medina, 27\n" +
-            "80142 Napoli NA\n" +
+        title:"Via Medina, 27" ,
+        content: "80142 Napoli NA\n" +
             "Italia",
     });
 
@@ -74,18 +73,6 @@ function initMap() {
         infowindow1.open(map, marker1);
     });
 
-    //Prova secodno parcheggio
-    const infowindow2 = new google.maps.InfoWindow({
-        content: "Via dei tribunali, 27\n" +
-                 "80142 Napoli NA\n",
-    });
-
-    marker2.addListener("click", () => {
-        infowindow2.open(map, marker2);
-    });
-
-
 }
 
 window.initMap = initMap;
-

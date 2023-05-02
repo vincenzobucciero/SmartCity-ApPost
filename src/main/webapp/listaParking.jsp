@@ -49,23 +49,11 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="img"></head>
 
-<body>
+<body id="page-top">
 
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="index.jsp">ApPost</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="adminHomePage.jsp">Torna alla home</a></li>
-                <li class="nav-item"><a class="nav-link" href="logout">Esci</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<jsp:include page="NavBarAdmin.jsp" />
+
 
     <!-- Masthead-->
     <header class="masthead">
@@ -126,7 +114,6 @@
         </div>
     </header>
 
-
 <header class="masthead">
 
 </header>
@@ -139,7 +126,12 @@
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+<!-- SimpleLightbox plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+<!-- Core theme JS-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
+<script src="js/scripts.js"></script>
 <!-- Custom scripts for all pages-->
 <script><%@include file="js/sb-admin-2.js"%></script>
 
@@ -153,6 +145,12 @@
 
 <!-- Page level custom scripts -->
 <script><%@include file="js/demo/datatables-demo.js"%></script>
+
+<script>
+    function confermaLogout() {
+        return confirm("Sei sicuro di voler uscire?");
+    }
+</script>
 
 </body>
 </html>
