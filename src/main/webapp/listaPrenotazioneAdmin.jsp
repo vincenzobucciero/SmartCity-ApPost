@@ -55,7 +55,7 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="img"></head>
 
-<body id="page-top">
+<body>
 <!-- Navigation-->
 <jsp:include page="NavBarAdmin.jsp" />
 
@@ -116,9 +116,7 @@
 </header>
 
 <!-- Footer-->
-<footer class="bg-light py-5">
-    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - ApPost</div></div>
-</footer>
+<jsp:include page="Footer.jsp" />
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

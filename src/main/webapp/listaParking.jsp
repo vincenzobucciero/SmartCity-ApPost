@@ -49,79 +49,76 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="img"></head>
 
-<body id="page-top">
+<body>
 
 <!-- Navigation-->
 <jsp:include page="NavBarAdmin.jsp" />
 
-
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container">
-            <!-- Page Heading -->
-            <div class="row">
-                <div class="col-lg-10 mx-auto mb-3">
-                    <h2 class="text-center mt-0" style="color: white">Gestisci i parcheggi</h2>
-                    <hr class="divider"/>
-                </div>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto mb-3">
+                <h2 class="text-center mt-0" style="color: white">Gestisci i parcheggi</h2>
+                <hr class="divider"/>
             </div>
-            <!-- DataTales -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Gestisci i tuoi parcheggi </h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" style="width: 100%">
-                            <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Indirizzo</th>
-                                <th>Posti Auto</th>
-                                <th>Posti Furgone</th>
-                                <th>Posti Moto</th>
-                                <th>Tariffa Auto</th>
-                                <th>Tariffa Furgone</th>
-                                <th>Tariffa Moto</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="record" items="${list}">
-                                <tr>
-                                    <td>${record.getNomeParcheggio()}</td>
-                                    <td>${record.getIndirizzo()}</td>
-                                    <td>${record.getPostiAuto()}</td>
-                                    <td>${record.getPostiFurgone()}</td>
-                                    <td>${record.getPostiMoto()}</td>
-                                    <td>${record.getTariffaAF()}€</td>
-                                    <td>${record.getTariffaAF()}€</td>
-                                    <td>${record.getTariffaM()}€</td>
-                                    <td>
-                                        <form action="InfoParkingServlet" method="post">
-                                            <input type="hidden" name="nomeparking" value="${record.getNomeParcheggio()}">
-                                                <button type="submit" class="btn btn-primary btn-icon-split">Modifca</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Fine Datatables -->
         </div>
-    </header>
+        <!-- DataTales -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Gestisci i tuoi parcheggi </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" style="width: 100%">
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Indirizzo</th>
+                            <th>Posti Auto</th>
+                            <th>Posti Furgone</th>
+                            <th>Posti Moto</th>
+                            <th>Tariffa Auto</th>
+                            <th>Tariffa Furgone</th>
+                            <th>Tariffa Moto</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="record" items="${list}">
+                            <tr>
+                                <td>${record.getNomeParcheggio()}</td>
+                                <td>${record.getIndirizzo()}</td>
+                                <td>${record.getPostiAuto()}</td>
+                                <td>${record.getPostiFurgone()}</td>
+                                <td>${record.getPostiMoto()}</td>
+                                <td>${record.getTariffaAF()}€</td>
+                                <td>${record.getTariffaAF()}€</td>
+                                <td>${record.getTariffaM()}€</td>
+                                <td>
+                                    <form action="InfoParkingServlet" method="post">
+                                        <input type="hidden" name="nomeparking" value="${record.getNomeParcheggio()}">
+                                            <button type="submit" class="btn btn-primary btn-icon-split">Modifca</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Fine Datatables -->
+    </div>
+</header>
 
 <header class="masthead">
 
 </header>
 
 <!-- Footer-->
-<footer class="bg-light py-5">
-    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - ApPost</div></div>
-</footer>
+<jsp:include page="Footer.jsp" />
 
 <!-- Bootstrap core JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
