@@ -59,13 +59,21 @@
                         </form>
                         <hr>
                         <!--Statistiche-->
-                        <form action="ChartsServlet">
-                            <a class="dropdown-item" style="border-radius: 40px" >
+                        <form action="ChartsServlet" method="get">
+                            <button class="dropdown-item" style="border-radius: 40px" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 11.887a.5.5 0 0 0 .07-.704l-4.5-5.5a.5.5 0 0 0-.74-.037L7.06 8.233 3.404 3.206a.5.5 0 0 0-.808.588l4 5.5a.5.5 0 0 0 .758.06l2.609-2.61 4.15 5.073a.5.5 0 0 0 .704.07Z"/>
+                                </svg>
+                                Statistiche accessi
+                            </button>
+                        </form>
+                        <form action="ChartHoursServlet" method="get">
+                            <button class="dropdown-item" style="border-radius: 40px" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16">
                                     <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
                                 </svg>
-                                Statistiche
-                            </a>
+                                Statistiche ore
+                            </button>
                         </form>
                         <hr>
                         <!--Prenotazioni-->
