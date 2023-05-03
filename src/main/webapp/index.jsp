@@ -26,6 +26,23 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="img">
+
+    <style>
+        .video-container {
+            float: left;
+            margin-right: 20px;
+            max-width: 100%;
+        }
+
+        .video-container video {
+            width: 85%;
+            height: auto;
+        }
+        #about {
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body id="page-top">
 <!-- Navigation-->
@@ -129,7 +146,6 @@
         <h2 class="text-center mt-0">Chi siamo</h2>
         <hr class="divider" />
         <div class="row gx-4 gx-lg-5">
-            <!--<div class="col-lg-3 col-md-6 text-center">-->
             <div class="mt-5">
                 <p class="text-muted mb-0">Quest'app di parcheggi smart è la soluzione perfetta
                     per tutti coloro che cercano un modo semplice ed efficace per trovare il parcheggio
@@ -150,10 +166,17 @@
                     che cercano un modo semplice e veloce per parcheggiare. Con la sua capacità di
                     trovare parcheggi vicini, di prenotare in anticipo e di monitorare il tempo di
                     parcheggio, questa app è un must-have per ogni automobilista moderno.</p>
+                    <br>
+                <div class="video-container">
+                    <video width="1280" height="720" controls>
+                        <source src="img/ApPost-Presentazione.mp4" type="video/mp4">
+                        Il tuo browser non supporta la tag video.
+                    </video>
+                </div>
+
             </div>
         </div>
     </div>
-    <!--</div>-->
 </section>
 
 <!-- Portfolio-->
