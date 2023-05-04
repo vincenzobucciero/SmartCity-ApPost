@@ -96,28 +96,26 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <label>
-                                                <span class="hidden-xs"><!--Data di Scadenza-->
-                                                    <h6>Data Scadenza</h6>
-                                                </span>
-                                            </label>
-                                            <div class="input-group">
-                                                <input type="number" placeholder="MM" name="MM" class="form-control" value="1" min="1" max="12" required />
-                                                <input type="number" placeholder="YY" name="YYYY" class="form-control" value="23" min="23" max="30" required />
-                                            </div>
+                                    <div class="form-group col-sm-6">
+                                        <label>
+                                            <span class="hidden-xs"><!--Data di Scadenza-->
+                                                <h6>Data Scadenza</h6>
+                                            </span>
+                                        </label>
+                                        <div class="input-group-prepend">
+                                            <input type="number" placeholder="MM" name="MM" class="form-control" value="1" min="1" max="12" required />
+                                            <input type="number" placeholder="YY" name="YYYY" class="form-control" value="23" min="23" max="30" required />
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group mb-4"> <!--CVV-->
-                                            <label data-toggle="tooltip" title="Trovi il codice CVV a tre cifre sul retro della carta">
-                                                <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                                            </label>
-                                            <input type="password" name="cvv" required class="form-control" maxlength="3" />
-                                        </div>
+
+                                    <div class="form-group col-sm-3"> <!--CVV-->
+                                        <label data-toggle="tooltip" title="Trovi il codice CVV a tre cifre sul retro della carta">
+                                            <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                        </label>
+                                        <input type="password" name="cvv" required class="form-control" maxlength="3" />
                                     </div>
                                 </div>
+
                                 <div class="card-footer"> <!--Conferma Pagamento-->
                                     <input type="hidden" name="bookingBean" value="${bookingBean}">
                                     <input type="hidden" name="email" value="${email}">
@@ -132,33 +130,33 @@
 
 
                         <!-- Paypal info -->
-                            <div id="paypal" class="tab-pane fade pt-3">
-                                <form action="PayPalServlet" method="post">
-                                    <div class="form-group">
-                                        <label name="emailPP">
-                                            <h6>Email</h6>
-                                        </label>
-                                        <input type="text" name="emailPP" placeholder="mariorossi@gmail.com" required class="form-control"  />
-                                    </div>
-                                    <div class="form-group">
-                                        <label name="passwordPP">
-                                            <h6>Password</h6>
-                                        </label>
-                                        <input type="password" name="passwordPP" required class="form-control" />
-                                    </div>
-                                    <p>
-                                        <input type="hidden" name="bookingBean" value="${bookingBean}">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fab fa-paypal mr-2"></i>
-                                            Accedi in Paypal
-                                        </button>
-                                    </p>
-                                    <p class="text-muted">
-                                        Nota: dopo aver fatto clic sul pulsante, completerai l'acquisto sul tuo account PayPal. Dopo aver completato il processo di pagamento,
-                                        verrai reindirizzato al nostro sito Web per visualizzare i dettagli del tuo ordine.
-                                    </p>
-                                </form>
-                            </div>
+                        <div id="paypal" class="tab-pane fade pt-3">
+                            <form action="PayPalServlet" method="post">
+                                <div class="form-group">
+                                    <label name="emailPP">
+                                        <h6>Email</h6>
+                                    </label>
+                                    <input type="text" name="emailPP" placeholder="mariorossi@gmail.com" required class="form-control"  />
+                                </div>
+                                <div class="form-group">
+                                    <label name="passwordPP">
+                                        <h6>Password</h6>
+                                    </label>
+                                    <input type="password" name="passwordPP" required class="form-control" />
+                                </div>
+                                <p>
+                                    <input type="hidden" name="bookingBean" value="${bookingBean}">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fab fa-paypal mr-2"></i>
+                                        Accedi in Paypal
+                                    </button>
+                                </p>
+                                <p class="text-muted">
+                                    Nota: dopo aver fatto clic sul pulsante, completerai l'acquisto sul tuo account PayPal. Dopo aver completato il processo di pagamento,
+                                    verrai reindirizzato al nostro sito Web per visualizzare i dettagli del tuo ordine.
+                                </p>
+                            </form>
+                        </div>
                         <!-- End -->
                     </div>
                 </div>
@@ -166,7 +164,7 @@
         </div>
 
         <div class="col-lg-4 mx-lg-4" style="padding: 2.5rem">
-            <div class="p-3" style="background-color: #ffffff; border-radius: 2.3rem">
+            <div class="p-3" style="background-color: #ffffff;">
                 <span class="fw-bold" style="color: #F4623AFF">Riepilogo dell'ordine</span>
                 <hr />
                 <div class="d-flex justify-content-between mt-2">

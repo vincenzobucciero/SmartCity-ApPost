@@ -25,12 +25,39 @@
     <!-- SimpleLightbox plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" href="CSS/style.css">
+
     <link rel="stylesheet" href="CSS/styleFormLogin.css">
+    <style>
+        .form-bg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+
+        }
+    </style>
+
+
+    <style>
+        .video-container {
+            float: left;
+            margin-right: 20px;
+            max-width: 100%;
+        }
+
+        .video-container video {
+            width: 85%;
+            height: auto;
+        }
+        #about {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="img">
 </head>
 
-<body id="page-top">
+<body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
@@ -42,44 +69,44 @@
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#services">Servizi</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">Chi siamo</a></li>
-                <li class="nav-item"><a class="nav-link" href="registrazione.jsp">Registrati</a></li>
+                <li class="nav-item"><a class="nav-link" href="registration">Registrati</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 <!-- Masthead-->
 <header class="masthead">
-    <div class="container px-4 px-lg-5 h-100">
-        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"></div>
-    </div>
-</header>
-<!-- Form-->
-<div class="form-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="form-container">
-                    <div class="form-icon"><i class="bi bi-person-circle"></i></div>
-                    <h3 class="title">Effettua l'accesso</h3>
-                    <form class="form-horizontal" action="${pageContext.request.contextPath}/login" method="post">
-                        <div class="form-group">
-                            <label>email</label>
-                            <input name="email" class="form-control" type="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label>password</label>
-                            <input name="password" class="form-control" type="password" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg text-white">Entra</button>
-                        <div class="text-center">
-                            <a href="registrazione.jsp" class="text-secondary">Registrati ora</a>
-                        </div>
-                    </form>
+    <!-- Form-->
+    <div class="form-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-6 mx-auto">
+                    <div class="form-container">
+                        <div class="form-icon"><i class="bi bi-person-circle"></i></div>
+                        <h3 class="title">Effettua l'accesso</h3>
+                        <form class="form-horizontal" action="login" method="post">
+                            <div class="form-group">
+                                <label>email</label><br>
+                                <input name="email" class="form-control" type="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label>password</label><br>
+                                <input name="password" class="form-control" type="password" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg text-white">Entra</button>
+                            <div class="text-center">
+                                <a href="registration" class="text-secondary">Registrati ora</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</header>
+
+
 
 
 <!--Parte chi siamo e servizi -->
@@ -168,6 +195,13 @@
                     che cercano un modo semplice e veloce per parcheggiare. Con la sua capacità di
                     trovare parcheggi vicini, di prenotare in anticipo e di monitorare il tempo di
                     parcheggio, questa app è un must-have per ogni automobilista moderno.</p>
+                <br>
+                <div class="video-container">
+                    <video width="1280" height="720" controls>
+                        <source src="img/ApPost-Presentazione.mp4" type="video/mp4">
+                        Il tuo browser non supporta la tag video.
+                    </video>
+                </div>
             </div>
         </div>
     </div>
@@ -175,15 +209,15 @@
 </section>
 
 
-    <!-- Footer-->
+<!-- Footer-->
 <jsp:include page="Footer.jsp" />
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- SimpleLightbox plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- SimpleLightbox plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 
 </body>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: carmine
@@ -28,8 +29,24 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/styleFormLogin.css">
     <link rel="stylesheet" href="img">
+
+    <style>
+        .video-container {
+            float: left;
+            margin-right: 20px;
+            max-width: 100%;
+        }
+
+        .video-container video {
+            width: 85%;
+            height: auto;
+        }
+        #about {
+            text-align: center;
+        }
+    </style>
 </head>
-<body id="page-top">
+<body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
@@ -47,42 +64,65 @@
     </div>
 </nav>
 <!-- Masthead-->
-<header class="masthead">
-    <div class="container px-4 px-lg-5 h-100">
-        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"></div>
-    </div>
-</header>
 
-<!-- Form-->
-<div class="form-bg">
+<header class="masthead">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="form-container">
+            <div class="col-md-5 mx-auto" style="max-width: 70%;">
+                <div class="form-container" style="top: 53%">
                     <div class="form-icon"><i class="bi bi-person-circle"></i></div>
                     <h3 class="title">Crea un account</h3>
-                    <form class="form-horizontal" action="${pageContext.request.contextPath}/registration" method="post">
+                    <span class="alert-danger">* Campi obbligatori</span>
+                    <form class="form-horizontal" action="registration" method="post">
                         <div class="form-group row">
                             <div class="col-md-4">
-                                <label>nome</label>
-                                <input name="name" class="form-control" id="name" type="text" placeholder="es. Mario" required>
+                                <label>nome *</label><br>
+                                <input name="name" class="form-control" id="name" type="text" placeholder="Camilla" required>
                             </div>
                             <div class="col-md-4">
-                                <label>cognome</label>
-                                <input name="surname" class="form-control" id="surname" type="text" placeholder="es. Rossi" required>
+                                <label>cognome *</label><br>
+                                <input name="surname" class="form-control" id="surname" type="text" placeholder="Russo" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-4">
-                                <label>email</label>
-                                <input name="email" class="form-control" id="email" type="email" placeholder="es. mariorossi@gmail.com" required>
+                                <label>email *</label><br>
+                                <input name="email" class="form-control" id="email" type="email" placeholder="esempio@gmail.com" required>
                             </div>
                             <div class="col-md-4">
-                                <label>password</label>
-                                <input name="password" class="form-control" id="password" type="password" placeholder="es. password123" required>
+                                <label>password *</label><br>
+                                <input name="password" class="form-control" id="password" type="password" placeholder="password123" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Sesso: </label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" style="margin-left: -0.2em;" type="radio" name="sesso" id="femaleGender" value="femmina" />
+                                <label class="form-check" style="font-weight: normal; text-transform: none" name="sesso">Femmina</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" style="margin-left: -0.2em;" type="radio" name="sesso" id="maleGender" value="maschio" />
+                                <label class="form-check" style="font-weight: normal; text-transform: none" name="sesso">Maschio</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input"style="margin-left: -0.2em;" type="radio" name="sesso" id="otherGender" value="altro" />
+                                <label class="form-check" style="font-weight: normal; text-transform: none" name="sesso">Altro</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-4" style="bs-gutter-x: -5.5rem;">
+                                <label>data nascita</label>
+                                <input name="dataNascita" class="form-control" id="dataNascita" type="date">
+                            </div>
+                            <div class="col-md-4">
+                                <label>telefono</label><br>
+                                <input name="telefono" class="form-control" id="telefono" type="text" placeholder="3332453215">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg text-white">Registrati</button>
+                        <c:if test="${risultato == false}">
+                            <div class="alert alert-danger">Sei gia registrato</div>
+                        </c:if>
                         <div class="text-center">
                             <a href="login.jsp" class="text-secondary">Accedi ora</a>
                         </div>
@@ -91,7 +131,7 @@
             </div>
         </div>
     </div>
-</div>
+</header>
 
 <!--Parte chi siamo e servizi -->
 <!-- Services-->
@@ -178,6 +218,13 @@
                     che cercano un modo semplice e veloce per parcheggiare. Con la sua capacità di
                     trovare parcheggi vicini, di prenotare in anticipo e di monitorare il tempo di
                     parcheggio, questa app è un must-have per ogni automobilista moderno.</p>
+                <br>
+                <div class="video-container">
+                    <video width="1280" height="720" controls>
+                        <source src="img/ApPost-Presentazione.mp4" type="video/mp4">
+                        Il tuo browser non supporta la tag video.
+                    </video>
+                </div>
             </div>
         </div>
     </div>
@@ -186,8 +233,7 @@
 
 
 <!-- Footer-->
-<jsp:include page="Footer.jsp" />>
-</footer>
+<jsp:include page="Footer.jsp" />
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- SimpleLightbox plugin JS-->

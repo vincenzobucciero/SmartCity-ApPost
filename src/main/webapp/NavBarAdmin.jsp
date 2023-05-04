@@ -67,6 +67,7 @@
                                 Statistiche accessi
                             </button>
                         </form>
+                        <hr>
                         <form action="ChartHoursServlet" method="get">
                             <button class="dropdown-item" style="border-radius: 40px" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16">

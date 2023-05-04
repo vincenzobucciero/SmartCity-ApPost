@@ -46,8 +46,10 @@
       <div class="col-lg-3 mb-3">
         <div class="card">
           <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                 class="rounded-circle img-fluid" style="width: 100px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-emoji-laughing" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M12.331 9.5a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zM7 6.5c0 .828-.448 0-1 0s-1 .828-1 0S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 0-1 0s-1 .828-1 0S9.448 5 10 5s1 .672 1 1.5z"/>
+            </svg>
             <h5 class="my-3">
               <c:choose>
                 <c:when test="${userBean != null}">
@@ -58,6 +60,7 @@
               </c:choose>
               <p class="text-muted mb-0">Utente</p>
             </h5>
+            <button class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Modifica</button>
           </div>
         </div>
       </div>
@@ -65,10 +68,10 @@
       <!-- Riquadro delle informazioni -->
       <div class="col-lg-7 mt-4 mt-lg-0">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body" style="font-family: Inter">
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Nome</p>
+                <p class="mb-0" style="font-weight: bold">Nome</p>
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
@@ -84,7 +87,7 @@
 
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Cognome</p>
+                <p class="mb-0" style="font-weight: bold">Cognome</p>
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
@@ -100,7 +103,55 @@
 
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Email</p>
+                <p class="mb-0" style="font-weight: bold">Sesso</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">
+                  <c:choose>
+                    <c:when test="${userBean != null}">
+                      ${userBean.getSesso()}
+                    </c:when>
+                  </c:choose>
+                </p>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0" style="font-weight: bold">Cellulare</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">
+                  <c:choose>
+                    <c:when test="${userBean != null}">
+                      ${userBean.getTelefono()}
+                    </c:when>
+                  </c:choose>
+                </p>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0" style="font-weight: bold">Data Nascita</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">
+                  <c:choose>
+                    <c:when test="${userBean != null}">
+                      ${userBean.getDataNascita()}
+                    </c:when>
+                  </c:choose>
+                </p>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0" style="font-weight: bold">Email</p>
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
@@ -113,9 +164,10 @@
               </div>
             </div>
                 <div>
-                  <form action="ModifyUserServlet" method="post">
+                  <form action="#" method="post">
                     <input type="hidden" name="email" value="${userBean.getEmail()}">
                     <div class="text-center">
+                      <br>
                       <button type="submit" class="btn btn-outline-primary">Modifica</button>
                     </div>
                   </form>

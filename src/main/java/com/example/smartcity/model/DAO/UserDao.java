@@ -83,6 +83,9 @@ public class UserDao {
                 userBean.setCognome(result.getString("cognome"));
                 userBean.setEmail(result.getString("email"));
                 userBean.setPassword(result.getString("password"));
+                userBean.setSesso(result.getString("sesso"));
+                userBean.setTelefono(result.getString("telefono"));
+                userBean.setDataNascita(result.getString("dataNascita"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -117,12 +120,15 @@ public class UserDao {
             if (result.next()) {
                 return false;
             } else {
-                query = DatabaseConnection.getInstance().getConnection().prepareStatement("INSERT INTO Utenti (nome, cognome, email, password) " +
-                        "VALUES(?, ?, ?, ?)");
+                query = DatabaseConnection.getInstance().getConnection().prepareStatement("INSERT INTO Utenti (nome, cognome, email, password, sesso, telefono, dataNascita) " +
+                        "VALUES(?, ?, ?, ?, ?, ?, ?)");
                 query.setString(1, userBean.getNome());
                 query.setString(2, userBean.getCognome());
                 query.setString(3, userBean.getEmail());
                 query.setString(4, userBean.getPassword());
+                query.setString(5, userBean.getSesso());
+                query.setString(6, userBean.getTelefono());
+                query.setString(7, userBean.getDataNascita());
                 query.execute();
                 return true;
             }

@@ -29,15 +29,19 @@
 
 <header class="masthead">
     <div class="container">
+        <div class="col-lg-10 mx-auto mb-4">
+            <h2 class="text-center mt-0" style="color: white">Scegli il tuo percorso</h2>
+            <hr class="divider" style="max-width: 10rem" />
+        </div>
         <div class="row">
             <div class="col-sm-6">
-                <div class="my-5 card bg-light mx-auto" style="width:30rem;">
+                <div class="my-6 card bg-light mx-auto" style="width:30rem;">
                     <div class="card-body">
                         <div id="map"></div> <!-- Qua esce la mappa-->
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 col-md-offset-5" style="width:50rem;">
+            <div class="col-md-5 col-md-offset-5 mx-auto" style="width:50rem;">
                 <div class="card-body">
                     <div class="form-container">
                         <form class="form-horizontal" action="PathServlet" method="post">
