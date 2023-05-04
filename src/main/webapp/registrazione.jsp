@@ -97,15 +97,15 @@
                         <div class="form-group">
                             <label>Sesso: </label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" style="margin-left: -0.2em;" type="radio" name="sesso" id="femaleGender" value="femmina" />
+                                <input class="form-check-input" style="margin-left: -0.2em;" type="radio" name="sesso" id="femaleGender" value="Femmina" />
                                 <label class="form-check" style="font-weight: normal; text-transform: none" name="sesso">Femmina</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" style="margin-left: -0.2em;" type="radio" name="sesso" id="maleGender" value="maschio" />
+                                <input class="form-check-input" style="margin-left: -0.2em;" type="radio" name="sesso" id="maleGender" value="Maschio" />
                                 <label class="form-check" style="font-weight: normal; text-transform: none" name="sesso">Maschio</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input"style="margin-left: -0.2em;" type="radio" name="sesso" id="otherGender" value="altro" />
+                                <input class="form-check-input"style="margin-left: -0.2em;" type="radio" name="sesso" id="otherGender" value="Altro" />
                                 <label class="form-check" style="font-weight: normal; text-transform: none" name="sesso">Altro</label>
                             </div>
                         </div>
