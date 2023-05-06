@@ -64,8 +64,7 @@ function initMap() {
 
     //Per la descrizione del Marker (ogni parcheggio)
     const infowindow1 = new google.maps.InfoWindow({
-        title:"Via Medina, 27" ,
-        content: "80142 Napoli NA\n" +
+        content: "Garage Panorama,\nVia Roberto Bracco n.90,\n80142 Napoli NA\n" +
             "Italia",
     });
 
@@ -73,6 +72,58 @@ function initMap() {
         infowindow1.open(map, marker1);
     });
 
+    //Secondo
+    const infowindow2 = new google.maps.InfoWindow({
+        content: "Gran Garage Victoria,\nCorso G. Garibaldi n.3,\n80142 Napoli NA\n" +
+            "Italia",
+    });
+
+    marker2.addListener("click", () => {
+        infowindow2.open(map, marker2);
+    });
+
+
+    //terzo
+    const infowindow3 = new google.maps.InfoWindow({
+        content: "Neapolis Parking,\nVia San Cosimo n.11,\n80142 Napoli NA\n" +
+            "Italia",
+    });
+
+    marker3.addListener("click", () => {
+        infowindow3.open(map, marker3);
+    });
+
+
+    //quarto
+    const infowindow4 = new google.maps.InfoWindow({
+        content: "ParClick,\nPiazza Nazionale n.29,\n80142 Napoli NA\n" +
+            "Italia",
+    });
+
+    marker4.addListener("click", () => {
+        infowindow4.open(map, marker4);
+    });
+
+    //quinto
+    const infowindow5 = new google.maps.InfoWindow({
+        content: "Parking Merliano,\nVia Matteotti n.53,\n80142 Napoli NA\n" +
+            "Italia",
+    });
+
+    marker5.addListener("click", () => {
+        infowindow5.open(map, marker5);
+    });
+
+
+    //sesto
+    const infowindow6 = new google.maps.InfoWindow({
+        content: "Tirreni,\nPorto di Napoli n.80,\n80142 Napoli NA\n" +
+            "Italia",
+    });
+
+    marker6.addListener("click", () => {
+        infowindow6.open(map, marker6);
+    });
 }
 
 window.initMap = initMap;

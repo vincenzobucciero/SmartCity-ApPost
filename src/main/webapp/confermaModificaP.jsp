@@ -50,6 +50,9 @@
                 I dati del parcheggio selezionato sono stati modificati correttamente.
             </p>
             <div>
+                <form action="ShowParkingServlet" method="post">
+                    <button class="btn btn-outline-warning">Visualizza parcheggi</button>
+                </form>
                 <form action="AdminServlet" method="post">
                     <input type="hidden" name="email" value="${email}">
                     <div class="text-center">

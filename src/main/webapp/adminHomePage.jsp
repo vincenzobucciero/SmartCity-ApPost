@@ -69,6 +69,7 @@
         <div class="my-3 card bg-light mx-auto d-flex flex-row" style="width: 50rem;height: 15rem">
             <img style="border-radius: 2.3rem; max-width: 45%" src="img/booking.jpg" class="flex-column">
             <div class="card-body flex-column">
+
                 <h4 class="card-title">Prenotazioni</h4>
                 <p class="card-text">Qui vengono visualizzate le prenotazioni effettuate,
                     con informazioni come data orario e luogo.</p>

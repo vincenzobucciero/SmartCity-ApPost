@@ -1,6 +1,8 @@
 package com.example.smartcity.controller;
 
+import com.example.smartcity.model.Bean.BookingBean;
 import com.example.smartcity.model.Bean.ParkingBean;
+import com.example.smartcity.model.DAO.BookingDao;
 import com.example.smartcity.model.DAO.ParkingDao;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -30,8 +32,8 @@ public class AdminServlet extends HttpServlet {
               modifica avremmo la lista aggiornata istantaneamente */
 
             List<ParkingBean> list = ParkingDao.getListParking();
-
             session.setAttribute("list", list);
+
             request.getRequestDispatcher("adminHomePage.jsp").forward(request, response);
         }
 

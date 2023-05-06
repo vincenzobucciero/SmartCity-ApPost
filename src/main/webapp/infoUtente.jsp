@@ -171,6 +171,13 @@
                       <button type="submit" class="btn btn-outline-primary">Modifica</button>
                     </div>
                   </form>
+                  <form action="#" method="post">
+                    <input type="hidden" name="email" value="${userBean.getEmail()}">
+                    <div class="text-center">
+                      <br>
+                      <button type="submit" class="btn btn-danger">Elimina il profilo</button>
+                    </div>
+                  </form>
                 </div>
           </div>
         </div>

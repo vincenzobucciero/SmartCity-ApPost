@@ -101,7 +101,9 @@
                             <button type="submit" class="btn btn-primary btn-lg text-white alert">Pagamento
                                 <br><i class="bi bi-credit-card-2-back-fill"></i>
                             </button>
-                            <p class="text-muted"> Nota: qualora la prenotazione superasse le 5 ore la tariffa totale sarà di 20,00€.</p>
+                            <div class="alert alert-danger" role="alert">
+                                Nota: qualora la prenotazione superasse le 5 ore la tariffa totale sarà di 20,00€.
+                            </div>
                         </form>
                     </div><!--Fine form container-->
 

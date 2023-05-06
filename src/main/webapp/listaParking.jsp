@@ -28,6 +28,12 @@
         .sorting_asc{
             color: #f4623a !important;
         }
+        table.dataTable > thead .sorting:before, table.dataTable > thead .sorting:after, table.dataTable > thead .sorting_asc:before, table.dataTable > thead .sorting_asc:after, table.dataTable > thead .sorting_desc:before, table.dataTable > thead .sorting_desc:after, table.dataTable > thead .sorting_asc_disabled:before, table.dataTable > thead .sorting_asc_disabled:after, table.dataTable > thead .sorting_desc_disabled:before, table.dataTable > thead .sorting_desc_disabled:after {
+            position: absolute;
+            bottom: 0.5em!important;
+            display: none;
+            opacity: 0.3;
+        }
 
         table.dataTable > thead .sorting:before, table.dataTable > thead .sorting_asc:before, table.dataTable > thead .sorting_desc:before, table.dataTable > thead .sorting_asc_disabled:before, table.dataTable > thead .sorting_desc_disabled:before {
             right: 0.5em;
@@ -88,14 +94,14 @@
                         <tbody>
                         <c:forEach var="record" items="${list}">
                             <tr>
-                                <td>${record.getNomeParcheggio()}</td>
+                                <td style="font-weight: bold">${record.getNomeParcheggio()}</td>
                                 <td>${record.getIndirizzo()}</td>
                                 <td>${record.getPostiAuto()}</td>
                                 <td>${record.getPostiFurgone()}</td>
                                 <td>${record.getPostiMoto()}</td>
-                                <td>${record.getTariffaAF()}€</td>
-                                <td>${record.getTariffaAF()}€</td>
-                                <td>${record.getTariffaM()}€</td>
+                                <td>${record.getTariffaAF()}0€</td>
+                                <td>${record.getTariffaAF()}0€</td>
+                                <td>${record.getTariffaM()}0€</td>
                                 <td>
                                     <form action="InfoParkingServlet" method="post">
                                         <input type="hidden" name="nomeparking" value="${record.getNomeParcheggio()}">
