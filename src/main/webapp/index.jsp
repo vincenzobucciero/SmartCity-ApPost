@@ -187,8 +187,8 @@
                 <a class="portfolio-box" href="img/8.jpg" title="Project Name">
                     <img class="img-fluid" src="img/park8.jpg" alt="..." />
                     <div class="portfolio-box-caption">
-                        <div class="project-category text-white-50">SmartPark City</div>
-                        <div class="project-name">Via dei Parcheggiatori 10, Milano</div>
+                        <div class="project-category text-white-50">Garage Panorama</div>
+                        <div class="project-name">Via Roberto Bracco n.90, Napoli</div>
                     </div>
                 </a>
             </div>
@@ -196,8 +196,8 @@
                 <a class="portfolio-box" href="img/park2.jpg" title="Project Name">
                     <img class="img-fluid" src="img/park2.jpg" alt="..." />
                     <div class="portfolio-box-caption">
-                        <div class="project-category text-white-50">TechGarage</div>
-                        <div class="project-name">Via dell'Innovazione 20, Torino</div>
+                        <div class="project-category text-white-50">Gran Garage Victoria</div>
+                        <div class="project-name">Corso G. Garibaldi n.3, Napoli</div>
                     </div>
                 </a>
             </div>
@@ -205,8 +205,8 @@
                 <a class="portfolio-box" href="img/park3.jpg" title="Project Name">
                     <img class="img-fluid" src="img/park3.jpg" alt="..." />
                     <div class="portfolio-box-caption">
-                        <div class="project-category text-white-50">AutoHaven</div>
-                        <div class="project-name">Via degli Automobilisti 5, Roma</div>
+                        <div class="project-category text-white-50">Neapolis Parking</div>
+                        <div class="project-name">Via San Cosimo n.11, Napoli</div>
                     </div>
                 </a>
             </div>
@@ -214,8 +214,8 @@
                 <a class="portfolio-box" href="img/park5.jpg" title="Project Name">
                     <img class="img-fluid" src="img/park5.jpg" alt="..." />
                     <div class="portfolio-box-caption">
-                        <div class="project-category text-white-50">ParkEase</div>
-                        <div class="project-name">Via del Parcheggio Facile 15, Firenze</div>
+                        <div class="project-category text-white-50">ParClick</div>
+                        <div class="project-name">Piazza Nazionale n.29, Napoli</div>
                     </div>
                 </a>
             </div>
@@ -223,8 +223,8 @@
                 <a class="portfolio-box" href="img/park6.jpg" title="Project Name">
                     <img class="img-fluid" src="img/park6.jpg" alt="..." />
                     <div class="portfolio-box-caption">
-                        <div class="project-category text-white-50">QuickPark</div>
-                        <div class="project-name">Via del Parcheggio Veloce 8, Bologna</div>
+                        <div class="project-category text-white-50">Parking Merliano</div>
+                        <div class="project-name">Via Matteotti n.53, Napoli</div>
                     </div>
                 </a>
             </div>
@@ -232,8 +232,8 @@
                 <a class="portfolio-box" href="img/park7.jpg" title="Project Name">
                     <img class="img-fluid" src="img/park7.jpg" alt="..." />
                     <div class="portfolio-box-caption">
-                        <div class="project-category text-white-50">CitySpot</div>
-                        <div class="project-name">Via del Posto in Città 4, Napoli</div>
+                        <div class="project-category text-white-50">Tirreni</div>
+                        <div class="project-name">Porto di Napoli n.80, Napoli</div>
                     </div>
                 </a>
             </div>

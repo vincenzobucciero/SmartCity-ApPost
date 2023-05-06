@@ -74,7 +74,7 @@
                         <!-- credit card info-->
                         <div id="credit-card" class="tab-pane fade show active pt-3">
                             <form action="PayServlet" method="post">
-                                <div class="form-group">
+                                <div class="form-group" style="font-family: Inter">
                                     <label name="username"> <!--Intestatario-->
                                         <h6>Intestatario Carta</h6>
                                     </label>
@@ -84,7 +84,7 @@
                                     <label name="cardNumber"><!--Numero Carta-->
                                         <h6>Numero Carta</h6>
                                     </label>
-                                    <div class="input-group">
+                                    <div class="input-group"style="font-family: Inter">
                                         <input type="text" name="numCarta" placeholder="5136 1845 5468 3894" oninput="inputHandler(this)" class="form-control" required maxlength="19" />
                                         <div class="input-group-append">
                                             <span class="input-group-text text-muted">
@@ -102,13 +102,13 @@
                                                 <h6>Data Scadenza</h6>
                                             </span>
                                         </label>
-                                        <div class="input-group-prepend">
+                                        <div class="input-group-prepend" style="font-family: Inter">
                                             <input type="number" placeholder="MM" name="MM" class="form-control" value="1" min="1" max="12" required />
                                             <input type="number" placeholder="YY" name="YYYY" class="form-control" value="23" min="23" max="30" required />
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-sm-3"> <!--CVV-->
+                                    <div class="form-group col-sm-3"style="font-family: Inter"> <!--CVV-->
                                         <label data-toggle="tooltip" title="Trovi il codice CVV a tre cifre sul retro della carta">
                                             <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
                                         </label>
@@ -136,13 +136,13 @@
                                     <label name="emailPP">
                                         <h6>Email</h6>
                                     </label>
-                                    <input type="text" name="emailPP" placeholder="mariorossi@gmail.com" required class="form-control"  />
+                                    <input type="text" name="emailPP" placeholder="mariorossi@gmail.com" style="font-family: Inter" required class="form-control"  />
                                 </div>
                                 <div class="form-group">
                                     <label name="passwordPP">
                                         <h6>Password</h6>
                                     </label>
-                                    <input type="password" name="passwordPP" required class="form-control" />
+                                    <input type="password" name="passwordPP" style="font-family: Inter" required class="form-control" />
                                 </div>
                                 <p>
                                     <input type="hidden" name="bookingBean" value="${bookingBean}">
@@ -151,7 +151,7 @@
                                         Accedi in Paypal
                                     </button>
                                 </p>
-                                <p class="text-muted">
+                                <p class="text-muted" style="font-family: Inter">
                                     Nota: dopo aver fatto clic sul pulsante, completerai l'acquisto sul tuo account PayPal. Dopo aver completato il processo di pagamento,
                                     verrai reindirizzato al nostro sito Web per visualizzare i dettagli del tuo ordine.
                                 </p>

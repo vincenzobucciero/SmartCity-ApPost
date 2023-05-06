@@ -102,7 +102,8 @@
                                 <br><i class="bi bi-credit-card-2-back-fill"></i>
                             </button>
                             <div class="alert alert-danger" role="alert">
-                                Nota: qualora la prenotazione superasse le 5 ore la tariffa totale sarà di 20,00€.
+                                    Nota: Tutti i parcheggi hanno orario di apertura alle ore 07:00 e chiusura alle 23:00
+                                <br>Nota: Superate le 5 ore la tariffa totale sarà di 20,00€.
                             </div>
                         </form>
                     </div><!--Fine form container-->

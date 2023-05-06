@@ -14,6 +14,7 @@ function initMap() {
     const marker = new google.maps.Marker({
         position: naples,
         map: map,
+        content: "Dove siamo",
     });
 
     //I miei parcheggi
@@ -21,7 +22,7 @@ function initMap() {
     const park1 = {lat: 40.836633, lng: 14.250964}; //Via Toledo:
     const park2 = {lat: 40.851236, lng: 14.258433}; //Via dei Tribunali
     const park3 = {lat: 40.851867, lng: 14.255105}; //Via San Gregorio Armeno
-    const park4 = {lat: 40.822874, lng: 14.241816}; //Via Caracciolo
+    const park4 = {lat: 40.860972, lng: 14.272935}; //Via Caracciolo
     const park5 = {lat: 40.835205, lng: 14.242934}; //Via Chiaia
     const park6 = {lat: 40.831728, lng: 14.245899}; //Via Partenope
 

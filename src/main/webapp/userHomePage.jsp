@@ -52,7 +52,7 @@
     <!--INIZIO SEZIONE CARD-->
     <div class="row">
         <!-- Inizio Prima Card-->
-        <div class="my-3 card bg-light" style="width: 20rem; height: 30rem" id="personal">
+        <div class="my-4 card bg-light" style="width: 20rem; height: 30rem" id="personal">
             <img style="border-radius: 2.3rem" src="img/imgCard/personalData.jpg">
             <div class="card-body">
                 <h4 class="card-title">Dati personali</h4>
@@ -74,7 +74,7 @@
         </div><!-- Fine Prima Card-->
 
         <!-- Inizio Seconda Card-->
-        <div class="my-3 card bg-light mx-auto" style="width: 20rem;height: 30rem" id="prenota">
+        <div class="my-4 card bg-light mx-auto" style="width: 20rem;height: 30rem" id="prenota">
             <img style="border-radius: 2.3rem" src="img/park6.jpg">
             <div class="card-body">
                 <h4 class="card-title">Prenota</h4>
@@ -86,7 +86,7 @@
         </div><!-- Fine Seconda Card-->
 
         <!-- Inizio Terza Card-->
-        <div class="my-3 card bg-light" style="width: 20rem;height: 30rem" id="booking">
+        <div class="my-4 card bg-light" style="width: 20rem;height: 30rem" id="booking">
             <img style="border-radius: 2.3rem" src="img/imgCard/prenotazione.jpg">
             <div class="card-body">
                 <h4 class="card-title">Le mie prenotazioni</h4>

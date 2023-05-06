@@ -208,6 +208,76 @@
     <!--</div>-->
 </section>
 
+<!-- Portfolio-->
+<div id="portfolio">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="img/8.jpg" title="Project Name">
+                    <img class="img-fluid" src="img/park8.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Garage Panorama</div>
+                        <div class="project-name">Via Roberto Bracco n.90, Napoli</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="img/park2.jpg" title="Project Name">
+                    <img class="img-fluid" src="img/park2.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Gran Garage Victoria</div>
+                        <div class="project-name">Corso G. Garibaldi n.3, Napoli</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="img/park3.jpg" title="Project Name">
+                    <img class="img-fluid" src="img/park3.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Neapolis Parking</div>
+                        <div class="project-name">Via San Cosimo n.11, Napoli</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="img/park5.jpg" title="Project Name">
+                    <img class="img-fluid" src="img/park5.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">ParClick</div>
+                        <div class="project-name">Piazza Nazionale n.29, Napoli</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="img/park6.jpg" title="Project Name">
+                    <img class="img-fluid" src="img/park6.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Parking Merliano</div>
+                        <div class="project-name">Via Matteotti n.53, Napoli</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="img/park7.jpg" title="Project Name">
+                    <img class="img-fluid" src="img/park7.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Tirreni</div>
+                        <div class="project-name">Porto di Napoli n.80, Napoli</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to action-->
+<section class="page-section bg-dark text-white">
+    <div class="container px-4 px-lg-5 text-center">
+        <h2 class="mb-4">Inizia subito a parcheggiare con facilità</h2>
+        <a class="btn btn-light btn-xl" href="login.jsp">Download Now!</a>
+    </div>
+</section>
+
 
 <!-- Footer-->
 <jsp:include page="Footer.jsp" />
