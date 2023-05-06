@@ -92,8 +92,13 @@
                             </div>
                             <div class="form-group">
                                 <label>password</label><br>
-                                <input name="password" class="form-control" type="password" placeholder="Password">
+                                <div class="input-group">
+                                    <input name="password" class="form-control " type="password" placeholder="Password">
+                                    <i class="bi bi-eye-slash toggle-password" id="togglePassword"></i>
+                                </div>
                             </div>
+
+
                             <button type="submit" class="btn btn-primary btn-lg text-white">Entra</button>
                             <div class="text-center">
                                 <a href="registration" class="text-secondary">Registrati ora</a>
@@ -105,8 +110,6 @@
         </div>
     </div>
 </header>
-
-
 
 
 <!--Parte chi siamo e servizi -->
@@ -282,6 +285,8 @@
 <!-- Footer-->
 <jsp:include page="Footer.jsp" />
 <!-- Bootstrap core JS-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- SimpleLightbox plugin JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
@@ -289,6 +294,24 @@
 <script src="js/scripts.js"></script>
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
+<script>
+    $(document).ready(function() {
+        $('body').on('click', '.toggle-password', function() {
+            var $this = $(this),
+                $input = $this.closest('.input-group').find('input');
+
+            if ($input.attr('type') === 'password') {
+                $input.attr('type', 'text');
+                $this.removeClass('bi-eye-slash').addClass('bi-eye');
+            } else {
+                $input.attr('type', 'password');
+                $this.removeClass('bi-eye').addClass('bi-eye-slash');
+            }
+        });
+    });
+
+
+</script>
 
 </body>
 </html>
