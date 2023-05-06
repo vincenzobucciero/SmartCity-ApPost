@@ -31,7 +31,15 @@ public class DeleteBookingServlet extends HttpServlet {
             BookingDao.deleteBooking( idPrenotazione );
 
             String email = request.getParameter("email");
-            request.getRequestDispatcher( "cancelPage.jsp" ).forward(request, response);
+
+            if (email.equals("admin@admin.com")){
+                System.out.println("Sono entrato nell'admin");
+                request.getRequestDispatcher("cancelPageAdmin.jsp").forward(request,response);
+            }
+            else {
+                System.out.println("Non sono nell'admin");
+                request.getRequestDispatcher("cancelPage.jsp").forward(request, response);
+            }
 
         }
 

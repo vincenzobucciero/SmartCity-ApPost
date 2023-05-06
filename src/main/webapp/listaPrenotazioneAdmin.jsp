@@ -97,7 +97,7 @@
                                 <td style="font-weight: bold">${record.getID_prenotazione()}</td>
                                 <td style="font-weight: lighter">${record.getEmail()}</td>
                                 <td>${record.getNomeParcheggio()}</td>
-                                <td>
+                                <td style="white-space: nowrap; overflow: hidden;">
                                     <c:choose>
                                         <c:when test="${record.getTipoVeicolo() == 'Auto'}">
                                             <i class="fas fa-car-side"></i>(${record.getTargaVeicolo()})
@@ -110,8 +110,8 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
-                                <td>${record.getData_prenotazione()}</td>
-                                <td>${record.getOrario_inizio()}-${record.getOrario_fine()}</td>
+                                <td style="white-space: nowrap; overflow: hidden;">${record.getData_prenotazione()}</td>
+                                <td style="white-space: nowrap; overflow: hidden;">${record.getOrario_inizio()}-${record.getOrario_fine()}</td>
                                 <td>${record.getPrezzo()}0€</td>
                                 <td>
                                     <c:choose>
@@ -128,7 +128,15 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
-                                <td style="color: red"><i class="bi bi-trash-fill"></i></td>
+                                <td>
+                                <form action="DeleteBookingServlet" method="post">
+                                    <div class="text-center">
+                                        <input type="hidden" name="id" value="${record.getID_prenotazione()}">
+                                        <input type="hidden" name="parkingBean" value="${parkingBean}">
+                                        <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash"></i></button>
+                                    </div>
+                                </form>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>
