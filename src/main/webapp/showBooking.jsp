@@ -90,10 +90,20 @@
                                                                             <i class="bi bi-clock-fill"></i><!--Orario-->
                                                                                 ${record.getOrario_inizio()} - ${record.getOrario_fine()}<br>
                                                                     </td>
-                                                                <i class="fas fa-car-side"></i><!--Targa-->
-                                                                    <td>
-                                                                        ${record.getTargaVeicolo()} <i class="fas fa-coins" style="color: rgba(150,114,18,0.66)"></i> ${record.getPrezzo()}0€<br>
-                                                                    </td>
+
+                                                                <td style="text-transform: uppercase">
+                                                                <c:choose>
+                                                                    <c:when test="${record.getTipoVeicolo() == 'Auto'}">
+                                                                        <i class="fas fa-car-side"></i>(${record.getTargaVeicolo()}) <i class="fas fa-coins" style="color: rgba(150,114,18,0.66)"></i> ${record.getPrezzo()}0€<br>
+                                                                    </c:when>
+                                                                    <c:when test="${record.getTipoVeicolo() == 'Moto'}">
+                                                                        <i class="fas fa-motorcycle"></i>(${record.getTargaVeicolo()}) <i class="fas fa-coins" style="color: rgba(150,114,18,0.66)"></i> ${record.getPrezzo()}0€<br>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <i class="fas fa-truck"></i>(${record.getTargaVeicolo()}) <i class="fas fa-coins" style="color: rgba(150,114,18,0.66)"></i> ${record.getPrezzo()}0€<br>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                                </td>
                                                             </span>
                                                             </div>
                                                         </div>
@@ -105,7 +115,7 @@
                                                                     <div class="text-center">
                                                                         <input type="hidden" name="id" value="${record.getID_prenotazione()}">
                                                                         <input type="hidden" name="parkingBean" value="${parkingBean}">
-
+                                                                        <input type="hidden" name="email" value="${email}">
                                                                         <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash"></i></button>
                                                                     </div>
                                                                 </form>

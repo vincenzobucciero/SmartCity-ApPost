@@ -55,6 +55,10 @@
                         <button class="btn btn-outline-warning">Nuova prenotazione</button>
                     </div>
                 </form>
+                    <div class="text-center">
+                        <a class="btn btn-outline-warning" href="userHomePage.jsp">Torna alla home</a>
+                    </div>
+
             </div>
         </div>
     </div>

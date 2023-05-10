@@ -97,7 +97,7 @@
                                 <td style="font-weight: bold">${record.getID_prenotazione()}</td>
                                 <td style="font-weight: lighter">${record.getEmail()}</td>
                                 <td>${record.getNomeParcheggio()}</td>
-                                <td style="white-space: nowrap; overflow: hidden;">
+                                <td style="white-space: nowrap; overflow: hidden; text-transform: uppercase">
                                     <c:choose>
                                         <c:when test="${record.getTipoVeicolo() == 'Auto'}">
                                             <i class="fas fa-car-side"></i>(${record.getTargaVeicolo()})
@@ -133,6 +133,7 @@
                                     <div class="text-center">
                                         <input type="hidden" name="id" value="${record.getID_prenotazione()}">
                                         <input type="hidden" name="parkingBean" value="${parkingBean}">
+                                        <input type="hidden" name="email" value="${email}">
                                         <button type="submit" class="btn btn-danger btn-sm "><i class="bi bi-trash"></i></button>
                                     </div>
                                 </form>

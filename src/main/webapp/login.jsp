@@ -92,7 +92,7 @@
                             </div>
                             <div class="form-group">
                                 <label>password</label><br>
-                                <div class="input-group">
+                                <div class="input-group" style="align-items: center">
                                     <input name="password" class="form-control " type="password" placeholder="Password">
                                     <i class="bi bi-eye-slash toggle-password" id="togglePassword"></i>
                                 </div>

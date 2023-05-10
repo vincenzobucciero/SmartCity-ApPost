@@ -99,9 +99,9 @@
                                                                 <i class="bi bi-geo-fill" style="color: #b60909"></i>
                                                                 <td>
                                                                     ${record.getIndirizzo()}<br>
-                                                                    <i class="fas fa-car-side"></i> Disponibilità totale: ${record.getPostiAuto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}€/h <br>
-                                                                        <i class="fas fa-truck"></i> Disponibilità totale: ${record.getPostiFurgone()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}€/h <br>
-                                                                    <i class="fas fa-motorcycle"></i> Disponibilità totale: ${record.getPostiMoto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaM()}€/h
+                                                                    <i class="fas fa-car-side"></i> Disponibilità totale: ${record.getPostiAuto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}0€/h <br>
+                                                                        <i class="fas fa-truck"></i> Disponibilità totale: ${record.getPostiFurgone()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaAF()}0€/h <br>
+                                                                    <i class="fas fa-motorcycle"></i> Disponibilità totale: ${record.getPostiMoto()} <i class="bi bi-currency-exchange" style="color: rgba(159,159,36,0.78)"></i> ${record.getTariffaM()}0€/h
                                                                 </td>
                                                             </span>
                                                         </div>
