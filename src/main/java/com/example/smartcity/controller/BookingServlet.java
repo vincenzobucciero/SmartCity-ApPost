@@ -4,8 +4,8 @@ import com.example.smartcity.model.Bean.BookingBean;
 import com.example.smartcity.model.Bean.ParkingBean;
 import com.example.smartcity.model.DAO.BookingDao;
 import com.example.smartcity.model.DAO.ParkingDao;
-import com.example.smartcity.service.CommandPrezzo.Invoker;
-import com.example.smartcity.service.CommandPrezzo.VeicoliEnum;
+import com.example.smartcity.service.Command.Invoker;
+import com.example.smartcity.service.Command.VeicoliEnum;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -13,8 +13,28 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.IOException;
 
+/**
+ * Questa servlet gestisce la prenotazione di un parcheggio da parte di un utente registrato.
+ * Gli utenti possono accedere alla pagina di prenotazione tramite la pagina dei parcheggi disponibili,
+ * dove inseriscono la data, l'ora d'inizio e di fine della prenotazione, la targa del veicolo e il metodo di pagamento.
+ * La servlet utilizza il pattern Command per calcolare il prezzo in base al tipo di veicolo,
+ * al parcheggio e alla durata della prenotazione, e offre due opzioni di pagamento:
+ * carta di credito/PayPal o pagamento al parcheggio.
+ */
+
 @WebServlet(name = "BookingServlet", value = "/BookingServlet")
 public class BookingServlet extends HttpServlet {
+
+    /**
+     * Metodo che gestisce la richiesta GET della servlet, che viene utilizzata per
+     * visualizzare la pagina di prenotazione.
+     * Prima di qualsiasi operazione viene verificato se l'utente ha una sessione aperta.
+     *
+     * @param request l'oggetto HttpServletRequest che contiene la richiesta HTTP del client
+     * @param response l'oggetto HttpServletResponse che contiene la risposta HTTP del server
+     * @throws ServletException se si verifica un'eccezione durante l'esecuzione della servlet
+     * @throws IOException se si verifica un'eccezione d'ingresso/uscita durante l'esecuzione della servlet
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -36,6 +56,18 @@ public class BookingServlet extends HttpServlet {
         }
     }
 
+
+    /**
+     * Questo metodo viene chiamato quando viene effettuata una richiesta HTTP POST al servlet.
+     * In base ai parametri della richiesta, crea una nuova prenotazione di parcheggio
+     * e la salva nel database o la mostra all'utente per il pagamento.
+     * Prima di qualsiasi operazione viene verificato se l'utente ha una sessione aperta.
+     *
+     * @param request l'oggetto HttpServletRequest che contiene la richiesta HTTP del client
+     * @param response l'oggetto HttpServletResponse che contiene la risposta HTTP del server
+     * @throws ServletException se si verifica un'eccezione durante l'esecuzione della servlet
+     * @throws IOException se si verifica un'eccezione d'ingresso/uscita durante l'esecuzione della servlet
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

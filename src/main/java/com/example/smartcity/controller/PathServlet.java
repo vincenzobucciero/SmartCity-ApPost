@@ -12,13 +12,39 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+/**
+ * Questa servlet riceve una richiesta POST contenente gli indirizzi di partenza e di destinazione.
+ * Utilizza l'algoritmo di ricerca A* per trovare il percorso più breve tra i due punti e individuare i parcheggi
+ * disponibili lungo il percorso. Successivamente, crea una lista di oggetti ParkingBean contenente
+ * i parcheggi disponibili e li passa alla pagina prenotaParcheggio.jsp .
+ */
+
 @WebServlet(name = "PathServlet", value = "/PathServlet")
 public class PathServlet extends HttpServlet {
+
+    /**
+     * Gestisce una richiesta GET
+     *
+     * @param request l'oggetto HttpServletRequest che contiene la richiesta HTTP
+     * @param response l'oggetto HttpServletResponse che contiene la risposta HTTP
+     * @throws ServletException se si verifica un'eccezione di servlet
+     * @throws IOException se si verifica un'eccezione d'I/O
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
+    /**
+     * Gestisce una richiesta POST, individua i parcheggi disponibili e li passa alla pagina prenotaParcheggio.jsp.
+     * Prima di qualsiasi operazione viene verificato se l'utente ha una sessione aperta.
+     *
+     * @param request l'oggetto HttpServletRequest che contiene la richiesta HTTP
+     * @param response l'oggetto HttpServletResponse che contiene la risposta HTTP
+     * @throws ServletException se si verifica un'eccezione di servlet
+     * @throws IOException se si verifica un'eccezione d'I/O
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");

@@ -4,6 +4,12 @@ import com.example.smartcity.model.Bean.ParkingBean;
 import com.example.smartcity.model.DAO.ParkingDao;
 
 import java.util.*;
+
+/**
+ * La classe Location è una classe che sfrutta la struttura dell'algoritmo A* per poter gestire
+ * la disposizione dei parcheggi, quindi poterli inserire, associarli ai nodi e ottenere informazioni.
+ * La classe Location è stata anche utilizzata per settare partenze e destinazioni predefinite.
+ */
 public class Location {
 
     private List<Nodo> start = new ArrayList<>();   //lista dei nodi contenenti le partenze
@@ -12,12 +18,21 @@ public class Location {
     private List<Nodo> nodopark = new ArrayList<>();
 
 
+    /**
+     * Crea una nuova istanza della classe Location.
+     */
     public Location(){
         setStart();
         setEnd();
     }
 
-    void setStart(){
+    /**
+     * Imposta i nodi di partenza per il calcolo del percorso. In questo caso,
+     * i nodi di partenza sono predefiniti nella classe e non dipendono da parametri
+     * esterni. Ogni nodo di partenza viene creato come un oggetto di tipo Nodo,
+     * che rappresenta un punto sulla mappa, e viene associato a un indirizzo.
+     */
+    private void setStart(){
         Nodo nodo1 = new Nodo(2,1);
         nodo1.setIndirizzo("San Giorgio");
 
@@ -40,7 +55,14 @@ public class Location {
         this.start.add(nodo5);
     }
 
-    public void setEnd() {
+
+    /**
+     * Imposta i nodi di arrivo per il calcolo del percorso. In questo caso,
+     * i nodi di arrivo sono predefiniti nella classe e non dipendono da parametri
+     * esterni. Ogni nodo di arrivo viene creato come un oggetto di tipo Nodo,
+     * che rappresenta un punto sulla mappa, e viene associato a un indirizzo.
+     */
+    private void setEnd() {
         Nodo nodo1 = new Nodo(2,5);
         nodo1.setIndirizzo("Napoli");
 
@@ -63,7 +85,14 @@ public class Location {
         this.end.add(nodo5);
     }
 
-    //scorre la lista dei nodi partenze cerca quello contenente l'indirizzo dato in input e lo ritorna
+    /**
+     * Restituisce il nodo di partenza corrispondente all'indirizzo specificato.
+     * Se non viene trovato alcun nodo con l'indirizzo specificato, restituisce null.
+     *
+     * @param indirizzo l'indirizzo del nodo di partenza desiderato
+     * @return il nodo di partenza corrispondente all'indirizzo specificato, o null
+     *         se non viene trovato alcun nodo con quell'indirizzo
+     */
     public Nodo chooseStart(String indirizzo){
 
         for (Nodo position : this.start) {
@@ -75,7 +104,13 @@ public class Location {
     }
 
 
-    //scorre la lista dei nodi destinazione cerca quello contenente l'indirizzo dato in input e lo ritorna
+    /**
+     * Questo metodo crea i nodi corrispondenti ai parcheggi presenti nel database e li aggiunge alla lista di nodi.
+     * Inoltre, crea una matrice d'interi che rappresenta la posizione di ogni parcheggio nella griglia.
+     * Infine, chiama il metodo setParkIndirizzo per associare a ogni nodo gli indirizzi dei parcheggi nel database.
+     *
+     * @return una matrice d'interi che rappresenta la posizione di ogni parcheggio nella griglia
+     */
     public Nodo chooseEnd(String indirizzo){
 
         for (Nodo position : this.end) {
@@ -86,11 +121,12 @@ public class Location {
         return null;
     }
 
-    /*
-        Setto i nodi in cui si trovano i parcheggi con le rispettive coordinate
-        questi nodi li inserisco in una lista di "nodi parcheggio "che mi servirà
-        in questa classe per tener sempre traccia dei parcheggi nei nodi
-        e li inserisco in un array 2D usando lo stesso criterio dei blocchi
+    /**
+     * Questo metodo crea i nodi corrispondenti ai parcheggi presenti nel database e li aggiunge alla lista di nodi.
+     * Inoltre, crea una matrice d'interi che rappresenta la posizione di ogni parcheggio nella griglia.
+     * Infine, chiama il metodo setParkIndirizzo per associare a ogni nodo gli indirizzi dei parcheggi nel database.
+     *
+     * @return una matrice d'interi che rappresenta la posizione di ogni parcheggio nella griglia
      */
     public int[][] setParking(){
 
@@ -118,17 +154,16 @@ public class Location {
         };
 
         this.setParkIndirizzo();        //è un metodo che uso per associare ad ogni nodo gli indirizzi
-        // dei parcheggi presenti nel database
+                                        // dei parcheggi presenti nel database
         return blocksParking;
     }
 
-    /*
-        Mi ricavo i parcheggi presenti nel database e li salvo in un'array di stringhe
-        gli elemento dell'array conterrà quindi l'indirizzo di ciascun parcheggio del database
-        per ogni nodo salvato nella lista dei "nodi parcheggio" associo quindi un indirizzo salvbato precedentemente
-        nell'array
-    */
-    public void setParkIndirizzo(){    //dovrebbe essere privato
+    /**
+     * Associa a ogni nodo dei parcheggi presenti nel database l'indirizzo corrispondente.
+     * Il metodo preleva la lista dei parcheggi dal database, crea un array di stringhe contenente
+     * gli indirizzi dei parcheggi e poi assegna a ogni nodo l'indirizzo corrispondente.
+     */
+    private void setParkIndirizzo(){
         int i = 0;
         int j = 0;
 
@@ -147,6 +182,14 @@ public class Location {
     }
 
 
+    /**
+     * Restituisce l'oggetto ParkingBean contenente le informazioni relative al parcheggio
+     * associato al nodo passato come parametro.
+     *
+     * @param nodo il nodo di cui si vuole conoscere l'indirizzo del parcheggio associato
+     * @return l'oggetto ParkingBean contenente le informazioni relative al parcheggio associato al nodo,
+     *         null se non viene trovato un parcheggio associato al nodo passato come parametro
+     */
     public ParkingBean getNodoParkIndirizzo(Nodo nodo){
 
         //per ogni nodo appartenente alla lista dei nodi parcheggi che ho istanziato controllo se è un nodo del percorso trovato
@@ -159,7 +202,15 @@ public class Location {
         return null;
     }
 
-    protected ParkingBean getParcheggiDisp(Nodo nodoP){
+    /**
+     * Questo metodo è utilizzato per ottenere le informazioni sul parcheggio disponibile
+     * associato a un determinato nodo. Viene effettuata una ricerca all'interno del database dei parcheggi
+     * per trovare quello associato al nodo passato come parametro.
+     *
+     * @param nodoP il nodo parcheggio di cui si vuole conoscere il parcheggio disponibile associato
+     * @return il bean contenente le informazioni sul parcheggio disponibile associato al nodo, o null se non è presente
+     */
+    private ParkingBean getParcheggiDisp(Nodo nodoP){
         List<ParkingBean> parkingBeanList = ParkingDao.getListParking();
 
         //per ogni parcheggio controllo che ci sia un nodo il cui indirizzo è uguale, in quel caso significa che ho trovato
@@ -174,13 +225,20 @@ public class Location {
     }
 
 
+    /**
+     * Metodo che restituisce una lista di oggetti Nodo rappresentanti i punti di partenza.
+     *
+     * @return una lista di oggetti Nodo rappresentanti i punti di partenza.
+     */
     public List<Nodo> getStart(){ return start;}
 
+    /**
+     * Metodo che restituisce una lista di oggetti Nodo rappresentanti i punti di destinazione.
+     *
+     * @return una lista di oggetti Nodo rappresentanti i punti di destinazione.
+     */
     public List<Nodo> getEnd(){return end;}
 
-    public List<Nodo> getNodopark(){
-        return nodopark;
-    }
 
 
 }

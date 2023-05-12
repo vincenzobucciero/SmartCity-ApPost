@@ -3,11 +3,28 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+/**
+ * La classe CreditCardStrategy rappresenta la strategia di pagamento con carta di credito.
+ * Implementa l'interfaccia PaymentStrategy e definisce i metodi necessari per controllare la validità
+ * della carta di credito e per effettuare il pagamento.
+ */
 public class CreditCardStrategy implements PaymentStrategy {
     private String nome;
     private String numeroCarta;
     private String cvv;
     private String dataScadenza;
+
+
+    /**
+     * Costruttore della classe CreditCardStrategy.
+     * Inizializza i campi dati nome, numeroCarta, cvv e dataScadenza con i valori passati come parametro.
+     *
+     * @param nome il nome del titolare della carta di credito
+     * @param numeroCarta il numero della carta di credito
+     * @param cvv il codice CVV della carta di credito
+     * @param dataScadenza la data di scadenza della carta di credito nel formato "yy-MM"
+     */
     public CreditCardStrategy(String nome, String numeroCarta, String cvv, String dataScadenza){
         this.nome = nome;
         this.numeroCarta = numeroCarta;
@@ -15,7 +32,12 @@ public class CreditCardStrategy implements PaymentStrategy {
         this.dataScadenza = dataScadenza;
     }
 
-    //controlla che la carta sia valida
+
+    /**
+     * Metodo che controlla se il numero della carta di credito sia valido.
+     *
+     * @return true se il numero della carta di credito è valido, false altrimenti
+     */
     private boolean checkCreditCardNumber() {
 
         if (numeroCarta == null || numeroCarta.length() != 20) {
@@ -27,7 +49,11 @@ public class CreditCardStrategy implements PaymentStrategy {
         return !creditCardMatcher.find();
     }
 
-    //controlla che la carta non sia scaduta
+    /**
+     * Metodo che controlla se la carta di credito non sia scaduta.
+     *
+     * @return true se la carta di credito non è scaduta, false altrimenti
+     */
     private boolean checkCreditCardExpirationDate() {
         SimpleDateFormat f = new SimpleDateFormat("yy-MM");
         String oggi = f.format(new Date());
@@ -46,7 +72,11 @@ public class CreditCardStrategy implements PaymentStrategy {
 
     }
 
-    //controlla che il cvv sia valido
+    /**
+     * Metodo che controlla se il codice CVV della carta di credito sia valido.
+     *
+     * @return true se il codice CVV è valido, false altrimenti
+     */
     private boolean checkCreditCardCVV() {
 
         if (cvv == null || cvv.length() != 3)
@@ -58,6 +88,12 @@ public class CreditCardStrategy implements PaymentStrategy {
         return !creditCardCVVMatcher.find();
     }
 
+    /**
+     * Metodo che controlla se tutte le condizioni per il controllo della validità della carta siano validi.
+     * Se una sola delle condizioni risulta false, allora la carta non è valida
+     *
+     * @return true se il codice CVV è valido, false altrimenti
+     */
     private boolean checkPaymentMethodData() {
 
         if (!checkCreditCardNumber()) return false;
@@ -66,6 +102,12 @@ public class CreditCardStrategy implements PaymentStrategy {
         return true;
     }
 
+    /**
+     * Metodo che effettua il pagamento utilizzando una carta di credito.
+     *
+     * @param amount l'importo da pagare.
+     * @return true se il pagamento è stato effettuato con successo, false altrimenti.
+     */
     @Override
     public boolean pay(double amount) {
         if (checkPaymentMethodData()) {

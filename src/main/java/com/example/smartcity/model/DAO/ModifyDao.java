@@ -1,11 +1,22 @@
 package com.example.smartcity.model.DAO;
 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+/**
+ * La classe ModifyDao contiene metodi statici per la modifica delle informazioni relative
+ * a un parcheggio presente nel database.
+ */
 public class ModifyDao {
+
+    /**
+     * Modifica la tariffa per i posti auto/furgone di un parcheggio nel database.
+     *
+     * @param nomeParcheggio nome del parcheggio da modificare
+     * @param tariffa nuova tariffa per i posti auto/furgone
+     * @throws SQLException errore generico
+     */
     public static void modifyTariffaAF(String nomeParcheggio, double tariffa) {
         PreparedStatement stmt = null;
         try {
@@ -32,6 +43,13 @@ public class ModifyDao {
 
 
 
+    /**
+     * Modifica la tariffa per i posti moto di un parcheggio nel database.
+     *
+     * @param nomeParcheggio nome del parcheggio da modificare
+     * @param tariffa nuova tariffa per i posti moto
+     * @throws SQLException errore generico
+     */
     public static void modifyTariffaM(String nomeParcheggio, double tariffa) {
         PreparedStatement stmt = null;
         try {
@@ -56,6 +74,13 @@ public class ModifyDao {
     }
 
 
+    /**
+     * Modifica l'indirizzo di un parcheggio nel database.
+     *
+     * @param nomeParcheggio nome del parcheggio da modificare
+     * @param indirizzo nuovo indirizzo del parcheggio
+     * @throws SQLException errore generico
+     */
     public static void modifyIndirizzo(String nomeParcheggio, String indirizzo) {
         PreparedStatement stmt = null;
         try {
@@ -79,6 +104,14 @@ public class ModifyDao {
         }
     }
 
+
+    /**
+     * Modifica il numero di posti auto di un parcheggio nel database.
+     *
+     * @param nomeParcheggio nome del parcheggio da modificare
+     * @param numPostiAuto nuovo numero di posti auto del parcheggio
+     * @throws SQLException errore generico
+     */
     public static void modifyPostiAuto(String nomeParcheggio, int numPostiAuto) {
         PreparedStatement stmt = null;
         try {
@@ -103,6 +136,13 @@ public class ModifyDao {
     }
 
 
+    /**
+     * Modifica il numero di posti furgone di un parcheggio nel database.
+     *
+     * @param nomeParcheggio nome del parcheggio da modificare
+     * @param numPostiFurgone nuovo numero di posti furgone del parcheggio
+     * @throws SQLException errore generico
+     */
     public static void modifyPostiFurgone(String nomeParcheggio, int numPostiFurgone){
         PreparedStatement stmt = null;
         try {
@@ -128,6 +168,13 @@ public class ModifyDao {
 
 
 
+    /**
+     * Modifica il numero di posti moto di un parcheggio nel database.
+     *
+     * @param nomeParcheggio nome del parcheggio da modificare
+     * @param numPostiMoto nuovo numero di posti moto del parcheggio
+     * @throws SQLException errore generico
+     */
     public static void modifyPostiMoto(String nomeParcheggio, int numPostiMoto) {
         PreparedStatement stmt = null;
         try {
