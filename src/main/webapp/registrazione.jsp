@@ -116,7 +116,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label>telefono</label><br>
-                                <input name="telefono" class="form-control" id="telefono" type="text" placeholder="3332453215">
+                                <input name="telefono" class="form-control" id="telefono" type="text" placeholder="3332453215" maxlength="10">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg text-white">Registrati</button>

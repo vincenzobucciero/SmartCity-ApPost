@@ -38,12 +38,13 @@
 <header class="masthead">
     <div class="container">
         <div class="col-lg-10 mx-auto mb-4">
-            <h2 class="text-center mt-0" style="color: white">Bentornato,
+            <h2 class="text-center mt-0" style="color: white">
                 <c:choose>
                     <c:when test="${userBean != null}">
-                        ${userBean.getNome()}
+                        Benvenuto, ${userBean.getNome()}
                     </c:when>
                 </c:choose>
+
             </h2>
             <hr class="divider" />
         </div>
