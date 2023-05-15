@@ -63,9 +63,6 @@ public class ChartAccessServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
 
-            List<ParkingBean> list = ParkingDao.getListParking();
-            request.setAttribute("list",list);
-
             String veicolo = request.getParameter("tipoV");
             String parcheggio = request.getParameter("parcheggio");
             String mese = request.getParameter("mese");

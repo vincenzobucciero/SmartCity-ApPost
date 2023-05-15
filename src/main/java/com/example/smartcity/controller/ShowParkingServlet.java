@@ -48,7 +48,6 @@ public class ShowParkingServlet extends HttpServlet {
             session.setAttribute("isLog",0);
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {
-
             List<ParkingBean> parkingBeanList = ParkingDao.getListParking();
             request.setAttribute("list", parkingBeanList);
             request.getRequestDispatcher("listaParking.jsp").forward(request, response);

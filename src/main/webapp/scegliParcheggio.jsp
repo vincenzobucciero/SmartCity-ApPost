@@ -75,7 +75,7 @@
                                     <div class="d-flex justify-content-between align-items-center activity">
                                         <div>
                                             <span class="activity-done">
-                                                Parcheggi(${size})
+                                                Parcheggi(${parcheggioDisp.size()})
                                             </span>
                                         </div>
                                     </div>

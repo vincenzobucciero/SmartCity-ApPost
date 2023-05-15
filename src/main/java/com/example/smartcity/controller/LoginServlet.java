@@ -75,7 +75,7 @@ public class LoginServlet extends HttpServlet {
                 newSession.setMaxInactiveInterval(20*60);
 
                 newSession.setAttribute("userBean", userBean);
-                newSession.setAttribute("isLog",1);     //1 = sono un utente normale
+                newSession.setAttribute("isLog",1);                       //1 = sono un utente normale
                 request.setAttribute("loggato",1);
                 request.setAttribute("stato", "SUCCESSO");
                 request.getRequestDispatcher("userHomePage.jsp").forward(request, response);
@@ -90,11 +90,10 @@ public class LoginServlet extends HttpServlet {
                 newSessionAd.setMaxInactiveInterval(20*60);
 
                 newSessionAd.setAttribute("userBean", userBean);
-                newSessionAd.setAttribute("isLog",2);       //2 = sono un admin
+                newSessionAd.setAttribute("isLog",2);                  //2 = sono un admin
 
                 request.setAttribute("loggato",2);
                 request.setAttribute("stato", "SUCCESSO_ADMIN");
-                newSessionAd.setAttribute("email", userBean.getEmail());
                 newSessionAd.setAttribute("list", list);
                 request.getRequestDispatcher("adminHomePage.jsp").forward(request, response);
                 break;

@@ -97,13 +97,14 @@
                                     <i class="bi bi-eye-slash toggle-password" id="togglePassword"></i>
                                 </div>
                             </div>
-
-
                             <button type="submit" class="btn btn-primary btn-lg text-white">Entra</button>
                             <div class="text-center">
                                 <a href="registration" class="text-secondary">Registrati ora</a>
                             </div>
                         </form>
+                        <c:if test="${stato == 'UTENTE_INESISTENTE' || stato == 'PASSWORD_ERRATA'}">
+                            <div class="alert alert-danger">Credenziali errate, riprova</div>
+                        </c:if>
                     </div>
                 </div>
             </div>

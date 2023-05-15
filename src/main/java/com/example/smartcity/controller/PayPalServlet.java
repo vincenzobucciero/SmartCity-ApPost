@@ -54,8 +54,6 @@ public class PayPalServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-
-
         String emailPP = request.getParameter("emailPP");
         String passwordPP = request.getParameter("passwordPP");
 
@@ -66,9 +64,6 @@ public class PayPalServlet extends HttpServlet {
         } else {
 
             BookingBean bookingBean = (BookingBean) session.getAttribute("bookingBean");
-            String nomeParcheggio = bookingBean.getNomeParcheggio();
-            ParkingBean parkingBean = ParkingDao.getParkingBean(nomeParcheggio);
-
             VeicoliEnum tipoVeicolo = bookingBean.getTipoVeicolo();
             System.out.println("veicolo " + tipoVeicolo);
 

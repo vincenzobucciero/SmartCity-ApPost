@@ -57,11 +57,10 @@ public class ShowBookingServlet extends HttpServlet {
 
             UserBean userBean = (UserBean) session.getAttribute("userBean");
             String email = userBean.getEmail();
-            System.out.println(email);
 
             if(email.equals("admin@admin.com")) {
                 List<BookingBean> list1 = BookingDao.getListBooking();
-                session.setAttribute("list1", list1); //Questa passa la lista dei parcheggi
+                session.setAttribute("list1", list1);
                 request.getRequestDispatcher("listaPrenotazioneAdmin.jsp").forward(request, response);
             }
             else {

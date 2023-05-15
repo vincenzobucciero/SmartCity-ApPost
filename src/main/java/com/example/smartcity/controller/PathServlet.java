@@ -61,19 +61,18 @@ public class PathServlet extends HttpServlet {
             UserBean userBean = (UserBean) session.getAttribute("usersBean");
             request.setAttribute("usersBean", userBean);
 
-
             Location start = new Location();
 
-            Nodo initialNode = start.chooseStart(startIndirizzo);
-            Nodo finalNode = start.chooseEnd(endIndirizzo);
+            Nodo initialNode = start.chooseStart( startIndirizzo );
+            Nodo finalNode = start.chooseEnd( endIndirizzo );
             int rows = 7;
             int cols = 8;
 
             AStar aStar = new AStar(rows, cols, initialNode, finalNode);
             int[][] blocksArray = new int[][]{{1, 3}, {2, 3}, {3, 3}};
 
-            aStar.setBlocchi(blocksArray);
-            aStar.setParking(start.setParking());
+            aStar.setBlocchi( blocksArray );
+            aStar.setParking( start.setParking() );
 
 
             List<ParkingBean> parcheggioDisp = new ArrayList<>();
@@ -82,7 +81,6 @@ public class PathServlet extends HttpServlet {
                 System.out.println(node);
                 if (node.isPark() && start.getNodoParkIndirizzo(node) != null) {
                     parcheggioDisp.add(start.getNodoParkIndirizzo(node));
-                    System.out.println("parcheggio size " + parcheggioDisp.size());
                 }
             }
 
@@ -91,11 +89,6 @@ public class PathServlet extends HttpServlet {
 
             request.setAttribute("start", startIndirizzo);
             request.setAttribute("dest", endIndirizzo);
-
-            //Nella jsp basta fare list.size() controlla !!!
-            int size = parcheggioDisp.size();
-            request.setAttribute("size", size);
-
             request.setAttribute("parcheggioDisp", parcheggioDisp);
             request.getRequestDispatcher("scegliParcheggio.jsp").forward(request, response);
 

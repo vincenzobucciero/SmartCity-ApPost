@@ -74,7 +74,6 @@
                 <p class="card-text">Qui vengono visualizzate le prenotazioni effettuate,
                     con informazioni come data orario e luogo.</p>
                 <form action="ShowBookingServlet" method="post">
-                    <input type="hidden" name="email" value="${email}">
                     <button class="btn btn-primary">Visualizza prenotazioni</button>
                 </form>
             </div>
