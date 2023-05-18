@@ -52,7 +52,7 @@ All rights reserved.
 
 Duplication or reproduction, in whole or in part, in any form or by any means, is prohibited without the prior written permission of the author, except as permitted by copyright laws.
 
-The ApPost project, including all its files, documentation, and resources, is the exclusive property of [your name]. Unauthorized use of these materials is prohibited.
+The ApPost project, including all its files, documentation, and resources, is the exclusive property of [Carmine Coppola/Camilla De Martino/Vincenzo Bucciero]. Unauthorized use of these materials is prohibited.
 
 
 
