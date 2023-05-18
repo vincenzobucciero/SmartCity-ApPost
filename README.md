@@ -46,9 +46,14 @@ This project was developed by:
 
 ## License
 
-[Specify the license for your project, if applicable]
+Copyright (c) [2023] [ApPost-SmartCity]
 
-## Acknowledgements
+All rights reserved.
 
-[Give credits to any resources or individuals that helped you during the development process]
+Duplication or reproduction, in whole or in part, in any form or by any means, is prohibited without the prior written permission of the author, except as permitted by copyright laws.
+
+The ApPost project, including all its files, documentation, and resources, is the exclusive property of [your name]. Unauthorized use of these materials is prohibited.
+
+
+
 
