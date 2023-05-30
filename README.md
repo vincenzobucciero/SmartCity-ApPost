@@ -32,9 +32,6 @@ To get a local copy of the project up and running, follow these steps:
 4. Configure the database connection in `config.properties` file.
 5. Build and run the project on your local server.
 
-## Usage
-
-[Provide instructions on how to use the application and its features]
 
 ## Contributors
 
