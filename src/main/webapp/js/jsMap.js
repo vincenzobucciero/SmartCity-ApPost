@@ -6,7 +6,7 @@ function initMap() {
 
     //La mappa deve essere centrata a napoli
     const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 15,
+        zoom: 14,
         center: naples,
     });
 

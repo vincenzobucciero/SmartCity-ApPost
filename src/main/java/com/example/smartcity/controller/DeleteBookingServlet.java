@@ -68,9 +68,11 @@ public class DeleteBookingServlet extends HttpServlet {
 
             // Recupera l'email dell'utente che ha effettuato la richiesta
             String email = request.getParameter("email");
+            System.out.println("Prova:" + email);
 
             // Controlla se è un amministratore o meno
             if (email.equals("admin@admin.com")){
+                System.out.println(email);
                 // Visualizza una pagina di conferma cancellazione prenotazione
                 request.getRequestDispatcher("cancelPageAdmin.jsp").forward(request,response);
             }

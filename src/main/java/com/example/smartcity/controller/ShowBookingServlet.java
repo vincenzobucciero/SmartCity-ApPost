@@ -61,6 +61,7 @@ public class ShowBookingServlet extends HttpServlet {
             if(email.equals("admin@admin.com")) {
                 List<BookingBean> list1 = BookingDao.getListBooking();
                 session.setAttribute("list1", list1);
+                session.setAttribute("email", email);
                 request.getRequestDispatcher("listaPrenotazioneAdmin.jsp").forward(request, response);
             }
             else {

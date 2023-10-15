@@ -45,9 +45,8 @@
             </svg>
         </div>
         <div class="text-center">
-            <h1>Hai annullato la tua prenotazione</h1>
-            <p>La sua prenotazione è stata correttamente annullata, ci auguriamo di
-                rivederti presto presso i nostri parcheggi,</p>
+            <h1>Hai annullato la prenotazione</h1>
+            <p>La prenotazione è stata correttamente annullata </p>
             <div>
                 <form action="ShowBookingServlet" method="post">
                     <input type="hidden" name="email" value="${email}">
@@ -56,7 +55,7 @@
                 <form action="AdminServlet" method="post">
                     <input type="hidden" name="email" value="${email}">
                     <div class="text-center">
-                        <button class="btn btn-outline-warning" href="adminHomePage.jsp">Torna alla Home</button>
+                        <button class="btn btn-outline-warning">Torna alla Home</button>
                     </div>
                 </form>
             </div>
