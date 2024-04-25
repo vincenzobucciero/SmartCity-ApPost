@@ -26,7 +26,7 @@ ApPost is a web application for managing a smart parking system. It utilizes the
 
 To get a local copy of the project up and running, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/carminecoppola/ApPost-SmartCity.git`
+1. Clone the repository: `git clone https://github.com/vincenzobucciero/SmartCity-ApPost`
 2. Set up the required dependencies (JDK, MySQL, Apache Tomcat).
 3. Import the project into your preferred IDE.
 4. Configure the database connection in `config.properties` file.
